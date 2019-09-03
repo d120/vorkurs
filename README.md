@@ -1,8 +1,7 @@
-Dies ist das Git-Repository des Vorkurses der Fachschaft informatik der TU Darmstatdt.
+Dies ist das Git-Repository des Vorkurses der Fachschaft Informatik der TU Darmstadt.
 
-Hier findest du aktuell den Quellcode für alle unsere Folien.
+Hier findest Du aktuell den Quelltext für alle unsere Folien.
 
-Wenn du ein Estie bist, und nach den Unterlagen für den Vorkurs suchst, schau am besten mal in Moodle.
-Weitere informationen zum Vorkurs findest du unter https://D120.de/Vorkurs
-
+Wenn Du ein Estie bist, und nach den Unterlagen für den Vorkurs suchst, schau am besten mal in Moodle.
+Weitere Informationen zum Vorkurs findest du unter https://D120.de/Vorkurs
 
