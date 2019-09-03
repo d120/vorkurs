@@ -1,0 +1,60 @@
+%Includes
+\usepackage[ngerman]{babel} %Deutsche Silbentrennung
+\usepackage[utf8]{inputenc} %Deutsche Umlaute
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{minted}
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\makeatletter
+\author{Vorkursteam der Fachschaft Informatik}
+\let\Author\@author
+
+% macros
+\renewcommand{\arraystretch}{1.2} % Höhe einer Tabellenspalte minimal erhöhen
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\code}{\inputminted[]{python}}
+\newmintedfile[pythonfile]{python}{
+	fontsize=\small,
+	style=friendly,
+	linenos=true,
+	numberblanklines=true,
+	tabsize=4,
+	obeytabs=false,
+	breaklines=true,
+	autogobble=true,
+	encoding="utf8",
+	showspaces=false,
+	xleftmargin=20pt,
+	frame=single,
+	framesep=5pt,
+}
+\newmintinline{python}{
+	style=friendly,
+	encoding="utf8"
+}
+
+\definecolor{codegray}{HTML}{eaf1ff}
+\newminted[bashcode]{awk}{
+	escapeinside=||,
+	fontsize=\small,
+	style=friendly,
+	linenos=true,
+	numberblanklines=true,
+	tabsize=4,
+	obeytabs=false,
+	breaklines=true,
+	autogobble=true,
+	encoding="utf8",
+	showspaces=false,
+	xleftmargin=20pt,
+	frame=single,
+	framesep=5pt
+}
+
+\let\origpythonfile\pythonfile
+\renewcommand{\pythonfile}[1]{\pythonfileh{#1}{}}
+\newcommand{\pythonfileh}[2]{\origpythonfile[#2]{#1}}
+
+\newcommand*{\ditto}{\texttt{\char`\"}}

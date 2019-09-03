@@ -1,0 +1,290 @@
+% !TeX document-id = {ecbf6175-be07-4601-b8eb-d3263d2bff07}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\input{../global.tex}
+
+\begin{document}
+
+%Deckblatt
+\begin{titleframe}
+	\begin{center}
+		\vspace{2cm}
+		{\huge Datentypen und Operatoren}
+	\end{center}
+\end{titleframe}
+
+%Inhaltsverzeichnis
+\tocslide
+
+\section{Was sind Typen?}
+\subsection{Überblick}
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item Daten können unterschiedliche \textit{Typen} haben
+		\item Wichtige primitive Datentypen:
+	\end{itemize}
+	\begin{center}
+		\begin{tabular}[h]{|c|c|c|}
+			\hline
+			\textbf{Typ}&\textbf{Wertebereich}&\textbf{Beispiel}\\
+			\hline
+			bool&Wahrheitswert& \pythoninline{True}, \pythoninline{False}\\
+			\hline
+			int&Ganzzahl& 42, -2 \\
+			\hline
+			float&Fließkommazahl& 42.5, 0.1\\
+			\hline
+			\end{tabular}\\
+		\end{center}
+		{\footnotesize Die Liste ist unvollständig, es gibt noch weitere Typen.} % Zum Beispiel gibt es einen für Komplexe Zahlen.
+		\pause
+		\begin{block}{Wichtig}
+			Nutze einen Punkt als Dezimaltrenner für Fließkommazahlen!
+		\end{block}
+	\end{frame}
+
+	\subsection{Technische Details}
+	\begin{frame} % Technische Details die man sich nicht merken muss, die aber trotzdem Pflicht sind zu sagen.
+		\slidehead
+		Es ist nicht ganz so einfach...
+
+		\begin{itemize}
+			\item Bei anderen Sprachen muss der verwendete Typ explizit festgelegt werden % Hier kann ich kein Beispiel geben, weil wir noch keine Variablen eingeführt haben
+			\item \pythoninline{float} kann nur Zahlen zwischen \pythoninline{-1.7976931348623157e+308} und \pythoninline{1.7976931348623157e+308} speichern
+			\item Kleinster positiver \pythoninline{float} ist \pythoninline{2.2250738585072014e-308}
+			\item \pythoninline{int} kann in Python beliebig große Zahlen speichern
+			\begin{itemize}
+				\item Das ist in den meisten Sprachen nicht so!
+			\end{itemize}
+
+		\end{itemize}
+	\end{frame}
+
+	\section{Operatoren}
+	\begin{frame}
+		\slidehead
+
+		\begin{itemize}
+			\item Symbol, das den \textbf{Interpreter} zur Ausführung einer Aktion veranlasst
+			\item Operatortypen:
+		\end{itemize}
+		\tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!10]
+		\centering
+		\begin{tikzpicture}[node distance=1.5cm]
+			\node (1) [rect, text width=5cm, minimum height=1cm] {\textbf{Mathematische Operatoren}};
+			\node (2) [rect, below of=1, text width=5cm, minimum height=1cm] {\textbf{Vergleichsoperatoren}};
+			\node (3) [rect, below of=2, text width=5cm, minimum height=1cm] {\textbf{Bitoperatoren}};
+		\end{tikzpicture}
+	\end{frame}
+
+	\subsection{Mathematische Operatoren}
+	\begin{frame}
+		\slidehead
+		\tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!10]
+		\vspace{0.1cm}
+		\centering
+		\begin{tikzpicture}[node distance=1.2cm]
+			\node (1) [rect, text width=3cm, minimum height=1cm] {Addition: $+$};
+			\node (2) [rect, below of=1, text width=3cm, minimum height=1cm] {Subtraktion: $-$};
+			\node (3) [rect, below of=2, text width=3cm, minimum height=1cm] {Multiplikation: $*$};
+			\node (4) [rect, node distance=3.5cm, right of=1, text width=3cm, minimum height=1cm] {Division: $/$};
+			\node (5) [rect, below of=4, text width=3cm, minimum height=1cm] {Exponentiation: $**$};
+			\node (6) [rect, below of=5, text width=3cm, minimum height=1cm] {Modulo: $\%$};
+		\end{tikzpicture}
+		\pause
+		\begin{block}{Hinweis}
+			\begin{itemize}
+				\item Modulo liefert den \textit{Rest einer Division}: $23 \% 4 = 3$
+				\item Arithmetische Operationen zwischen Ganzzahlen und Fließkommazahlen resultieren in \textit{Fließkommazahlen}! % Für die*den Programmieranfänger*innen mag es zwar total normal scheinen, dass man Kommazahlen mit Integers addieren kann, aber für den Computer ist das ein wichtiger Unterschied! Jetzt kommt der Moment wo ich alle überzeugen kann, dass der Computer wirklich komplett anders denkt als wir Menschen. Er hat ein komplett anderes Konzept sich 0.1 vorzustellen.
+
+				%Umfrage, glaubt ihr Computer können rechnen?
+				\item \pythoninline{0.1 + 0.2 =} \pause \pythoninline{0.30000000000000004} $\Rightarrow$ Fließkommazahlen sind nicht exakt
+			\end{itemize}
+		\end{block}
+	\end{frame}
+
+
+	\subsection{Vergleichsoperatoren}
+	\begin{frame}
+		\slidehead
+
+		\begin{itemize}
+			\item Vergleichsoperatoren werten zu einem Wert vom Typ \pythoninline{bool} aus
+			\item Beispiel:
+			\pythonfile{listings/vergleich_Listing.py}
+		\end{itemize}
+	\end{frame}
+
+
+	\subsection{Vergleichsoperatoren - Übersicht}
+	\begin{frame}
+		\slidehead
+
+		\begin{center}
+			\vskip -5 pt
+			\begingroup
+			\fontsize{10pt}{11pt}\selectfont
+			\begin{tabular}{|l|c|c|c|}
+				\hline
+				\textbf{Operator} & \textbf{Symbol} & \textbf{Beispiel} & \textbf{Rückgabewert} \\ \hline
+				gleich 					& == 	& 100 == 50; 	& False \\
+				&  		& 50 == 50; 	& True \\ \hline
+				ungleich 				& != 	& 100 != 50; 	& True \\
+				&  		& 50 != 50 		& False \\ \hline
+				größer als 				& > 	& 100 > 50; 	& True \\
+				&  		& 50 > 50; 		& False \\ \hline
+				größer als oder gleich 	& >= 	& 100 >= 50; 	& True \\
+				& 		& 50 >= 50 		& True \\ \hline
+				kleiner als 			& < 	& 100 < 50; 	& False \\
+				& 		& 50 < 50; 		& False \\ \hline
+				kleiner als oder gleich & <= 	& 100 <= 50; 	& False \\
+				&  		& 50 <= 50; 	& True \\ \hline
+			\end{tabular}
+			\endgroup
+		\end{center}
+
+		\note{
+		== geht auch für Strings!
+		}
+	\end{frame}
+
+	\subsection{Bitoperatoren}
+	\begin{frame}
+		\slidehead
+		Ja, es gibt auch Bitoperatoren ...
+	\end{frame}
+
+	\subsection{}
+	\livecoding
+
+	\subsection{Operatorpräzedenz}
+	\begin{frame}
+		\slidehead
+
+		\pythonfile{listings/Rangfolge_Listing.py}
+		\pause
+		\pythonfile{listings/Rangfolge_Listing_parenthesis.py}
+
+		\begin{itemize}
+			\item Die Operatorpräzedenz gibt die \textbf{Reihenfolge} vor, in der Ausdrücke ausgewertet werden:
+			\begin{enumerate}
+				\item Arithmetische Ausdrücke
+				\item Vergleiche
+				\item Logische Ausdrücke (hierzu später mehr)
+				\item Zuweisungen
+			\end{enumerate}
+		\end{itemize}
+	\end{frame}
+
+	\section{Zeichenketten}
+
+	\begin{frame}
+		\slidehead
+		\begin{itemize}
+			\item Habt ihr vorhin kennengelernt
+			\pause
+			\item Zeichenketten werden als \textit{Strings} bezeichnet
+			\item Ein String kann beliebig viele Zeichen enthalten
+			\pause
+			\item Strings können mit \textbf{+} konkateniert werden
+		\end{itemize}
+	\end{frame}
+
+
+	%Vielleicht später mal nützlich:
+
+	%\begin{frame}
+	%	\slidehead
+	%	\begin{itemize}
+	%		\item String Slicing (Zerschneiden von Text)
+	%			\pythonfile{listings/String_Listing8.py}
+	%		\begin{block}{Wichtig}
+	%			\begin{itemize}
+	%				\item \textbf{[von : bis]} ist \textbf{inklusive} "`von"' und \textbf{exklusive} "`bis"'
+	%				\item Mathematisch: Ein Interval $[von, bis)$ bzw. $[von, bis[$
+	%				\item Der erste Index beginnt mit der Zahl \textbf{0}
+	%			\end{itemize}
+	%		\end{block}
+	%	\end{itemize}
+	%\end{frame}
+
+	%\begin{frame}
+	%	\slidehead
+	%	\begin{itemize}
+	%		\item String Slicing Teil 2
+	%			\pythonfile{listings/String_Listing9.py}
+	%		\begin{block}{Wichtig}
+	%			\begin{itemize}
+	%				\item \textbf{[: bis]} ist \textbf{exklusive} und \textbf{[von :]} ist \textbf{inklusive} der Grenze
+	%				\item Auch hier beginnt der erste Index mit der Nummer \textbf{0}
+	%				\item Es können auch beide Grenzen weggelassen werden
+	%			\end{itemize}
+	%		\end{block}
+	%	\end{itemize}
+	%\end{frame}
+
+	\subsection{Funktionen und Operatoren}
+	\begin{frame}
+		\slidehead
+
+		\begin{itemize}
+			\item Länge eines Strings
+			\pythonfile{listings/String_Listing10.py}
+
+			\item Umwandeln in Kleinbuchstaben
+			\pythonfile{listings/String_Listing11.py}
+
+			\item Umwandeln in Großbuchstaben
+			\pythonfile{listings/String_Listing12.py}
+		\end{itemize}
+	\end{frame}
+
+
+	\subsection{Konvertierung}
+	\begin{frame}
+		\slidehead
+		\begin{block}{Warnung}
+			Strings sind keine Zahlen
+		\end{block}
+
+		\pythonfile{listings/String_Listing13.py}
+
+		\pause
+
+		\begin{itemize}
+			\item Strings müssen zum rechnen konvertiert werden
+			\item \textbf{int(x)} konvertiert x zu int
+			\item \textbf{float(x)} konvertiert x zu float
+			\item \textbf{bool(x)} konvertiert x zu boolean
+			\item \textbf{str(x)} konvertiert x zu String
+		\end{itemize}
+
+	\end{frame}
+
+	\begin{frame}
+		\slidehead
+		\begin{block}{Beispiel}
+			\pythonfile{listings/String_Listing14.py}
+		\end{block}
+	\end{frame}
+
+	\livecoding
+
+	\section{Quiz}
+	\begin{frame}
+		\slidehead
+
+		\begin{itemize}
+			\item Wie kann ich \textbf{'} in Strings verwenden?
+			\pause
+			\item Wo liegt der Unterschied zwischen \pythoninline{int} und \pythoninline{float}?
+			\pause
+			\item In welcher Reihenfolge wird \pythoninline{2+4*2 == 9} ausgewertet?
+			\pause
+			\item Was ist das Ergebnis?
+			\pause
+			\item Wofür gibt es Kommentare?
+		\end{itemize}
+	\end{frame}
+
+	\end{document}

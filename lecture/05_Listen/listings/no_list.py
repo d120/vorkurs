@@ -1,0 +1,10 @@
+quadrat0 = 0
+quadrat1 = 1
+quadrat2 = 4
+quadrat3 = 9
+quadrat4 = 16
+quadrat5 = 25
+quadrat6 = 36
+quadrat7 = 49
+quadrat8 = 64
+quadrat9 = 81

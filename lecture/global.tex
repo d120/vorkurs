@@ -1,0 +1,64 @@
+\documentclass[accentcolor=tud3c,colorbacktitle,landscape,german,presentation,t,usenames,dvipsnames,svgnames,table]{tudbeamer}
+
+% Template-Modifikationen
+\addtobeamertemplate{frametitle}{}{\vspace{-1em}} % mehr Platz vor dem Inhalt
+
+% andere global gemeinsame definitionen
+\input{../../shared/globalCommon.tex}
+
+%Includes
+\usepackage{epstopdf}
+\usepackage{wrapfig}
+\usepackage{tipa}
+\usepackage{tikz}
+\usetikzlibrary{calc,shapes,arrows}
+%tip: use http://l04.scarfboy.com/coding/phonetic-translation?from=ipa&fromtext=%CB%88pa%C9%AA%CE%B8n%CC%A9&to=tipa
+%for converting ipa
+
+
+\graphicspath{ {./media/} }
+
+\def\shortyear#1{\expandafter\shortyearhelper#1}
+\def\shortyearhelper#1#2#3#4{#3#4}
+
+\newcount\NextYear
+\NextYear = \year
+\advance\NextYear by 1
+
+\newcommand\NextYearShort{\shortyear{\the\NextYear}}
+
+% notes
+\usepackage{pgfpages}
+\setbeamertemplate{note page}[plain]
+%\setbeameroption{show notes on second screen}
+
+% macro for change speaker sign
+\newcommand{\changespeaker}{
+	\begin{tikzpicture}[line width=.6mm, shorten >= 3pt, shorten <= 3pt]
+
+	\coordinate (c1);
+	\coordinate[right of=c1] (c2);
+
+	\draw[rectangle, draw=red!80, fill=red!80, align=center, rounded corners] ($(c1.north west)+(0,-0.3)$) rectangle ($(c2.south east)+(0, 0.3)$) {};
+	\draw[->,white] (c1)[bend left] to node[auto] {} (c2);
+	\draw[->,white] (c2)[bend left] to node[auto] {} (c1);
+	\end{tikzpicture}
+}
+
+%Listing-Style pyhon
+\title[Programmiervorkurs]{Programmiervorkurs Wintersemester \the\year/\NextYearShort}
+\subtitle{{\small der Fachschaft Informatik}}
+\logo[2]{\includegraphics[scale=5]{../globalMedia/bildmarke_ohne_rand}}
+\institute{Fachschaft Informatik}
+\date{Wintersemester \the\year/\NextYearShort}
+
+
+% macros
+\newcommand{\livecoding}{\begin{frame}\frametitle{\insertsectionhead \\  {\small \insertsubsectionhead}}\centering \huge \vskip 2cm\textbf{\textcolor{red}{Live-Coding}}\end{frame}}
+
+\newcommand{\slidehead}{\frametitle{\insertsectionhead \\ {\small \insertsubsectionhead}}}
+\newcommand{\tocslide}{\begin{frame}[t]\frametitle{Inhaltsverzeichnis}{\small\tableofcontents[subsectionstyle=shaded]}\end{frame}}
+
+
+% colors
+\definecolor{lightpetrol}{RGB}{0,223,194}
