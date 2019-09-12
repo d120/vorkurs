@@ -1,5 +1,5 @@
-print("Hallo Liebe Studies,\nWillkommen zum \"Programmiervorkurs\"!")
+print("Hallo Liebe Studies,\nWillkommen zum \"Vorkurs\"!")
 
 # Ausgabe:
 # Hallo Liebe Studies,
-# Willkommen zum "Programmiervorkurs"!
+# Willkommen zum "Vorkurs"!
