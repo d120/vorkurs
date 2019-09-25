@@ -1,0 +1,84 @@
+% !TeX document-id = {505cbeed-ac21-4fdd-a7f4-eefb28b91c1e}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\documentclass[accentcolor=tud3c,colorbacktitle,12pt]{tudexercise}
+\input{../../shared/globalCommon.tex}
+
+\title{Programmiervorkurs Linux-Befehle}
+\subtitle{\Author}
+\subsubtitle{vorkurs@d120.de}
+
+\begin{document}
+\maketitle
+
+\section{Dateisystem}
+
+\subsection{cd}
+In ein anderes Verzeichnis wechseln.
+\begin{bashcode}
+cd |\textit{Pfad zum Verzeichnis}|
+\end{bashcode}
+
+
+\subsection{ls}
+Listet alle Dateien im aktuellen Verzeichnis auf.
+\begin{bashcode}
+ls
+\end{bashcode}
+Listet alle Dateien im aktuellen Verzeichnis in Listenform auf.
+\begin{bashcode}
+ls -l
+\end{bashcode}
+
+\subsection{mv}
+Verschiebt oder benennt eine Datei oder ein Verzeichnis um.
+\begin{bashcode}
+mv "Name" "neuer Name" 
+mv "Pfad/Name" "neuer Pfad/neuer Name" 
+\end{bashcode}
+
+\subsection{mkdir}
+Erstellt ein neues Verzeichnis.
+\begin{bashcode}
+mkdir |\textit{Ordnername}|
+\end{bashcode}
+
+\subsection{cp}
+Kopiert eine Datei.\\
+Kopiert einen Ordner mit Option \textit{-R}.
+\begin{bashcode}
+cp |\textit{Datei}| |\textit{Kopie}|
+cp -R |\textit{Ordner}| |\textit{KopierterOrdner}|
+\end{bashcode}
+
+\subsection{rm}
+Löscht eine Datei oder mit Option -R einen Ordner.
+\begin{bashcode}
+rm |\textit{Datei}|
+rm -R |\textit{Ordner}|
+\end{bashcode}
+
+\section{Programmieren}
+\subsection{nano und gedit}
+Nano ist ein Konsolen-Texteditor. Gibt man als Parameter eine existierende Datei an, wird diese geöffnet; existiert die Datei nicht, wird sie beim Speichern erstellt. Gedit ist quasi das gleiche mit graphischer Oberfläche.
+\begin{bashcode}
+nano |\textit{Datei}|
+gedit |\textit{Datei}|
+\end{bashcode}
+Innerhalb des Editors kann man mit den Pfeiltasten navigieren und wie gewohnt schreiben.\\
+Mit Strg+O kann man die Datei speichern, man wird nach dem Pfad zum Speichern gefragt und kann diesen mit Enter bestätigen.\\
+Mit Strg+X verlässt man den Editor.
+
+\subsection{Python}
+\subsubsection*{Linux/macOS}
+Mit \textit{python3} kann man py-Skripte ausführen, wobei Python 3.x.x. verwendet wird. \textit{python} wiederum verwendet 2.x.x und ist veraltet, weshalb es nicht mehr verwendet werden sollte.
+\begin{bashcode}
+python3 |\textit{Datei.py}|
+\end{bashcode}
+
+\subsubsection*{Windows}
+Mit \textit{python} kann man py-Skripte ausführen.
+\begin{bashcode}
+python |\textit{Datei.py}|
+\end{bashcode}
+
+\end{document}
