@@ -1,0 +1,15 @@
+liste1 = [1, 2, 3, 4, 5]
+liste2 = []
+
+for element in liste1:
+    liste2.append(element)
+    
+liste1[1] = 42
+# Frage: Was passiert? Welchen Wert hat liste2?
+
+liste2 = liste1.copy()
+# Frage: Welchen Wert hat nun liste2[1]?
+
+liste1 = liste2
+liste2 = []
+# Frage: Welchen Wert hat nun liste1?

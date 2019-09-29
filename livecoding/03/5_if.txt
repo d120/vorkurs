@@ -1,0 +1,5 @@
+# Hier nur die Einrückung für den Interpreter zeigen!
+
+if 1 < 2:
+    print("1 ist kleiner als 2")
+
