@@ -1,4 +1,0 @@
-File "andererTest.py", line 2
-   print("ende")
-       ^
-SyntaxError: invalid syntax
