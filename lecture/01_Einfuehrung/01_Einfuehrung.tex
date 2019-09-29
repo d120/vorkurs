@@ -221,7 +221,7 @@
 	\slidehead
 
 	\begin{columns}[T]
-		\begin{column}{.3\textwidth}
+		\begin{column}{.4\textwidth}
 			\begin{tikzpicture}
 				\node[] (mensch) at (0,0) {\includegraphics[height=1.3cm]{media/wesen_notebook.png}};
 
@@ -232,12 +232,15 @@
 				\draw[->,line width=.6mm] (file.south) -- (python.north);
 			\end{tikzpicture}
 		\end{column}
-		\begin{column}{.7\textwidth}
+		\begin{column}{.6\textwidth}
 			\begin{itemize}
-				\item Mit sinnvollem Dateinamen
 				\item Ausführen: \texttt{python3 dateiName.py}
 				\item Python-Programme laufen überall, wo Python installiert ist
 			\end{itemize}
+			\vspace{2.5cm}
+			\begin{block}{Hinweis}
+				Python-Quelltext mit der Dateiendung \texttt{.py} kennzeichnen und sinnvoll benennen!
+			\end{block}
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -272,10 +275,6 @@
 	\begin{itemize}
 		\item Programm mit \texttt{python3 dateiName.py} starten
 	\end{itemize}
-
-	\begin{block}{Hinweis}
-		Python-Quelltext wird mit der Dateiendung \texttt{.py} gekennzeichnet
-	\end{block}
 \end{frame}
 
 \subsection{Interaktiver Interpreter}
