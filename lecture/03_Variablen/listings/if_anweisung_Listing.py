@@ -1,2 +1,3 @@
 if Ausdruck:
-    Anweisung
+    # code
+    # ...
