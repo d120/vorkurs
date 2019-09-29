@@ -50,12 +50,16 @@
 
 		\begin{itemize}
 			\item Bei anderen Sprachen muss der verwendete Typ explizit festgelegt werden % Hier kann ich kein Beispiel geben, weil wir noch keine Variablen eingeführt haben
+		\end{itemize}
+
+		In Python gilt:
+		\begin{itemize}
 			\item \pythoninline{float} kann nur Zahlen zwischen \pythoninline{-1.7976931348623157e+308} und \pythoninline{1.7976931348623157e+308} speichern
 			\item Kleinster positiver \pythoninline{float} ist \pythoninline{2.2250738585072014e-308}
 			\item \pythoninline{int} kann in Python beliebig große Zahlen speichern
 			\begin{itemize}
 				\item Das ist in den meisten Sprachen nicht so!
-			\end{itemize}
+		\end{itemize}
 
 		\end{itemize}
 	\end{frame}
@@ -95,7 +99,7 @@
 		\begin{block}{Hinweis}
 			\begin{itemize}
 				\item Modulo liefert den \textit{Rest einer Division}: $23 \% 4 = 3$
-				\item Arithmetische Operationen zwischen Ganzzahlen und Fließkommazahlen resultieren in \textit{Fließkommazahlen}! % Für die*den Programmieranfänger*innen mag es zwar total normal scheinen, dass man Kommazahlen mit Integers addieren kann, aber für den Computer ist das ein wichtiger Unterschied! Jetzt kommt der Moment wo ich alle überzeugen kann, dass der Computer wirklich komplett anders denkt als wir Menschen. Er hat ein komplett anderes Konzept sich 0.1 vorzustellen.
+				\item Arithmetische Operationen zwischen Ganzzahlen und Fließkommazahlen resultieren in \textit{Fließkommazahlen}! \pythoninline{1 + 2.0 = 3.0} % Für die*den Programmieranfänger*innen mag es zwar total normal scheinen, dass man Kommazahlen mit Integers addieren kann, aber für den Computer ist das ein wichtiger Unterschied! Jetzt kommt der Moment wo ich alle überzeugen kann, dass der Computer wirklich komplett anders denkt als wir Menschen. Er hat ein komplett anderes Konzept sich 0.1 vorzustellen.
 
 				%Umfrage, glaubt ihr Computer können rechnen?
 				\item \pythoninline{0.1 + 0.2 =} \pause \pythoninline{0.30000000000000004} $\Rightarrow$ Fließkommazahlen sind nicht exakt
