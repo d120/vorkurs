@@ -1,0 +1,5 @@
+(12 + 5**2) * (3 - 0.3 * 2)
+# Erkläre: Denk an mathematische Präzendenz: Potenzen, Punkt vor Strich, ...
+
+0.1 + 0.2 == 0.3
+# Frage: Geht das? Was ist das Ergebnis?

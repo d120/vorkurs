@@ -1,0 +1,8 @@
+float("42.1337")
+
+float("42,1337")
+# Frage: Warum geht das nicht?
+
+True + True
+False + True
+True * False

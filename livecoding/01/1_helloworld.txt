@@ -1,0 +1,12 @@
+# * "Ich zeige den interaktiven Interpreter"
+# * Zeigen wie man den Interpreter startet
+
+$ python3
+print("Hello World!")
+# Erkläre:
+# - print ist Befehl, braucht klammern
+# - "Hello World!" ist eine Zeichenfolge/String die man ausgeben will
+#
+# Dies mit 1-2 weiteren Strings zeigen!
+# * permutiere Anführungszeichen
+# * Zeige Steuerzeichen: \n, \", \', \\

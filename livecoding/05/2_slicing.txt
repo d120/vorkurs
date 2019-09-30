@@ -1,0 +1,11 @@
+zahlen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+print(zahlen[:])
+print(zahlen[:3])
+print(zahlen[::1])
+print(zahlen[::2])
+print(zahlen[::-1])
+print(zahlen[::-2])
+
+# Erklärung: Ebenso möglich, das x-te Element von hinten anzugeben. Da kommt man schnell durcheinander!
+print(zahlen[-1::-1])
