@@ -1,3 +1,5 @@
+# Das ist ganz schön viel hier, es zeigt nur alle Möglichkeiten auf, die man zeigen könnte. Alles zu zeigen reicht zeitlich nicht.
+
 ganzzahl = 5
 print("ganzzahl: " + str(ganzzahl))
 kommazahl = 5.0
