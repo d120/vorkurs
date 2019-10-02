@@ -9,5 +9,5 @@ letztes_element = meine_liste[-1]
 
 # Element setzen
 # setzt Element an Index 3 auf den Wert 9
-meine_liste[3] = 9;
+meine_liste[3] = 9
 # meine_liste ist jetzt: 
