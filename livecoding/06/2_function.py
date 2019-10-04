@@ -1,4 +1,4 @@
-def lies_zahl(n):
+def lies_zahl():
     print("Zahl eingeben: ")
     zahl = float(input(""))
     print("Zahl eingelesen!")
