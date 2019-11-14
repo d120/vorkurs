@@ -10,7 +10,7 @@ Das Repository ist besteht aus folgenden Inhalten in eigenen Verzeichnissen:
 * `codingchallenges`: Aufgabenstellungen und Referenzimplementierungen der Coding-Challenges sortiert nach Jahr
 * `lecture`: Vorlesungsfolien
 * `livecoding`: Hinweise für das Live-Coding
-* `exercises` (bald verfügbar): Übungen und Lösungsvorschläge
+* `exercises`: Übungen und Lösungsvorschläge
 * `misc`: Weitere Dokumente und Skripte
 * `shared`: Allgemeine, gemeinsam verwendete LaTeX-Definitionen
 
