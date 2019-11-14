@@ -1,0 +1,131 @@
+%%& -job-name=Aufgaben1_16WS_v1
+\documentclass[accentcolor=tud3c,colorbacktitle,12pt]{tudexercise}
+\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage[ngerman]{babel}
+\input{../shared/globalCommon}
+\usepackage{hyperref}
+\usepackage{ifthen}
+\usepackage{listings}
+%\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{multirow}
+
+
+\definecolor{darkblue}{rgb}{0,0,.5}
+\hypersetup{colorlinks=true, breaklinks=true, linkcolor=darkblue, menucolor=darkblue, urlcolor=darkblue}
+
+% configuration
+\makeatletter
+\@ifundefined{c@ex}{
+  \newcounter{ex}\setcounter{ex}{1}
+}{}
+\makeatother
+\newboolean{sln}\setboolean{sln}{false}
+\newboolean{SoSe}\setboolean{SoSe}{false}
+\newcounter{nextyear}\setcounter{nextyear}{\year+1}
+%
+
+\newcommand{\ext}{py}
+\newcommand{\sln}[1]{\ifthenelse{\boolean{sln}}{\subsubsection*{Antwort}{\itshape #1}}{}}
+\newcommand{\slnformat}[1]{\ifthenelse{\boolean{sln}}{#1}{}}
+\newcommand{\taskformat}[1]{\ifthenelse{\boolean{sln}}{}{#1}}
+\newcommand{\task}[1]{\input{task/#1}\IfFileExists{./sln/#1.tex}{\sln{\input{sln/#1}}}{\IfFileExists{./sln/#1.\ext}{\sln{\pythonfile{sln/#1.\ext}}}{\ClassError{Vorkurs-TeX}{No solution specified for task #1}{Add solution file #1.tex or #1.\ext}}}}
+\newcommand{\mccmd}{Kreuze zu jeder Antwort an, ob sie zutrifft (\textbf{w}) oder nicht (\textbf{f}).}
+\newcommand{\mchead}{\item[\textbf{w} \textbf{f} ]}
+\newcommand{\mcitem}[1]{\item[$\square\ \square$] #1}
+\newcommand{\mcitemt}[1]{\item[$\ifthenelse{\boolean{sln}}{\blacksquare}{\square}\ \square$] #1}
+\newcommand{\mcitemf}[1]{\item[$\square\ \ifthenelse{\boolean{sln}}{\blacksquare}{\square}$] #1}
+\newcommand{\ptitle}{\ifthenelse{\boolean{SoSe}}{Sommersemester \the\year}{Wintersemester \the\year/\thenextyear}}
+
+\newcommand{\lstinlinenoit}[1]{\upshape{\lstinline|#1|}\itshape}
+\lstset{language=Python, basicstyle=\ttfamily\small, keywordstyle=\color{blue!80!black}, identifierstyle=, commentstyle=\color{green!50!black}, stringstyle=\ttfamily,
+ tabsize=4, breaklines=true, numbers=left, numberstyle=\small, frame=single, backgroundcolor=\color{blue!3}}
+\author{Fachschaft Informatik}
+
+
+\newcommand{\stage}[1]{(\ifcase#1\or{Einstieg}\or{Vertiefung}\or{Herausforderung}\else\fi)}
+\newcommand{\bonus}[1]{\textit{BonusFact: }#1}
+
+\begin{document}
+\title{Aufgaben Programmiervorkurs\\Übungsblatt \theex}
+\subtitle{von der Fachschaft Informatik\hfill\ptitle}
+\maketitle
+
+\ifcase\value{ex}
+\or%ex1
+    \section{Einleitung \stage1}
+        \task{1-intro}
+        \task{1-mc-interpreter}\taskformat{\clearpage}
+    \section{Ausdrücke \stage1}
+        \task{1-interactive}
+        \task{1-operations}\taskformat{\clearpage}\slnformat{\clearpage}
+    \section{Konvertierung \stage2}
+        \task{1-conversion}
+        \task{1-conv-challenge}\slnformat{\clearpage}
+	\section{Fehler}
+        \task{1-error}
+		\task{1-warmup-error}
+    \section{Challenge}
+        \task{1-modulo}
+\or%ex2
+        \task{2-pyfile}
+	\section{Zum Aufwärmen \stage1}\mccmd
+		\task{2-mc-if}
+	\section{Variablen \stage1}
+		\task{2-var-case}\slnformat{\clearpage}
+		\task{2-var-id}\taskformat{\clearpage}
+		\task{2-var-assign}\slnformat{\clearpage}
+	\section{Logische Operationen \stage1}
+		\task{2-stm-ops}\taskformat{\clearpage}
+	\section{Eingabe/Ausgabe \stage2}
+		\task{2-var-io}
+		\task{2-stm-calc}\taskformat{\clearpage}\slnformat{\clearpage}
+	\section{Zum Weiterdenken \stage3}
+		\task{2-cooking}\taskformat{\clearpage}\slnformat{\clearpage}
+		\task{2-var-processor}
+\or%ex3
+    \section{Schleifen}
+		\task{3-loop-gauss}
+        \task{3-loop-fac}
+        \task{3-loop-fizz}\taskformat{\clearpage}\slnformat{\clearpage}
+        \task{3-loop-prime}\slnformat{\clearpage}
+	\section{Listige Listen}
+		\task{3-list-basic}
+        \task{3-list-len}
+	\section{Fortgeschrittenes Lesen}
+        \task{3-slicing}
+        \task{3-slicing-examples}\slnformat{\clearpage}
+	\section{Listenverarbeitung}
+        \task{3-iterable}
+        \task{3-text-slicing}\slnformat{\clearpage}
+        \task{3-accumulator}
+	\section{Challenge}
+		\task{3-challenge}
+\or%ex4
+	\section{Funktionen}
+		\task{4-fnc-calcr}\slnformat{\clearpage}
+		\task{4-fnc-calcr2}\slnformat{\clearpage}
+	\section{Schriftliches Dividieren}
+		\task{4-fnc-divide-theory}\slnformat{\clearpage}
+		\task{4-fnc-divide-basic}\slnformat{\clearpage}
+		\task{4-fnc-divide-advanced}\slnformat{\clearpage}
+	\section{Listen und Funktionen}
+		\task{4-list-fnc}\slnformat{\clearpage}
+	\section{Rekursion}
+		\task{4-rec-fac}
+		\task{4-rec-pascal}\slnformat{\clearpage}
+		\task{4-rec-fib}\slnformat{\clearpage}
+		\task{4-rec-oddeven}\slnformat{\clearpage}
+		\task{4-rec-calcu}\taskformat{\clearpage}
+		\task{4-rec-calcu2}
+	\section{Zusatz}
+		Wenn du die Aufgaben erledigt hast, kannst du dich gerne noch an den Schleifen-Varianten der gegebenen Algorithmen versuchen oder für Aufgaben der vergangenen Tage eine rekursive Lösung suchen. Die Tutoren stehen dir dabei gerne bei, allerdings werden wir dafür keine Lösungen bereit stellen. Du kannst die jeweiligen Versionen der Algorithmen in den Lösungen als Kontrolle für deine Versuche nutzen.
+\or%ex5 - nicht veröffentlicht
+	\section{Pool}
+	\section{Sichtbarkeit}
+	\section{Ausdrücke evaluieren}
+\else\fi
+\end{document}
+\grid
+\grid

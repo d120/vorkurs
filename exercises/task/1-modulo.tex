@@ -1,0 +1,28 @@
+\subsection{Wir rechnen Modulo \stage3}
+
+\newcommand{\mod}{\mathop{mod}}
+
+Für eine RSA-Verschlüsselung werden zwei Primzahlen $p,q$ benötigt.
+Deren Produkt definiert einen Ring $\mathbb Z_n$ mit $n = p * q$.
+Das heißt, nach jeder Operation wir das Ergebnis mittels \textbf{Modulo}
+in das Intervall $[0,n)$ gebracht. \\\\
+%
+In Python wird das mit dem \texttt{\%} Operator dargestellt. So gilt
+\pythoninline{20 % 10 == 0}, \pythoninline{15 % 9 == 6}, \dots \\\\
+%
+Wenn wir nun etwas verschlüsseln/entschlüsseln wollen, benötigen wir zunächst
+$N = \phi(n) = (p-1) * (q-1)$ und ausserdem ein $0 < e < N$ mit $ggT(e,N) = 1$,
+sowie ein $0 < d < N$ mit $ed \mod N = 1$. \\\\
+%
+Da das hier keine Krypto-Vorlesung ist, haben wir für euch die Werte: \\
+$p=3$, $q=11$, $n=33$, $N=20$, $e=3$, $d=7$ berechnet. Eine Nachricht $m$ wird
+nun als $m^e \mod n$ verschlüsselt, ein Chiffretext $c$ als $c^d \mod n$
+entschlüsselt.\\\\
+%
+Verschlüsselt mit den vorgegebenen (oder eigenen) Werten nun ein
+paar Zahlen ($0 <= x < n$), und probiert ob ihr sie wieder entschlüsseln könnt.
+Ihr könnt diese auch an eure Sitznachbarn weitergeben!
+
+% Bonus
+% enc = lambda x: [(ord(c) - ord('a')) ** 3 % 33 for c in x if ord('a') <= ord(c) and ord(c) <= ord('z')]
+% dec = lambda x: "".join([chr((v ** 7 % 33) + ord('a')) for v in x if 0 <= v and v < 33])

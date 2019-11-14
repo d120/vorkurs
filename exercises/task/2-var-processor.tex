@@ -1,0 +1,19 @@
+\subsection{Ein einfacher Prozessor}
+Prozessoren bestehen im allgemeinen aus einer kleinen Anzahl von Registern, mit denen die eigentlichen Berechnungen durchgeführt werden. Im Folgenden wollen wir das Verhalten eines kleinen Prozessors in Python simulieren. \\
+Der Prozessor soll aus 4 Registern bestehen, die beliebige Werte speichern können (Diese könnt ihr als Variablen modellieren). Außerdem kann der Prozessor grundlegende Berechnungen (+, -, *, /, \%) auf seinen Registern durchführen und Werte in Registern vergleichen (\textbf{Achtung:} Ihr müsst also nach jeder einzelnen Rechung oder einem Vergleich das Ergebnis in eines der Register speichern, und dürft nicht mehrere Rechnungen nacheinander ausführen (Also statt \pythoninline{a = 2 + 3 * 4} müsstet ihr \pythoninline{b = 3 * 4} gefolgt von \pythoninline{a = 2 + b} schreiben. If-Abfragen sind auf diese Art möglich: \pythoninline{if a:})) \\
+In den Berechnungen dürf ihr außer den Registern auch Zahlenwerte verwenden, jedoch nicht das Register in das das Ergebnis geschrieben wird.\\
+Erstelle nun mit diesen Randbedinungen ein Programm, dass das folgende tut: \\
+\begin{lstlisting}
+lese eine Ganzzahl a ein
+lese eine Ganzzahl b ein
+lese eine Ganzzahl c ein
+verdoppele a und addiere 3 hinzu
+lese eine Ganzzahl d ein
+gib b und c aus
+wenn a > d gilt, setze d = a
+wenn a < d gilt, speichere Wert c = d - a, sonst speichere Wert c = 0
+setze a = c * d + a * a
+setze Wert b = a + d
+setze c = b + d
+gib a,b,c und d aus
+\end{lstlisting}
