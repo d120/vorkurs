@@ -25,10 +25,24 @@ Zur einfachen Erstellung der Inhalte stehen UNIX Makefiles bereit, Details dazu 
 ## Lizenz
 Eine Verwendung des Logos der Fachschaft Informatik, TU Darmstadt (`bildmarke_ohne_rand.png`), ist nur für Fachschaftstätigkeiten gestattet.  
 
-Alle anderen Inhalte dieses Projekts stehen, sofern nicht anders angegeben, unter folgender Lizenz:  
-<>
+Alle anderen Inhalte dieses Projekts stehen, sofern nicht anders angegeben, unter der GNU General Public License v3.0 (GNU GPLv3):  
 
+```
+Copyright (C) 2019  Fachschaft Informatik Technische Universität Darmstadt
 
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+```
 
 ## Mithelfen
 Wir freuen uns über jede Mithilfe, gerne auch für die Behebung von Rechtschreib- und Grammatikfehlern! Für kleinere Änderungen kann gerne ein Pull Request eingereicht werden. Bei größeren Änderungen kann ein Issue erst einmal sinnvoller sein, damit darüber diskutiert werden kann.  
