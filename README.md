@@ -1,7 +1,7 @@
 # Programmiervorkurs
 
 Dieses Projekt enthält sämtliches Material des Programmiervorkurses der Fachschaft Informatik, TU Darmstadt. Der Programmiervorkurs findet alljährlich zu Beginn des Wintersemesters statt. Mehr Informationen zum Ablauf des Kurses finden sich auf [unserer Webseite](https://d120.de/vorkurs).  
-Dieses Repository enthält nur die Quellen des Vorkursmaterials, die erstellten Unterlagen finden sich im jeweiligen Moodle-Kurs.
+Dieses Repository enthält hauptsächlich die Quellen des Vorkursmaterials, die erstellten Unterlagen finden sich im jeweiligen Moodle-Kurs, teilweise auch als Release.
 
 ## Inhalte und Struktur
 
