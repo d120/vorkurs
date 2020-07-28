@@ -56,8 +56,9 @@
 % macros
 \newcommand{\livecoding}{\begin{frame}\frametitle{\insertsectionhead \\  {\small \insertsubsectionhead}}\centering \huge \vskip 2cm\textbf{\textcolor{red}{Live-Coding}}\end{frame}}
 
-\newcommand{\slidehead}{\frametitle{\insertsectionhead \\ {\small \insertsubsectionhead}}}
-\newcommand{\tocslide}{\begin{frame}[t]\frametitle{Inhaltsverzeichnis}{\small\tableofcontents[subsectionstyle=shaded]}\end{frame}}
+%\newcommand{\slidehead}{\frametitle{\insertsectionhead \\ {\small \insertsubsectionhead}}\vspace{3mm}}
+\newcommand{\slidehead}{\frametitle{\insertsectionhead} \framesubtitle{\insertsubsectionhead}\vspace{3mm}}
+\newcommand{\tocslide}{\begin{frame}[t]\frametitle{Inhaltsverzeichnis}\vspace{3mm}{\small\tableofcontents[subsectionstyle=shaded]}\end{frame}}
 
 
 % colors
