@@ -1,0 +1,109 @@
+% !TeX document-id = {5c9b7af7-cc8b-495c-a61c-cd548e104791}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\input{../global.tex}
+
+\usepackage{verbatim}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes.misc}
+
+\begin{document}
+
+%Deckblatt
+\subtitle{Kabitel 1: Erste Schritte}
+\titlegraphic{
+	\begin{columns}
+		\begin{column}{3cm}
+			\begin{center}
+				\vspace{2cm}
+				{\huge Fehler}
+			\end{center}
+		\end{column}
+		\begin{column}{5cm}
+			\\
+			\vspace{1cm}
+			\includegraphics[scale=0.4]{wisdom_of_the_ancients.png}
+			\\	\sffamily \tiny Bild: \href{https://xkcd.com/979/}{https://xkcd.com/979/}
+		\end{column}
+	\end{columns}}
+\maketitle
+
+\subsection{Fehlerarten}
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item \textbf{Lexikalische Fehler}
+		\begin{itemize}
+			\item Beispielsweise Tippfehler
+			% ACHTUNG: print ist bewusst falsch geschrieben!
+			\item \pythoninline{prit("Lexikalischer Fehler")}
+		\end{itemize}
+		\item \textbf{Syntaktische Fehler}
+		\begin{itemize}
+			\item Falsche Klammern
+			\item Anführungszeichen nicht geschlossen
+		\end{itemize}
+		\item \textbf{Semantische Fehler}
+		\begin{itemize}
+			\item Division durch 0
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\section{Fehlerbeispiele}
+\subsection{Lexikalischer Fehler}
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item \texttt{test.py}:
+		\pythonfile{listings/lexError_Listing.py}
+		\pause
+		\pythonfile{listings/lexError_Listing.txt}
+		\pause
+		\item Fehler in \texttt{test.py}
+		\pause
+		\item In \texttt{line 1}, also \textbf{Zeile 1}
+		\pause
+		\item Der Name \texttt{prit} existiert nicht
+		\pause
+		\item Es war \texttt{print} gemeint (das weiß der Interpreter natürlich nicht)
+	\end{itemize}
+\end{frame}
+
+\subsection{Syntaktischer Fehler}
+
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item \texttt{zweiterTest.py}:
+		\pythonfile{listings/otherSynError_Listing.py}
+		\pause
+		\pythonfile{listings/otherSynError_Listing.txt}
+		\pause
+		\item Fehler in \texttt{zweiterTest.py}
+		\pause
+		\item in \texttt{line 1} fehlt eine \texttt{(}
+		\item der Interpreter versteht hier nicht was gemeint war, da das kein richtiger Python-Code ist.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item \texttt{andererTest.py}:
+		\pythonfile{listings/eofError_Listing.py}
+		\pause
+		\pythonfile{listings/eofError_Listing.txt}
+		\pause
+		\item Fehler in \texttt{andererTest.py}
+		\pause
+		\item In \texttt{line 3} stimmt hier nicht ganz, aber in \texttt{line 1} fehlt eine \texttt{(}
+		\pause
+		\item Der Interpreter sucht weiterhin nach \texttt{)}, aber die Datei ist in \textbf{Zeile 3} zu Ende
+		\pause
+		\item Deshalb \texttt{unexpected EOF}: \textbf{EOF} steht für \textbf{E}nd \textbf{O}f \textbf{F}ile
+	\end{itemize}
+\end{frame}
+
+\nextvid{Datentypen}{}
+
+\end{document}

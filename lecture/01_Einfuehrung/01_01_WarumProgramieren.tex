@@ -1,0 +1,139 @@
+% !TeX document-id = {5c9b7af7-cc8b-495c-a61c-cd548e104791}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\input{../global.tex}
+
+\usepackage{verbatim}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes.misc}
+
+\begin{document}
+
+%Deckblatt
+\subtitle{Kabitel 1: Erste Schritte}
+\titlegraphic{
+	\begin{columns}
+		\begin{column}{6cm}
+			\vspace{4.32mm}
+			\begin{center}
+				{\huge Mit einem Computer Reden}
+			\end{center}
+			\vspace{-5.0mm}
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.3]{code_quality.png}
+				\\	\sffamily \tiny Bild: \href{https://xkcd.com/1513/}{https://xkcd.com/1513/}
+			\end{figure}
+		\end{column}
+		\begin{column}{3.5cm}
+			\vspace{-0.3mm}
+			\begin{figure}
+				\centering
+				\includegraphics[scale=0.2]{good_code.png}
+				\\	\sffamily \tiny Bild: \href{https://xkcd.com/844/}{https://xkcd.com/844/}
+			\end{figure}
+		\end{column}
+	\end{columns}}
+\maketitle
+
+% Bevor es losgeht die Vortragenden erwähnen!
+
+% Um den Vorkurs zu beginnen muss ich irgendwie die Zuschauer für das Programmieren inspirieren. Es muss sie überzeugen, dass Programmieren geil ist, das die Vorträger sympathisch sind und dass eigentlich alles super ist. Dafür mache ich eine Einführung, die Programmieren als Abstraktes Gedankenexperiment einführt.
+% Man stelle sich eine außerirdische Lebensform vor, welche eine komplett andere Art von Intelligenz als wir Menschen hat. Wie kann man mit dieser Lebensform kommunizieren. Wir haben verschiedene Informationen über die Lebensform: Sie ist exakt, vergisst keine Details, ist sehr fleißig, ist sehr schnell aber ist nicht eigenständig. Welche Sprache kann man benutzen, bei der sowohl wir Menschen, als auch diese Lebensform etwas versteht. Englisch würde zwar uns Menschen gefallen, aber Englisch hat zu viele Wörter deren genaue Bedeutung unklar ist. "Mehrdeutigkeit" ist etwas mit der die Lebensform überhaupt nicht umgehen kann. Die Lebensform könnte eine Sprache vorschlagen, die nur aus Nullen und Einsen besteht ein so begrenztes Vokabular hat, dass jeder Begriff eine exakte Bedeutung hat. Damit kann der Mensch jedoch schlecht umgehen, weil er sich Zahlen schlecht merken kann und keine Intuition aufbaut was die Begriffe bedeuten. Lösung: Ein Mittelweg: Eine künstlich erfundene Sprache, die eine sehr begrenzte Anzahl Begriffe auf Englisch hat, die man sich gut merken kann und gleichzeitig eine exakt definierte Bedeutung hat, so dass das Wesen sich es auch merken kann.
+
+\section{Warum mit Computer kommunizieren?}
+\begin{frame}
+	\slidehead
+	\vspace{3mm}
+	\begin{itemize}
+		\pause
+		\item Computer sind rein-mathematische Maschinen
+		\pause
+		\item Computer macht einfache Arbeitsschritte extrem \textbf{schnell}
+		\pause
+		\item Programme sind aus vielen Arbeitsschritten zusammengesetzt
+		\pause
+		\pythonfile{listings/Programmieren.txt}
+	\end{itemize}
+\end{frame}
+
+\section{Was tun wir hier eigentlich?}
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item Programmieren mit Python \textcolor{gray}{[\textprimstress pa\textsci \texttheta n] [\textprimstress pa\textsci \texttheta \textscripta n]}
+		\pause
+		\item Python?
+		\pause
+		\item[] $\Rightarrow$ Programmiersprache!
+		\item[] $\Rightarrow$ Verständlicher für Menschen
+		\item[] $\Rightarrow$ Oft verwendet
+	\end{itemize}
+
+	\pause
+	\vspace{0.75cm}
+
+	\tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!10]
+	\centering
+	\begin{tikzpicture}[node distance=5cm]
+		\node (syntax) [rect, text width=4cm, minimum height=2cm] {\textbf{Syntax}\\ Wortschatz};
+		\node (grammatik) [rect, right of=syntax, text width=4cm, minimum height=2cm] {\textbf{Grammatik}\\ Regeln um Befehle zusammenzusetzen};
+	\end{tikzpicture}
+
+\end{frame}
+
+\begin{comment}
+	\section{Das erste Programm}
+	\subsection{Wie fange ich an?}
+	\begin{frame}
+		\slidehead
+		\begin{itemize}
+			\item Befehle bestehen aus Text
+			\item Mit einem einfachen Texteditor schreibt man Befehle in eine Datei
+			\item Anschließend interpretiert der Computer die Befehle
+		\end{itemize}
+	\end{frame}
+\end{comment}
+
+\section{Interpreter?}
+\begin{frame}[t]
+	\slidehead
+	\begin{columns}[T]
+		\begin{column}{2cm}
+			\begin{tikzpicture}
+
+				\node[] (mensch) at (0,0) {\includegraphics[height=1.3cm]{media/wesen_notebook.png}};
+
+				\visible<2->{
+				\node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (interpreter) at (0,-1.8) {Interpreter};
+				\draw[->,line width=.6mm] (mensch.south) -- (interpreter.north);
+				}
+				\visible<3->{
+				\node[fill=lightgray,draw, inner sep=5pt, rounded rectangle] (computer) at (0,-4) {Computer};
+				\draw[->,line width=.6mm] (interpreter.south) -- (computer.north);
+				}
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{10cm}
+			\begin{itemize}
+				\item[]
+				\item \textbf{Der Mensch} beschreibt die Aufgabe in einer Programmiersprache $\Rightarrow$ Quelltext
+				\item[]
+				\item[]
+				\visible<2->{
+				\item \textbf{Der Interpreter} interpretiert den Quelltext als Maschinenbefehle
+
+				}
+				\item[]
+				\item[]
+				\visible<3->{
+				\item \textbf{Der Computer} führt die Maschinenbefehle aus
+				}
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\nextvid{Erstes Programm}{}
+
+\end{document}

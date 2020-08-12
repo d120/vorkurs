@@ -1,0 +1,215 @@
+% !TeX document-id = {5c9b7af7-cc8b-495c-a61c-cd548e104791}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\input{../global.tex}
+
+\usepackage{verbatim}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes.misc}
+
+\begin{document}
+
+%Deckblatt
+\subtitle{Kabitel 1: Erste Schritte}
+\titlegraphic{
+	\begin{columns}
+		\begin{column}{5.5cm}
+			\begin{tikzpicture}
+				\draw (0, 0) node[inner sep=0] {\includegraphics[scale=0.265]{python.png}};
+				% ich habe eine Mail an xkcd geschrieben, es ist ok das wir die klammern einfügen :)
+				\draw (-1.95, -2.33) node {\tiny (};
+				\draw (-1.02, -2.33) node {\tiny )};
+			\end{tikzpicture}
+			\\	\sffamily \tiny Bild: \href{https://xkcd.com/353/}{https://xkcd.com/353/ [edit: Kammern eingefügt für Python 3]}
+		\end{column}
+		\begin{column}{5cm}
+			\begin{center}
+				\vspace{-3.5cm}
+				{\huge Erstes Program}
+				\end{center}
+			\end{column}
+		\end{columns}
+	}
+\maketitle
+
+\subsection{}
+\begin{frame}
+	% Beispiel, um zu zeigen wie so ein Befehl aussieht (und ein Kommentar)
+	\slidehead
+	\hskip .8cm
+	\vspace{.5cm}
+	\pythonfile{listings/HelloWorld.py}
+
+	\pause
+
+	\vspace{-2.55cm}
+	\hskip .8cm
+	\begin{tikzpicture}
+		\draw [decorate,decoration={brace,amplitude=6pt}]
+		(0,0.5) -- (3.7,0.5) node [black,midway,yshift=15pt,xshift=3.4cm] {Kommentar: wird vom Computer \textbf{ignoriert}, ist für Menschen \textbf{nützlich}};
+	\end{tikzpicture}
+
+	\pause
+
+	\vspace{1.8cm}
+	\hskip .8cm
+	\begin{minipage}[b]{0.4\textwidth}
+		\begin{tikzpicture}
+			\draw [decorate,decoration={mirror,brace,amplitude=6pt}]
+			(0,0.5) -- (1,0.5) node [black,midway,yshift=-15pt] {Befehl};
+		\end{tikzpicture}
+	\end{minipage}
+	\pause
+	\hskip -3.8cm
+	\begin{minipage}[b]{0.4\textwidth}
+		\begin{tikzpicture}
+			\draw [decorate,decoration={mirror,brace,amplitude=6pt}]
+			(1.1,0.5) -- (3.35,0.5) node [black,midway,yshift=-15pt] {Text};
+		\end{tikzpicture}
+	\end{minipage}
+
+	\pause
+	\vspace{0.25cm}
+	\begin{block}{Wichtig}
+		\begin{itemize}
+			\item Text muss in \pythoninline{" "} oder in \pythoninline{' '} stehen
+			\item Verwende \textbf{aussagekräftige} Kommentare \footnotesize (dein späteres Ich wird dir danken)!
+		\end{itemize}
+	\end{block}
+	\note{
+		" und ' stehen nicht für Auslassungszeichen (Kopiere den Text von der Zeile oberhalb), sondern stehen für wörtliche Rede.
+	}
+\end{frame}
+
+
+\subsection{Textausgabe}
+\begin{frame}
+	% Beispiel wie kleinkariert man mit diesem Computer reden muss - unintuitiv für Menschen, dass man nicht einfach "Enter" drücken kann, sondern so kyptisch "\n" schreiben muss
+	\slidehead
+	\begin{itemize}
+		\item Mithilfe des Befehls \pythoninline{print()} kann Text auf der Konsole ausgeben werden
+	\end{itemize}
+	\begin{columns}
+		\begin{column}{6cm}
+			\pythonfile{listings/print_Listing.py}
+		\end{column}
+		\begin{column}{6cm}
+			\pythonfile{listings/printSingleLine_Listing.py}
+		\end{column}
+	\end{columns}
+	\vspace{0.25cm}
+	\begin{block}{Merke}
+		\pythoninline{print()} erzeugt einen Zeilenumbruch nach der Ausgabe
+	\end{block}
+\end{frame}
+
+\subsection{Steuerzeichen}
+\begin{frame}
+	\slidehead
+
+	\begin{table}[htbp]
+		\begin{tabular}{|l|l|}
+			\hline
+			\textbf{Symbol} & \textbf{Wirkung} \\ \hline
+			$\backslash$n & Zeilenumbruch \\ \hline
+			$\backslash$\" & Doppeltes Anführungszeichen  (nur in \pythoninline{" "} nötig) \\ \hline
+			$\backslash$' & Einfaches Anführungszeichen (nur in \pythoninline{' '} nötig) \\ \hline
+			$\backslash \backslash$ & Backslash \\ \hline
+		\end{tabular}
+		\label{}
+	\end{table}
+
+	\pythonfile{listings/Steuerzeichen_Listing.py}
+\end{frame}
+
+\section{Vom Quelltext zum fertigen Programm}
+\begin{frame}
+	\slidehead
+
+	\begin{columns}[T]
+		\begin{column}{.4\textwidth}
+			\begin{tikzpicture}
+				\node[] (mensch) at (0,0) {\includegraphics[height=1.3cm]{media/wesen_notebook.png}};
+
+				\node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (file) at (0,-1.8) {helloworld.py};
+				\draw[->,line width=.6mm] (mensch.south) -- (file.north);
+
+				\node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (python) at (0,-4) {\texttt{python3 helloworld.py}};
+				\draw[->,line width=.6mm] (file.south) -- (python.north);
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{.6\textwidth}
+			\begin{itemize}
+				\item Ausführen: \texttt{python3 dateiName.py}
+				\item Python-Programme laufen überall, wo Python installiert ist
+			\end{itemize}
+			\vspace{2cm}
+			\begin{block}{Hinweis}
+				Python-Quelltext mit der Dateiendung \texttt{.py} kennzeichnen und sinnvoll benennen! Leerzeichen sind problematisch.
+			\end{block}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\section{Ein Python-Programm schreiben}
+\begin{frame}
+	\slidehead
+
+	\begin{center}
+		\vskip -10 pt
+		\includegraphics[scale=0.25]{HelloWorldImEditor}
+	\end{center}
+
+	\begin{itemize}
+		\item Programm wird in einem herkömmlichen Editor geschrieben
+		\item Poolraumrechner: \texttt{gedit}, \texttt{atom}, \texttt{kate}
+	\end{itemize}
+	\begin{alertblock}{Wichtig}
+		Verwendet keine Textverarbeitung wie LibreOffice, Pages oder MS Word!
+	\end{alertblock}
+\end{frame}
+
+\section{Ein Python-Programm ausführen}
+\begin{frame}[fragile]
+	\slidehead
+	\begin{bashcode}
+		$ python3 helloworld.py
+		Hello World!
+		$
+	\end{bashcode}
+
+	\begin{itemize}
+		\item Programm mit \texttt{python3 dateiName.py} starten
+	\end{itemize}
+\end{frame}
+
+\subsection{Interaktiver Interpreter}
+\begin{frame}[fragile]
+	\slidehead
+
+	\begin{bashcode}
+		$ python3
+		|\texttt{Python 3.7.0 (default, Jul 15 2018, 10:44:58)}|
+		|\texttt{[GCC 8.1.1 20180531] on linux}|
+		|\texttt{Type {\ditto}help{\ditto}, {\ditto}copyright{\ditto}, {\ditto}credits{\ditto} or {\ditto}license{\ditto} for more information.}|
+		>>> print("Hello World!")
+		Hello World!
+		>>>
+	\end{bashcode}
+
+	\vskip -.5em
+
+	\begin{itemize}
+		\item Der Python-Interpreter hat einen interaktiven Modus
+		\item Dieser kann mit dem Konsolenbefehl \texttt{python3} gestartet werden
+		\item Anschließend können Python-Befehle eingegeben werden
+		\item[]  %leerzeile
+		\item \textbf{Strg+D} (außer Windows) oder der Befehl \pythoninline{quit()} beendet den Interpreter wieder
+	\end{itemize}
+\end{frame}
+
+\subsection{}
+
+
+\nextvid{Fehler}{Beispiel: Hello World}
+
+\end{document}
