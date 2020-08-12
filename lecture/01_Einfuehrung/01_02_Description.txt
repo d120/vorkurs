@@ -1,0 +1,5 @@
+Dieses Video zeigt, wie ihr euer erstes Program schreiben könnt und wie es funktioniert.
+Das Program gibt dabei den text "Hallo Welt" and das Terminal aus.
+
+Bildquellen:
+https://xkcd.com/353/ (Python comic)

@@ -1,0 +1,9 @@
+[PUT VIDEO DESCRIPTION HERE]
+
+Nächstes Video: [PUT LINK HERE]
+Playlist: [PUT LINK HERE]
+
+Bei inhaltlichen Fragen, meldet euch gerne über das Moodle oder Discord.
+
+Bei generellen Fragen, Verbesserungsvorschlägen, Feedback und ähnlichem, könnt ihr uns unter Vorkurs@d120.de erreichen.
+Alle Folien findet ihr auf Github unter https://github.com/d120/vorkurs/

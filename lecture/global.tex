@@ -60,6 +60,30 @@
 \newcommand{\slidehead}{\frametitle{\insertsectionhead} \framesubtitle{\insertsubsectionhead}\vspace{3mm}}
 \newcommand{\tocslide}{\begin{frame}[t]\frametitle{Inhaltsverzeichnis}\vspace{3mm}{\small\tableofcontents[subsectionstyle=shaded]}\end{frame}}
 
+\newcommand{\nextvid}[2]{
+	\section{Nächstes Video}
+	\begin{frame}[t]
+		\slidehead
+		\begin{block}{Nächstes Video}
+			\vspace{0.5cm}
+			#1
+			\vspace{0.5cm}
+		\end{block}
+		\ifx\hfuzz#2\hfuzz
+			\vspace{2.5cm}
+		\else
+			{\begin{block}{Bonus Video}
+				\vspace{0.5cm}
+				#2
+				\vspace{0.5cm}
+			\end{block}}
+		\fi
+		Danke fürs Zuschauen!\\
+		Links zu den Folien und Quellen sind in der Videobeschreibung.
+	\end{frame}
+}
+
+
 
 % colors
 \definecolor{lightpetrol}{RGB}{0,223,194}
