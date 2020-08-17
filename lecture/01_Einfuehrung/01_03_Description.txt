@@ -1,4 +1,3 @@
-In diesem Video erfahrt ihr welche arten von Fehlern es beim Programmieren geben kann, wie ihr sie versteht und wie ihr mit ihnen umgeht.
-
+In diesem Video wird erklärt, was Datentypen sind, welche es gibt und warum es wichtig ist das zu wissen.
 Bildquellen:
 https://xkcd.com/979/
