@@ -1,0 +1,4 @@
+In diesem Video erfahrt ihr welche arten von Fehlern es beim Programmieren geben kann, wie ihr sie versteht und wie ihr mit ihnen umgeht.
+
+Bildquellen:
+https://xkcd.com/74/

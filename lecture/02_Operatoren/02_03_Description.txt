@@ -1,0 +1,1 @@
+Dieses Video erklärt, was Zeichenketten (auch Strings genannt) sind und wie ihr sie in python verwendet.
