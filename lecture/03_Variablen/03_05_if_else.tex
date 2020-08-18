@@ -1,0 +1,77 @@
+% !TeX document-id = {dc20ae76-71b7-4d65-b662-f71c46d32e15}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\input{../global.tex}
+
+\begin{document}
+
+\section{If-Anweisung}
+\subsection{Else-Klausel}
+\titlegraphic{
+	\begin{columns}
+		\begin{column}{4cm}
+			\vspace{2cm}
+			\begin{center}
+				{\huge Else-Klausel}
+			\end{center}
+		\end{column}
+		\begin{column}{4cm}
+			\vspace{5mm}
+			\begin{figure}
+				\centering
+			\includegraphics[scale=.35]{media/conditionals.png}
+				\\	\sffamily \tiny Bild: \href{https://xkcd.com/1652/}{https://xkcd.com/1652/}
+			\end{figure}
+		\end{column}
+	\end{columns}}
+\maketitle
+
+
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item Oft müssen zwei Fälle unterschieden werden:
+		\vspace{0.58cm}
+		\pythonfile{listings/if_if.py}
+		\item Dafür gibt es eine Kurzschreibweise
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\slidehead
+
+	\begin{itemize}
+		\item \pythoninline{else} bezeichnet einen \textit{alternativ auszuführenden Teil} des Codes
+		\item Übersetzung: "`Wenn \textbf{DAS} zutrifft, mache \textbf{DIESES}; falls nicht, mache \textbf{JENES}"'
+		\pythonfile{listings/if_bsp2_listing.py}
+	\end{itemize}
+
+	\begin{block}{Frage}
+		Was bringen Kurzschreibweisen wie z.B. \pythoninline{else} überhaupt?
+	\end{block}
+\end{frame}
+
+\subsection{Elif-Klausel}
+
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item Manchmal gibt es mehr als zwei Fälle:
+		\pythonfile{listings/if_if_if.py}
+		\item Auch dafür gibt es eine Kurzschreibweise
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\slidehead
+
+	\begin{itemize}
+		\item Mit \pythoninline{elif} können mehrere If-Anweisungen aneinandergereiht werden
+		\item Es handelt sich um ein \pythoninline{else} gefolgt von einem \pythoninline{if}
+		\item Weitere Elif-Klauseln werden nur dann überprüft, wenn alle vorherigen Klauseln nicht eingetreten sind.
+		\pythonfile{listings/if_else_if_example.py}
+	\end{itemize}
+\end{frame}
+
+\nextvid{Logische Operatoren}{if und elif Beispiele}
+
+\end{document}

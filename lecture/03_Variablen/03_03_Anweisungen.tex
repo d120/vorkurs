@@ -1,0 +1,77 @@
+% !TeX document-id = {dc20ae76-71b7-4d65-b662-f71c46d32e15}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\input{../global.tex}
+
+\begin{document}
+
+
+\subtitle{Kabitel 3: Daten Zwischenspeichern}
+\titlegraphic{
+	\begin{columns}
+		\begin{column}{10cm}
+			\begin{center}
+				{\huge Anweisungen und Ausdrücke}
+			\end{center}
+			\vspace{-2mm}
+			\begin{figure}
+				\centering
+			\includegraphics[scale=.35]{media/sandwich.png}
+				\\	\sffamily \tiny Bild: \href{https://xkcd.com/149/}{https://xkcd.com/149/}
+			\end{figure}
+		\end{column}
+	\end{columns}}
+\maketitle
+%\begin{frame}
+%	\vspace{2cm}
+%	\begin{center}
+%		\huge Anweisungen und Ausdrücke
+%	\end{center}
+%\end{frame}
+
+
+\section{Anweisungen und Ausdrücke}
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item \textbf{Anweisungen} führen etwas aus
+		\item \textbf{Ausdrücke} werten zu einem \textit{Wert} aus
+	\end{itemize}
+	\pause
+	\pythonfile{listings/Anweisung_Listing.py}
+	\begin{itemize}
+		\item Jede oben gezeigte Zeile enthält \textit{eine Anweisung}
+		\item $1 + 42 + 5$ ist \textit{ein Ausdruck}
+		\pause
+		\item Auch die Zahl $1$ ist hier ein Ausdruck, der zu dem Wert $1$ ausgewertet wird
+		\item Das gilt in Zeile 2 auch für den String
+	\end{itemize}
+
+\end{frame}
+
+
+
+
+\subsection{Zusammengesetze Operatoren}
+\begin{frame}
+	\slidehead
+
+	\begin{itemize}
+		\item Häufig werden Variablen gelesen und gleichzeitig geschrieben
+	\end{itemize}
+
+	\pythonfile{listings/Zusammengesetzeoperatoren_Listing.py}
+
+	\begin{itemize}
+		\item Es gibt noch weitere:
+		\begin{itemize}
+			\item $-=$
+			\item $*=$
+			\item $/=$
+			\item $\%=$
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\nextvid{If-Anweisung}{Anweisungen und Ausdrücke Beispiel}
+
+\end{document}
