@@ -1,0 +1,52 @@
+% !TeX document-id = {dc20ae76-71b7-4d65-b662-f71c46d32e15}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\input{../global.tex}
+
+\begin{document}
+
+\section{Logische Operatoren}
+\titlegraphic{
+	\begin{columns}
+		\begin{column}{4cm}
+			\vspace{1.5cm}
+			\begin{center}
+				{\huge Logische Operatoren}
+			\end{center}
+		\end{column}
+		\begin{column}{4cm}
+			\vspace{-4mm}
+			\begin{figure}
+				\centering
+			\includegraphics[scale=.2]{media/logic_boat.png}
+				\\	\sffamily \tiny Bild: \href{https://xkcd.com/1134/}{https://xkcd.com/1134/}
+			\end{figure}
+		\end{column}
+	\end{columns}}
+\maketitle
+
+\begin{frame}
+	\slidehead
+	\vspace{-0.1cm}
+	\begin{itemize}
+		\item Logisches \textbf{Nicht} (\pythoninline{not})  $\Rightarrow$ \pythoninline{not Ausdruck1}
+		\item Logisches \textbf{Und} (\pythoninline{and}) $\Rightarrow$ \pythoninline{Ausdruck1 and Ausdruck2}
+		\item Logisches \textbf{Oder} (\pythoninline{or})  $\Rightarrow$ \pythoninline{Ausdruck1 or Ausdruck2}
+	\end{itemize}
+	\vspace{-0.15cm}
+	\begin{block}{Beispiel:}
+		\pythonfile{listings/logische_operatoren_listing.py}
+	\end{block}
+	\vspace{-0.15cm}
+	\begin{block}{Hinweis}
+		\begin{itemize}
+			\item Auswertung in der Reihenfolge \pythoninline{not}, \pythoninline{and} und dann \pythoninline{or}
+			\item Reihenfolge immer beachten! Klammern setzen falls nötig!
+		\end{itemize}
+
+
+	\end{block}
+\end{frame}
+
+\nextvid{TODO}{}
+
+\end{document}
