@@ -1,0 +1,87 @@
+% !TeX document-id = {ce0a7a56-eb5e-4d6d-848f-46fb4968468e}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\input{../global.tex}
+
+\begin{document}
+
+%Deckblatt
+\subtitle{Kapitel 5: ganz viele variablen in einer}
+\titlegraphic{
+	\begin{columns}
+		\begin{column}{4cm}
+			\vspace{1.5cm}
+			\begin{center}
+				{\huge Slicing}
+			\end{center}
+		\end{column}
+		\begin{column}{4cm}
+		\vspace{-5mm}
+			\begin{figure}
+				\centering
+				%\includegraphics[scale=.28]{media/ineffective_sorts.png}
+				%\\	\sffamily \tiny Bild: \href{https://xkcd.com/1185/}{https://xkcd.com/1185/}
+			\end{figure}
+		\end{column}
+	\end{columns}}
+\subtitle{Listen}
+\maketitle
+
+\section{Listen-Slicing}
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item Listen können mittels Slicing zugeschnitten werden
+		\pause
+		\item Dazu wird \textbf{[a:b]} hinter die Liste geschrieben
+		\item Dabei ist \textbf{a} der Anfangsindex, und \textbf{b} der Endindex
+		\pause
+		\item Wichtig: Der Wert an Stelle \textbf{b} wird nicht mit kopiert
+		\item Dies funktioniert auch mit Strings!
+	\end{itemize}
+	\pause
+
+	\begin{block}{Beispiel:}
+		\only<4>{\pythonfile{listings/simpleSlice_no_solution.py}}
+		\only<5>{\pythonfile{listings/simpleSlice.py}}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item Es ist möglich einen oder beide der Parameter wegzulassen
+		\pause
+		\item \textbf{[a:]} gibt alle Elemente ab \textbf{a} zurück
+		\pause
+		\item \textbf{[:b]} gibt alle Elemente bis (exklusive) \textbf{b} zurück
+		\pause
+		\item \textbf{[:]} gibt alle Elemente zurück
+	\end{itemize}
+	\pause
+	\vspace{-0.1cm}
+	\begin{block}{Beispiel:}
+		\only<5>{\pythonfile{listings/partlySlice_no_solution.py}}
+		\only<6>{\pythonfile{listings/partlySlice.py}}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item Es ist auch möglich in einem Intervall zu slicen
+		\pause
+		\item Dazu wird ein dritter Parameter hinzugefügt: \textbf{[a:b:c]} gibt von \textbf{a} bis (exklusive) \textbf{b} jedes \textbf{c}-te Element aus
+		\pause
+		\item \textbf{[::-1]} gibt die Liste in umgekehrter Reihenfolge aus
+	\end{itemize}
+	\pause
+	\vspace{-0.1cm}
+	\begin{block}{Beispiel:}
+		\only<4>{\pythonfile{listings/intervalSlice_no_solution.py}}
+		\only<5>{\pythonfile{listings/intervalSlice.py}}
+	\end{block}
+\end{frame}
+
+\nextvid{Foreach-Schleifen}{Slicing Beispiele}
+
+\end{document}
