@@ -1,0 +1,37 @@
+% !TeX document-id = {ce0a7a56-eb5e-4d6d-848f-46fb4968468e}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\input{../global.tex}
+
+\begin{document}
+
+%Deckblatt
+\subtitle{Kapitel 5: ganz viele variablen in einer}
+\titlegraphic{
+	\begin{columns}
+		\begin{column}{10cm}
+			\vspace{1.5cm}
+			\begin{center}
+				{\huge Foreach-Schleifen}
+			\end{center}
+		\end{column}
+	\end{columns}}
+\subtitle{Listen}
+\maketitle
+
+\section{For- vs. Foreach-Schleife}
+\begin{frame}
+	\slidehead
+
+	\begin{itemize}
+		\item Häufig soll nur durch eine Liste iteriert werden:
+		\pythonfile{listings/foreach_Listing2.py}
+		\pause
+
+		\item Deshalb Foreach-Schleife:
+		\pythonfile{listings/foreach_Listing.py}
+	\end{itemize}
+\end{frame}
+
+\nextvid{Listen kopieren}{Foreach Beispiel}
+
+\end{document}

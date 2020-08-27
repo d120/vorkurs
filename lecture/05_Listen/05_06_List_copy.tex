@@ -1,0 +1,94 @@
+% !TeX document-id = {ce0a7a56-eb5e-4d6d-848f-46fb4968468e}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\input{../global.tex}
+
+\begin{document}
+
+
+%Deckblatt
+\subtitle{Kapitel 5: ganz viele variablen in einer}
+\titlegraphic{
+	\begin{columns}
+		\begin{column}{4cm}
+			\vspace{1.5cm}
+			\begin{center}
+				{\huge Listen Kopieren}
+			\end{center}
+		\end{column}
+		\begin{column}{4cm}
+		\vspace{-5mm}
+			\begin{figure}
+				\centering
+				%\includegraphics[scale=.28]{media/ineffective_sorts.png}
+				%\\	\sffamily \tiny Bild: \href{https://xkcd.com/1185/}{https://xkcd.com/1185/}
+			\end{figure}
+		\end{column}
+	\end{columns}}
+\subtitle{Listen}
+\maketitle
+
+\section{Listen kopieren}
+\begin{frame}
+	\slidehead
+	\pythonfile{listings/listcopy1.py}
+\end{frame}
+
+
+\subsection{Analyse}
+\begin{frame}
+	\slidehead
+	\vspace{2ex}
+	\centering
+	\begin{tikzpicture}
+		\node[draw, thick] at (-1,0) {\pythoninline{meineListe}};
+		\node[draw, thick] at (1,0) {\pythoninline{kopie}};
+
+		\node[draw, thick, fill=lightpetrol] at (0,2) {Speicherbereich};
+
+		\draw [->, ultra thick] (-1, 0.3) -- (-0.1,1.7);
+		\draw [->, ultra thick] (1, 0.3) -- (0.1,1.7);
+	\end{tikzpicture}
+
+	\vspace{2ex}
+	\begin{itemize}
+		\item Bei der Zuweisung mit \textbf{=} wurde nur die Zieladresse
+		kopiert
+		\item Deshalb wird die gleiche Liste referenziert
+		\item Eine Änderung von \pythoninline{kopie} bewirkt eine Änderung in \pythoninline{meineListe} (und umgekehrt)
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\slidehead
+	\pythonfile{listings/listcopy2.py}
+\end{frame}
+
+\subsection*{Analyse}
+\begin{frame}
+	\slidehead
+
+	\vspace{2ex}
+	\centering
+	\begin{tikzpicture}
+		\node[draw, thick] at (-2,0) {\pythoninline{meineListe}};
+		\node[draw, thick] at (2,0) {\pythoninline{kopie}};
+
+
+		\node[draw, thick, fill=lightpetrol] at (-2,2) {Speicherbereich};
+
+		\node[draw, thick, fill=lightpetrol] at (2,2) {Speicherbereich 2};
+
+		\draw [->, ultra thick] (-2, 0.25) -- (-2,1.75);
+		\draw [->, ultra thick] (2, 0.25)  -- (2,1.75);
+	\end{tikzpicture}
+	\vspace{2ex}
+
+	\begin{itemize}
+		\item \pythoninline{kopie} liegt nun in einem neuen, unabhängigen Speicherbereich
+	\end{itemize}
+\end{frame}
+
+\nextvid{Mehrdimensionale Listen}{Listen kopieren Beispiel}
+
+\end{document}
