@@ -1,0 +1,62 @@
+% !TeX document-id = {3bcfab70-4d4f-4fac-ba3e-b78564f2abde}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\input{../global.tex}
+
+\begin{document}
+
+%Deckblatt
+\section{While-Schleife}
+\subtitle{Kapitel 4: Befehle wiederholen}
+\titlegraphic{
+	\begin{columns}
+		\begin{column}{4cm}
+			\vspace{1.5cm}
+			\begin{center}
+				{\huge While-Schleife}
+			\end{center}
+		\end{column}
+		\begin{column}{4cm}
+		\vspace{2mm}
+			\begin{figure}
+				\centering
+			\includegraphics[scale=.4]{media/loop.png}
+				\\	\sffamily \tiny Bild: \href{https://xkcd.com/1411/}{https://xkcd.com/1411/}
+			\end{figure}
+		\end{column}
+	\end{columns}}
+\maketitle
+
+
+\begin{frame}
+	\slidehead
+
+	\begin{itemize}
+		 \item Syntax:
+			\pythonfile{listings/while.txt}
+		 \item Solange die Bedingung zu \pythoninline{True} ausgewertet wird, werden Anweisungen wiederholt
+		 \item Zeile 1 wird Schleifenkopf genannt
+		 \item Zeile 2 und folgende werden Schleifenkörper genannt
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{itemize}
+		\item Alle logischen Operatoren können verwendet werden:
+		\pythonfile{listings/while_Listing2.py}
+	\end{itemize}
+\end{frame}
+
+\subsection{Continue und break}
+\begin{frame}
+	\slidehead
+
+	\begin{itemize}
+		\item \pythoninline{continue} springt zum Anfang der Schleife
+		\item \pythoninline{break} bricht die Schleife komplett ab
+	\end{itemize}
+	\pythonfile{listings/continueBreak.py}
+\end{frame}
+
+\nextvid{For-Schleife}{While-Schleife Beispiel}
+
+\end{document}
