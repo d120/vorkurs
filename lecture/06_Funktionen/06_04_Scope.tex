@@ -1,0 +1,62 @@
+% !TeX document-id = {d2a98428-ee0e-4def-9f4b-378c042e42ba}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\input{../global.tex}
+
+
+\begin{document}
+%Deckblatt
+\subtitle{Kapitel 6: wie Funktionen funktionieren}
+\titlegraphic{
+	\begin{columns}
+		\begin{column}{4cm}
+			\vspace{1.5cm}
+			\begin{center}
+				{\huge Scope}
+			\end{center}
+		\end{column}
+		\begin{column}{4cm}
+		\vspace{-5mm}
+			\begin{figure}
+				\centering
+				%\includegraphics[scale=.28]{media/ineffective_sorts.png}
+				%\\	\sffamily \tiny Bild: \href{https://xkcd.com/1185/}{https://xkcd.com/1185/}
+			\end{figure}
+		\end{column}
+	\end{columns}}
+\maketitle
+
+\section{Scope}
+\subsection{Lokale Variablen}
+\begin{frame}
+	\slidehead
+	\pythonfile{listings/scope_1.py}
+	\pause
+	\pythonfile{listings/scope_error_1.txt}
+	\begin{block}{Hinweis:}
+		Variablen, die innerhalb einer Funktion erstellt werden, werden gelöscht, sobald die Funktion endet.
+		Diese Variablen heißen \textbf{lokale Variablen}.
+	\end{block}
+\end{frame}
+
+\subsection{Globale Variablen}
+\begin{frame}
+	\slidehead
+	\pythonfile{listings/scope_2.py}
+	\begin{itemize}
+		\item Variablen die außerhalb von Funktionen erstellt wurden, werden als \textbf{globale Variablen} bezeichnet
+		\item Auf globale Variablen kann auch in Funktionen zugegriffen werden
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\slidehead
+	\pythonfile{listings/scope_3.py}
+	\begin{itemize}
+		\item Die globale Variable \pythoninline{zahl} bleibt unverändert
+		\item Es wird eine lokale Variable mit dem \textit{gleichen} Namen erstellt
+	\end{itemize}
+\end{frame}
+
+\nextvid{Rekursion}{Scope Beispiele}
+
+\end{document}

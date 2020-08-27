@@ -1,6 +1,6 @@
 TOPTARGETS := all clean
 PDFLATEX_FLAGS := -shell-escape
-PDFLATEX_PREAMBLE := 
+PDFLATEX_PREAMBLE :=
 PDFLATEX := pdflatex $(PDFLATEX_FLAGS)
 COMPILE_PRINT := \e[1;32mCompiling$<\e[0m
 OUT_DIR := pdfout/
@@ -35,7 +35,7 @@ define recurse_cp
 endef
 
 # more specific rule for recursive slides that overwrites generic above
-06_Funktionen/06_Funktionen.tex:
+06_Funktionen/06_05_Rekursion.tex:
 	$(eval DIR := $(dir $@))
 	$(eval FILE := $(notdir $@))
 	@echo -e "$(COMPILE_PRINT) $(FILE)"
