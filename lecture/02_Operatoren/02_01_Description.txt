@@ -2,3 +2,6 @@ In diesem Video erfahrt ihr welche arten von Fehlern es beim Programmieren geben
 
 Bildquellen:
 https://xkcd.com/74/
+
+Alle Folien gibt es hier:
+https://github.com/d120/vorkurs/releases

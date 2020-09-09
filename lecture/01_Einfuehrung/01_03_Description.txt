@@ -1,3 +1,7 @@
 In diesem Video wird erklärt, was Datentypen sind, welche es gibt und warum es wichtig ist das zu wissen.
+
 Bildquellen:
 https://xkcd.com/979/
+
+Alle Folien gibt es hier:
+https://github.com/d120/vorkurs/releases

@@ -1,0 +1,7 @@
+Dieses Video erklärt, wie es möglich ist, einem Program eingaben über die Konsole zu geben.
+
+Bildquellen:
+https://xkcd.com/838/
+
+Alle Folien gibt es hier:
+https://github.com/d120/vorkurs/releases

@@ -1,0 +1,7 @@
+Dieses Video erklärt was Schleifen sind und wann es sinnvoll ist sie zu verwenden.
+
+Bildquellen:
+https://xkcd.com/1195/
+
+Alle Folien gibt es hier:
+https://github.com/d120/vorkurs/releases

@@ -1,0 +1,7 @@
+Dieses Video erklärt While-Schleifen.
+
+Bildquellen:
+https://xkcd.com/1411/
+
+Alle Folien gibt es hier:
+https://github.com/d120/vorkurs/releases

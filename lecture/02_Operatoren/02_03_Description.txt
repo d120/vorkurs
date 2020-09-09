@@ -1,1 +1,7 @@
 Dieses Video erklärt, was Zeichenketten (auch Strings genannt) sind und wie ihr sie in python verwendet.
+
+Bildquellen:
+https://xkcd.com/815/
+
+Alle Folien gibt es hier:
+https://github.com/d120/vorkurs/releases

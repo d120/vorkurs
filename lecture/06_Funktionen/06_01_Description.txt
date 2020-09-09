@@ -1,0 +1,7 @@
+Dieses Video zeigt wozu Funktionen gut sind.
+
+Bildquellen:
+https://xkcd.com/1724/
+
+Alle Folien gibt es hier:
+https://github.com/d120/vorkurs/releases

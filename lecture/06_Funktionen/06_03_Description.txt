@@ -1,0 +1,4 @@
+Dieses Video zeigt Anwendungsfälle für Funktionen anhand von einigen Beispielen.
+
+Alle Folien gibt es hier:
+https://github.com/d120/vorkurs/releases
