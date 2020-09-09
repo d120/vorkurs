@@ -1,0 +1,4 @@
+Dieses Video zeigen wir einige Funktionen die im Umgang mit Listen nützlich sind.
+
+Alle Folien gibt es hier:
+https://github.com/d120/vorkurs/releases

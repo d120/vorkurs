@@ -3,3 +3,6 @@ Das Program gibt dabei den text "Hallo Welt" and das Terminal aus.
 
 Bildquellen:
 https://xkcd.com/353/ (Python comic)
+
+Alle Folien gibt es hier:
+https://github.com/d120/vorkurs/releases

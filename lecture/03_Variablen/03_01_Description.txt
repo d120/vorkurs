@@ -1,0 +1,7 @@
+Dieses Video erklärt, was Variablen sind und wie ihr sie in python verwendet.
+
+Bildquellen:
+https://xkcd.com/2309/
+
+Alle Folien gibt es hier:
+https://github.com/d120/vorkurs/releases

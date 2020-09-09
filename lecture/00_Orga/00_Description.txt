@@ -1,0 +1,13 @@
+Dieses Video enthält organisatorische Informationen zum Programmiervorkurs der Fachschaft Informatik der TU Darmstadt.
+
+Wir empfehlen, an den Live streams teil zu nehmen, sollte dies jedoch nicht möglich sein, könnt ihr dieses Video verwenden.
+
+Alle wichtigen Informationen findet ihr unter https://www.d120.de/vorkurs
+
+Moodle: https://moodle.informatik.tu-darmstadt.de
+
+Discord:
+https://discord.com/
+
+Alle Folien gibt es hier:
+https://github.com/d120/vorkurs/releases

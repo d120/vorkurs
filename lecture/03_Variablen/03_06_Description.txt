@@ -1,0 +1,7 @@
+Dieses Video erklärt Logische Operatoren, die unter anderem in If Anweisungen verwendet werden können.
+
+Bildquellen:
+https://xkcd.com/1134/
+
+Alle Folien gibt es hier:
+https://github.com/d120/vorkurs/releases
