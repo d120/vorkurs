@@ -1,4 +1,4 @@
-Dieses Video erklärt, Scope im context von Variablen bedeutet.
+Dieses Video erklärt, was Scope im Kontext von Variablen bedeutet.
 
 Alle Folien gibt es hier:
 https://github.com/d120/vorkurs/releases
