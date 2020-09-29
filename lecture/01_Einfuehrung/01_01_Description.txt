@@ -5,4 +5,4 @@ https://xkcd.com/1513/ (Code Quality comic)
 https://xkcd.com/844/ (Good Code comic)
 
 Alle Folien gibt es hier:
-https://github.com/d120/vorkurs/releases
+https://github.com/d120/vorkurs/releases/latest

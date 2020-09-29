@@ -1,4 +1,4 @@
-Dieses Video erklärt Foreach-Schleifen und wie sie mit Listen verwendet werden können.
+Dieses Video zeigt wie Listen kopiert werden können und warum es nicht genau so funktioniert wie bei anderen Datentypen.
 
 Alle Folien gibt es hier:
-https://github.com/d120/vorkurs/releases
+https://github.com/d120/vorkurs/releases/latest

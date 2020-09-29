@@ -1,4 +1,4 @@
-Dieses Video zeigt wie Listen kopiert werden können und warum es nicht genau so funktioniert wie bei anderen Datentypen.
+Dieses Video wie Mehrdimensionale Listen erzeugt werden können und wie mit ihnen umzugehen ist.
 
 Alle Folien gibt es hier:
 https://github.com/d120/vorkurs/releases

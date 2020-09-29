@@ -4,4 +4,4 @@ Bildquellen:
 https://xkcd.com/815/
 
 Alle Folien gibt es hier:
-https://github.com/d120/vorkurs/releases
+https://github.com/d120/vorkurs/releases/latest
