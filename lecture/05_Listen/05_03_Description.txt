@@ -1,4 +1,4 @@
 Dieses Video erklärt wie es möglich ist listen zu zerschneiden (slicing).
 
 Alle Folien gibt es hier:
-https://github.com/d120/vorkurs/releases
+https://github.com/d120/vorkurs/releases/latest

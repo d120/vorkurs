@@ -1,4 +1,0 @@
-Dieses Video wie Mehrdimensionale Listen erzeugt werden können und wie mit ihnen umzugehen ist.
-
-Alle Folien gibt es hier:
-https://github.com/d120/vorkurs/releases
