@@ -1,6 +1,14 @@
 Dieses Video zeigt, wie ihr euer erstes Program schreiben könnt und wie es funktioniert.
 Das Program gibt dabei den text "Hallo Welt" an das Terminal aus.
 
+Links zu kollaborativen Editoren:
+  Atom Plugin:
+  https://teletype.atom.io/
+
+  Online Editoren:
+  https://codecollab.io/
+  https://repl.it/
+
 Bildquellen:
 https://xkcd.com/353/ (Python comic)
 
