@@ -1,4 +1,3 @@
-
 def summe(werte):
     summe = 0
     for n in werte:

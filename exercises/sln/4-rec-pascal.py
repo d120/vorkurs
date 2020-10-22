@@ -1,4 +1,3 @@
-
 def pascal(row, column):
     if row < 0 or column > row:
         return -1

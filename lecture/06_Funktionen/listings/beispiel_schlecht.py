@@ -1,4 +1,3 @@
-
 print("Hallo Georgia Lubin")
 print("Schoen geschlafen?")
 print("Ich habe gut geschlafen.")
