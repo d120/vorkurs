@@ -1,4 +1,3 @@
-
 def stepwiseDivision(dividend, divisor):
     quotient = str(dividend // divisor)
     remainder = dividend % divisor
@@ -11,7 +10,7 @@ def stepwiseDivision(dividend, divisor):
         decimals += str(remainder * 10 // divisor)
         remainder = remainder * 10 % divisor
         position += 1
-    return "{0},{1}".format(quotient, decimals)
+    return f"{quotient},{decimals}"
 
 
 dividend = int(input("Dividend: "))

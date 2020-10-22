@@ -5,6 +5,11 @@ Im Rahmen der Vorlesung hast du die Funktion \texttt{input} kennengelernt, welch
 	\item dein Geburtsdatum als drei ganze Zahlen: Tag, Monat, Jahr
 \end {itemize}
 Insgesamt sollen also vier Eingaben verarbeiten werden. Achte dabei darauf, dass dein Programm die erwarteten Eingaben textuell klar strukturiert (Stichwort: Bedienerfreundlichkeit).\\Nachdem die letzte Eingabe verarbeitet ist, soll folgende Zeichenkette ausgegeben werden (wobei natürlich die Platzhalter zu ersetzen sind):\\Ausgabe: {\ttfamily{\dq}}<dein Name> hat am <tt.mm.jjjj> Geburtstag.{\ttfamily{\dq}}
-\\\textit{Hinweis: Die Verarbeitung von Eingaben wird im Foliensatz 'Variablen.pdf' erläutert.}
-\\\textit{Hinweis: Variablen sollten in Strings nicht mit '+' eingefügt werden, stattdessen an die entsprechenden Stellen im String \{0\}, \{1\}, ... einsetzen und dahinter .format(variable0, variable1, ...) eintragen. \\
-Beispiel: "\{0\} ist kleiner \{1\}".format(4, 42) ergibt "4 ist kleiner 42"}
+
+\textit{Hinweis:} Die Verarbeitung von Eingaben wird im Foliensatz 'Variablen.pdf' erläutert.
+
+\textit{Hinweis:} Variablen sollten in Strings nicht mit '\pythoninline{+}' eingefügt werden, stattdessen vor den String ein '\pythoninline{f}' setzen und an die entsprechenden Stellen im String \pythoninline{{variable0}}, \pythoninline{{variable1}}, ... einsetzen. \\
+Beispiel: \pythoninline{f"{variable0} ist kleiner {variable1}"} ergibt wenn variable0 = 4 und variable1 = 42 "4 ist kleiner 42"\\
+Alternativ kannst du die ältere format Methode verwenden. Dazu setzt du an die entsprechenden Stellen im String \pythoninline{{0}}, \pythoninline{{1}}, ... ein und trägst dahinter \pythoninline{.format(variable0, variable1, ...)} ein.\\
+Beispiel: \pythoninline{"{0} ist kleiner {1}".format(4, 42)} ergibt ebenfalls "4 ist kleiner 42"
+

@@ -7,6 +7,6 @@ for i in range(2, prim)
 		break
 
 if isPrim:
-	print("{0} ist eine Primzahl!".format(prim))
+	print("{prim} ist eine Primzahl!")
 else:
-	print("{0} ist keine Primzahl!".format(prim))
+	print("{prim} ist keine Primzahl!")
