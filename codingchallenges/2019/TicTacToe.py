@@ -79,7 +79,7 @@ print('Player Figure/Symbol/Character:')
 player = input()
 print('Computer Figure/Symbol/Character:')
 computer = input()
-print('Player is [%s] and computer is [%s]' % (player, computer))
+print(f'Player is [{player}] and computer is [{computer}]')
 result = '%%% Deuce ! %%%'
 
 current_player = computer
