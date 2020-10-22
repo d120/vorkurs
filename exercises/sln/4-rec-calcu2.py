@@ -1,4 +1,3 @@
-
 def plus(op1, op2):
     if op1 == 0:
         return op2

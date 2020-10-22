@@ -1,7 +1,7 @@
-prim = ...
-isPrim = True
+prime = ...
+is_prime = True
 # Hier Code einfügen
-if isPrim:
+if is_prime:
 	# Hier Code einfügen
 else:
 	# Hier Code einfügen

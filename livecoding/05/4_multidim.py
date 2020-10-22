@@ -1,8 +1,9 @@
 matrix = []
+
 for zeile in range(10):
     spaltenliste = []
     for spalte in range(10):
-        spaltenliste.append(spalte * reihe)
+        spaltenliste.append(spalte * zeile)
     matrix.append(spaltenliste)
 print(matrix)
 
@@ -11,7 +12,5 @@ for reihe in matrix:
     reihenstring = ""
     for spaltenelement in reihe:
         reihenstring += str(spaltenelement) + " "
-        
-    print(reihenstring)
 
-        
+    print(reihenstring)

@@ -7,6 +7,7 @@ def fakultaet(zahl):
     else:
         return zahl * fakultaet(zahl - 1)
 
+
 print(fakultaet(-1))
 print(fakultaet(0))
 print(fakultaet(1))
