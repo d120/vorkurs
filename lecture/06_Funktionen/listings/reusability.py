@@ -8,4 +8,4 @@ def kugel_oberfl(r, pi):
 
 # Oberfläche einer Halbkugel berechnen
 def hemisp_oberfl(r, h, pi):
-    return kugel_oberfl(r, h, pi) / 2 + kreis_flaeche(r, pi)
+    return kugel_oberfl(r, pi) / 2 + kreis_flaeche(r, pi)
