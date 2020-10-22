@@ -1,1 +1,1 @@
-"Text".upper() # TEXT
+"Text".upper()  # TEXT

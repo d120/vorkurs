@@ -1,5 +1,4 @@
-
-def stepwiseDivision(dividend, divisor):
+def stepwise_division(dividend, divisor):
     quotient = str(dividend // divisor)
     remainder = dividend % divisor
     if remainder == 0:
@@ -17,5 +16,5 @@ def stepwiseDivision(dividend, divisor):
 dividend = int(input("Dividend: "))
 divisor = int(input("Divisor: "))
 
-quotient = stepwiseDivision(dividend, divisor)
+quotient = stepwise_division(dividend, divisor)
 print("Quotient: " + quotient)

@@ -1,1 +1,1 @@
-"Bla".lower() # bla
+"Bla".lower()  # bla

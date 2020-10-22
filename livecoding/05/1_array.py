@@ -1,12 +1,12 @@
 vector1 = []
 print("vector1 Eingabe: ")
-for i in range(3):
+for _ in range(3):
     n = input("")
     vector1.append(int(n))
 
 vector2 = []
 print("vector2 Eingabe: ")
-for i in range(3):
+for _ in range(3):
     n = input("")
     vector2.append(int(n))
 

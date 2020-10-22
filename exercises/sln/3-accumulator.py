@@ -1,15 +1,15 @@
-lst = [1,2,3,4,5,6,7]
+list_ = [1, 2, 3, 4, 5, 6, 7]
 
-sum = 0
+sum_ = 0
 product = 1
 quadrate = []
 
-for l in lst:
-    sum += l
-    product *= l
-    quadrate.append(l * l)
+for item in list_:
+    sum_ += item
+    product *= item
+    quadrate.append(item * item)
 
-print(sum)
+print(sum_)
 print(product)
-print(sum / len(list) if lst else "Leere Liste!")
+print(sum_ / len(list) if list_ else "Leere Liste!")
 print(quadrate)

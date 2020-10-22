@@ -1,8 +1,10 @@
 def pi():
     return 3.141
 
+
 def quadrat(n):
     return n * n
+
 
 def antwort(frage):
     """

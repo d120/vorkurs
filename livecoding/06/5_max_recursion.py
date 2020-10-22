@@ -2,6 +2,7 @@
 def fn():
     fn()
 
+
 # 2. fakultaet aus 4_recursion.py
 def fakultaet(zahl):
     if zahl < 0:
@@ -11,6 +12,7 @@ def fakultaet(zahl):
         return 1
     else:
         return zahl * fakultaet(zahl - 1)
+
 
 # max recursion:
 print(fakultaet(1001))

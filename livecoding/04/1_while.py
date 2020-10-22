@@ -6,7 +6,7 @@ while not vorbei:
         vorbei = True
 
     print("Nicht vorbei!")
-    
+
 # INFO: Ersetzung
 while True:
     antwort = input("Vorbei?")
@@ -18,5 +18,5 @@ while True:
         continue
     if vorbei:
         break
-    
+
     print("Nicht vorbei!")
