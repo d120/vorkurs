@@ -1,4 +1,5 @@
 matrix = []
+
 for zeile in range(10):
     spaltenliste = []
     for spalte in range(10):

@@ -55,20 +55,20 @@ def ggT(op1, op2):
         return ggT(op2, modulo(op1, op2))
 
 
-def min(op1, op2):
+def minimum(op1, op2):
     if op1 == 0 or op2 == 0:
         return 0
     else:
-        return plus(min(minus(op1, 1), minus(op2, 1)), 1)
+        return plus(minimum(minus(op1, 1), minus(op2, 1)), 1)
 
 
-def max(op1, op2):
+def maximum(op1, op2):
     if op1 == 0:
         return op2
     elif op2 == 0:
         return op1
     else:
-        return plus(max(minus(op1, 1), minus(op2, 1)), 1)
+        return plus(maximum(minus(op1, 1), minus(op2, 1)), 1)
 
 
 op1 = int(input("Wie lautet der erste Operand: "))
@@ -89,8 +89,8 @@ elif op == "^":
 elif op == "T":
     print(f"Das Ergebnis lautet: {ggT(op1, op2)}")
 elif op == "_":
-    print(f"Das Ergebnis lautet: {min(op1, op2)}")
+    print(f"Das Ergebnis lautet: {minimum(op1, op2)}")
 elif op == "|":
-    print(f"Das Ergebnis lautet: {max(op1, op2)}")
+    print(f"Das Ergebnis lautet: {maximum(op1, op2)}")
 else:
     print("Keine gültige Eingabe!")

@@ -1,4 +1,5 @@
-# Das ist ganz schön viel hier, es zeigt nur alle Möglichkeiten auf, die man zeigen könnte. Um alles zu zeigen reicht die Zeit nicht.
+# Das ist ganz schön viel hier, es zeigt nur alle Möglichkeiten auf,
+# die man zeigen könnte. Alles zu zeigen reicht zeitlich nicht.
 
 ganzzahl = 5
 print("ganzzahl: " + str(ganzzahl))
@@ -12,7 +13,8 @@ wahrheitswert = False
 print("wahrheitswert: " + str(wahrheitswert))
 wahrheitswert = 42
 print("wahrheitswert: " + str(wahrheitswert))
-# Erklärung: Auf einmal hat die Variable wahrheitswert eine Zahl als Wert. Also: Name ist selbstgewählt, muss nicht der Bedeutung entsprechen
+# Erklärung: Auf einmal hat die Variable wahrheitswert eine Zahl als Wert.
+# Also: Name ist selbstgewählt, muss nicht der Bedeutung entsprechen
 
 zahl1 = 1
 Zahl1 = 2
