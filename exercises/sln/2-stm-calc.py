@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 op1 = int(input("Wie lautet der erste Operand: "))
 op2 = int(input("Wie lautet der zweite Operand: "))
 op = input("Wie lautet der Operator: ")

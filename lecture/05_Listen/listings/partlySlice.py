@@ -1,4 +1,4 @@
-liste = ['Banane', 'Apfel', 'Ei', 'Käse', 'Zitrone', 'Ingwer']
+liste = ["Banane", "Apfel", "Ei", "Käse", "Zitrone", "Ingwer"]
 
 sliced = liste[:4]
 # sliced = ['Banane', 'Apfel', 'Ei', 'Käse']

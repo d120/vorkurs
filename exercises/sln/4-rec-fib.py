@@ -8,7 +8,5 @@ def fib(n):
         return fib(n - 1) + fib(n - 2)
 
 
-i = 1
-while(i <= 20):
+for i in range(1, 21):
     print(fib(i))
-    i += 1

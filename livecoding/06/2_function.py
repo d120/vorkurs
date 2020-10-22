@@ -9,7 +9,7 @@ n_zahlen = int(input("Wie viele Zahlen sollen gelesen werden? "))
 zahlen = []  # Speichert alle Zahlen
 
 if n_zahlen > 0:
-    for i in range(n_zahlen):
+    for _ in range(n_zahlen):
         zahlen.append(lies_zahl())
 
     print("Fertig!")
