@@ -113,7 +113,7 @@
 \ExplSyntaxOn
 \RequirePackage{pagecolor,xcolor, graphicx} % Used for dark Mode
 \bool_gset_false:N \g_dark_mode_bool % Disable by default
-\newcommand{\enableDarkMode}{ %Command to enable Dark Mode
+\newcommand{\enableDarkMode}{ %Command to enable Dark Mode (only works before \begin{document})
 	\pagecolor{black}
 	\color{white}
 	\setbeamercolor*{smallrule}{bg=white}
@@ -133,6 +133,7 @@
 	}
 }
 
+% dark Mode Makros
 \prg_new_conditional:Nnn \__ptxcd_if_dark_mode: {T,F,TF} { % Conditional to check if dark Mode is active
 	\bool_if:NTF \g_dark_mode_bool
 	{\prg_return_true:}
@@ -150,6 +151,7 @@
 	\IfDarkModeTF{\includegraphics[decodearray={1.0 0.0},#1]{#2}}{\includegraphics[#1]{#2}}
 }
 
+% DARK_MODE environment check
 \sys_get_shell:nnN { kpsewhich ~ --var-value ~ DARK_MODE } { } \l_dark_mode_env_var_tl
 \tl_trim_spaces:N \l_dark_mode_env_var_tl
 \tl_if_eq:NnT \l_dark_mode_env_var_tl {1} {\enableDarkMode{}}
