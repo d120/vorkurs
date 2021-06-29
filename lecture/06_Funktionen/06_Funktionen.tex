@@ -103,7 +103,7 @@
 		%Hinweis: dieses Bild wurde von uns erstellt und kann ohne Referenz verwendet werden.
 		%Viele Grüße
 		%Kevin
-		\includegraphics[width=\textheight]{geometrie}
+		\includeinvertablegraphics[width=\textheight]{geometrie}
 	\end{figure}
 	\vspace{-10mm}
 	\begin{itemize}
@@ -268,16 +268,16 @@
 %Kevin O.
 \newcommand{\mytree}{
 \ifnum \val = 0
-\draw[draw=black, ultra thick] (\x,\y) rectangle 	++(0.75,0.75);
+\draw[draw=., ultra thick] (\x,\y) rectangle 	++(0.75,0.75);
 \node at (\x+0.375,\y+0.375) {f(\the\val)};
 \fi
 \ifnum \val = 1
-\draw[draw=black, ultra thick] (\x,\y) rectangle 	++(0.75,0.75);
+\draw[draw=., ultra thick] (\x,\y) rectangle 	++(0.75,0.75);
 \node at (\x+0.375,\y+0.375) {f(\the\val)};
 \fi
 \ifnum \val > 1
 
-\draw[draw=black, ultra thick] (\x,\y) rectangle ++(0.75,0.75);
+\draw[draw=., ultra thick] (\x,\y) rectangle ++(0.75,0.75);
 \node at (\x+0.375,\y+0.375) {f(\the\val)};
 
 \advance \val -1

@@ -43,7 +43,7 @@ endef
 	$(call recurse_cp)
 	@# recurse, use preamble for variable definition that controls recursive include
 	$(eval PDFLATEX_PREAMBLE_OLD := $(PDFLATEX_PREAMBLE))
-	$(eval PDFLATEX_PREAMBLE := $(PDFLATEX_PREAMBLE_OLD) \def \vorkursRecurse)
+	$(eval PDFLATEX_PREAMBLE := $(PDFLATEX_PREAMBLE_OLD) \def \vorkursRecurse{})
 	@# recursive
 	$(call recurse_cp)
 	$(call recurse_cp)
