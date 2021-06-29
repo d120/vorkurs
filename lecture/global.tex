@@ -151,8 +151,45 @@
 	\IfDarkModeTF{\includegraphics[decodearray={1.0 0.0},#1]{#2}}{\includegraphics[#1]{#2}}
 }
 
-% DARK_MODE environment check
+% DARK_MODE environment check (enable if DARK_MODE=1)
 \sys_get_shell:nnN { kpsewhich ~ --var-value ~ DARK_MODE } { } \l_dark_mode_env_var_tl
 \tl_trim_spaces:N \l_dark_mode_env_var_tl
 \tl_if_eq:NnT \l_dark_mode_env_var_tl {1} {\enableDarkMode{}}
 \ExplSyntaxOff
+
+% notes
+\usepackage{pgfpages}
+\setbeamertemplate{note page}[plain]
+%\setbeameroption{show notes on second screen}
+
+% macro for change speaker sign
+\newcommand{\changespeaker}{
+	\begin{tikzpicture}[line width=.6mm, shorten >= 3pt, shorten <= 3pt]
+
+		\coordinate (c1);
+		\coordinate[right of=c1] (c2);
+
+		\draw[rectangle, draw=red!80, fill=red!80, align=center, rounded corners] ($(c1.north west)+(0,-0.3)$) rectangle ($(c2.south east)+(0, 0.3)$) {};
+		\draw[->,white] (c1)[bend left] to node[auto] {} (c2);
+		\draw[->,white] (c2)[bend left] to node[auto] {} (c1);
+	\end{tikzpicture}
+}
+
+%Listing-Style pyhon
+\title[Programmiervorkurs]{Programmiervorkurs Wintersemester \the\year/\NextYearShort}
+\subtitle{{\small der Fachschaft Informatik}}
+\logo*{\includegraphics{../globalMedia/bildmarke_ohne_rand}}
+\institute{Fachschaft Informatik}
+\date{Wintersemester \the\year/\NextYearShort}
+
+
+% macros
+\newcommand{\livecoding}{\begin{frame}\frametitle{\insertsectionhead \\  {\small \insertsubsectionhead}}\centering \huge \vskip 2cm\textbf{\textcolor{red}{Live-Coding}}\end{frame}}
+
+%\newcommand{\slidehead}{\frametitle{\insertsectionhead \\ {\small \insertsubsectionhead}}\vspace{3mm}}
+\newcommand{\slidehead}{\frametitle{\insertsectionhead} \framesubtitle{\insertsubsectionhead}\vspace{3mm}}
+\newcommand{\tocslide}{\begin{frame}[t]\frametitle{Inhaltsverzeichnis}\vspace{3mm}{\small\tableofcontents[subsectionstyle=shaded]}\end{frame}}
+
+
+% colors
+\definecolor{lightpetrol}{RGB}{\IfDarkModeTF{0,136,119}{0,223,194}}
