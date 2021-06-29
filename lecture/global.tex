@@ -147,7 +147,7 @@
 	\IfDarkModeTF{\includegraphics[decodearray={1.0~0.0~1.0~0.0~1.0~0.0},#1]{#2}}{\includegraphics[#1]{#2}}
 }
 \newcommand{\includeinvertablegrayscalegraphics}[2][]{% Grafik wird beim Dark Mode automatisch Invertiert (grayscale)
-\IfDarkModeTF{\includegraphics[decodearray={1.0 0.0},#1]{#2}}{\includegraphics[#1]{#2}}
+	\IfDarkModeTF{\includegraphics[decodearray={1.0 0.0},#1]{#2}}{\includegraphics[#1]{#2}}
 }
 
 \sys_get_shell:nnN { kpsewhich ~ --var-value ~ DARK_MODE } { } \l_dark_mode_env_var_tl
