@@ -1,4 +1,4 @@
-# Das ist ganz schön viel hier, es zeigt nur alle Möglichkeiten auf, die man zeigen könnte. Alles zu zeigen reicht zeitlich nicht.
+# Das ist ganz schön viel hier, es zeigt nur alle Möglichkeiten auf, die man zeigen könnte. Um alles zu zeigen reicht die Zeit nicht.
 
 ganzzahl = 5
 print("ganzzahl: " + str(ganzzahl))
@@ -16,7 +16,7 @@ print("wahrheitswert: " + str(wahrheitswert))
 
 zahl1 = 1
 Zahl1 = 2
-print(zahl1 == Zahl2)
+print(zahl1 == Zahl1)
 # Frage: Was ergibt das?
 
 zahl1 = noch_eine_zahl
@@ -26,4 +26,3 @@ print(zahl1 == Zahl2)
 # Frage: Was ergibt das?
 
 wahrheitswert = False
-
