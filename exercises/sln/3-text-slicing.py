@@ -1,7 +1,8 @@
+test = input("Gib hier dein Wort ein: ")
 # effiziente Lösung (minimale vergleiche)
 voll = len(test)
-halb = int(voll/2)
-if test[:halb] == test[voll:voll-halb-1:-1]:
+halb = int(voll / 2)
+if test[:halb] == test[voll:voll - halb - 1:-1]:
     print("Palindrom")
 else:
     print("Kein Palindrom")

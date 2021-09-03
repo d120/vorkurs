@@ -2,6 +2,6 @@ prim = ...
 isPrim = True
 # Hier Code einfügen
 if isPrim:
-	# Hier Code einfügen
+    # Hier Code einfügen
 else:
-	# Hier Code einfügen
+    # Hier Code einfügen

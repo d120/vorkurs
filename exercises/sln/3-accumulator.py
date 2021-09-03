@@ -1,13 +1,13 @@
-lst = [1,2,3,4,5,6,7]
+lst = [1, 2, 3, 4, 5, 6, 7]
 
 sum = 0
 product = 1
 quadrate = []
 
-for l in lst:
-    sum += l
-    product *= l
-    quadrate.append(l * l)
+for zahl in lst:
+    sum += zahl
+    product *= zahl
+    quadrate.append(zahl * zahl)
 
 print(sum)
 print(product)
