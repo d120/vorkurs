@@ -14,7 +14,7 @@ def odd(n):
         return even(n - 1)
 
 
-print("even(42)= {}".format(even(42)))
-print("odd(42)= {}".format(odd(42)))
-print("even(23)= {}".format(even(23)))
-print("odd(23)= {}".format(odd(23)))
+print(f"even(42)= {even(42)}")
+print(f"odd(42)= {odd(42)}")
+print(f"even(23)= {even(23)}")
+print(f"odd(23)= {odd(23)}")

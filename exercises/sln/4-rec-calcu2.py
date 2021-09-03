@@ -75,22 +75,22 @@ op1 = int(input("Wie lautet der erste Operand: "))
 op2 = int(input("Wie lautet der zweite Operand: "))
 op = input("Wie lautet der Operator: ")
 if op == "+":
-    print("Das Ergebnis lautet: {}".format(plus(op1, op2)))
+    print(f"Das Ergebnis lautet: {plus(op1, op2)}")
 elif op == "-":
-    print("Das Ergebnis lautet: {}".format(minus(op1, op2)))
+    print(f"Das Ergebnis lautet: {minus(op1, op2)}")
 elif op == "*":
-    print("Das Ergebnis lautet: {}".format(mal(op1, op2)))
+    print(f"Das Ergebnis lautet: {mal(op1, op2)}")
 elif op == "/":
-    print("Das Ergebnis lautet: {}".format(teilen(op1, op2)))
+    print(f"Das Ergebnis lautet: {teilen(op1, op2)}")
 elif op == "%":
-    print("Das Ergebnis lautet: {}".format(modulo(op1, op2)))
+    print(f"Das Ergebnis lautet: {modulo(op1, op2)}")
 elif op == "^":
-    print("Das Ergebnis lautet: {}".format(potenz(op1, op2)))
+    print(f"Das Ergebnis lautet: {potenz(op1, op2)}")
 elif op == "T":
-    print("Das Ergebnis lautet: {}".format(ggT(op1, op2)))
+    print(f"Das Ergebnis lautet: {ggT(op1, op2)}")
 elif op == "_":
-    print("Das Ergebnis lautet: {}".format(min(op1, op2)))
+    print(f"Das Ergebnis lautet: {min(op1, op2)}")
 elif op == "|":
-    print("Das Ergebnis lautet: {}".format(max(op1, op2)))
+    print(f"Das Ergebnis lautet: {max(op1, op2)}")
 else:
     print("Keine gültige Eingabe!")

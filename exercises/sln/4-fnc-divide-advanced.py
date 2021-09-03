@@ -17,8 +17,8 @@ def stepwise_division(dividend, divisor):
         else:
             is_periodic = True
             position = remainders[remainder] - 1
-            decimals = "{0}({1})".format(decimals[0:position], decimals[position:])
-    return "{0},{1}".format(quotient, decimals)
+            decimals = "{}({})".format(decimals[0:position], decimals[position:])
+    return f"{quotient},{decimals}"
 
 
 dividend = int(input("Dividend: "))
