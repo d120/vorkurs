@@ -6,4 +6,4 @@ print(meine_liste[1])  # 7
 
 kopie[1] = 2
 print(meine_liste[1])  # 7
-print(kopie[1])        # 2
+print(kopie[1])  # 2

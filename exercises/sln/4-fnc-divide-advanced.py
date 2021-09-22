@@ -1,4 +1,4 @@
-def stepwiseDivision(dividend, divisor):
+def stepwise_division(dividend, divisor):
     quotient = str(dividend // divisor)
     remainder = dividend % divisor
     if remainder == 0:
@@ -7,23 +7,22 @@ def stepwiseDivision(dividend, divisor):
     decimals = ""
     position = 0
     remainders = [0] * divisor
-    isPeriodic = False
-    while remainder != 0 and not isPeriodic:
+    is_periodic = False
+    while remainder != 0 and not is_periodic:
         position += 1
         if remainders[remainder] == 0:
             remainders[remainder] = position
             decimals += str(remainder * 10 // divisor)
             remainder = remainder * 10 % divisor
         else:
-            isPeriodic = True
+            is_periodic = True
             position = remainders[remainder] - 1
-            decimals = "{}({})".format(
-                decimals[0:position], decimals[position:])
+            decimals = "{0}({1})".format(decimals[0:position], decimals[position:])
     return f"{quotient},{decimals}"
 
 
 dividend = int(input("Dividend: "))
 divisor = int(input("Divisor: "))
 
-quotient = stepwiseDivision(dividend, divisor)
+quotient = stepwise_division(dividend, divisor)
 print("Quotient: " + quotient)

@@ -1,3 +1,3 @@
-if Ausdruck:
+if ausdruck:
     # code
     # ...
