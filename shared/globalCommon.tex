@@ -15,9 +15,9 @@
 \ExplSyntaxOn
 \RequirePackage{pagecolor,xcolor, graphicx} % Used for dark Mode
 \bool_gset_false:N \g_dark_mode_bool % Disable by default
-\newcommand{\enableDarkMode}{ %Command to enable Dark Mode (only works before \begin{document})
-	\definecolor{anthrazitgrau}{HTML}{293133}
-	\pagecolor{anthrazitgrau}
+\definecolor{anthrazitgrau}{HTML}{293133}
+\newcommand{\enableDarkMode}[1][anthrazitgrau]{ %Command to enable Dark Mode (only works before \begin{document})
+	\pagecolor{#1}
 	\color{white}
 
 	\cs_if_exist:NT \setbeamercolor {
@@ -64,6 +64,7 @@
 \sys_get_shell:nnN { kpsewhich ~ --var-value ~ DARK_MODE } { } \l_dark_mode_env_var_tl
 \tl_trim_spaces:N \l_dark_mode_env_var_tl
 \tl_if_eq:NnT \l_dark_mode_env_var_tl {1} {\enableDarkMode{}}
+\tl_if_eq:NnT \l_dark_mode_env_var_tl {2} {\enableDarkMode[black]{}}
 \ExplSyntaxOff
 
 % macros
