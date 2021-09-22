@@ -114,23 +114,25 @@
 \RequirePackage{pagecolor,xcolor, graphicx} % Used for dark Mode
 \bool_gset_false:N \g_dark_mode_bool % Disable by default
 \newcommand{\enableDarkMode}{ %Command to enable Dark Mode (only works before \begin{document})
-	\pagecolor{black}
+	\definecolor{anthrazitgrau}{HTML}{293133}
+	\pagecolor{anthrazitgrau}
 	\color{white}
 	\setbeamercolor*{smallrule}{bg=white}
 	\setbeamercolor*{normal~text}{bg=,fg=white}
 	\setbeamercolor*{background canvas}{parent=normal~text}
 	\setbeamercolor*{section~in~toc}{parent=normal~text}
-	\setbeamercolor*{subsection~in~toc}{parent=normal~text,fg=black}
+	\setbeamercolor*{subsection~in~toc}{parent=normal~text,fg=\thepagecolor}
 	\setbeamertemplate{subsection~in~toc~shaded}[default][50]
 	\setbeamercolor*{footline}{parent=normal~text}
-	\setbeamercolor{block~title~alerted}{fg=white,bg=white!20!black}
-	\setbeamercolor*{block~body}{bg=white!10!black}
-	\setbeamercolor*{block~body~alerted}{bg=black}
+	\setbeamercolor{block~title~alerted}{fg=white,bg=white!20!\thepagecolor}
+	\setbeamercolor*{block~body}{bg=white!10!\thepagecolor}
+	\setbeamercolor*{block~body~alerted}{bg=\thepagecolor}
 	\bool_gset_true:N \g_dark_mode_bool
-	\IfFileExists{tuda_logo_inverted.pdf}{\tl_gset:Nn \g_ptxcd_logofile_tl {tuda_logo_inverted.pdf}}{} % Prefer inverted Logo with dark Mode
-	\hbox_gset:Nn \g__ptxcd_logo_box {% Update Logo Box
-		\makebox[2.2\c_ptxcd_logoheight_dim][l]{\includegraphics[height=\c_ptxcd_logoheight_dim]{\g_ptxcd_logofile_tl}}%
-	}
+	% Prefer inverted Logo with dark Mode
+	% \IfFileExists{tuda_logo_inverted.pdf}{\tl_gset:Nn \g_ptxcd_logofile_tl {tuda_logo_inverted.pdf}}{}
+	% \hbox_gset:Nn \g__ptxcd_logo_box {% Update Logo Box
+	% 	\makebox[2.2\c_ptxcd_logoheight_dim][l]{\includegraphics[height=\c_ptxcd_logoheight_dim]{\g_ptxcd_logofile_tl}}%
+	% }
 }
 
 % dark Mode Makros
