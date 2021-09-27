@@ -28,7 +28,7 @@
 		\setbeamercolor*{subsection~in~toc}{parent=normal~text,fg=\thepagecolor}
 		\setbeamercolor*{footline}{parent=normal~text}
 		\setbeamercolor{block~title~alerted}{fg=white,bg=white!20!\thepagecolor}
-		\setbeamercolor*{block~body}{bg=white!10!\thepagecolor}
+		\setbeamercolor*{block~body}{bg=black!70!gray!98!blue}
 		\setbeamercolor*{block~body~alerted}{bg=\thepagecolor}
 	}
 	\cs_if_exist:NT \setbeamertemplate {
@@ -57,7 +57,7 @@
 	\IfDarkModeTF{\includegraphics[decodearray={1.0~0.0~1.0~0.0~1.0~0.0},#1]{#2}}{\includegraphics[#1]{#2}}
 }
 \newcommand{\includeinvertablegrayscalegraphics}[2][]{% Grafik wird beim Dark Mode automatisch Invertiert (grayscale)
-	\IfDarkModeTF{\includegraphics[decodearray={1.0 0.0},#1]{#2}}{\includegraphics[#1]{#2}}
+	\IfDarkModeTF{\includegraphics[decodearray={1.0~0.0},#1]{#2}}{\includegraphics[#1]{#2}}
 }
 
 % DARK_MODE environment check (enable if DARK_MODE=1)
@@ -73,7 +73,7 @@
 \newcommand{\code}{\inputminted[]{python}}
 \newmintedfile[pythonfile]{python}{
 	fontsize=\small,
-	style=\IfDarkModeTF{fruity}{friendly},
+	style=\IfDarkModeTF{native}{friendly},
 	linenos=true,
 	numberblanklines=true,
 	tabsize=4,
@@ -87,7 +87,7 @@
 	framesep=5pt,
 }
 \newmintinline{python}{
-	style=\IfDarkModeTF{fruity}{friendly},
+	style=\IfDarkModeTF{native}{friendly},
 	encoding="utf8"
 }
 
@@ -95,7 +95,7 @@
 \newminted[bashcode]{awk}{
 	escapeinside=||,
 	fontsize=\small,
-	style=\IfDarkModeTF{fruity}{friendly},
+	style=\IfDarkModeTF{native}{friendly},
 	linenos=true,
 	numberblanklines=true,
 	tabsize=4,
