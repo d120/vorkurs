@@ -14,7 +14,7 @@
 
 
 \definecolor{darkblue}{rgb}{0,0,.5}
-\hypersetup{colorlinks=true, breaklinks=true, linkcolor=darkblue, menucolor=darkblue, urlcolor=darkblue}
+\hypersetup{colorlinks=true, breaklinks=true, linkcolor=\IfDarkModeTF{cyan}{darkblue}, menucolor=darkblue, urlcolor=\IfDarkModeTF{cyan}{darkblue}}
 
 % configuration
 \makeatletter
@@ -40,8 +40,8 @@
 \newcommand{\ptitle}{\ifthenelse{\boolean{SoSe}}{Sommersemester \the\year}{Wintersemester \the\year/\thenextyear}}
 
 \newcommand{\lstinlinenoit}[1]{\upshape{\lstinline|#1|}\itshape}
-\lstset{language=Python, basicstyle=\ttfamily\small, keywordstyle=\color{blue!80!black}, identifierstyle=, commentstyle=\color{green!50!black}, stringstyle=\ttfamily,
- tabsize=4, breaklines=true, numbers=left, numberstyle=\small, frame=single, backgroundcolor=\color{blue!3}}
+\lstset{language=Python, basicstyle=\ttfamily\small, keywordstyle=\color{\IfDarkModeTF{cyan!60!black}{blue!80!black}}, identifierstyle=, commentstyle=\color{green!50!.}, stringstyle=\ttfamily,
+ tabsize=4, breaklines=true, numbers=left, numberstyle=\small, frame=single, backgroundcolor=\color{blue!3!\thepagecolor}}
 \author{Fachschaft Informatik}
 
 
