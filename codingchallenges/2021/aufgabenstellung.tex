@@ -73,6 +73,7 @@
 \section*{2048 \hyperref[footnote:1]{\footnotemark[1]}}
 \footnotetext[1]{\label{footnote:1}\url{https://de.wikipedia.org/wiki/2048}}
 \subsection*{Ablauf des Spiels}
+\vspace{-1ex}
 \begin{minipage}[t]{.7\textwidth}
 	\subsubsection*{Spielbetrieb}
 	Zunächst wird ein 4x4 Spielfeld generiert. Dieses Spielfeld kann Felder mit Zweierpotenzen bis $2^{11}$ enthalten
@@ -87,14 +88,14 @@
 	)
 
 	\smallskip
-	Zu Beginn des Spieles werden zwei zufällige unterschiedliche Felder mit $2$ oder $4$ gefüllt.
+	Zu Beginn des Spieles werden zwei zufällige, unterschiedliche Felder auf $2$ oder $4$ gesetzt.
 
 	\smallskip
-	Der/Die Spieler*in kann dann eine Richtung auswählen, in die geschoben wird.
-	Alle Kacheln verschieben sich dann so weit wie möglich in die gewählte Richtung, also bis sie entweder auf den Rand oder ein anderes Gefülltes Feld stoßen.
+	Der*die Spieler*in kann dann eine Richtung auswählen, in die geschoben wird $(\leftarrow,\rightarrow,\uparrow,\downarrow)$.
+	Alle Kacheln verschieben sich dann so weit wie möglich in die gewählte Richtung, also bis sie entweder auf den Rand oder ein anderes gefülltes Feld stoßen.
 
 	\smallskip
-	Sollte ein Feld an ein weiteres Feld in der Schieberichtung stoßen, welches den gleichen Wert hat so verschmelzen beide Felder zu einem und werden so weit wie möglich in die Schieberichtung geschoben.
+	Sollte ein Feld an ein weiteres Feld in Schieberichtung stoßen, welches den gleichen Wert hat, so verschmelzen beide Felder zu einem Feld mit der nächsthöheren Zweierpotenz und werden so weit wie möglich in die Schieberichtung geschoben.
 \end{minipage}%
 \begin{minipage}[t]{.3\textwidth}%
 	\centering%
@@ -121,14 +122,15 @@
 	\captionof{figure}{Beispiel 2048}
 \end{minipage}%
 
-In jeder weiteren Runde wird ein weiteres zufälliges freies Feld mit $2$ oder $4$ gefüllt, und dann kann wieder geschoben werden.
+In jeder weiteren Runde wird ein weiteres, zufälliges, freies Feld mit $2$ oder $4$ gefüllt, und anschließend kann der Spieler wieder eine Schieberichtung auswählen.
 
-\textit{Für Bastler(keineswegs erforderlich):} Die Wahrscheinlichkeit, dass einem freien Feld eine $4$ zugewiesen wird ist $10\%$
+\textit{Für Bastler(keineswegs erforderlich):} Die Wahrscheinlichkeit, dass einem freien Feld eine $4$ statt einer $2$ zugewiesen wird, beträgt $10\%$
+\vspace{-1ex}
 \subsubsection*{Spielende}
-Wenn keine Verschiebung in keine Richtung mehr möglich, und das Spielfeld voll ist, dann ist das Spiel verloren.
+Wenn alle Verschiebungsrichtungen zu keiner Änderung führen, und das Spielfeld voll ist, dann ist das Spiel verloren.
 
 Wenn eine Kachel den Wert $2048$ erreicht ist das Spiel gewonnen :D
-
+\vspace{-1ex}
 \subsubsection*{Sonderfälle}
 
 Wenn zwei Felder verschmolzen sind, können sie in dieser Runde nicht weiter verschmelzen:
@@ -180,7 +182,7 @@ Dieses soll auf und in der Konsole funktionieren.
 Hierbei soll das Spielfeld nach jedem Zug neu angezeigt werden.
 Bei jedem Zug muss der*die Spieler*in mittels der Konsole eine Schieberichtung auswählen, welche die Kacheln verschiebt.
 
-Das Programm soll selbst erkennen, wann das Spiel für eine*n der Spieler*innen gewonnen oder verloren ist.
+Das Programm soll selbst erkennen wann das Spiel für eine*n der Spieler*innen gewonnen oder verloren ist.
 Im Anschluss zeigt das Programm den Ausgang des Spiels an und beendet sich.
 
 \subsection*{Rahmen}
