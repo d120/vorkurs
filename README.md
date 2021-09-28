@@ -15,7 +15,7 @@ Das Repository ist besteht aus folgenden Inhalten in eigenen Verzeichnissen:
 * `shared`: Allgemeine, gemeinsam verwendete LaTeX-Definitionen
 
 ## Erzeugen des Materials
-Die Vorlesungsfolien, Übungen, Coding-Challenges und einige andere Dokumente stehen als LaTeX-Quelltext bereit. Sie setzen eine funktionierende Installation das TU Darmstadt Corporate Designs (aktuell die [alte Version](http://exp1.fkp.physik.tu-darmstadt.de/tuddesign/)) voraus.  
+Die Vorlesungsfolien, Übungen, Coding-Challenges und einige andere Dokumente stehen als LaTeX-Quelltext bereit. Sie setzen eine funktionierende Installation das TU Darmstadt Corporate Designs ([siehe hier](https://ctan.org/pkg/tuda-ci?lang=de)) voraus.  
 Neben einer aktuellen TeX Live Distribution wird folgende Software benötigt:
 
 * minted
