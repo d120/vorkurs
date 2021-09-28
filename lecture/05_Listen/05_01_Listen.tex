@@ -21,7 +21,7 @@
 		\vspace{-4mm}
 			\begin{figure}
 				\centering
-			\includegraphics[scale=.28]{media/tattoo_ideas.png}
+			\includegraphics[scale=.28]{media/tattoo_ideas\IfDarkModeT{_dark}.png}
 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/2255/}{https://xkcd.com/2255/}
 			\end{figure}
 		\end{column}
@@ -61,7 +61,7 @@
 			\newcount\foo
 			\foo=10
 			\loop
-			\draw[draw=black, ultra thick] (11+\foo*0.5,0) rectangle ++(0.5,0.5);
+			\draw[draw=., ultra thick] (11+\foo*0.5,0) rectangle ++(0.5,0.5);
 			\advance \foo -1
 			\node at (11.75+\foo*0.5, 0.75) {\the\foo};
 			\ifnum \foo>0

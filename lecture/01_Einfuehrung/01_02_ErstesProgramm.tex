@@ -10,7 +10,7 @@
 	\begin{columns}
 		\begin{column}{5.5cm}
 			\begin{tikzpicture}
-				\draw (0, 0) node[inner sep=0] {\includegraphics[scale=0.265]{python.png}};
+				\draw (0, 0) node[inner sep=0] {\includeinvertablegraphics[scale=0.265]{python.png}};
 				% ich habe eine Mail an xkcd geschrieben, es ist ok das wir die klammern einfügen :)
 				\draw (-1.95, -2.33) node {\tiny (};
 				\draw (-1.02, -2.33) node {\tiny )};
@@ -41,7 +41,7 @@
 	\hskip .8cm
 	\begin{tikzpicture}
 		\draw [decorate,decoration={brace,amplitude=6pt}]
-		(0,0.5) -- (3.7,0.5) node [black,midway,yshift=15pt,xshift=3.4cm] {Kommentar: wird vom Computer \textbf{ignoriert}, ist für Menschen \textbf{nützlich}};
+		(0,0.5) -- (3.7,0.5) node [.,midway,yshift=15pt,xshift=3.4cm] {Kommentar: wird vom Computer \textbf{ignoriert}, ist für Menschen \textbf{nützlich}};
 	\end{tikzpicture}
 
 	\pause
@@ -51,7 +51,7 @@
 	\begin{minipage}[b]{0.4\textwidth}
 		\begin{tikzpicture}
 			\draw [decorate,decoration={mirror,brace,amplitude=6pt}]
-			(0,0.5) -- (1,0.5) node [black,midway,yshift=-15pt] {Befehl};
+			(0,0.5) -- (1,0.5) node [.,midway,yshift=-15pt] {Befehl};
 		\end{tikzpicture}
 	\end{minipage}
 	\pause
@@ -59,7 +59,7 @@
 	\begin{minipage}[b]{0.4\textwidth}
 		\begin{tikzpicture}
 			\draw [decorate,decoration={mirror,brace,amplitude=6pt}]
-			(1.1,0.5) -- (3.35,0.5) node [black,midway,yshift=-15pt] {Text};
+			(1.1,0.5) -- (3.35,0.5) node [.,midway,yshift=-15pt] {Text};
 		\end{tikzpicture}
 	\end{minipage}
 
@@ -124,7 +124,7 @@
 	\begin{columns}[T]
 		\begin{column}{.4\textwidth}
 			\begin{tikzpicture}
-				\node[] (mensch) at (0,0) {\includegraphics[height=1.3cm]{media/wesen_notebook.png}};
+				\node[] (mensch) at (0,0) {\includeinvertablegraphics[height=1.3cm]{media/wesen_notebook.png}};
 
 				\node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (file) at (0,-1.8) {helloworld.py};
 				\draw[->,line width=.6mm] (mensch.south) -- (file.north);
@@ -152,7 +152,7 @@
 
 	\begin{center}
 		\vskip -10 pt
-		\includegraphics[scale=0.25]{HelloWorldImEditor}
+		\includegraphics[scale=0.25]{HelloWorldImEditor\IfDarkModeT{_dark}}
 	\end{center}
 
 	\begin{itemize}
