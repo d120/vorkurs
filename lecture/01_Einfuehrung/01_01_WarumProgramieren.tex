@@ -16,7 +16,7 @@
 			\vspace{-5.0mm}
 			\begin{figure}
 				\centering
-				\includegraphics[scale=0.3]{code_quality.png}
+				\includeinvertablegraphics[scale=0.3]{code_quality.png}
 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/1513/}{https://xkcd.com/1513/}
 			\end{figure}
 		\end{column}
@@ -24,7 +24,7 @@
 			\vspace{-0.3mm}
 			\begin{figure}
 				\centering
-				\includegraphics[scale=0.2]{good_code.png}
+				\includeinvertablegraphics[scale=0.2]{good_code.png}
 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/844/}{https://xkcd.com/844/}
 			\end{figure}
 		\end{column}
@@ -68,7 +68,7 @@
 	\pause
 	\vspace{0.75cm}
 
-	\tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!10]
+	\tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=., fill=\IfDarkModeTF{red!30!black}{red!10}]
 	\centering
 	\begin{tikzpicture}[node distance=5cm]
 		\node (syntax) [rect, text width=4cm, minimum height=2cm] {\textbf{Syntax}\\ Wortschatz};
@@ -97,14 +97,14 @@
 		\begin{column}{2cm}
 			\begin{tikzpicture}
 
-				\node[] (mensch) at (0,0) {\includegraphics[height=1.3cm]{media/wesen_notebook.png}};
+				\node[] (mensch) at (0,0) {\includeinvertablegraphics[height=1.3cm]{media/wesen_notebook.png}};
 
 				\visible<2->{
 				\node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (interpreter) at (0,-1.8) {Interpreter};
 				\draw[->,line width=.6mm] (mensch.south) -- (interpreter.north);
 				}
 				\visible<3->{
-				\node[fill=lightgray,draw, inner sep=5pt, rounded rectangle] (computer) at (0,-4) {Computer};
+					\node[fill=\IfDarkModeTF{.!30!\thepagecolor}{lightgray},draw, inner sep=5pt, rounded rectangle] (computer) at (0,-4) {Computer};
 				\draw[->,line width=.6mm] (interpreter.south) -- (computer.north);
 				}
 			\end{tikzpicture}

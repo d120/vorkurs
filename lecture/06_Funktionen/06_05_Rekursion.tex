@@ -18,7 +18,7 @@
 		\vspace{-5mm}
 			\begin{figure}
 				\centering
-				\includegraphics[scale=2.5]{media/tabletop_roleplaying.png}
+				\includeinvertablegraphics[scale=2.5]{media/tabletop_roleplaying.png}
 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/244/}{https://xkcd.com/244/}
 			\end{figure}
 			%\raisebox{-5cm}{für mehr Informationen siehe Foliensatz "`Rekursion"'}
@@ -102,16 +102,16 @@
 %Kevin O.
 \newcommand{\mytree}{
 \ifnum \val = 0
-\draw[draw=black, ultra thick] (\x,\y) rectangle 	++(0.75,0.75);
+\draw[draw=., ultra thick] (\x,\y) rectangle 	++(0.75,0.75);
 \node at (\x+0.375,\y+0.375) {f(\the\val)};
 \fi
 \ifnum \val = 1
-\draw[draw=black, ultra thick] (\x,\y) rectangle 	++(0.75,0.75);
+\draw[draw=., ultra thick] (\x,\y) rectangle 	++(0.75,0.75);
 \node at (\x+0.375,\y+0.375) {f(\the\val)};
 \fi
 \ifnum \val > 1
 
-\draw[draw=black, ultra thick] (\x,\y) rectangle ++(0.75,0.75);
+\draw[draw=., ultra thick] (\x,\y) rectangle ++(0.75,0.75);
 \node at (\x+0.375,\y+0.375) {f(\the\val)};
 
 \advance \val -1

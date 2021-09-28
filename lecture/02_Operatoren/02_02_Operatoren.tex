@@ -15,7 +15,7 @@
 			\end{center}
 			\begin{figure}
 				\centering
-			\includegraphics[scale=.35]{media/too_old_for_this_shit.png}
+			\includeinvertablegraphics[scale=.35]{media/too_old_for_this_shit.png}
 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/447/}{https://xkcd.com/447/}
 			\end{figure}
 		\end{column}
@@ -30,7 +30,7 @@
 			\item Symbol, das den \textbf{Interpreter} zur Ausführung einer Aktion veranlasst
 			\item Operatortypen:
 		\end{itemize}
-		\tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!10]
+		\tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=., fill=\IfDarkModeTF{red!30!black}{red!10}]
 		\centering
 		\begin{tikzpicture}[node distance=1.5cm]
 			\node (1) [rect, text width=5cm, minimum height=1cm] {\textbf{Mathematische Operatoren}};
@@ -43,7 +43,7 @@
 	\begin{frame}
 		\slidehead
 		\vspace{-0.2cm}
-		\tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!10]
+		\tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=., fill=\IfDarkModeTF{red!30!black}{red!10}]
 		\vspace{0.05cm}
 		\centering
 		\begin{tikzpicture}[node distance=1.1cm]
