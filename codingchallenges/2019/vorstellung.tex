@@ -1,38 +1,14 @@
-\documentclass[accentcolor=tud3c,colorbacktitle,inverttitle,landscape,german,presentation,t]{tudbeamer}
-
-\usepackage[ngerman]{babel} %Deutsche Silbentrennung
-\usepackage[utf8]{inputenc} %Deutsche Umlaute
+\input{../../lecture/global}
+\logo*{\includegraphics{../../lecture/globalMedia/bildmarke_ohne_rand}}
 \usepackage{float}
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{epstopdf}
 \usepackage{wrapfig}
 
-\lstset{language=python,
-	basicstyle=\small,
-	keywordstyle=\color{blue!80!black!100},
-	identifierstyle=,
-	commentstyle=\color{green!50!black!100},
-	stringstyle=\ttfamily,
-	breaklines=true,
-	stepnumber=1,
-	%numbers=left,
-	numberstyle=\small,
-	frame=single,
-	backgroundcolor=\color{blue!3},
-	literate= 
-	{Ö}{{\"O}}1
-	{Ä}{{\"A}}1
-	{Ü}{{\"U}}1
-	{ß}{{\ss}}1
-	{ö}{{\"o}}1
-	{ü}{{\"u}}1
-	{ä}{{\"a}}1
-}
-
 \title[Programmiervorkurs]{Programmiervorkurs Wintersemester 2019/20}
 \subtitle{{\small der Fachschaft Informatik}}
-\logo[2]{\includegraphics[scale=5]{../../lecture/globalMedia/bildmarke_ohne_rand}}
+%\logo[2]{\includegraphics[scale=5]{../../lecture/globalMedia/bildmarke_ohne_rand}}
 \author{Vorkursteam der Fachschaft Informatik}
 \institute{TU Darmstadt}
 \date{Wintersemester 2019}
@@ -40,36 +16,36 @@
 
 	
 \begin{document}
-\begin{titleframe}
+\begin{frame}
 	\begin{center}
 		\vspace{2cm}
 		{\huge Programmierchallenge \\ "`TicTacToe"'}
 	\end{center}
-\end{titleframe}
-
-
-\begin{frame}
-	\frametitle{Was wollen wir machen}
-		\begin{itemize}
-			\item Keine Vorerfahrung
-			\item Nur drei Tage Programmiervorkurs
-			\item Und dann ein komplettes Spiel programmieren?
-		\end{itemize}
 \end{frame}
 
 
 \begin{frame}
 	\frametitle{Was wollen wir machen}
-		\begin{itemize}
-			\item Euch eine mögliche Anwendung eures gelerntes Wissens zeigen
-			\item Ein Spiel programmieren
-			\item Euch herausfordern
-		\end{itemize}
-		\vspace{6mm}
+	\begin{itemize}
+		\item Keine Vorerfahrung
+		\item Nur drei Tage Programmiervorkurs
+		\item Und dann ein komplettes Spiel programmieren?
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Was wollen wir machen}
+	\begin{itemize}
+		\item Euch eine mögliche Anwendung eures gelerntes Wissens zeigen
+		\item Ein Spiel programmieren
+		\item Euch herausfordern
+	\end{itemize}
+	\vspace{6mm}
 	\begin{center}
-	 \textbf{\huge Und deswegen gibt es heute eine Programmierchallenge!}	
+		\textbf{\huge Und deswegen gibt es heute eine Programmierchallenge!}
 	\end{center}
-	
+
 \end{frame}
 
 
@@ -98,7 +74,7 @@
 	\begin{itemize}
 		\item KISS
 		\item Eine Datei, keine Projekte
-		\item Kommentiert euren Code 
+		\item Kommentiert euren Code
 		\item Muss kompilieren
 	\end{itemize}
 \end{frame}
@@ -110,4 +86,4 @@
 		\huge ...noch viel Spaß !
 	\end{center}
 \end{frame}
-\end{document} 
+\end{document}
