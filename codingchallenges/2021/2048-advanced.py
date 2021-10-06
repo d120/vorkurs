@@ -29,10 +29,10 @@ directions = {
 
 # Translate direction to a vector with length 1 [x, y]
 directionVectors = {
-    "left": [-1, 0],
-    "down": [0, 1],
-    "up": [0, -1],
-    "right": [1, 0],
+    "left":  [-1, 0],
+    "down":  [0,  1],
+    "up":    [0, -1],
+    "right": [1,  0],
 }
 
 
@@ -117,10 +117,11 @@ def getNextMove():
     Throws: 
         SyntaxError: if the input is not a valid direction
     """
-    move = input(f"\nNächster Zug (a=links,s=unten,w=oben,d=rechts):")
+    move = input("\nNächster Zug (a=links,s=unten,w=oben,d=rechts):")
     if not move in directions:
-        raise SyntaxError(
+        print(
             f"Expected one of: [{', '.join(directions.keys())}] but got {move}.")
+        return getNextMove()
     return directions.get(move)
 
 
