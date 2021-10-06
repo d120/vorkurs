@@ -14,8 +14,18 @@ Created By Ruben Deisenroth in 2021
 """
 
 randomindex = -1
-randomints = [28, 9, 40, 74, 28, 56, 82, 61, 80, 95, 14, 97, 47, 83, 63, 88, 91, 39, 2, 85, 82, 61, 69, 35, 19, 17, 64, 21, 29, 20, 94, 59, 73, 50, 1, 69, 30, 39, 26, 11, 21, 94, 1, 24, 12, 8, 3, 90, 13, 8, 52, 48, 41, 86, 60, 33, 74, 83, 9, 48, 90, 12, 60, 44, 9, 58, 64, 61, 50, 74, 97, 77, 69, 81, 62, 18, 22, 64, 25, 61, 56, 63, 95, 39, 21, 6, 87, 98,
-              28, 52, 35, 69, 43, 92, 94, 88, 4, 39, 6, 20]
+randomints = [
+    28, 9,  40, 74, 28, 56, 82, 61, 80, 95,
+    14, 97, 47, 83, 63, 88, 91, 39, 2,  85,
+    82, 61, 69, 35, 19, 17, 64, 21, 29, 20,
+    94, 59, 73, 50, 1,  69, 30, 39, 26, 11,
+    21, 94, 1,  24, 12, 8,  3,  90, 13, 8,
+    52, 48, 41, 86, 60, 33, 74, 83, 9,  48,
+    90, 12, 60, 44, 9,  58, 64, 61, 50, 74,
+    97, 77, 69, 81, 62, 18, 22, 64, 25, 61,
+    56, 63, 95, 39, 21, 6,  87, 98, 28, 52,
+    35, 69, 43, 92, 94, 88, 4,  39, 6,  20
+]
 
 
 def randint(minimum, maximum):
@@ -66,29 +76,25 @@ def printField(state):
         state(list): the 2d array
     """
     longestString = getMaxStringLength(state)
-    for i in state:
-        print("+", end='')
-        for j in i:
-            for k in range(longestString):
-                print("-", end='')
-            print("+", end='')
-        print()
-        print("|", end="")
-        for j in i:
-            print(j, end='')
-            for k in range(longestString-len(str(j))):
-                print(" ", end='')
-            print("|", end='')
-        print()
-    print("+", end='')
-    for j in i:
+    trennzeile = "+"
+    for i in range(4):
         for k in range(longestString):
-            print("-", end='')
-        print("+", end='')
-    print()
+            trennzeile += "-"
+        trennzeile += "+"
+    print(trennzeile)
+    for i in state:
+        feldzeile = "|"
+        for j in i:
+            feldzeile += str(j)
+            # Right Padding with space
+            for k in range(longestString-len(str(j))):
+                feldzeile += " "
+            feldzeile += "|"
+        print(feldzeile)
+        print(trennzeile)
 
 
-def printGameState(state: list, game_round: int):
+def printGameState(state, game_round):
     """
     Prints the Information for a game_round of Playing
 
@@ -174,7 +180,7 @@ def has2048(state):
     return False
 
 
-def pointIsInGameField(size: int, xPos: int, yPos: int):
+def pointIsInGameField(size, xPos, yPos):
     """
     Checks wheather a Cooardinate lies within the boundaries of the Board
 
@@ -228,7 +234,7 @@ def newGameState():
     return newState
 
 
-def slideTiles(currentState: list, xMov: int, yMov):
+def slideTiles(currentState, xMov, yMov):
     """
     Slides all Tiles in a given direction
 
