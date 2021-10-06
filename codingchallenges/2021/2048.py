@@ -39,6 +39,8 @@ def randint(minimum, maximum):
     Returns:
         int: the random Number
     """
+    # Global wurde nicht eingeführt, wenn man das nicht verwenden wil,
+    # kann man randomindex einfach als Parameter übergeben
     global randomindex
     randomindex = randomindex + 1
     randomindex = randomindex % len(randomints)
