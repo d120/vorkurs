@@ -46,7 +46,7 @@ w = 2021
 # https://en.wikipedia.org/wiki/Xorshift
 
 
-def randint(min: int, max: int):
+def randint(minimum: int, maximum: int):
     """
     The Function generates a pseudo random Integer between (including) min and max
 
@@ -61,7 +61,7 @@ def randint(min: int, max: int):
     t = x ^ ((x << 11) & 0xFFFFFFFF)  # 32bit
     x, y, z = y, z, w
     w = (w ^ (w >> 19)) ^ (t ^ (t >> 8))
-    return (w % (max-min+1)) + min
+    return (w % (maximum-minimum+1)) + minimum
 
 
 def getMaxStringLength(state: list):
@@ -280,19 +280,19 @@ def main():
     """
     # Erste Runde
     state = newGameState()
-    round = 1
-    printGameState(state, round)
+    game_round = 1
+    printGameState(state, game_round)
     # Weitere Runden
     while(True):
         direction = getNextMove()
-        round += 1
+        game_round += 1
         state = slideTiles(state, direction)
         # loose scenario
         if not hasEmptySlots(state):
             print("You lost, there are no free spots left :(")
             break
         state = spawnNewTile(state)
-        printGameState(state, round)
+        printGameState(state, game_round)
         # Win scenario
         if has2048(state):
             print("Congratulations, you won the Game :D")
