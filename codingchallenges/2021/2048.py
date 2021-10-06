@@ -18,7 +18,7 @@ randomints = [28, 9, 40, 74, 28, 56, 82, 61, 80, 95, 14, 97, 47, 83, 63, 88, 91,
               28, 52, 35, 69, 43, 92, 94, 88, 4, 39, 6, 20]
 
 
-def randint(min: int, max: int):
+def randint(minimum, maximum):
     """
     The Function generates a pseudo random Integer between (including) min and max
 
@@ -32,11 +32,11 @@ def randint(min: int, max: int):
     global randomindex
     randomindex = randomindex + 1
     randomindex = randomindex % len(randomints)
-    range = max-min
+    rand_range = maximum-minimum
     # Trim to given Range
     random = randomints[randomindex]
-    random = random % (range + 1)
-    random = random + min
+    random = random % (rand_range + 1)
+    random = random + minimum
     return random
 
 
@@ -88,15 +88,15 @@ def printField(state):
     print()
 
 
-def printGameState(state: list, round: int):
+def printGameState(state: list, game_round: int):
     """
-    Prints the Information for a Round of Playing
+    Prints the Information for a game_round of Playing
 
     Parameters:
         state(list): the 2d array
-        round(int): the round number
+        game_round(int): the game_round number
     """
-    print("Zug: " + str(round))
+    print("Zug: " + str(game_round))
     maxTile = 0
     for row in state:
         for field in row:
@@ -136,7 +136,8 @@ def getNextMove():
     elif move == "d":
         return [1, 0]
     else:
-        raise SyntaxError("Expected one of: [a, s, w, d] but got "+move+".")
+        print("Expected one of: [a, s, w, d] but got "+move+".")
+        return getNextMove()
 
 
 def hasEmptySlots(state):
@@ -287,21 +288,21 @@ def main():
     """
     # Erste Runde
     state = newGameState()
-    round = 1
-    printGameState(state, round)
+    game_round = 1
+    printGameState(state, game_round)
     # Weitere Runden
     while(True):
         direction = getNextMove()
         xMov = direction[0]
         yMov = direction[1]
-        round = round + 1
+        game_round = game_round + 1
         state = slideTiles(state, xMov, yMov)
         # loose scenario
         if not hasEmptySlots(state):
             print("You lost, there are no free spots left :(")
             break
         state = spawnNewTile(state)
-        printGameState(state, round)
+        printGameState(state, game_round)
         # Win scenario
         if has2048(state):
             print("Congratulations, you won the Game :D")
