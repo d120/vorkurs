@@ -257,8 +257,14 @@ def slideTiles(currentState, xMov, yMov):
     # Durch Feld Iterieren
     # Anmerkung: Hier muss man darauf achten, in welcher Reihenfolge man durch die Felder geht,
     # da sonst mehrere Felder auf einmal addiert werden können
-    for y in backwardRange if yMov == 1 else forwardRange:
-        for x in backwardRange if xMov == 1 else forwardRange:
+    yrange = forwardRange
+    xrange = forwardRange
+    if yMov == 1:
+        yrange = backwardRange
+    if xMov == 1:
+        xrange = forwardRange
+    for y in yrange:
+        for x in xrange:
             field = currentState[y][x]
             # Wenn das Feld leer ist, müssen wir nichts verschieben
             if(field == ''):

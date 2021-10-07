@@ -286,6 +286,8 @@ def main():
     # Weitere Runden
     while(True):
         direction = getNextMove()
+        # clear Console Output every round
+        print("\033[H\033[J", end="")
         game_round += 1
         state = slideTiles(state, direction)
         # loose scenario
