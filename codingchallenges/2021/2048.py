@@ -10,6 +10,8 @@ Coding Challenge WS 21/22
 
 ~Regular Solution~
 
+Stand: 07.10. 20:23 Uhr
+
 Created By Ruben Deisenroth in 2021
 """
 
@@ -262,35 +264,50 @@ def slideTiles(currentState, xMov, yMov):
     if yMov == 1:
         yrange = backwardRange
     if xMov == 1:
-        xrange = forwardRange
+        xrange = backwardRange
     for y in yrange:
         for x in xrange:
             field = currentState[y][x]
             # Wenn das Feld leer ist, müssen wir nichts verschieben
             if(field == ''):
                 continue
-            # Neue Position Ermitteln
+            # Neue Schiebeposition Ermitteln
             newX = x
             newY = y
-            # Ansatz: wir gehen solange in die gewünschte Richtung,
+            # Ansatz: wir gehen solange in die Schieberichtung,
             # bis der nächste Schritt außerhalb des Feldes Läge oder wir auf ein nichtleeres Feld stoßen.
-            # Sollten wir auf ein nichtleeres Feld mit dem Gleichen Wert stoßen, müssen wir den Wert des Feldes verdoppeln.
             for i in range(4):
                 nextX = newX+xMov
                 nextY = newY+yMov
-                if not pointIsInGameField(len(currentState), nextX, nextY):
-                    break
-                if newState[nextY][nextX] != 0:
-                    if newState[nextY][nextX] == field:
-                        newX = nextX
-                        newY = nextY
+                if not pointIsInGameField(len(currentState), nextX, nextY) or newState[nextY][nextX] != 0:
                     break
                 newX = nextX
                 newY = nextY
             # Verschieben an neue Position, und ggf multiplizieren
             newState[y][x] = 0
-            if(newState[newY][newX] != 0):
-                newState[newY][newX] = newState[newY][newX] * 2
+            # Neue  Ermitteln
+            newMergeX = x
+            newMergeY = y
+            # # Ansatz: wir gehen solange entgegen der Schieberichtung,
+            # bis der nächste Schritt außerhalb des Feldes Läge oder wir auf ein nichtleeres Feld stoßen.
+            # Sollten wir auf ein nichtleeres Feld mit dem Gleichen Wert stoßen, haben wir eine Verschmelzposition gefunden.
+            for i in range(4):
+                prevX = newMergeX-xMov
+                prevY = newMergeY-yMov
+                if not pointIsInGameField(len(currentState), prevX, prevY):
+                    break
+                if newState[prevY][prevX] != 0:
+                    if newState[prevY][prevX] == field:
+                        newMergeX = prevX
+                        newMergeY = prevY
+                    break
+                newMergeX = prevX
+                newMergeY = prevY
+            # Verschieben an neue Position, und ggf multiplizieren
+            newState[y][x] = 0
+            if(newState[newMergeY][newMergeX] != 0):
+                newState[newY][newX] = 2*field
+                newState[newMergeY][newMergeX] = 0
             else:
                 newState[newY][newX] = field
     return newState
