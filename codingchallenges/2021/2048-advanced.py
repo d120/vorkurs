@@ -10,7 +10,7 @@ Coding Challenge WS 21/22
 
 ~Advanced Solution~
 
-Stand: 07.10. 20:23 Uhr
+Stand: 08.10. 23:34 Uhr
 
 Created By Ruben Deisenroth in 2021
 """
@@ -20,10 +20,10 @@ Created By Ruben Deisenroth in 2021
 
 # The Possible Directions
 directions = {
+    "w": "up",
     "a": "left",
     "s": "down",
-    "w": "up",
-    "d": "right"
+    "d": "right",
 }
 
 # Info: In meiner Implementierung liegt die (0,0)-Koordinate in der oberen linken Ecke (nord west)
@@ -166,9 +166,9 @@ def getNextMove(state: list, game_round: int, new_fields: list = []):
     Throws: 
         SyntaxError: if the input is not a valid direction
     """
-    move = input("\nNächster Zug (a=links,s=unten,w=oben,d=rechts):").lower()
+    move = input("\nNächster Zug (w=oben,a=links,s=unten,d=rechts):").lower()
     global display_style, color_new
-    if move == "exit":
+    if move == "exit" or move == "quit":
         print("bye")
         exit()
     # Eastereggs :D

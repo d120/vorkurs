@@ -10,7 +10,7 @@ Coding Challenge WS 21/22
 
 ~Regular Solution~
 
-Stand: 07.10. 20:23 Uhr
+Stand: 08.10. 23:34 Uhr
 
 Created By Ruben Deisenroth in 2021
 """
@@ -126,27 +126,31 @@ def getNextMove():
     Throws: 
         SyntaxError: if the input is not a valid direction
     """
-    move = input("\nNächster Zug (a=links,s=unten,w=oben,d=rechts):")
+    move = input("\nNächster Zug (w=oben,a=links,s=unten,d=rechts):")
 
     # Info: In meiner Implementierung liegt die (0,0)-Koordinate in der oberen linken Ecke (nord west)
     # Also muss anders als vielleicht aus der Schulmathematik bekannt für "down" y verringert werden
 
     # Anmerkung: in diesem Fall Kann auch nur if statt elif verwendet werden (Short Circuit evaluation)
 
+    # up
+    if move == "w":
+        return [0, -1]
     # left
-    if move == "a":
+    elif move == "a":
         return [-1, 0]
     # down
     elif move == "s":
         return [0, 1]
-    # up
-    elif move == "w":
-        return [0, -1]
     # right
     elif move == "d":
         return [1, 0]
+    # quit
+    elif move == "exit" or move == "quit":
+        print("bye")
+        exit()
     else:
-        print("Expected one of: [a, s, w, d] but got "+move+".")
+        print("Expected one of: [w, a, s, d] but got "+move+".")
         return getNextMove()
 
 
