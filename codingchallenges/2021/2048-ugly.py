@@ -8,7 +8,9 @@ Coding Challenge WS 21/22
 ███████╗╚█████╔╝╚════██║╚█████╔╝
 ╚══════╝░╚════╝░░░░░░╚═╝░╚════╝░
 
-~Regular Solution~
+~Ugly Solution~
+
+Stand: 07.10. 20:23 Uhr
 
 Created By Ruben Deisenroth in 2021
 """
@@ -34,6 +36,7 @@ randomints = [
 
 # First Round
 newState = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+newState = [[4, 2, 2, 4], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
 
 # Spawn two tiles randomly
@@ -139,40 +142,52 @@ while(True):
     if yMov == 1:
         yrange = backwardRange
     if xMov == 1:
-        xrange = forwardRange
+        xrange = backwardRange
     for y in yrange:
         for x in xrange:
             field = state[y][x]
             # Wenn das Feld leer ist, müssen wir nichts verschieben
             if(field == ''):
                 continue
-            # Neue Position Ermitteln
+            # Neue Schiebeposition Ermitteln
             newX = x
             newY = y
-
-            # Ansatz: wir gehen solange in die gewünschte Richtung,
+            # Ansatz: wir gehen solange in die Schieberichtung,
             # bis der nächste Schritt außerhalb des Feldes Läge oder wir auf ein nichtleeres Feld stoßen.
-            # Sollten wir auf ein nichtleeres Feld mit dem Gleichen Wert stoßen, müssen wir den Wert des Feldes verdoppeln.
             for i in range(4):
-                nextX = newX + xMov
-                nextY = newY + yMov
-                # Check whether a Cooardinate lies within the boundaries of the Board
-                pointIsInGameField = nextX >= 0 and nextX < len(
-                    state) and nextY >= 0 and nextY < len(state)
-                if not pointIsInGameField:
-                    break
-                if newState[nextY][nextX] != 0:
-                    if newState[nextY][nextX] == field:
-                        newX = nextX
-                        newY = nextY
+                nextX = newX+xMov
+                nextY = newY+yMov
+                pointIsInGameField = nextX >= 0 and nextX < 4 and nextY >= 0 and nextY < 4
+                if not pointIsInGameField or newState[nextY][nextX] != 0:
                     break
                 newX = nextX
                 newY = nextY
-
             # Verschieben an neue Position, und ggf multiplizieren
             newState[y][x] = 0
-            if(newState[newY][newX] != 0):
-                newState[newY][newX] = newState[newY][newX] * 2
+            # Neue  Ermitteln
+            newMergeX = x
+            newMergeY = y
+            # # Ansatz: wir gehen solange entgegen der Schieberichtung,
+            # bis der nächste Schritt außerhalb des Feldes Läge oder wir auf ein nichtleeres Feld stoßen.
+            # Sollten wir auf ein nichtleeres Feld mit dem Gleichen Wert stoßen, haben wir eine Verschmelzposition gefunden.
+            for i in range(4):
+                prevX = newMergeX-xMov
+                prevY = newMergeY-yMov
+                pointIsInGameField = prevX >= 0 and prevX < 4 and prevY >= 0 and prevY < 4
+                if not pointIsInGameField:
+                    break
+                if newState[prevY][prevX] != 0:
+                    if newState[prevY][prevX] == field:
+                        newMergeX = prevX
+                        newMergeY = prevY
+                    break
+                newMergeX = prevX
+                newMergeY = prevY
+            # Verschieben an neue Position, und ggf multiplizieren
+            newState[y][x] = 0
+            if(newState[newMergeY][newMergeX] != 0):
+                newState[newY][newX] = 2*field
+                newState[newMergeY][newMergeX] = 0
             else:
                 newState[newY][newX] = field
     state = newState
