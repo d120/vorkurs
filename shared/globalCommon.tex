@@ -71,42 +71,82 @@
 \renewcommand{\arraystretch}{1.2} % Höhe einer Tabellenspalte minimal erhöhen
 \newcommand{\N}{{\mathbb N}}
 \newcommand{\code}{\inputminted[]{python}}
-\newmintedfile[pythonfile]{python}{
-	fontsize=\small,
-	style=\IfDarkModeTF{native}{friendly},
-	linenos=true,
-	numberblanklines=true,
-	tabsize=4,
-	obeytabs=false,
-	breaklines=true,
-	autogobble=true,
-	encoding="utf8",
-	showspaces=false,
-	xleftmargin=20pt,
-	frame=single,
-	framesep=5pt,
-}
-\newmintinline{python}{
-	style=\IfDarkModeTF{native}{friendly},
-	encoding="utf8"
-}
-
-\definecolor{codegray}{HTML}{eaf1ff}
-\newminted[bashcode]{awk}{
-	escapeinside=||,
-	fontsize=\small,
-	style=\IfDarkModeTF{native}{friendly},
-	linenos=true,
-	numberblanklines=true,
-	tabsize=4,
-	obeytabs=false,
-	breaklines=true,
-	autogobble=true,
-	encoding="utf8",
-	showspaces=false,
-	xleftmargin=20pt,
-	frame=single,
-	framesep=5pt
+\IfDarkModeTF{
+	\newmintedfile[pythonfile]{python}{
+		fontsize=\small,
+		style=native,
+		linenos=true,
+		numberblanklines=true,
+		tabsize=4,
+		obeytabs=false,
+		breaklines=true,
+		autogobble=true,
+		encoding="utf8",
+		showspaces=false,
+		xleftmargin=20pt,
+		frame=single,
+		framesep=5pt,
+	}
+	\newmintinline{python}{
+		style=native,
+		encoding="utf8"
+	}
+	
+	\definecolor{codegray}{HTML}{eaf1ff}
+	\newminted[bashcode]{awk}{
+		escapeinside=||,
+		fontsize=\small,
+		style=native,
+		linenos=true,
+		numberblanklines=true,
+		tabsize=4,
+		obeytabs=false,
+		breaklines=true,
+		autogobble=true,
+		encoding="utf8",
+		showspaces=false,
+		xleftmargin=20pt,
+		frame=single,
+		framesep=5pt
+	}
+}{
+	\newmintedfile[pythonfile]{python}{
+		fontsize=\small,
+		style=friendly,
+		linenos=true,
+		numberblanklines=true,
+		tabsize=4,
+		obeytabs=false,
+		breaklines=true,
+		autogobble=true,
+		encoding="utf8",
+		showspaces=false,
+		xleftmargin=20pt,
+		frame=single,
+		framesep=5pt,
+	}
+	\newmintinline{python}{
+		style=friendly,
+		encoding="utf8"
+	}
+	
+	\definecolor{codegray}{HTML}{eaf1ff}
+	\newminted[bashcode]{awk}{
+		escapeinside=||,
+		fontsize=\small,
+		style=friendly,
+		linenos=true,
+		numberblanklines=true,
+		tabsize=4,
+		obeytabs=false,
+		breaklines=true,
+		autogobble=true,
+		encoding="utf8",
+		showspaces=false,
+		xleftmargin=20pt,
+		frame=single,
+		framesep=5pt
+	}
 }
 
 \let\origpythonfile\pythonfile
