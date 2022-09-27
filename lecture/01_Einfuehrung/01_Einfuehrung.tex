@@ -2,21 +2,18 @@
 % !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
 \input{../global.tex}
 
-\usepackage{verbatim}
-\usetikzlibrary{decorations.pathreplacing}
-\usetikzlibrary{shapes.misc}
-
 \begin{document}
 
 %Deckblatt
-\subtitle{Einleitung}
+\subtitle{Kapitel 1: Erste Schritte}
 \titlegraphic{
 	\begin{columns}
 		\begin{column}{6cm}
 			\vspace{4.32mm}
 			\begin{center}
-				{\huge Einleitung}
+				{\huge Mit einem Computer Reden}
 			\end{center}
+			\vspace{-5.0mm}
 			\begin{figure}
 				\centering
 				\includeinvertablegraphics[scale=0.3]{code_quality.png}
@@ -34,10 +31,6 @@
 	\end{columns}}
 \maketitle
 
-
-%Inhaltsverzeichnis
-\tocslide
-
 % Bevor es losgeht die Vortragenden erwähnen!
 
 % Um den Vorkurs zu beginnen muss ich irgendwie die Zuschauer für das Programmieren inspirieren. Es muss sie überzeugen, dass Programmieren geil ist, das die Vorträger sympathisch sind und dass eigentlich alles super ist. Dafür mache ich eine Einführung, die Programmieren als Abstraktes Gedankenexperiment einführt.
@@ -48,9 +41,13 @@
 	\slidehead
 	\vspace{3mm}
 	\begin{itemize}
+		\pause
 		\item Computer sind rein-mathematische Maschinen
-		\item Computer macht einfache Arbeitsschritte extrem \textbf{schnell}
+		\pause
+		\item Computer führen einfache Arbeitsschritte extrem \textbf{schnell} aus
+		\pause
 		\item Programme sind aus vielen Arbeitsschritten zusammengesetzt
+		\pause
 		\pythonfile{listings/Programmieren.txt}
 	\end{itemize}
 \end{frame}
@@ -60,6 +57,7 @@
 	\slidehead
 	\begin{itemize}
 		\item Programmieren mit Python \textcolor{gray}{[\textprimstress pa\textsci \texttheta n] [\textprimstress pa\textsci \texttheta \textscripta n]}
+		\pause
 		\item Python?
 		\pause
 		\item[] $\Rightarrow$ Programmiersprache!
@@ -92,7 +90,7 @@
 	\end{frame}
 \end{comment}
 
-\subsection{Interpreter?}
+\section{Interpreter?}
 \begin{frame}[t]
 	\slidehead
 	\begin{columns}[T]
@@ -106,7 +104,9 @@
 				\draw[->,line width=.6mm] (mensch.south) -- (interpreter.north);
 				}
 				\visible<3->{
+
 				\node[fill=\IfDarkModeTF{.!30!\thepagecolor}{lightgray},draw, inner sep=5pt, rounded rectangle] (computer) at (0,-4) {Computer};
+
 				\draw[->,line width=.6mm] (interpreter.south) -- (computer.north);
 				}
 			\end{tikzpicture}
@@ -131,8 +131,33 @@
 	\end{columns}
 \end{frame}
 
+%\nextvid{Erstes Programm}{}
 
-\subsection{}
+\subtitle{Kapitel 1: Erste Schritte}
+
+%Deckblatt
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{5.5cm}
+% 			\begin{tikzpicture}
+% 				\draw (0, 0) node[inner sep=0] {\includeinvertablegraphics[scale=0.265]{python.png}};
+% 				% ich habe eine Mail an xkcd geschrieben, es ist ok das wir die klammern einfügen :)
+% 				\draw (-1.95, -2.33) node {\tiny (};
+% 				\draw (-1.02, -2.33) node {\tiny )};
+% 			\end{tikzpicture}
+% 			\\	\sffamily \tiny Bild: \href{https://xkcd.com/353/}{https://xkcd.com/353/ [edit: Kammern eingefügt für Python 3]}
+% 		\end{column}
+% 		\begin{column}{5cm}
+% 			\begin{center}
+% 				\vspace{-3.5cm}
+% 				{\huge Erstes Program}
+% 				\end{center}
+% 			\end{column}
+% 		\end{columns}
+% 	}
+% \maketitle
+
+\section{Erstes Program}
 \begin{frame}
 	% Beispiel, um zu zeigen wie so ein Befehl aussieht (und ein Kommentar)
 	\slidehead
@@ -160,7 +185,7 @@
 		\end{tikzpicture}
 	\end{minipage}
 	\pause
-	\hskip -3.8cm
+	\hskip -4.8cm
 	\begin{minipage}[b]{0.4\textwidth}
 		\begin{tikzpicture}
 			\draw [decorate,decoration={mirror,brace,amplitude=6pt}]
@@ -169,11 +194,11 @@
 	\end{minipage}
 
 	\pause
-	\vspace{0.5cm}
+	\vspace{0.25cm}
 	\begin{block}{Wichtig}
 		\begin{itemize}
 			\item Text muss in \pythoninline{" "} oder in \pythoninline{' '} stehen
-			\item Verwende \textbf{aussagekräftige} Kommentare \footnotesize (dein späteres Ich wird dir danken)!
+			\item Verwende \textbf{aussagekräftige} Kommentare \footnotesize (dein späteres Ich wird es dir danken)!
 		\end{itemize}
 	\end{block}
 	\note{
@@ -189,15 +214,16 @@
 	\begin{itemize}
 		\item Mithilfe des Befehls \pythoninline{print()} kann Text auf der Konsole ausgeben werden
 	\end{itemize}
+	\pause
 	\begin{columns}
 		\begin{column}{6cm}
 			\pythonfile{listings/print_Listing.py}
 		\end{column}
-		\begin{column}{6cm}
+		\begin{column}{7cm}
 			\pythonfile{listings/printSingleLine_Listing.py}
 		\end{column}
 	\end{columns}
-
+	\vspace{0.25cm}
 	\begin{block}{Merke}
 		\pythoninline{print()} erzeugt einen Zeilenumbruch nach der Ausgabe
 	\end{block}
@@ -218,8 +244,20 @@
 		\end{tabular}
 		\label{}
 	\end{table}
-
+	\pause
 	\pythonfile{listings/Steuerzeichen_Listing.py}
+\end{frame}
+
+\section{Dateisystem}
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item Computer benutzen meist Dateisysteme um Dateien zu organisieren
+		\item Computer benutzen Dateien um Daten permanent zu Speichern
+		\item Dabei werden die Dateien oft in einer Ordnerstruktur abgelegt
+		\item Dateien haben einen eindeutigen Namen innerhalb ihres Ordners.
+		\item Dateien haben meist eine Dateiendung welche signalisiert um welche art von Datei es sich handelt. (z.B: .exe, .txt, .py, .doc)
+	\end{itemize}
 \end{frame}
 
 \section{Vom Quelltext zum fertigen Programm}
@@ -234,16 +272,19 @@
 				\node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (file) at (0,-1.8) {helloworld.py};
 				\draw[->,line width=.6mm] (mensch.south) -- (file.north);
 
-				\node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (python) at (0,-4) {\texttt{python3 helloworld.py}};
+				\node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (python) at (0,-4) {\texttt{python helloworld.py}};
 				\draw[->,line width=.6mm] (file.south) -- (python.north);
 			\end{tikzpicture}
 		\end{column}
 		\begin{column}{.6\textwidth}
 			\begin{itemize}
-				\item Ausführen: \texttt{python3 dateiName.py}
+				\item Ausführen: \texttt{python dateiName.py}
 				\item Python-Programme laufen überall, wo Python installiert ist
 			\end{itemize}
-			\vspace{2.5cm}
+			\begin{block}{Hinweis}
+				Wenn \texttt{python -\,-version}\, kleiner 3 ist, müsst ihr entweder updaten oder \texttt{python3} als Befehl verwenden!
+			\end{block}
+			%\vspace{2cm}
 			\begin{block}{Hinweis}
 				Python-Quelltext mit der Dateiendung \texttt{.py} kennzeichnen und sinnvoll benennen! Leerzeichen sind problematisch.
 			\end{block}
@@ -262,24 +303,42 @@
 
 	\begin{itemize}
 		\item Programm wird in einem herkömmlichen Editor geschrieben
-		\item Poolraumrechner: \texttt{gedit}, \texttt{atom}, \texttt{kate}
+		\item hier ein paar Editor Beispiele: \texttt{gedit}, \texttt{atom}, \texttt{kate}
 	\end{itemize}
 	\begin{alertblock}{Wichtig}
-		Verwendet keine Textverarbeitung wie LibreOffice, Pages oder MS Word!
+		Verwendet \textbf{keine} Textverarbeitung wie LibreOffice, Pages oder MS Word!
 	\end{alertblock}
 \end{frame}
+
+% \begin{frame}
+% 	\slidehead
+% 		Zusammen arbeiten hilft beim lernen, leider ist das aktuell aber etwas schwierig.\\
+% 		Hier sind einige Möglichkeiten wie ihr das trotzdem könnt (alles freiwillig natürlich):
+% 	\vspace{0.5cm}
+%
+% 	\begin{itemize}
+% 		\item Atom plugin \textbf{Teletype}:\\ \href{https://teletype.atom.io/}{\textbf{https://teletype.atom.io/}}\\(Benötigt GitHub account)
+% 		\item Alternativ gibt es online services wie:
+% 		\begin{itemize}
+% 			\item \href{https://codecollab.io/}{https://codecollab.io/} (Wählt Python\textbf{3} aus!)
+% 			\item \href{https://repl.it/}{https://repl.it/}
+% 		\end{itemize}
+% 		Bei beiden gilt, wenn ihr euch keinen Account erstellt, solltet ihr euren code im Anschluss auf eurem Rechner herunter laden bzw. kopieren!
+% 	\end{itemize}
+% 	Ihr könnt euch während dessen natürlich auf Discord unterhalten.
+% \end{frame}
 
 \section{Ein Python-Programm ausführen}
 \begin{frame}[fragile]
 	\slidehead
 	\begin{bashcode}
-		$ python3 helloworld.py
+		$ python helloworld.py
 		Hello World!
 		$
 	\end{bashcode}
 
 	\begin{itemize}
-		\item Programm mit \texttt{python3 dateiName.py} starten
+		\item Programm mit \texttt{python dateiName.py} starten
 	\end{itemize}
 \end{frame}
 
@@ -288,28 +347,55 @@
 	\slidehead
 
 	\begin{bashcode}
-		$ python3
-		|\texttt{Python 3.7.0 (default, Jul 15 2018, 10:44:58)}|
-		|\texttt{[GCC 8.1.1 20180531] on linux}|
+		$ python
+		|\texttt{Python 3.10.7 (main, Sep  6 2022, 21:22:27)}|
+		|\texttt{[GCC 12.2.0] on linux}|
 		|\texttt{Type {\ditto}help{\ditto}, {\ditto}copyright{\ditto}, {\ditto}credits{\ditto} or {\ditto}license{\ditto} for more information.}|
 		>>> print("Hello World!")
 		Hello World!
 		>>>
 	\end{bashcode}
 
+	%|\texttt{Python 3.7.0 (default, Jul 15 2018, 10:44:58)}|
+	%|\texttt{[GCC 8.1.1 20180531] on linux}|
+	%|\texttt{Type {\ditto}help{\ditto}, {\ditto}copyright{\ditto}, {\ditto}credits{\ditto} or %{\ditto}license{\ditto} for more information.}|
+
 	\vskip -.5em
 
 	\begin{itemize}
 		\item Der Python-Interpreter hat einen interaktiven Modus
-		\item Dieser kann mit dem Konsolenbefehl \texttt{python3} gestartet werden
+		\item Dieser kann mit dem Konsolenbefehl \texttt{python} gestartet werden
 		\item Anschließend können Python-Befehle eingegeben werden
 		\item[]  %leerzeile
 		\item \textbf{Strg+D} (außer Windows) oder der Befehl \pythoninline{quit()} beendet den Interpreter wieder
 	\end{itemize}
 \end{frame}
 
-\subsection{}
 \livecoding
+\subsection{}
+
+
+%\nextvid{Fehler}{Beispiel: Hello World}
+
+\subtitle{Kapitel 1: Erste Schritte}
+
+%Deckblatt
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{3cm}
+% 			\begin{center}
+% 				\vspace{2cm}
+% 				{\huge Fehler}
+% 			\end{center}
+% 		\end{column}
+% 		\begin{column}{5cm}
+% 			\\
+% 			\vspace{1cm}
+% 			\includeinvertablegraphics[scale=0.4]{wisdom_of_the_ancients.png}
+% 			\\	\sffamily \tiny Bild: \href{https://xkcd.com/979/}{https://xkcd.com/979/}
+% 		\end{column}
+% 	\end{columns}}
+% \maketitle
 
 \subsection{Fehlerarten}
 \begin{frame}
@@ -380,7 +466,7 @@
 		\pause
 		\item Fehler in \texttt{andererTest.py}
 		\pause
-		\item In \texttt{line 3} stimmt hier nicht ganz, aber in \texttt{line 1} fehlt eine \texttt{(}
+		\item In \texttt{line 3} stimmt hier nicht ganz, aber in \texttt{line 1} fehlt eine \texttt{)}
 		\pause
 		\item Der Interpreter sucht weiterhin nach \texttt{)}, aber die Datei ist in \textbf{Zeile 3} zu Ende
 		\pause
@@ -388,6 +474,9 @@
 	\end{itemize}
 \end{frame}
 
+\subsection{}
 \livecoding
+
+%\nextvid{Datentypen}{}
 
 \end{document}

@@ -4,11 +4,23 @@
 
 \begin{document}
 
-\subtitle{Variablen}
+%Deckblatt
+\subtitle{Kapitel 3: Daten Zwischenspeichern}
+\titlegraphic{
+	\begin{columns}
+		\begin{column}{10cm}
+			\begin{center}
+				{\huge Variablen}
+			\end{center}
+			\vspace{-1mm}
+			\begin{figure}
+				\centering
+			\includeinvertablegraphics[scale=.35]{media/x.png}
+				\\	\sffamily \tiny Bild: \href{https://xkcd.com/2309/}{https://xkcd.com/2309/}
+			\end{figure}
+		\end{column}
+	\end{columns}}
 \maketitle
-
-%Inhaltsverzeichnis
-\tocslide
 
 \section{Was sind Variablen?}
 \begin{frame}[fragile]
@@ -17,7 +29,9 @@
 	% Idee: Kinderspielzeug Bauklötze in verschiedenen Formen als Bild?
 	\begin{itemize}
 		\item Speicherplatz für Werte
+		\pause
 		\item Ein Fach im Speicher, in das man Werte ablegen kann
+		\pause
 		\item Variablennamen sind besser zu merken als nummerierte Speicherplätze
 	\end{itemize}
 \end{frame}
@@ -52,6 +66,26 @@
 
 \livecoding
 
+%\nextvid{Konsoleneingabe}{Variablen Beispiel}
+
+% \subtitle{Kapitel 3: Daten Zwischenspeichern}
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{10cm}
+% 			\begin{center}
+% 				{\huge Konsoleneingabe}
+% 			\end{center}
+% 			\vspace{-1mm}
+% 			\begin{figure}
+% 				\centering
+% 			\includegraphics[scale=.35]{media/incident\IfDarkModeT{_dark}.png}
+% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/838/}{https://xkcd.com/838/}
+% 			\end{figure}
+% 		\end{column}
+% 	\end{columns}}
+% \maketitle
+%\subtitle{Konsoleneingabe}
+
 \section{Exkurs: Konsoleneingabe}
 \begin{frame}
 	\slidehead
@@ -71,8 +105,25 @@
 
 \livecoding
 
-\subtitle{Anweisungen und Ausdrücke}
-\maketitle
+%\nextvid{Anweisungen und Ausdrücke}{Konsoleneingabe Beispiele}
+
+% \subtitle{Kapitel 3: Daten Zwischenspeichern}
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{10cm}
+% 			\begin{center}
+% 				{\huge Anweisungen und Ausdrücke}
+% 			\end{center}
+% 			\vspace{-2mm}
+% 			\begin{figure}
+% 				\centering
+% 			\includeinvertablegraphics[scale=.35]{media/sandwich.png}
+% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/149/}{https://xkcd.com/149/}
+% 			\end{figure}
+% 		\end{column}
+% 	\end{columns}}
+% \maketitle
+
 %\begin{frame}
 %	\vspace{2cm}
 %	\begin{center}
@@ -124,19 +175,20 @@
 	\end{itemize}
 \end{frame}
 
-
 \livecoding
+
+%\nextvid{If-Anweisung}{Anweisungen und Ausdrücke Beispiel}
 
 \section{If-Anweisung}
 \begin{frame}
 	\slidehead
 	\note{If-Anweisungen sind mächtig. Bisher war alles einspurig. Immer der gleiche Weg von Start bis Ziel. Das kann auch der Taschenrechner. Ab jetzt kann das Programm selber Entscheidungen treffen, welche Codezeilen ausgeführt werden. Berechnungen können nun entscheiden, ob andere Berechnungen gemacht werden.}
 	\begin{center}
-		\vspace{-0.35cm}
+		\vspace{-0.25cm}
 		%{\fontsize{200}{50}\selectfont $\prec$}
 		% Photo by pine watt on Unsplash.  Source: https://unsplash.com/photos/biqNmQEjfTA Licence is completely free to do anything: "More precisely, Unsplash grants you an irrevocable, nonexclusive, worldwide copyright license to download, copy, modify, distribute, perform, and use photos from Unsplash for free, including for commercial purposes, without permission from or attributing the photographer or Unsplash."
 		\begin{figure}
-			\includegraphics[height=0.838\textheight]{media/direction.jpg}
+			\includegraphics[height=0.8\textheight]{media/direction.jpg}
 		\end{figure}
 	\end{center}
 
@@ -192,7 +244,31 @@
 	\pythonfile{listings/if_bsp1_listing.py}
 \end{frame}
 
+\livecoding
+%\nextvid{Else-Klausel}{}
+
+\section{If-Anweisung}
 \subsection{Else-Klausel}
+
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{4cm}
+% 			\vspace{2cm}
+% 			\begin{center}
+% 				{\huge Else-Klausel}
+% 			\end{center}
+% 		\end{column}
+% 		\begin{column}{4cm}
+% 			\vspace{5mm}
+% 			\begin{figure}
+% 				\centering
+% 			\includeinvertablegraphics[scale=.35]{media/conditionals.png}
+% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/1652/}{https://xkcd.com/1652/}
+% 			\end{figure}
+% 		\end{column}
+% 	\end{columns}}
+% \maketitle
+
 
 \begin{frame}
 	\slidehead
@@ -240,29 +316,49 @@
 	\end{itemize}
 \end{frame}
 
-
 \livecoding
 
+%\nextvid{Logische Operatoren}{if und elif Beispiele}
+
 \section{Logische Operatoren}
+
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{4cm}
+% 			\vspace{1.5cm}
+% 			\begin{center}
+% 				{\huge Logische Operatoren}
+% 			\end{center}
+% 		\end{column}
+% 		\begin{column}{4cm}
+% 			\vspace{-4mm}
+% 			\begin{figure}
+% 				\centering
+% 			\includeinvertablegraphics[scale=.2]{media/logic_boat.png}
+% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/1134/}{https://xkcd.com/1134/}
+% 			\end{figure}
+% 		\end{column}
+% 	\end{columns}}
+% \maketitle
+
 \begin{frame}
 	\slidehead
-
+	\vspace{-0.1cm}
 	\begin{itemize}
 		\item Logisches \textbf{Nicht} (\pythoninline{not})  $\Rightarrow$ \pythoninline{not Ausdruck1}
 		\item Logisches \textbf{Und} (\pythoninline{and}) $\Rightarrow$ \pythoninline{Ausdruck1 and Ausdruck2}
 		\item Logisches \textbf{Oder} (\pythoninline{or})  $\Rightarrow$ \pythoninline{Ausdruck1 or Ausdruck2}
 	\end{itemize}
-
+	\vspace{-0.15cm}
 	\begin{block}{Beispiel:}
 		\pythonfile{listings/logische_operatoren_listing.py}
 	\end{block}
+	\vspace{-0.15cm}
 	\begin{block}{Hinweis}
 		\begin{itemize}
 			\item Auswertung in der Reihenfolge \pythoninline{not}, \pythoninline{and} und dann \pythoninline{or}
 			\item Reihenfolge immer beachten! Klammern setzen falls nötig!
 		\end{itemize}
-
-
 	\end{block}
 \end{frame}
 
@@ -271,7 +367,6 @@
 \section{Quiz}
 \begin{frame}
 	\slidehead
-
 	\begin{itemize}
 		\item Was darf nicht in einem Variablennamen enthalten sein?
 		\pause
@@ -286,5 +381,8 @@
 		\item Darf eine If-Anweisung im Code-Teil einer anderen If-Anweisung stehen?
 	\end{itemize}
 \end{frame}
+
+
+%\nextvid{Warum Schleifen}{}
 
 \end{document}

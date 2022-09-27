@@ -8,11 +8,26 @@
 \titlegraphic*{\includegraphics{media/cern.jpg}}
 % Photo by Samuel Zeller on Unsplash.  Source: https://unsplash.com/photos/JuFcQxgCXwA Licence is completely free to do anything: "More precisely, Unsplash grants you an irrevocable, nonexclusive, worldwide copyright license to download, copy, modify, distribute, perform, and use photos from Unsplash for free, including for commercial purposes, without permission from or attributing the photographer or Unsplash."
 
-\subtitle{Listen}
+\subtitle{Kapitel 5: ganz viele variablen in einer}
+\titlegraphic{
+	\begin{columns}
+		\begin{column}{4cm}
+			\vspace{1.5cm}
+			\begin{center}
+				{\huge Listen}
+			\end{center}
+		\end{column}
+		\begin{column}{4cm}
+		\vspace{-4mm}
+			\begin{figure}
+				\centering
+			\includegraphics[scale=.28]{media/tattoo_ideas\IfDarkModeT{_dark}.png}
+				\\	\sffamily \tiny Bild: \href{https://xkcd.com/2255/}{https://xkcd.com/2255/}
+			\end{figure}
+		\end{column}
+	\end{columns}}
 \maketitle
 
-%Inhaltsverzeichnis
-\tocslide
 
 \section{Listen?}
 \begin{frame}
@@ -32,7 +47,7 @@
 
 	\begin{itemize}
 		\item Liste: Kann mehrere Werte aufnehmen
-		\item Metapher: Schuhkarton mit vielen Fächern
+		\item Metapher: Schrank mit vielen Schubladen
 	\end{itemize}
 
 	%list graphic
@@ -104,6 +119,24 @@
 
 \end{frame}
 
+%\nextvid{Nützliche Listen-Funktionen}{Listen Beispiele}
+
+%Deckblatt
+%\titlegraphic*{\includegraphics{media/cern.jpg}}
+% Photo by Samuel Zeller on Unsplash.  Source: https://unsplash.com/photos/JuFcQxgCXwA Licence is completely free to do anything: "More precisely, Unsplash grants you an irrevocable, nonexclusive, worldwide copyright license to download, copy, modify, distribute, perform, and use photos from Unsplash for free, including for commercial purposes, without permission from or attributing the photographer or Unsplash."
+%
+\subtitle{Listen}
+\subtitle{Kapitel 5: ganz viele variablen in einer}
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{6cm}
+% 			\vspace{18mm}
+% 			\begin{center}
+% 				{\huge Listen-Funktionen}
+% 			\end{center}
+% 		\end{column}
+% 	\end{columns}}
+% \maketitle
 
 \section{Nützliche Listen-Funktionen}
 \begin{frame}
@@ -128,6 +161,22 @@
 
 \livecoding
 
+%\nextvid{Slicing}{Listen-Funktionen Beispiel}
+%
+\subtitle{Kapitel 5: ganz viele variablen in einer}
+
+% %Deckblatt
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{6cm}
+% 			\vspace{18mm}
+% 			\begin{center}
+% 				{\huge Slicing}
+% 			\end{center}
+% 		\end{column}
+% 	\end{columns}}
+% \maketitle
+
 \section{Listen-Slicing}
 \begin{frame}
 	\slidehead
@@ -141,6 +190,7 @@
 		\item Dies funktioniert auch mit Strings!
 	\end{itemize}
 	\pause
+
 	\begin{block}{Beispiel:}
 		\only<4>{\pythonfile{listings/simpleSlice_no_solution.py}}
 		\only<5>{\pythonfile{listings/simpleSlice.py}}
@@ -159,6 +209,7 @@
 		\item \textbf{[:]} gibt alle Elemente zurück
 	\end{itemize}
 	\pause
+	\vspace{-0.1cm}
 	\begin{block}{Beispiel:}
 		\only<5>{\pythonfile{listings/partlySlice_no_solution.py}}
 		\only<6>{\pythonfile{listings/partlySlice.py}}
@@ -175,6 +226,7 @@
 		\item \textbf{[::-1]} gibt die Liste in umgekehrter Reihenfolge aus
 	\end{itemize}
 	\pause
+	\vspace{-0.1cm}
 	\begin{block}{Beispiel:}
 		\only<4>{\pythonfile{listings/intervalSlice_no_solution.py}}
 		\only<5>{\pythonfile{listings/intervalSlice.py}}
@@ -182,6 +234,22 @@
 \end{frame}
 
 \livecoding
+
+%\nextvid{Foreach-Schleifen}{Slicing Beispiele}
+
+%Deckblatt
+\subtitle{Kapitel 5: ganz viele variablen in einer}
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{10cm}
+% 			\vspace{1.5cm}
+% 			\begin{center}
+% 				{\huge Foreach-Schleifen}
+% 			\end{center}
+% 		\end{column}
+% 	\end{columns}}
+% \subtitle{Listen}
+% \maketitle
 
 \section{For- vs. Foreach-Schleife}
 \begin{frame}
@@ -196,6 +264,25 @@
 		\pythonfile{listings/foreach_Listing.py}
 	\end{itemize}
 \end{frame}
+
+\livecoding
+
+%\nextvid{Listen kopieren}{Foreach Beispiel}
+
+
+%Deckblatt
+\subtitle{Kapitel 5: ganz viele variablen in einer}
+
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{6cm}
+% 			\vspace{18mm}
+% 			\begin{center}
+% 				{\huge Listen Kopieren}
+% 			\end{center}
+% 		\end{column}
+% 	\end{columns}}
+% \maketitle
 
 \section{Listen kopieren}
 \begin{frame}
@@ -259,11 +346,28 @@
 	\end{itemize}
 \end{frame}
 
-\subsection{""}
 \livecoding
+
+%\nextvid{Mehrdimensionale Listen}{Listen kopieren Beispiel}
+
+%Deckblatt
+\subtitle{Kapitel 5: ganz viele variablen in einer}
+
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{10cm}
+% 			\vspace{1.5cm}
+% 			\begin{center}
+% 				{\huge Mehrdimensionale Listen}
+% 			\end{center}
+% 		\end{column}
+% 	\end{columns}}
+% \subtitle{Listen}
+% \maketitle
 
 \section{Mehrdimensionale Listen}
 \begin{frame}
+	\newcount\foo
 	\slidehead
 	\begin{columns}[T]
 		\begin{column}{4cm}
@@ -330,13 +434,11 @@
 	\pythonfile{listings/mehrDimList_Initialisierung_Listing.py}
 \end{frame}
 
-\subsection{}
 \livecoding
 
 \section{Quiz}
 \begin{frame}
 	\slidehead
-
 	\begin{itemize}
 		\item Wie erhält man Zugriff auf die Länge einer Liste?
 		\pause
@@ -344,11 +446,12 @@
 		\pause
 		\item Wie wird eine zweidimensionale Liste adressiert? (Stichwort: Zeile/Spalte)
 		\pause
-		\item Wofür benötigen wir \pythoninline{copy()} und warum erzielt eine einfache Zuweisung
-		nicht den gewünschten Effekt?
+		\item Wofür benötigen wir \pythoninline{copy()} und warum erzielt eine einfache Zuweisung nicht den gewünschten Effekt?
 		\pause
 		\item Wie schneide ich eine Liste hinter dem 3. Element ab?
 	\end{itemize}
 \end{frame}
+
+%\nextvid{Funktionen}{Mehrdimensionale Listen Beispiele}
 
 \end{document}

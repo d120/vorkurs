@@ -5,14 +5,22 @@
 
 \begin{document}
 %Deckblatt
-\subtitle{Funktionen \& Rekursion}
+\subtitle{Kapitel 6: wie Funktionen funktionieren}
 \titlegraphic{
-	\raisebox{-6cm}{für mehr Informationen siehe Foliensatz "`Funktionen \& Rekursion"'}
-	}
+	\begin{columns}
+		\begin{column}{10cm}
+			%\vspace{1.5cm}
+			\begin{center}
+				{\huge Funktionen}
+			\end{center}
+			\begin{figure}
+				\centering
+				\includeinvertablegraphics[scale=.4]{media/proofs.png}
+				\\	\sffamily \tiny Bild: \href{https://xkcd.com/1724/}{https://xkcd.com/1724/}
+			\end{figure}
+		\end{column}
+	\end{columns}}
 \maketitle
-
-%Inhaltsverzeichnis
-\tocslide
 
 \section{Schlechtes Beispiel}
 \begin{frame}
@@ -45,16 +53,35 @@
 	\end{block}
 \end{frame}
 
+%\nextvid{Funktionen Syntax}{}
+
+\subtitle{Kapitel 6: wie Funktionen funktionieren}
+
+%Deckblatt
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{6cm}
+% 			\vspace{18mm}
+% 			\begin{center}
+% 				{\huge Funktionen Syntax}
+% 			\end{center}
+% 		\end{column}
+% 	\end{columns}
+% }
+% \maketitle
+
 \section{Woraus besteht eine Funktion?}
 \begin{frame}
 	\slidehead
-
+	\vspace{-0.2cm}
 	\begin{itemize}
 		\item Syntax: \pythonfile{listings/functionhead_parameter.txt}
 		\pause
-
+		\vspace{-0.05cm}
 		\item Beispiel:\pythonfile{listings/functionhead_parameter_konkret.py}
 	\end{itemize}
+	\vspace{-0.05cm}
+	\pause
 	\begin{block}{Wichtig!}
 		\begin{itemize}
 			\item Funktionen müssen definiert werden, bevor sie aufgerufen werden
@@ -94,6 +121,23 @@
 
 \livecoding
 
+%\nextvid{Funktion Fallbeispiel}{}
+
+\subtitle{Kapitel 6: wie Funktionen funktionieren}
+
+%Deckblatt
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{6cm}
+% 			\vspace{18mm}
+% 			\begin{center}
+% 				{\huge Funktionen Fallbeispiel}
+% 			\end{center}
+% 		\end{column}
+% 	\end{columns}
+% }
+% \maketitle
+
 \section{Fallbeispiel: Geometrie}
 \begin{frame}
 	\slidehead
@@ -123,7 +167,7 @@
 
 \begin{frame}
 	\slidehead
-
+	\vspace{-0.2cm}
 	\begin{onlyenv}<1>
 		\pythonfile{listings/bsp_geometrie_1.py}
 	\end{onlyenv}
@@ -137,9 +181,9 @@
 \subsection{Wiederverwendbarkeit}
 \begin{frame}
 	\slidehead
-	\vspace{-0.1cm}
+	\vspace{-0.2cm}
 	\pythonfile{listings/reusability.py}
-	\vspace{-0.1cm}
+	\vspace{-0.2cm}
 	\begin{block}{Hinweis}
 		Nun kann die Funktion auch in anderen Funktionen verwendet werden.
 		Bei Änderungen muss nur eine Stelle geändert werden.
@@ -158,6 +202,22 @@
 \end{frame}
 
 \livecoding
+
+%\nextvid{Scope}{Funktionen Beispiele}
+
+%Deckblatt
+\subtitle{Kapitel 6: wie Funktionen funktionieren}
+
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{6cm}
+% 			\vspace{18mm}
+% 			\begin{center}
+% 				{\huge Scope}
+% 			\end{center}
+% 		\end{column}
+% 	\end{columns}}
+% \maketitle
 
 \section{Scope}
 \subsection{Lokale Variablen}
@@ -193,6 +253,32 @@
 
 \livecoding
 
+%\nextvid{Rekursion}{Scope Beispiele}
+
+\subtitle{Kapitel 6: wie Funktionen funktionieren}
+
+%Deckblatt
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{4cm}
+% 			\vspace{1.5cm}
+% 			\begin{center}
+% 				{\huge Rekursion}
+% 			\end{center}
+% 		\end{column}
+% 		\begin{column}{4cm}
+% 		\vspace{-5mm}
+% 			\begin{figure}
+% 				\centering
+% 				\includeinvertablegraphics[scale=2.5]{media/tabletop_roleplaying.png}
+% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/244/}{https://xkcd.com/244/}
+% 			\end{figure}
+% 			%\raisebox{-5cm}{für mehr Informationen siehe Foliensatz "`Rekursion"'}
+% 			%}
+% 		\end{column}
+% 	\end{columns}}
+% \maketitle
+
 \section{Rekursion}
 \begin{frame}[t]
 	\slidehead
@@ -209,7 +295,7 @@
 		\begin{column}{7cm}
 			\begin{figure}
 				\ifcsname vorkursRecurse\endcsname
-					\includegraphics[width=\textwidth,page=24]{06_Funktionen_tmp.pdf}
+					\includegraphics[width=\textwidth,page=2]{06_05_Rekursion_tmp.pdf}
 				\fi
 			\end{figure}
 		\end{column}
@@ -227,7 +313,7 @@
 		\begin{column}{5cm}
 			\begin{figure}
 				\ifcsname vorkursRecurse\endcsname
-					\includegraphics[width=\textwidth,page=25]{06_Funktionen_tmp.pdf}
+					\includegraphics[width=\textwidth,page=3]{06_05_Rekursion_tmp.pdf}
 				\fi
 			\end{figure}
 		\end{column}
@@ -235,7 +321,7 @@
 		\begin{column}{5cm}
 			\begin{figure}
 				\ifcsname vorkursRecurse\endcsname
-					\includegraphics[width=\textwidth,page=25]{06_Funktionen_tmp.pdf}
+					\includegraphics[width=\textwidth,page=3]{06_05_Rekursion_tmp.pdf}
 				\fi
 			\end{figure}
 		\end{column}
@@ -316,6 +402,7 @@
 \begin{frame}
 	\slidehead
 	\centering
+	\vspace{-0.1cm}
 	\begin{tikzpicture}[scale=.9, every node/.style={scale=1}]
 		\newcount\val
 		\newcount\x
@@ -345,13 +432,14 @@
 	\pythonfile{listings/recursiveSum.py}
 \end{frame}
 
-\subsection{}
 \livecoding
+
+
+\subsection{}
 
 \section{Quiz}
 \begin{frame}
 	\slidehead
-
 	\begin{itemize}
 		\item Was bedeutet Kapseln?
 		\pause
@@ -363,6 +451,24 @@
 		\pause
 		\item Solltet ihr alle zur Ophase gehen?
 	\end{itemize}
+\end{frame}
+
+\section{Fragen und Sonstiges}
+\begin{frame}
+	\slidehead
+	\vspace{1.8cm}
+	\centering
+	\huge Noch Fragen?
+\end{frame}
+
+\section{}
+\subsection{}
+
+\begin{frame}
+	\slidehead
+	\vspace{1.8cm}
+	\centering
+	\huge Danke fürs Teilnehmen und Viel Erfolg im Studium.
 \end{frame}
 
 \end{document}

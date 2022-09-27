@@ -1,4 +1,17 @@
-\documentclass[accentcolor=3c,landscape,ngerman,presentation,t,usenames,dvipsnames,svgnames,table,colorframetitle=true]{tudabeamer}
+% <<<<<<< HEAD
+% \documentclass[accentcolor=3c,landscape,ngerman,presentation,t,usenames,dvipsnames,svgnames,table,colorframetitle=true]{tudabeamer}
+% =======
+
+%include guard:
+\ifdefined\GlobalAlreadyIncluded
+  \expandafter\endinput
+\fi
+
+\gdef\GlobalAlreadyIncluded{}
+%
+
+\documentclass[accentcolor=3c,landscape,ngerman,presentation,t,usenames,dvipsnames,svgnames,table, aspectratio=169,colorframetitle=true]{tudabeamer}
+%>>>>>>> online_rebase
 
 % Template-Modifikationen
 \addtobeamertemplate{frametitle}{}{\vspace{-1em}} % mehr Platz vor dem Inhalt
@@ -14,7 +27,6 @@
 \usetikzlibrary{calc,shapes,arrows}
 %tip: use http://l04.scarfboy.com/coding/phonetic-translation?from=ipa&fromtext=%CB%88pa%C9%AA%CE%B8n%CC%A9&to=tipa
 %for converting ipa
-
 
 \graphicspath{ {./media/} }
 
@@ -54,11 +66,48 @@
 
 
 % macros
-\newcommand{\livecoding}{\begin{frame}\frametitle{\insertsectionhead \\  {\small \insertsubsectionhead}}\centering \huge \vskip 2cm\textbf{\textcolor{red}{Live-Coding}}\end{frame}}
+\newcommand{\livecoding}{
+		%\ifdefined\StreamSlides
+			\begin{frame}
+				\frametitle{\insertsectionhead \\  {\small \insertsubsectionhead}}\centering \huge 	\vskip 2cm\textbf{\textcolor{red}{Live-Coding}}
+			\end{frame}
+		%\fi
+	}
 
 %\newcommand{\slidehead}{\frametitle{\insertsectionhead \\ {\small \insertsubsectionhead}}\vspace{3mm}}
 \newcommand{\slidehead}{\frametitle{\insertsectionhead} \framesubtitle{\insertsubsectionhead}\vspace{3mm}}
 \newcommand{\tocslide}{\begin{frame}[t]\frametitle{Inhaltsverzeichnis}\vspace{3mm}{\small\tableofcontents[subsectionstyle=shaded]}\end{frame}}
+
+\newcommand{\nextvid}[2]{
+	\ifdefined\StreamSlides
+	\else
+		\section{Nächstes Video}
+		\begin{frame}[t]
+			\slidehead
+			\begin{block}{Nächstes Video}
+				\vspace{0.5cm}
+				#1
+				\vspace{0.5cm}
+			\end{block}
+			\ifx\hfuzz#2\hfuzz
+				\vspace{2.5cm}
+			\else
+				{\begin{block}{Bonus Video}
+					\vspace{0.5cm}
+					#2
+					\vspace{0.5cm}
+				\end{block}}
+			\fi
+			Danke fürs Zuschauen!\\
+			Links zu den Folien und Quellen sind in der Videobeschreibung.
+		\end{frame}
+	\fi
+}
+
+
+\usepackage{verbatim}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{shapes.misc}
 
 
 % colors

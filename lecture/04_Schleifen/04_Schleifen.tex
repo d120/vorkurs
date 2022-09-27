@@ -5,11 +5,28 @@
 \begin{document}
 
 %Deckblatt
-\subtitle{Schleifen}
+
+\section{Schleifen}
+\subtitle{Kapitel 4: Befehle wiederholen}
+\titlegraphic{
+	\begin{columns}
+		\begin{column}{4cm}
+			\vspace{1.5cm}
+			\begin{center}
+				{\huge Schleifen}
+			\end{center}
+		\end{column}
+		\begin{column}{4cm}
+		\vspace{2mm}
+			\begin{figure}
+				\centering
+			\includeinvertablegraphics[scale=.5]{media/flowchart.png}
+				\\	\sffamily \tiny Bild: \href{https://xkcd.com/1195/}{https://xkcd.com/1195/}
+			\end{figure}
+		\end{column}
+	\end{columns}}
 \maketitle
 
-%Inhaltsverzeichnis
-\tocslide
 
 \section{Wofür Schleifen?}
 \begin{frame}
@@ -39,7 +56,32 @@
 	\end{itemize}
 \end{frame}
 
+%\nextvid{While-Schleife}{}
+
+%Deckblatt
 \section{While-Schleife}
+\subtitle{Kapitel 4: Befehle wiederholen}
+
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{4cm}
+% 			\vspace{1.5cm}
+% 			\begin{center}
+% 				{\huge While-Schleife}
+% 			\end{center}
+% 		\end{column}
+% 		\begin{column}{4cm}
+% 		\vspace{2mm}
+% 			\begin{figure}
+% 				\centering
+% 			\includeinvertablegraphics[scale=.4]{media/loop.png}
+% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/1411/}{https://xkcd.com/1411/}
+% 			\end{figure}
+% 		\end{column}
+% 	\end{columns}}
+% \maketitle
+
+
 \begin{frame}
 	\slidehead
 
@@ -53,11 +95,14 @@
 \end{frame}
 
 \begin{frame}
+	\slidehead
 	\begin{itemize}
 		\item Alle logischen Operatoren können verwendet werden:
 		\pythonfile{listings/while_Listing2.py}
 	\end{itemize}
 \end{frame}
+
+\livecoding
 
 \subsection{Continue und break}
 \begin{frame}
@@ -70,19 +115,46 @@
 	\pythonfile{listings/continueBreak.py}
 \end{frame}
 
-\subsection{}
 \livecoding
+
+%\nextvid{For-Schleife}{While-Schleife Beispiel}
+
+%Deckblatt
+\section{For-Schleife}
+\subtitle{Kapitel 4: Befehle wiederholen}
+
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{4cm}
+% 			\vspace{1.5cm}
+% 			\begin{center}
+% 				{\huge For-Schleife}
+% 			\end{center}
+% 		\end{column}
+% 		\begin{column}{5cm}
+% 		\vspace{2mm}
+% 			\begin{figure}
+% 				\centering
+% 			\includeinvertablegraphics[scale=.35]{media/delicious.png}
+% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/140/}{https://xkcd.com/140/}
+% 			\end{figure}
+% 		\end{column}
+% 	\end{columns}}
+% \maketitle
 
 \section{For-Schleife}
 \begin{frame}
 	\slidehead
 
 	\begin{itemize}
+		\vspace{-0.1cm}
 		\item Häufig gibt es folgende Schleifenart:
+			\vspace{0.15cm}
 		\pythonfile{listings/while_Listing3.py}
 
 		\pause
 		\item Kurzschreibweise:
+		\vspace{0.15cm}
 		\pythonfile{listings/forschleife_Listing.py}
 	\end{itemize}
 	\begin{block}{Frage:}
@@ -119,20 +191,13 @@
 	\end{itemize}
 \end{frame}
 
-
-\begin{frame}
-	\slidehead
-	Diskutiert mit euren Nachbar*innen was ausgegeben wird
-	\only<1>{\pythonfile{listings/schleife_var_change.py}}
-	\only<2>{\pythonfile{listings/schleife_var_change_solution.py}}
-\end{frame}
-
 \subsection{Verschachtelte Schleifen}
 \begin{frame}
 	\slidehead
 
 	\begin{itemize}
 		\item Natürlich lassen sich Schleifen auch \textit{verschachteln}:
+		\vspace{0.1cm}
 		\pythonfile{listings/geschachteltfor_listing.py}
 	\end{itemize}
 
@@ -157,7 +222,6 @@
 		\item Wann ist die Verwendung einer \pythoninline{for}-Schleife sinnvoll?\pause
 		\item Ist es möglich, \pythoninline{while}-Schleifen in \pythoninline{for}-Schleifen zu verschachteln?\pause
 	\end{itemize}
-
 	\begin{block}{Finde drei Fehler}
 		\pythonfile{listings/FrageStunde_Schleife_ErrorListing.py}
 	\end{block}
@@ -165,5 +229,8 @@
 	% : fehlt (Syntaxfehler)
 	% schleife wird 10 und nicht 20 mal ausgeführt (Logikfehler)
 \end{frame}
+
+
+%\nextvid{Listen}{For-Schleife Beispiele}
 
 \end{document}
