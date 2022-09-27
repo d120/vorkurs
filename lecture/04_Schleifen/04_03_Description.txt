@@ -1,7 +1,0 @@
-Dieses Video erklärt For-Schleifen.
-
-Bildquellen:
-https://xkcd.com/140/
-
-Alle Folien gibt es hier:
-https://github.com/d120/vorkurs/releases/latest

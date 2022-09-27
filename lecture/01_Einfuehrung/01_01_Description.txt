@@ -1,8 +1,0 @@
-Dieses Video erklärt kurz, warum wir uns überhaupt den Aufwand machen müssen Programmiersprachen zu lernen und warum diese so sind wie sie sind.
-
-Bildquellen:
-https://xkcd.com/1513/ (Code Quality comic)
-https://xkcd.com/844/ (Good Code comic)
-
-Alle Folien gibt es hier:
-https://github.com/d120/vorkurs/releases/latest

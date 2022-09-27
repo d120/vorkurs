@@ -1,4 +1,0 @@
-Dieses Video erklärt Foreach-Schleifen und wie sie mit Listen verwendet werden können.
-
-Alle Folien gibt es hier:
-https://github.com/d120/vorkurs/releases/latest

@@ -1,0 +1,387 @@
+% !TeX document-id = {dc20ae76-71b7-4d65-b662-f71c46d32e15}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\input{../global.tex}
+
+\begin{document}
+
+%Deckblatt
+\subtitle{Kapitel 3: Daten Zwischenspeichern}
+\titlegraphic{
+	\begin{columns}
+		\begin{column}{10cm}
+			\begin{center}
+				{\huge Variablen}
+			\end{center}
+			\vspace{-1mm}
+			\begin{figure}
+				\centering
+			\includeinvertablegraphics[scale=.35]{media/x.png}
+				\\	\sffamily \tiny Bild: \href{https://xkcd.com/2309/}{https://xkcd.com/2309/}
+			\end{figure}
+		\end{column}
+	\end{columns}}
+\maketitle
+
+\section{Was sind Variablen?}
+\begin{frame}[fragile]
+	\slidehead
+	% Analogie: Fächer; Computer muss wissen, WAS in Fach gelegt werden soll.
+	% Idee: Kinderspielzeug Bauklötze in verschiedenen Formen als Bild?
+	\begin{itemize}
+		\item Speicherplatz für Werte
+		\pause
+		\item Ein Fach im Speicher, in das man Werte ablegen kann
+		\pause
+		\item Variablennamen sind besser zu merken als nummerierte Speicherplätze
+	\end{itemize}
+\end{frame}
+
+\section{Variablen}
+\subsection{Zuweisung}
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item Variablenname = \textbf{Wert}
+	\end{itemize}
+	\pause
+	Beispiel:
+	\pythonfile{listings/Variablen_Listing.py}
+\end{frame}
+
+\begin{frame}
+	\slidehead
+
+	\begin{itemize}
+		\item Variablennamen \textbf{müssen} mit einem Buchstaben oder Unterstrich beginnen
+		\item Variablennamen \textbf{dürfen keine} Punkte, Bindestriche, Sterne oder andere Sonderzeichen enthalten
+		\pause
+		\item Groß- und Kleinschreibung ist \textbf{wichtig}! ("Case sensitive"):\\ $eineVariable \neq EINEVARIABLE \neq EiNeVaRiAbLe$.
+		\pause
+		\item Nutze \textbf{aussagekräftige Namen}!
+		\pause
+		\item Variablen können als Platzhalter für den darin stehenden Wert verwendet werden
+		\item Der Wert einer Variablen kann zum Beispiel mit \pythoninline{print(variablenName)} ausgegeben werden
+	\end{itemize}
+\end{frame}
+
+\livecoding
+
+%\nextvid{Konsoleneingabe}{Variablen Beispiel}
+
+% \subtitle{Kapitel 3: Daten Zwischenspeichern}
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{10cm}
+% 			\begin{center}
+% 				{\huge Konsoleneingabe}
+% 			\end{center}
+% 			\vspace{-1mm}
+% 			\begin{figure}
+% 				\centering
+% 			\includegraphics[scale=.35]{media/incident\IfDarkModeT{_dark}.png}
+% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/838/}{https://xkcd.com/838/}
+% 			\end{figure}
+% 		\end{column}
+% 	\end{columns}}
+% \maketitle
+%\subtitle{Konsoleneingabe}
+
+\section{Exkurs: Konsoleneingabe}
+\begin{frame}
+	\slidehead
+
+	\begin{itemize}
+		\item \textbf{Ziel}: Eingabe in der Konsole \textit{einlesen} und \textit{verarbeiten}
+	\end{itemize}
+
+	\begin{block}{Beispiele}
+		\begin{itemize}
+			\item Zeichenkette einlesen
+			\pythonfile{listings/Input_Listing.py}
+			\item Um andere Typen einzulesen, muss \textit{konvertiert} werden
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\livecoding
+
+%\nextvid{Anweisungen und Ausdrücke}{Konsoleneingabe Beispiele}
+
+% \subtitle{Kapitel 3: Daten Zwischenspeichern}
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{10cm}
+% 			\begin{center}
+% 				{\huge Anweisungen und Ausdrücke}
+% 			\end{center}
+% 			\vspace{-2mm}
+% 			\begin{figure}
+% 				\centering
+% 			\includeinvertablegraphics[scale=.35]{media/sandwich.png}
+% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/149/}{https://xkcd.com/149/}
+% 			\end{figure}
+% 		\end{column}
+% 	\end{columns}}
+% \maketitle
+
+%\begin{frame}
+%	\vspace{2cm}
+%	\begin{center}
+%		\huge Anweisungen und Ausdrücke
+%	\end{center}
+%\end{frame}
+
+
+\section{Anweisungen und Ausdrücke}
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item \textbf{Anweisungen} führen etwas aus
+		\item \textbf{Ausdrücke} werten zu einem \textit{Wert} aus
+	\end{itemize}
+	\pause
+	\pythonfile{listings/Anweisung_Listing.py}
+	\begin{itemize}
+		\item Jede oben gezeigte Zeile enthält \textit{eine Anweisung}
+		\item $1 + 42 + 5$ ist \textit{ein Ausdruck}
+		\pause
+		\item Auch die Zahl $1$ ist hier ein Ausdruck, der zu dem Wert $1$ ausgewertet wird
+		\item Das gilt in Zeile 2 auch für den String
+	\end{itemize}
+
+\end{frame}
+
+
+
+
+\subsection{Zusammengesetze Operatoren}
+\begin{frame}
+	\slidehead
+
+	\begin{itemize}
+		\item Häufig werden Variablen gelesen und gleichzeitig geschrieben
+	\end{itemize}
+
+	\pythonfile{listings/Zusammengesetzeoperatoren_Listing.py}
+
+	\begin{itemize}
+		\item Es gibt noch weitere:
+		\begin{itemize}
+			\item $-=$
+			\item $*=$
+			\item $/=$
+			\item $\%=$
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\livecoding
+
+%\nextvid{If-Anweisung}{Anweisungen und Ausdrücke Beispiel}
+
+\section{If-Anweisung}
+\begin{frame}
+	\slidehead
+	\note{If-Anweisungen sind mächtig. Bisher war alles einspurig. Immer der gleiche Weg von Start bis Ziel. Das kann auch der Taschenrechner. Ab jetzt kann das Programm selber Entscheidungen treffen, welche Codezeilen ausgeführt werden. Berechnungen können nun entscheiden, ob andere Berechnungen gemacht werden.}
+	\begin{center}
+		\vspace{-0.25cm}
+		%{\fontsize{200}{50}\selectfont $\prec$}
+		% Photo by pine watt on Unsplash.  Source: https://unsplash.com/photos/biqNmQEjfTA Licence is completely free to do anything: "More precisely, Unsplash grants you an irrevocable, nonexclusive, worldwide copyright license to download, copy, modify, distribute, perform, and use photos from Unsplash for free, including for commercial purposes, without permission from or attributing the photographer or Unsplash."
+		\begin{figure}
+			\includegraphics[height=0.8\textheight]{media/direction.jpg}
+		\end{figure}
+	\end{center}
+
+\end{frame}
+
+\begin{frame}
+	\slidehead
+	% Define block styles
+	\tikzstyle{block} = [rectangle, draw, fill=\IfDarkModeTF{blue!40!black}{blue!20},
+	text width=10em, text centered, rounded corners, minimum height=4em]
+	\tikzstyle{line} = [draw, -latex']
+
+	\begin{center}
+		%Flowchart:
+		\begin{tikzpicture}[node distance = 4cm, auto]
+			\node [block] (if) {Führerschein?};
+			\node [block, below left of=if] (true) {Autofahren};
+			\node [block, below right of=if] (false) {nicht Autofahren};
+
+			\draw [-latex,thick] (if) --  node [left] {$ja$} (true) ;
+			\draw [-latex,thick] (if) --  node [right] {$nein$} (false) ;
+
+		\end{tikzpicture}
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\slidehead
+	\visible<2->{
+	\begin{itemize}
+		\item Programm läuft sequentiell, d.h zeilenweise
+		\item If-Anweisungen testen \textit{Bedingungen}
+		\item Bei Auswertung zu \pythoninline{False} wird der Block übersprungen, bei \pythoninline{True} wird dieser ausgeführt
+	\end{itemize}}
+	\pythonfile{listings/if_anweisung_Listing.py}
+	\visible<3->{
+	\begin{block}{Hinweis}
+		\begin{itemize}
+			\item Nach der If-Anweisung muss ein \textbf{ : } stehen
+			\item Der Anweisungscode \textbf{muss} eingerückt werden
+			\begin{itemize}
+				\item Einrückung mit einem Tab oder 4 Leerzeichen
+			\end{itemize}
+		\end{itemize}
+	\end{block}
+	}
+\end{frame}
+
+\subsection*{Beispiel}
+\begin{frame}
+	\slidehead
+
+	\pythonfile{listings/if_bsp1_listing.py}
+\end{frame}
+
+%\nextvid{Else-Klausel}{}
+
+\section{If-Anweisung}
+\subsection{Else-Klausel}
+
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{4cm}
+% 			\vspace{2cm}
+% 			\begin{center}
+% 				{\huge Else-Klausel}
+% 			\end{center}
+% 		\end{column}
+% 		\begin{column}{4cm}
+% 			\vspace{5mm}
+% 			\begin{figure}
+% 				\centering
+% 			\includeinvertablegraphics[scale=.35]{media/conditionals.png}
+% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/1652/}{https://xkcd.com/1652/}
+% 			\end{figure}
+% 		\end{column}
+% 	\end{columns}}
+% \maketitle
+
+
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item Oft müssen zwei Fälle unterschieden werden:
+		\vspace{0.58cm}
+		\pythonfile{listings/if_if.py}
+		\item Dafür gibt es eine Kurzschreibweise
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\slidehead
+
+	\begin{itemize}
+		\item \pythoninline{else} bezeichnet einen \textit{alternativ auszuführenden Teil} des Codes
+		\item Übersetzung: "`Wenn \textbf{DAS} zutrifft, mache \textbf{DIESES}; falls nicht, mache \textbf{JENES}"'
+		\pythonfile{listings/if_bsp2_listing.py}
+	\end{itemize}
+
+	\begin{block}{Frage}
+		Was bringen Kurzschreibweisen wie z.B. \pythoninline{else} überhaupt?
+	\end{block}
+\end{frame}
+
+\subsection{Elif-Klausel}
+
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item Manchmal gibt es mehr als zwei Fälle:
+		\pythonfile{listings/if_if_if.py}
+		\item Auch dafür gibt es eine Kurzschreibweise
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\slidehead
+
+	\begin{itemize}
+		\item Mit \pythoninline{elif} können mehrere If-Anweisungen aneinandergereiht werden
+		\item Es handelt sich um ein \pythoninline{else} gefolgt von einem \pythoninline{if}
+		\item Weitere Elif-Klauseln werden nur dann überprüft, wenn alle vorherigen Klauseln nicht eingetreten sind.
+		\pythonfile{listings/if_else_if_example.py}
+	\end{itemize}
+\end{frame}
+
+\livecoding
+
+%\nextvid{Logische Operatoren}{if und elif Beispiele}
+
+\section{Logische Operatoren}
+
+% \titlegraphic{
+% 	\begin{columns}
+% 		\begin{column}{4cm}
+% 			\vspace{1.5cm}
+% 			\begin{center}
+% 				{\huge Logische Operatoren}
+% 			\end{center}
+% 		\end{column}
+% 		\begin{column}{4cm}
+% 			\vspace{-4mm}
+% 			\begin{figure}
+% 				\centering
+% 			\includeinvertablegraphics[scale=.2]{media/logic_boat.png}
+% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/1134/}{https://xkcd.com/1134/}
+% 			\end{figure}
+% 		\end{column}
+% 	\end{columns}}
+% \maketitle
+
+\begin{frame}
+	\slidehead
+	\vspace{-0.1cm}
+	\begin{itemize}
+		\item Logisches \textbf{Nicht} (\pythoninline{not})  $\Rightarrow$ \pythoninline{not Ausdruck1}
+		\item Logisches \textbf{Und} (\pythoninline{and}) $\Rightarrow$ \pythoninline{Ausdruck1 and Ausdruck2}
+		\item Logisches \textbf{Oder} (\pythoninline{or})  $\Rightarrow$ \pythoninline{Ausdruck1 or Ausdruck2}
+	\end{itemize}
+	\vspace{-0.15cm}
+	\begin{block}{Beispiel:}
+		\pythonfile{listings/logische_operatoren_listing.py}
+	\end{block}
+	\vspace{-0.15cm}
+	\begin{block}{Hinweis}
+		\begin{itemize}
+			\item Auswertung in der Reihenfolge \pythoninline{not}, \pythoninline{and} und dann \pythoninline{or}
+			\item Reihenfolge immer beachten! Klammern setzen falls nötig!
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\livecoding
+
+\section{Quiz}
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item Was darf nicht in einem Variablennamen enthalten sein?
+		\pause
+		\item Was macht der \textbf{$\%=$} Operator?% das % zeichen geht in minted nicht wie gedacht.
+		\pause
+		\item Sind \pythoninline{=} und \pythoninline{==} gleich?
+		\pause
+		\item Was \textbf{muss} mit dem Code innerhalb einer If-Anweisung gemacht werden?
+		\pause
+		\item Darf eine If-Anweisung leer sein?
+		\pause
+		\item Darf eine If-Anweisung im Code-Teil einer anderen If-Anweisung stehen?
+	\end{itemize}
+\end{frame}
+
+
+%\nextvid{Warum Schleifen}{}
+
+\end{document}

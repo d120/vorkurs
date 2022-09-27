@@ -1,7 +1,0 @@
-Dieses Video erklärt Else-Klauseln die hinter if Blöcken folgen können.
-
-Bildquellen:
-https://xkcd.com/1652/
-
-Alle Folien gibt es hier:
-https://github.com/d120/vorkurs/releases/latest

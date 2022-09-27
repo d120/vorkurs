@@ -1,4 +1,0 @@
-In diesem Video wird erklärt, wie Funktionen rekursiv verwendet werden könne und was das eigentlich bedeutet.
-
-Alle Folien gibt es hier:
-https://github.com/d120/vorkurs/releases

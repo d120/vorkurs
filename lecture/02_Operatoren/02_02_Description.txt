@@ -1,7 +1,0 @@
-In diesem Video erfahrt ihr welche arten von Operatoren es gibt und wie ihr sie verwendet.
-
-Bildquellen:
-https://xkcd.com/447/
-
-Alle Folien gibt es hier:
-https://github.com/d120/vorkurs/releases/latest
