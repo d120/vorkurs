@@ -155,7 +155,7 @@
 % 	}
 % \maketitle
 
-\subsection{Erstes Program}
+\section{Erstes Program}
 \begin{frame}
 	% Beispiel, um zu zeigen wie so ein Befehl aussieht (und ein Kommentar)
 	\slidehead
@@ -212,6 +212,7 @@
 	\begin{itemize}
 		\item Mithilfe des Befehls \pythoninline{print()} kann Text auf der Konsole ausgeben werden
 	\end{itemize}
+	\pause
 	\begin{columns}
 		\begin{column}{6cm}
 			\pythonfile{listings/print_Listing.py}
@@ -241,8 +242,20 @@
 		\end{tabular}
 		\label{}
 	\end{table}
-
+	\pause
 	\pythonfile{listings/Steuerzeichen_Listing.py}
+\end{frame}
+
+\section{Dateisystem}
+\begin{frame}
+	\slidehead
+	\begin{itemize}
+		\item Computer benutzen meist Dateisysteme um Dateien zu organisieren
+		\item Computer benutzen Dateien um Daten permanent zu Speichern
+		\item Dabei werden die Dateien oft in einer Ordnerstruktur abgelegt
+		\item Dateien haben einen eindeutigen Namen innerhalb ihres Ordners.
+		\item Dateien haben meist eine Dateiendung welche signalisiert um welche art von Datei es sich handelt. (z.B: .exe, .txt, .py, .doc)
+	\end{itemize}
 \end{frame}
 
 \section{Vom Quelltext zum fertigen Programm}
@@ -257,16 +270,19 @@
 				\node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (file) at (0,-1.8) {helloworld.py};
 				\draw[->,line width=.6mm] (mensch.south) -- (file.north);
 
-				\node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (python) at (0,-4) {\texttt{python3 helloworld.py}};
+				\node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (python) at (0,-4) {\texttt{python helloworld.py}};
 				\draw[->,line width=.6mm] (file.south) -- (python.north);
 			\end{tikzpicture}
 		\end{column}
 		\begin{column}{.6\textwidth}
 			\begin{itemize}
-				\item Ausführen: \texttt{python3 dateiName.py}
+				\item Ausführen: \texttt{python dateiName.py}
 				\item Python-Programme laufen überall, wo Python installiert ist
 			\end{itemize}
-			\vspace{2cm}
+			\begin{block}{Hinweis}
+				Wenn \texttt{python -\,-version}\, kleiner 3 ist, müsst ihr entweder updaten oder \texttt{python3} als Befehl verwenden!
+			\end{block}
+			%\vspace{2cm}
 			\begin{block}{Hinweis}
 				Python-Quelltext mit der Dateiendung \texttt{.py} kennzeichnen und sinnvoll benennen! Leerzeichen sind problematisch.
 			\end{block}
@@ -314,13 +330,13 @@
 \begin{frame}[fragile]
 	\slidehead
 	\begin{bashcode}
-		$ python3 helloworld.py
+		$ python helloworld.py
 		Hello World!
 		$
 	\end{bashcode}
 
 	\begin{itemize}
-		\item Programm mit \texttt{python3 dateiName.py} starten
+		\item Programm mit \texttt{python dateiName.py} starten
 	\end{itemize}
 \end{frame}
 
@@ -329,20 +345,24 @@
 	\slidehead
 
 	\begin{bashcode}
-		$ python3
-		|\texttt{Python 3.7.0 (default, Jul 15 2018, 10:44:58)}|
-		|\texttt{[GCC 8.1.1 20180531] on linux}|
+		$ python
+		|\texttt{Python 3.10.7 (main, Sep  6 2022, 21:22:27)}|
+		|\texttt{[GCC 12.2.0] on linux}|
 		|\texttt{Type {\ditto}help{\ditto}, {\ditto}copyright{\ditto}, {\ditto}credits{\ditto} or {\ditto}license{\ditto} for more information.}|
 		>>> print("Hello World!")
 		Hello World!
 		>>>
 	\end{bashcode}
 
+	%|\texttt{Python 3.7.0 (default, Jul 15 2018, 10:44:58)}|
+	%|\texttt{[GCC 8.1.1 20180531] on linux}|
+	%|\texttt{Type {\ditto}help{\ditto}, {\ditto}copyright{\ditto}, {\ditto}credits{\ditto} or %{\ditto}license{\ditto} for more information.}|
+
 	\vskip -.5em
 
 	\begin{itemize}
 		\item Der Python-Interpreter hat einen interaktiven Modus
-		\item Dieser kann mit dem Konsolenbefehl \texttt{python3} gestartet werden
+		\item Dieser kann mit dem Konsolenbefehl \texttt{python} gestartet werden
 		\item Anschließend können Python-Befehle eingegeben werden
 		\item[]  %leerzeile
 		\item \textbf{Strg+D} (außer Windows) oder der Befehl \pythoninline{quit()} beendet den Interpreter wieder
