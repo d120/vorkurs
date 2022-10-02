@@ -1,0 +1,99 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push events for all branches
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches:
+      - main
+      - master
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build_latex"
+  build_latex:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    container:
+      image: registry.gitlab.com/islandoftex/images/texlive:latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # 1. Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+
+      # 2. Install additional dependencies
+      - run: apt-get update && apt-get install -y librsvg2-bin rsync
+
+      # 3. Setup TU-Logo by converting it to pdf and copying it to the tex-path
+      - name: "Setup TU-Logo"
+        run: |
+          mkdir -p "$(kpsewhich -var-value=TEXMFHOME)/tex/latex/local"
+          curl -o tuda_logo.svg -L https://upload.wikimedia.org/wikipedia/de/2/24/TU_Darmstadt_Logo.svg\?download
+          rsvg-convert -f pdf -o tuda_logo.pdf tuda_logo.svg
+          mv tuda_logo.pdf "$(kpsewhich -var-value=TEXMFHOME)/tex/latex/local"
+          texhash --verbose
+
+      # 5. prepare darkmode
+      # - name: "Prepare darkmode"
+      #   run: |
+      #     for f in *.tex; do
+      #       cp "$f" "${f%.tex}-dark.tex"
+      #       sed -i 's/^    % dark_mode, % uncomment for dark mode/    dark_mode, % uncomment for dark mode/' "${f%.tex}-dark.tex"
+      #     done
+
+      # 5. Build the documents
+      - name: "Build the documents"
+        run: |
+          make -C lecture
+          mv lecture/pdfout .
+
+      # 6. Build the documents (dark mode)
+      - name: "Build the documents (dark mode)"
+        run: |
+          DARK_MODE=1 make -C lecture
+          for f in lecture/pdfout/*.pdf; do mv "$f" "${f%.pdf}-dark.pdf"; done
+          mv lecture/pdfout/*-dark.pdf pdfout
+      
+      # 7. Build the documents (high contrast)
+      - name: "Build the documents (high contrast)"
+        run: |
+          DARK_MODE=2 make -C lecture
+          for f in lecture/pdfout/*.pdf; do mv "$f" "${f%.pdf}-high-contrast.pdf"; done
+          mv lecture/pdfout/*-high-contrast.pdf pdfout
+
+      # 8. Upload artifacts to GitHub
+      - name: Upload artifacts to GitHub
+        if: ${{ !env.ACT }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: LaTeX-Workshop Folien
+          path: "pdfout/*.pdf"
+          if-no-files-found: error
+      
+      # 9. Get Date
+      # - name: Get current date
+      #   id: date
+      #   run: echo "::set-output name=date::$(date +'%Y-%m-%d-%H-%M-%S.%N')"
+
+      #10 create a release
+      # - name: Create a release
+      #   if: ${{ github.ref == 'refs/heads/main' && !env.ACT && github.repository == 'd120/vorkurs' }}
+      #   uses: softprops/action-gh-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     tag_name: snapshot-${{ steps.date.outputs.date }}
+      #     name: snapshot-release-${{ steps.date.outputs.date }}
+      #     files: "pdfout/*.pdf"
+      #     fail_on_unmatched_files: true
+      #     draft: false
+      #     prerelease: false
