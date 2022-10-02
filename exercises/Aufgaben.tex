@@ -19,7 +19,7 @@
 % configuration
 \makeatletter
 \@ifundefined{c@ex}{
-  \newcounter{ex}\setcounter{ex}{1}
+    \newcounter{ex}\setcounter{ex}{1}
 }{}
 \makeatother
 \newboolean{sln}\setboolean{sln}{false}
@@ -41,7 +41,7 @@
 
 \newcommand{\lstinlinenoit}[1]{\upshape{\lstinline|#1|}\itshape}
 \lstset{language=Python, basicstyle=\ttfamily\small, keywordstyle=\color{\IfDarkModeTF{cyan!60!black}{blue!80!black}}, identifierstyle=, commentstyle=\color{green!50!.}, stringstyle=\ttfamily,
- tabsize=4, breaklines=true, numbers=left, numberstyle=\small, frame=single, backgroundcolor=\color{blue!3!\thepagecolor}}
+    tabsize=4, breaklines=true, numbers=left, numberstyle=\small, frame=single, backgroundcolor=\color{blue!3!\thepagecolor}}
 \author{Fachschaft Informatik}
 
 
@@ -55,77 +55,77 @@
 
 \ifcase\value{ex}
 \or%ex1
-    \section{Einleitung \stage1}
-        \vorkurstask{1-intro}
-        \vorkurstask{1-mc-interpreter}\vorkurstaskformat{\clearpage}
-    \section{Ausdrücke \stage1}
-        \vorkurstask{1-interactive}
-        \vorkurstask{1-operations}\vorkurstaskformat{\clearpage}\slnformat{\clearpage}
-    \section{Konvertierung \stage2}
-        \vorkurstask{1-conversion}
-        \vorkurstask{1-conv-challenge}\slnformat{\clearpage}
-	\section{Fehler}
-        \vorkurstask{1-error}
-		\vorkurstask{1-warmup-error}
-    \section{Challenge}
-        \vorkurstask{1-modulo}
+\section{Einleitung \stage1}
+\vorkurstask{1-intro}
+\vorkurstask{1-mc-interpreter}\vorkurstaskformat{\clearpage}
+\section{Ausdrücke \stage1}
+\vorkurstask{1-interactive}
+\vorkurstask{1-operations}\vorkurstaskformat{\clearpage}\slnformat{\clearpage}
+\section{Konvertierung \stage2}
+\vorkurstask{1-conversion}
+\vorkurstask{1-conv-challenge}\slnformat{\clearpage}
+\section{Fehler}
+\vorkurstask{1-error}
+\vorkurstask{1-warmup-error}
+\section{Challenge}
+\vorkurstask{1-modulo}
 \or%ex2
-        \vorkurstask{2-pyfile}
-	\section{Zum Aufwärmen \stage1}\mccmd
-		\vorkurstask{2-mc-if}
-	\section{Variablen \stage1}
-		\vorkurstask{2-var-case}\slnformat{\clearpage}
-		\vorkurstask{2-var-id}\vorkurstaskformat{\clearpage}
-		\vorkurstask{2-var-assign}\slnformat{\clearpage}
-	\section{Logische Operationen \stage1}
-		\vorkurstask{2-stm-ops}\vorkurstaskformat{\clearpage}
-	\section{Eingabe/Ausgabe \stage2}
-		\vorkurstask{2-var-io}
-		\vorkurstask{2-stm-calc}\vorkurstaskformat{\clearpage}\slnformat{\clearpage}
-	\section{Zum Weiterdenken \stage3}
-		\vorkurstask{2-decision-tree}\vorkurstaskformat{\clearpage}\slnformat{\clearpage}
-		\vorkurstask{2-var-processor}
+\vorkurstask{2-pyfile}
+\section{Zum Aufwärmen \stage1}\mccmd
+\vorkurstask{2-mc-if}
+\section{Variablen \stage1}
+\vorkurstask{2-var-case}\slnformat{\clearpage}
+\vorkurstask{2-var-id}\vorkurstaskformat{\clearpage}
+\vorkurstask{2-var-assign}\slnformat{\clearpage}
+\section{Logische Operationen \stage1}
+\vorkurstask{2-stm-ops}\vorkurstaskformat{\clearpage}
+\section{Eingabe/Ausgabe \stage2}
+\vorkurstask{2-var-io}
+\vorkurstask{2-stm-calc}\vorkurstaskformat{\clearpage}\slnformat{\clearpage}
+\section{Zum Weiterdenken \stage3}
+\vorkurstask{2-decision-tree}\vorkurstaskformat{\clearpage}\slnformat{\clearpage}
+\vorkurstask{2-var-processor}
 \or%ex3
-    \section{Schleifen}
-		\vorkurstask{3-loop-gauss}
-        \vorkurstask{3-loop-fac}
-        \vorkurstask{3-loop-fizz}\vorkurstaskformat{\clearpage}\slnformat{\clearpage}
-        \vorkurstask{3-loop-prime}\slnformat{\clearpage}
-	\section{Listige Listen}
-		\vorkurstask{3-list-basic}
-        \vorkurstask{3-list-len}
-	\section{Fortgeschrittenes Lesen}
-        \vorkurstask{3-slicing}
-        \vorkurstask{3-slicing-examples}\slnformat{\clearpage}
-	\section{Listenverarbeitung}
-        \vorkurstask{3-iterable}
-        \vorkurstask{3-text-slicing}\slnformat{\clearpage}
-        \vorkurstask{3-accumulator}
-	\section{Challenge}
-		\vorkurstask{3-challenge}
+\section{Schleifen}
+\vorkurstask{3-loop-gauss}
+\vorkurstask{3-loop-fac}
+\vorkurstask{3-loop-fizz}\vorkurstaskformat{\clearpage}\slnformat{\clearpage}
+\vorkurstask{3-loop-prime}\slnformat{\clearpage}
+\section{Listige Listen}
+\vorkurstask{3-list-basic}
+\vorkurstask{3-list-len}
+\section{Fortgeschrittenes Lesen}
+\vorkurstask{3-slicing}
+\vorkurstask{3-slicing-examples}\slnformat{\clearpage}
+\section{Listenverarbeitung}
+\vorkurstask{3-iterable}
+\vorkurstask{3-text-slicing}\slnformat{\clearpage}
+\vorkurstask{3-accumulator}
+\section{Challenge}
+\vorkurstask{3-challenge}
 \or%ex4
-	\section{Funktionen}
-		\vorkurstask{4-fnc-calcr}\slnformat{\clearpage}
-		\vorkurstask{4-fnc-calcr2}\slnformat{\clearpage}
-	\section{Schriftliches Dividieren}
-		\vorkurstask{4-fnc-divide-theory}\slnformat{\clearpage}
-		\vorkurstask{4-fnc-divide-basic}\slnformat{\clearpage}
-		\vorkurstask{4-fnc-divide-advanced}\slnformat{\clearpage}
-	\section{Listen und Funktionen}
-		\vorkurstask{4-list-fnc}\slnformat{\clearpage}
-	\section{Rekursion}
-		\vorkurstask{4-rec-fac}
-		\vorkurstask{4-rec-pascal}\slnformat{\clearpage}
-		\vorkurstask{4-rec-fib}\slnformat{\clearpage}
-		\vorkurstask{4-rec-oddeven}\slnformat{\clearpage}
-		\vorkurstask{4-rec-calcu}\vorkurstaskformat{\clearpage}
-		\vorkurstask{4-rec-calcu2}
-	\section{Zusatz}
-		Wenn du die Aufgaben erledigt hast, kannst du dich gerne noch an den Schleifen-Varianten der gegebenen Algorithmen versuchen oder für Aufgaben der vergangenen Tage eine rekursive Lösung suchen. Die Tutoren stehen dir dabei gerne bei, allerdings werden wir dafür keine Lösungen bereit stellen. Du kannst die jeweiligen Versionen der Algorithmen in den Lösungen als Kontrolle für deine Versuche nutzen.
+\section{Funktionen}
+\vorkurstask{4-fnc-calcr}\slnformat{\clearpage}
+\vorkurstask{4-fnc-calcr2}\slnformat{\clearpage}
+\section{Schriftliches Dividieren}
+\vorkurstask{4-fnc-divide-theory}\slnformat{\clearpage}
+\vorkurstask{4-fnc-divide-basic}\slnformat{\clearpage}
+\vorkurstask{4-fnc-divide-advanced}\slnformat{\clearpage}
+\section{Listen und Funktionen}
+\vorkurstask{4-list-fnc}\slnformat{\clearpage}
+\section{Rekursion}
+\vorkurstask{4-rec-fac}
+\vorkurstask{4-rec-pascal}\slnformat{\clearpage}
+\vorkurstask{4-rec-fib}\slnformat{\clearpage}
+\vorkurstask{4-rec-oddeven}\slnformat{\clearpage}
+\vorkurstask{4-rec-calcu}\vorkurstaskformat{\clearpage}
+\vorkurstask{4-rec-calcu2}
+\section{Zusatz}
+Wenn du die Aufgaben erledigt hast, kannst du dich gerne noch an den Schleifen-Varianten der gegebenen Algorithmen versuchen oder für Aufgaben der vergangenen Tage eine rekursive Lösung suchen. Die Tutoren stehen dir dabei gerne bei, allerdings werden wir dafür keine Lösungen bereit stellen. Du kannst die jeweiligen Versionen der Algorithmen in den Lösungen als Kontrolle für deine Versuche nutzen.
 \or%ex5 - nicht veröffentlicht
-	\section{Pool}
-	\section{Sichtbarkeit}
-	\section{Ausdrücke evaluieren}
+\section{Pool}
+\section{Sichtbarkeit}
+\section{Ausdrücke evaluieren}
 \else\fi
 \end{document}
 \grid

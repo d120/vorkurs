@@ -112,7 +112,7 @@ def printField(state: list, style: int = 1, color_new: bool = False, new_fields:
     hlinelower = ""
     borderspacer = ""
     betweenspacer = ""
-    if(style == 1):
+    if (style == 1):
         hlinelower = f"+{('-' * maxLength+'+')*len(state)}\n"
         print(hlinelower, end='')
         borderspacer = "|"
@@ -208,7 +208,7 @@ def getEmptySlots(state):
     slots = []
     for y in range(len(state)):
         for x in range(len(state[y])):
-            if(state[y][x] == ''):
+            if (state[y][x] == ''):
                 slots.append([x, y])
     return slots
 
@@ -270,7 +270,7 @@ def spawnNewTile(state):
     """
     newState = state
     emptySlots = getEmptySlots(state)
-    if(len(emptySlots) > 0):
+    if (len(emptySlots) > 0):
         [newX, newY] = emptySlots[randint(0, len(emptySlots)-1)]
         newState[newY][newX] = 4 if randint(1, 10) == 10 else 2
     return newState
@@ -322,7 +322,7 @@ def slideTiles(currentState: list, direction: str):
         for x in backwardRange if xMov == 1 else forwardRange:
             field = currentState[y][x]
             # Wenn das Feld leer ist, müssen wir nichts verschieben
-            if(field == ''):
+            if (field == ''):
                 continue
             # Neue Schiebeposition Ermitteln
             newPos = [x, y]
@@ -356,7 +356,7 @@ def slideTiles(currentState: list, direction: str):
             newState[y][x] = ''
             # Wenn das Feld an der Verschmelzposition nicht leer ist,
             # müssen wir den Wert des Feldes verdoppeln
-            if(newState[newMergeY][newMergeX] != ''):
+            if (newState[newMergeY][newMergeX] != ''):
                 newState[newY][newX] = field+newState[newMergeY][newMergeX]
                 newState[newMergeY][newMergeX] = ''
             else:
@@ -373,7 +373,7 @@ def main():
     game_round = 1
     printGameState(state, game_round)
     # Weitere Runden
-    while(True):
+    while (True):
         direction = getNextMove(state, game_round)
         game_round += 1
         state = slideTiles(state, direction)

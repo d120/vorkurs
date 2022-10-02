@@ -7,28 +7,28 @@
 %Deckblatt
 \subtitle{Kapitel 1: Erste Schritte}
 \titlegraphic{
-	\begin{columns}
-		\begin{column}{6cm}
-			\vspace{4.32mm}
-			\begin{center}
-				{\huge Mit einem Computer Reden}
-			\end{center}
-			\vspace{-5.0mm}
-			\begin{figure}
-				\centering
-				\includeinvertablegraphics[scale=0.3]{code_quality.png}
-				\\	\sffamily \tiny Bild: \href{https://xkcd.com/1513/}{https://xkcd.com/1513/}
-			\end{figure}
-		\end{column}
-		\begin{column}{3.5cm}
-			\vspace{-0.3mm}
-			\begin{figure}
-				\centering
-				\includeinvertablegraphics[scale=0.2]{good_code.png}
-				\\	\sffamily \tiny Bild: \href{https://xkcd.com/844/}{https://xkcd.com/844/}
-			\end{figure}
-		\end{column}
-	\end{columns}}
+    \begin{columns}
+        \begin{column}{6cm}
+            \vspace{4.32mm}
+            \begin{center}
+                {\huge Mit einem Computer Reden}
+            \end{center}
+            \vspace{-5.0mm}
+            \begin{figure}
+                \centering
+                \includeinvertablegraphics[scale=0.3]{code_quality.png}
+                \\	\sffamily \tiny Bild: \href{https://xkcd.com/1513/}{https://xkcd.com/1513/}
+            \end{figure}
+        \end{column}
+        \begin{column}{3.5cm}
+            \vspace{-0.3mm}
+            \begin{figure}
+                \centering
+                \includeinvertablegraphics[scale=0.2]{good_code.png}
+                \\	\sffamily \tiny Bild: \href{https://xkcd.com/844/}{https://xkcd.com/844/}
+            \end{figure}
+        \end{column}
+    \end{columns}}
 \maketitle
 
 % Bevor es losgeht die Vortragenden erwähnen!
@@ -38,97 +38,97 @@
 
 \section{Warum mit Computer kommunizieren?}
 \begin{frame}
-	\slidehead
-	\vspace{3mm}
-	\begin{itemize}
-		\pause
-		\item Computer sind rein-mathematische Maschinen
-		\pause
-		\item Computer führen einfache Arbeitsschritte extrem \textbf{schnell} aus
-		\pause
-		\item Programme sind aus vielen Arbeitsschritten zusammengesetzt
-		\pause
-		\pythonfile{listings/Programmieren.txt}
-	\end{itemize}
+    \slidehead
+    \vspace{3mm}
+    \begin{itemize}
+        \pause
+        \item Computer sind rein-mathematische Maschinen
+            \pause
+        \item Computer führen einfache Arbeitsschritte extrem \textbf{schnell} aus
+            \pause
+        \item Programme sind aus vielen Arbeitsschritten zusammengesetzt
+            \pause
+            \pythonfile{listings/Programmieren.txt}
+    \end{itemize}
 \end{frame}
 
 \section{Was tun wir hier eigentlich?}
 \begin{frame}
-	\slidehead
-	\begin{itemize}
-		\item Programmieren mit Python \textcolor{gray}{[\textprimstress pa\textsci \texttheta n] [\textprimstress pa\textsci \texttheta \textscripta n]}
-		\pause
-		\item Python?
-		\pause
-		\item[] $\Rightarrow$ Programmiersprache!
-		\item[] $\Rightarrow$ Verständlicher für Menschen
-		\item[] $\Rightarrow$ Oft verwendet
-	\end{itemize}
+    \slidehead
+    \begin{itemize}
+        \item Programmieren mit Python \textcolor{gray}{[\textprimstress pa\textsci \texttheta n] [\textprimstress pa\textsci \texttheta \textscripta n]}
+            \pause
+        \item Python?
+            \pause
+        \item[] $\Rightarrow$ Programmiersprache!
+        \item[] $\Rightarrow$ Verständlicher für Menschen
+        \item[] $\Rightarrow$ Oft verwendet
+    \end{itemize}
 
-	\pause
-	\vspace{0.75cm}
+    \pause
+    \vspace{0.75cm}
 
-	\tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=., fill=\IfDarkModeTF{red!30!black}{red!10}]
-	\centering
-	\begin{tikzpicture}[node distance=5cm]
-		\node (syntax) [rect, text width=4cm, minimum height=2cm] {\textbf{Syntax}\\ Wortschatz};
-		\node (grammatik) [rect, right of=syntax, text width=4cm, minimum height=2cm] {\textbf{Grammatik}\\ Regeln um Befehle zusammenzusetzen};
-	\end{tikzpicture}
+    \tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=., fill=\IfDarkModeTF{red!30!black}{red!10}]
+    \centering
+    \begin{tikzpicture}[node distance=5cm]
+        \node (syntax) [rect, text width=4cm, minimum height=2cm] {\textbf{Syntax}\\ Wortschatz};
+        \node (grammatik) [rect, right of=syntax, text width=4cm, minimum height=2cm] {\textbf{Grammatik}\\ Regeln um Befehle zusammenzusetzen};
+    \end{tikzpicture}
 
 \end{frame}
 
 \begin{comment}
-	\section{Das erste Programm}
-	\subsection{Wie fange ich an?}
-	\begin{frame}
-		\slidehead
-		\begin{itemize}
-			\item Befehle bestehen aus Text
-			\item Mit einem einfachen Texteditor schreibt man Befehle in eine Datei
-			\item Anschließend interpretiert der Computer die Befehle
-		\end{itemize}
-	\end{frame}
+    \section{Das erste Programm}
+    \subsection{Wie fange ich an?}
+    \begin{frame}
+        \slidehead
+        \begin{itemize}
+            \item Befehle bestehen aus Text
+            \item Mit einem einfachen Texteditor schreibt man Befehle in eine Datei
+            \item Anschließend interpretiert der Computer die Befehle
+        \end{itemize}
+    \end{frame}
 \end{comment}
 
 \section{Interpreter?}
 \begin{frame}[t]
-	\slidehead
-	\begin{columns}[T]
-		\begin{column}{2cm}
-			\begin{tikzpicture}
+    \slidehead
+    \begin{columns}[T]
+        \begin{column}{2cm}
+            \begin{tikzpicture}
 
-				\node[] (mensch) at (0,0) {\includeinvertablegraphics[height=1.3cm]{media/wesen_notebook.png}};
+                \node[] (mensch) at (0,0) {\includeinvertablegraphics[height=1.3cm]{media/wesen_notebook.png}};
 
-				\visible<2->{
-				\node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (interpreter) at (0,-1.8) {Interpreter};
-				\draw[->,line width=.6mm] (mensch.south) -- (interpreter.north);
-				}
-				\visible<3->{
+                \visible<2->{
+                    \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (interpreter) at (0,-1.8) {Interpreter};
+                    \draw[->,line width=.6mm] (mensch.south) -- (interpreter.north);
+                }
+                \visible<3->{
 
-				\node[fill=\IfDarkModeTF{.!30!\thepagecolor}{lightgray},draw, inner sep=5pt, rounded rectangle] (computer) at (0,-4) {Computer};
+                    \node[fill=\IfDarkModeTF{.!30!\thepagecolor}{lightgray},draw, inner sep=5pt, rounded rectangle] (computer) at (0,-4) {Computer};
 
-				\draw[->,line width=.6mm] (interpreter.south) -- (computer.north);
-				}
-			\end{tikzpicture}
-		\end{column}
-		\begin{column}{10cm}
-			\begin{itemize}
-				\item[]
-				\item \textbf{Der Mensch} beschreibt die Aufgabe in einer Programmiersprache $\Rightarrow$ Quelltext
-				\item[]
-				\item[]
-				\visible<2->{
-				\item \textbf{Der Interpreter} interpretiert den Quelltext als Maschinenbefehle
+                    \draw[->,line width=.6mm] (interpreter.south) -- (computer.north);
+                }
+            \end{tikzpicture}
+        \end{column}
+        \begin{column}{10cm}
+            \begin{itemize}
+                \item[]
+                \item \textbf{Der Mensch} beschreibt die Aufgabe in einer Programmiersprache $\Rightarrow$ Quelltext
+                \item[]
+                \item[]
+                    \visible<2->{
+                \item \textbf{Der Interpreter} interpretiert den Quelltext als Maschinenbefehle
 
-				}
-				\item[]
-				\item[]
-				\visible<3->{
-				\item \textbf{Der Computer} führt die Maschinenbefehle aus
-				}
-			\end{itemize}
-		\end{column}
-	\end{columns}
+                    }
+                \item[]
+                \item[]
+                    \visible<3->{
+                \item \textbf{Der Computer} führt die Maschinenbefehle aus
+                    }
+            \end{itemize}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 %\nextvid{Erstes Programm}{}
@@ -159,155 +159,155 @@
 
 \section{Erstes Program}
 \begin{frame}
-	% Beispiel, um zu zeigen wie so ein Befehl aussieht (und ein Kommentar)
-	\slidehead
-	\hskip .8cm
-	\vspace{.5cm}
-	\pythonfile{listings/HelloWorld.py}
+    % Beispiel, um zu zeigen wie so ein Befehl aussieht (und ein Kommentar)
+    \slidehead
+    \hskip .8cm
+    \vspace{.5cm}
+    \pythonfile{listings/HelloWorld.py}
 
-	\pause
+    \pause
 
-	\vspace{-2.55cm}
-	\hskip .8cm
-	\begin{tikzpicture}
-		\draw [decorate,decoration={brace,amplitude=6pt}]
-		(0,0.5) -- (3.7,0.5) node [.,midway,yshift=15pt,xshift=3.4cm] {Kommentar: wird vom Computer \textbf{ignoriert}, ist für Menschen \textbf{nützlich}};
-	\end{tikzpicture}
+    \vspace{-2.55cm}
+    \hskip .8cm
+    \begin{tikzpicture}
+        \draw [decorate,decoration={brace,amplitude=6pt}]
+        (0,0.5) -- (3.7,0.5) node [.,midway,yshift=15pt,xshift=3.4cm] {Kommentar: wird vom Computer \textbf{ignoriert}, ist für Menschen \textbf{nützlich}};
+    \end{tikzpicture}
 
-	\pause
+    \pause
 
-	\vspace{1.8cm}
-	\hskip .8cm
-	\begin{minipage}[b]{0.4\textwidth}
-		\begin{tikzpicture}
-			\draw [decorate,decoration={mirror,brace,amplitude=6pt}]
-			(0,0.5) -- (1,0.5) node [.,midway,yshift=-15pt] {Befehl};
-		\end{tikzpicture}
-	\end{minipage}
-	\pause
-	\hskip -4.8cm
-	\begin{minipage}[b]{0.4\textwidth}
-		\begin{tikzpicture}
-			\draw [decorate,decoration={mirror,brace,amplitude=6pt}]
-			(1.1,0.5) -- (3.35,0.5) node [.,midway,yshift=-15pt] {Text};
-		\end{tikzpicture}
-	\end{minipage}
+    \vspace{1.8cm}
+    \hskip .8cm
+    \begin{minipage}[b]{0.4\textwidth}
+        \begin{tikzpicture}
+            \draw [decorate,decoration={mirror,brace,amplitude=6pt}]
+            (0,0.5) -- (1,0.5) node [.,midway,yshift=-15pt] {Befehl};
+        \end{tikzpicture}
+    \end{minipage}
+    \pause
+    \hskip -4.8cm
+    \begin{minipage}[b]{0.4\textwidth}
+        \begin{tikzpicture}
+            \draw [decorate,decoration={mirror,brace,amplitude=6pt}]
+            (1.1,0.5) -- (3.35,0.5) node [.,midway,yshift=-15pt] {Text};
+        \end{tikzpicture}
+    \end{minipage}
 
-	\pause
-	\vspace{0.25cm}
-	\begin{block}{Wichtig}
-		\begin{itemize}
-			\item Text muss in \pythoninline{" "} oder in \pythoninline{' '} stehen
-			\item Verwende \textbf{aussagekräftige} Kommentare \footnotesize (dein späteres Ich wird es dir danken)!
-		\end{itemize}
-	\end{block}
-	\note{
-		" und ' stehen nicht für Auslassungszeichen (Kopiere den Text von der Zeile oberhalb), sondern stehen für wörtliche Rede.
-	}
+    \pause
+    \vspace{0.25cm}
+    \begin{block}{Wichtig}
+        \begin{itemize}
+            \item Text muss in \pythoninline{" "} oder in \pythoninline{' '} stehen
+            \item Verwende \textbf{aussagekräftige} Kommentare \footnotesize (dein späteres Ich wird es dir danken)!
+        \end{itemize}
+    \end{block}
+    \note{
+        " und ' stehen nicht für Auslassungszeichen (Kopiere den Text von der Zeile oberhalb), sondern stehen für wörtliche Rede.
+    }
 \end{frame}
 
 
 \subsection{Textausgabe}
 \begin{frame}
-	% Beispiel wie kleinkariert man mit diesem Computer reden muss - unintuitiv für Menschen, dass man nicht einfach "Enter" drücken kann, sondern so kyptisch "\n" schreiben muss
-	\slidehead
-	\begin{itemize}
-		\item Mithilfe des Befehls \pythoninline{print()} kann Text auf der Konsole ausgeben werden
-	\end{itemize}
-	\pause
-	\begin{columns}
-		\begin{column}{6cm}
-			\pythonfile{listings/print_Listing.py}
-		\end{column}
-		\begin{column}{7cm}
-			\pythonfile{listings/printSingleLine_Listing.py}
-		\end{column}
-	\end{columns}
-	\vspace{0.25cm}
-	\begin{block}{Merke}
-		\pythoninline{print()} erzeugt einen Zeilenumbruch nach der Ausgabe
-	\end{block}
+    % Beispiel wie kleinkariert man mit diesem Computer reden muss - unintuitiv für Menschen, dass man nicht einfach "Enter" drücken kann, sondern so kyptisch "\n" schreiben muss
+    \slidehead
+    \begin{itemize}
+        \item Mithilfe des Befehls \pythoninline{print()} kann Text auf der Konsole ausgeben werden
+    \end{itemize}
+    \pause
+    \begin{columns}
+        \begin{column}{6cm}
+            \pythonfile{listings/print_Listing.py}
+        \end{column}
+        \begin{column}{7cm}
+            \pythonfile{listings/printSingleLine_Listing.py}
+        \end{column}
+    \end{columns}
+    \vspace{0.25cm}
+    \begin{block}{Merke}
+        \pythoninline{print()} erzeugt einen Zeilenumbruch nach der Ausgabe
+    \end{block}
 \end{frame}
 
 \subsection{Steuerzeichen}
 \begin{frame}
-	\slidehead
+    \slidehead
 
-	\begin{table}[htbp]
-		\begin{tabular}{|l|l|}
-			\hline
-			\textbf{Symbol} & \textbf{Wirkung} \\ \hline
-			$\backslash$n & Zeilenumbruch \\ \hline
-			$\backslash$\" & Doppeltes Anführungszeichen  (nur in \pythoninline{" "} nötig) \\ \hline
-			$\backslash$' & Einfaches Anführungszeichen (nur in \pythoninline{' '} nötig) \\ \hline
-			$\backslash \backslash$ & Backslash \\ \hline
-		\end{tabular}
-		\label{}
-	\end{table}
-	\pause
-	\pythonfile{listings/Steuerzeichen_Listing.py}
+    \begin{table}[htbp]
+        \begin{tabular}{|l|l|}
+            \hline
+            \textbf{Symbol}         & \textbf{Wirkung}                                               \\ \hline
+            $\backslash$n           & Zeilenumbruch                                                  \\ \hline
+            $\backslash$\"          & Doppeltes Anführungszeichen  (nur in \pythoninline{" "} nötig) \\ \hline
+            $\backslash$'           & Einfaches Anführungszeichen (nur in \pythoninline{' '} nötig)  \\ \hline
+            $\backslash \backslash$ & Backslash                                                      \\ \hline
+        \end{tabular}
+        \label{}
+    \end{table}
+    \pause
+    \pythonfile{listings/Steuerzeichen_Listing.py}
 \end{frame}
 
 \section{Dateisystem}
 \begin{frame}
-	\slidehead
-	\begin{itemize}
-		\item Computer benutzen meist Dateisysteme um Dateien zu organisieren
-		\item Computer benutzen Dateien um Daten permanent zu Speichern
-		\item Dabei werden die Dateien oft in einer Ordnerstruktur abgelegt
-		\item Dateien haben einen eindeutigen Namen innerhalb ihres Ordners.
-		\item Dateien haben meist eine Dateiendung welche signalisiert um welche art von Datei es sich handelt. (z.B: .exe, .txt, .py, .doc)
-	\end{itemize}
+    \slidehead
+    \begin{itemize}
+        \item Computer benutzen meist Dateisysteme um Dateien zu organisieren
+        \item Computer benutzen Dateien um Daten permanent zu Speichern
+        \item Dabei werden die Dateien oft in einer Ordnerstruktur abgelegt
+        \item Dateien haben einen eindeutigen Namen innerhalb ihres Ordners.
+        \item Dateien haben meist eine Dateiendung welche signalisiert um welche art von Datei es sich handelt. (z.B: .exe, .txt, .py, .doc)
+    \end{itemize}
 \end{frame}
 
 \section{Vom Quelltext zum fertigen Programm}
 \begin{frame}
-	\slidehead
+    \slidehead
 
-	\begin{columns}[T]
-		\begin{column}{.4\textwidth}
-			\begin{tikzpicture}
-				\node[] (mensch) at (0,0) {\includeinvertablegraphics[height=1.3cm]{media/wesen_notebook.png}};
+    \begin{columns}[T]
+        \begin{column}{.4\textwidth}
+            \begin{tikzpicture}
+                \node[] (mensch) at (0,0) {\includeinvertablegraphics[height=1.3cm]{media/wesen_notebook.png}};
 
-				\node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (file) at (0,-1.8) {helloworld.py};
-				\draw[->,line width=.6mm] (mensch.south) -- (file.north);
+                \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (file) at (0,-1.8) {helloworld.py};
+                \draw[->,line width=.6mm] (mensch.south) -- (file.north);
 
-				\node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (python) at (0,-4) {\texttt{python helloworld.py}};
-				\draw[->,line width=.6mm] (file.south) -- (python.north);
-			\end{tikzpicture}
-		\end{column}
-		\begin{column}{.6\textwidth}
-			\begin{itemize}
-				\item Ausführen: \texttt{python dateiName.py}
-				\item Python-Programme laufen überall, wo Python installiert ist
-			\end{itemize}
-			\begin{block}{Hinweis}
-				Wenn \texttt{python -\,-version}\, kleiner 3 ist, müsst ihr entweder updaten oder \texttt{python3} als Befehl verwenden!
-			\end{block}
-			%\vspace{2cm}
-			\begin{block}{Hinweis}
-				Python-Quelltext mit der Dateiendung \texttt{.py} kennzeichnen und sinnvoll benennen! Leerzeichen sind problematisch.
-			\end{block}
-		\end{column}
-	\end{columns}
+                \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (python) at (0,-4) {\texttt{python helloworld.py}};
+                \draw[->,line width=.6mm] (file.south) -- (python.north);
+            \end{tikzpicture}
+        \end{column}
+        \begin{column}{.6\textwidth}
+            \begin{itemize}
+                \item Ausführen: \texttt{python dateiName.py}
+                \item Python-Programme laufen überall, wo Python installiert ist
+            \end{itemize}
+            \begin{block}{Hinweis}
+                Wenn \texttt{python -\,-version}\, kleiner 3 ist, müsst ihr entweder updaten oder \texttt{python3} als Befehl verwenden!
+            \end{block}
+            %\vspace{2cm}
+            \begin{block}{Hinweis}
+                Python-Quelltext mit der Dateiendung \texttt{.py} kennzeichnen und sinnvoll benennen! Leerzeichen sind problematisch.
+            \end{block}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \section{Ein Python-Programm schreiben}
 \begin{frame}
-	\slidehead
+    \slidehead
 
-	\begin{center}
-		\vskip -10 pt
-		\includegraphics[scale=0.25]{HelloWorldImEditor\IfDarkModeT{_dark}}
-	\end{center}
+    \begin{center}
+        \vskip -10 pt
+        \includegraphics[scale=0.25]{HelloWorldImEditor\IfDarkModeT{_dark}}
+    \end{center}
 
-	\begin{itemize}
-		\item Programm wird in einem herkömmlichen Editor geschrieben
-		\item hier ein paar Editor Beispiele: \texttt{gedit}, \texttt{atom}, \texttt{kate}
-	\end{itemize}
-	\begin{alertblock}{Wichtig}
-		Verwendet \textbf{keine} Textverarbeitung wie LibreOffice, Pages oder MS Word!
-	\end{alertblock}
+    \begin{itemize}
+        \item Programm wird in einem herkömmlichen Editor geschrieben
+        \item hier ein paar Editor Beispiele: \texttt{gedit}, \texttt{atom}, \texttt{kate}
+    \end{itemize}
+    \begin{alertblock}{Wichtig}
+        Verwendet \textbf{keine} Textverarbeitung wie LibreOffice, Pages oder MS Word!
+    \end{alertblock}
 \end{frame}
 
 % \begin{frame}
@@ -330,45 +330,45 @@
 
 \section{Ein Python-Programm ausführen}
 \begin{frame}[fragile]
-	\slidehead
-	\begin{bashcode}
-		$ python helloworld.py
-		Hello World!
-		$
-	\end{bashcode}
+    \slidehead
+    \begin{bashcode}
+        $ python helloworld.py
+            Hello World!
+        $
+    \end{bashcode}
 
-	\begin{itemize}
-		\item Programm mit \texttt{python dateiName.py} starten
-	\end{itemize}
+    \begin{itemize}
+        \item Programm mit \texttt{python dateiName.py} starten
+    \end{itemize}
 \end{frame}
 
 \subsection{Interaktiver Interpreter}
 \begin{frame}[fragile]
-	\slidehead
+    \slidehead
 
-	\begin{bashcode}
-		$ python
-		|\texttt{Python 3.10.7 (main, Sep  6 2022, 21:22:27)}|
-		|\texttt{[GCC 12.2.0] on linux}|
-		|\texttt{Type {\ditto}help{\ditto}, {\ditto}copyright{\ditto}, {\ditto}credits{\ditto} or {\ditto}license{\ditto} for more information.}|
-		>>> print("Hello World!")
-		Hello World!
-		>>>
-	\end{bashcode}
+    \begin{bashcode}
+        $ python
+        |\texttt{Python 3.10.7 (main, Sep  6 2022, 21:22:27)}|
+        |\texttt{[GCC 12.2.0] on linux}|
+        |\texttt{Type {\ditto}help{\ditto}, {\ditto}copyright{\ditto}, {\ditto}credits{\ditto} or {\ditto}license{\ditto} for more information.}|
+        >>> print("Hello World!")
+        Hello World!
+        >>>
+    \end{bashcode}
 
-	%|\texttt{Python 3.7.0 (default, Jul 15 2018, 10:44:58)}|
-	%|\texttt{[GCC 8.1.1 20180531] on linux}|
-	%|\texttt{Type {\ditto}help{\ditto}, {\ditto}copyright{\ditto}, {\ditto}credits{\ditto} or %{\ditto}license{\ditto} for more information.}|
+    %|\texttt{Python 3.7.0 (default, Jul 15 2018, 10:44:58)}|
+    %|\texttt{[GCC 8.1.1 20180531] on linux}|
+    %|\texttt{Type {\ditto}help{\ditto}, {\ditto}copyright{\ditto}, {\ditto}credits{\ditto} or %{\ditto}license{\ditto} for more information.}|
 
-	\vskip -.5em
+    \vskip -.5em
 
-	\begin{itemize}
-		\item Der Python-Interpreter hat einen interaktiven Modus
-		\item Dieser kann mit dem Konsolenbefehl \texttt{python} gestartet werden
-		\item Anschließend können Python-Befehle eingegeben werden
-		\item[]  %leerzeile
-		\item \textbf{Strg+D} (außer Windows) oder der Befehl \pythoninline{quit()} beendet den Interpreter wieder
-	\end{itemize}
+    \begin{itemize}
+        \item Der Python-Interpreter hat einen interaktiven Modus
+        \item Dieser kann mit dem Konsolenbefehl \texttt{python} gestartet werden
+        \item Anschließend können Python-Befehle eingegeben werden
+        \item[]  %leerzeile
+        \item \textbf{Strg+D} (außer Windows) oder der Befehl \pythoninline{quit()} beendet den Interpreter wieder
+    \end{itemize}
 \end{frame}
 
 \livecoding
@@ -399,79 +399,79 @@
 
 \subsection{Fehlerarten}
 \begin{frame}
-	\slidehead
-	\begin{itemize}
-		\item \textbf{Lexikalische Fehler}
-		\begin{itemize}
-			\item Beispielsweise Tippfehler
-			% ACHTUNG: print ist bewusst falsch geschrieben!
-			\item \pythoninline{prit("Lexikalischer Fehler")}
-		\end{itemize}
-		\item \textbf{Syntaktische Fehler}
-		\begin{itemize}
-			\item Falsche Klammern
-			\item Anführungszeichen nicht geschlossen
-		\end{itemize}
-		\item \textbf{Semantische Fehler}
-		\begin{itemize}
-			\item Division durch 0
-		\end{itemize}
-	\end{itemize}
+    \slidehead
+    \begin{itemize}
+        \item \textbf{Lexikalische Fehler}
+            \begin{itemize}
+                \item Beispielsweise Tippfehler
+                    % ACHTUNG: print ist bewusst falsch geschrieben!
+                \item \pythoninline{prit("Lexikalischer Fehler")}
+            \end{itemize}
+        \item \textbf{Syntaktische Fehler}
+            \begin{itemize}
+                \item Falsche Klammern
+                \item Anführungszeichen nicht geschlossen
+            \end{itemize}
+        \item \textbf{Semantische Fehler}
+            \begin{itemize}
+                \item Division durch 0
+            \end{itemize}
+    \end{itemize}
 \end{frame}
 
 \section{Fehlerbeispiele}
 \subsection{Lexikalischer Fehler}
 \begin{frame}
-	\slidehead
-	\begin{itemize}
-		\item \texttt{test.py}:
-		\pythonfile{listings/lexError_Listing.py}
-		\pause
-		\pythonfile{listings/lexError_Listing.txt}
-		\pause
-		\item Fehler in \texttt{test.py}
-		\pause
-		\item In \texttt{line 1}, also \textbf{Zeile 1}
-		\pause
-		\item Der Name \texttt{prit} existiert nicht
-		\pause
-		\item Es war \texttt{print} gemeint (das weiß der Interpreter natürlich nicht)
-	\end{itemize}
+    \slidehead
+    \begin{itemize}
+        \item \texttt{test.py}:
+            \pythonfile{listings/lexError_Listing.py}
+            \pause
+            \pythonfile{listings/lexError_Listing.txt}
+            \pause
+        \item Fehler in \texttt{test.py}
+            \pause
+        \item In \texttt{line 1}, also \textbf{Zeile 1}
+            \pause
+        \item Der Name \texttt{prit} existiert nicht
+            \pause
+        \item Es war \texttt{print} gemeint (das weiß der Interpreter natürlich nicht)
+    \end{itemize}
 \end{frame}
 
 \subsection{Syntaktischer Fehler}
 
 \begin{frame}
-	\slidehead
-	\begin{itemize}
-		\item \texttt{zweiterTest.py}:
-		\pythonfile{listings/otherSynError_Listing.py}
-		\pause
-		\pythonfile{listings/otherSynError_Listing.txt}
-		\pause
-		\item Fehler in \texttt{zweiterTest.py}
-		\pause
-		\item in \texttt{line 1} fehlt eine \texttt{(}
-		\item der Interpreter versteht hier nicht was gemeint war, da das kein richtiger Python-Code ist.
-	\end{itemize}
+    \slidehead
+    \begin{itemize}
+        \item \texttt{zweiterTest.py}:
+            \pythonfile{listings/otherSynError_Listing.py}
+            \pause
+            \pythonfile{listings/otherSynError_Listing.txt}
+            \pause
+        \item Fehler in \texttt{zweiterTest.py}
+            \pause
+        \item in \texttt{line 1} fehlt eine \texttt{(}
+        \item der Interpreter versteht hier nicht was gemeint war, da das kein richtiger Python-Code ist.
+    \end{itemize}
 \end{frame}
 
 \begin{frame}
-	\slidehead
-	\begin{itemize}
-		\item \texttt{andererTest.py}:
-		\pythonfile{listings/eofError_Listing.py}
-		\pause
-		\pythonfile{listings/eofError_Listing.txt}
-		\pause
-		\item Fehler in \texttt{andererTest.py}
-		\pause
-		\item In \texttt{line 3} stimmt hier nicht ganz, aber in \texttt{line 1} fehlt eine \texttt{)}
-		\pause
-		\item Der Interpreter sucht weiterhin nach \texttt{)}, aber die Datei ist in \textbf{Zeile 3} zu Ende
-		\pause
-		\item Deshalb \texttt{unexpected EOF}: \textbf{EOF} steht für \textbf{E}nd \textbf{O}f \textbf{F}ile
-	\end{itemize}
+    \slidehead
+    \begin{itemize}
+        \item \texttt{andererTest.py}:
+            \pythonfile{listings/eofError_Listing.py}
+            \pause
+            \pythonfile{listings/eofError_Listing.txt}
+            \pause
+        \item Fehler in \texttt{andererTest.py}
+            \pause
+        \item In \texttt{line 3} stimmt hier nicht ganz, aber in \texttt{line 1} fehlt eine \texttt{)}
+            \pause
+        \item Der Interpreter sucht weiterhin nach \texttt{)}, aber die Datei ist in \textbf{Zeile 3} zu Ende
+            \pause
+        \item Deshalb \texttt{unexpected EOF}: \textbf{EOF} steht für \textbf{E}nd \textbf{O}f \textbf{F}ile
+    \end{itemize}
 \end{frame}
 
 \subsection{}
