@@ -42,14 +42,6 @@ jobs:
           mv tuda_logo.pdf "$(kpsewhich -var-value=TEXMFHOME)/tex/latex/local"
           texhash --verbose
 
-      # 5. prepare darkmode
-      # - name: "Prepare darkmode"
-      #   run: |
-      #     for f in *.tex; do
-      #       cp "$f" "${f%.tex}-dark.tex"
-      #       sed -i 's/^    % dark_mode, % uncomment for dark mode/    dark_mode, % uncomment for dark mode/' "${f%.tex}-dark.tex"
-      #     done
-
       # 5. Build the documents
       - name: "Build the documents"
         run: |
@@ -75,7 +67,7 @@ jobs:
         if: ${{ !env.ACT }}
         uses: actions/upload-artifact@v3
         with:
-          name: LaTeX-Workshop Folien
+          name: Vorkurs-Folien
           path: "pdfout/*.pdf"
           if-no-files-found: error
       
