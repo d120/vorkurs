@@ -166,7 +166,7 @@ def hasEmptySlots(state):
     """
     for y in range(4):
         for x in range(4):
-            if(state[y][x] == 0):
+            if (state[y][x] == 0):
                 return True
     return False
 
@@ -273,7 +273,7 @@ def slideTiles(currentState, xMov, yMov):
         for x in xrange:
             field = currentState[y][x]
             # Wenn das Feld leer ist, müssen wir nichts verschieben
-            if(field == ''):
+            if (field == ''):
                 continue
             # Neue Schiebeposition Ermitteln
             newX = x
@@ -309,7 +309,7 @@ def slideTiles(currentState, xMov, yMov):
                 newMergeY = prevY
             # Verschieben an neue Position, und ggf multiplizieren
             newState[y][x] = 0
-            if(newState[newMergeY][newMergeX] != 0):
+            if (newState[newMergeY][newMergeX] != 0):
                 newState[newY][newX] = 2*field
                 newState[newMergeY][newMergeX] = 0
             else:
@@ -326,7 +326,7 @@ def main():
     game_round = 1
     printGameState(state, game_round)
     # Weitere Runden
-    while(True):
+    while (True):
         direction = getNextMove()
         xMov = direction[0]
         yMov = direction[1]

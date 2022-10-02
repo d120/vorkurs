@@ -43,27 +43,27 @@
 \definecolor{big color}{HTML}{F9F6F2}
 %
 \tikzset{
-	case 2048 base/.style={
-		minimum size=9mm,rounded corners=.3mm,text=#1,inner sep=0,line width=0,
-	},
-	%
-	case 2048 Large/.style={font=\Large\gamefont,case 2048 base=#1},
-	case 2048 large/.style={font=\large\gamefont,case 2048 base=#1},
-	case 2048 normal/.style={font=\normalsize\gamefont,case 2048 base=#1},
-	%
-	case 2048 0/.style={case 2048 Large=black,fill=tile 0,node contents={}},
-	case 2048 2/.style={case 2048 Large=small color,fill=tile 2,node contents={2}},
-	case 2048 4/.style={case 2048 Large=small color,fill=tile 4,node contents={4}},
-	case 2048 8/.style={case 2048 Large=big color,fill=tile 8,node contents={8}},
-	case 2048 16/.style={case 2048 Large=big color,fill=tile 16,node contents={16}},
-	case 2048 32/.style={case 2048 Large=big color,fill=tile 32,node contents={32}},
-	case 2048 64/.style={case 2048 Large=big color,fill=tile 64,node contents={64}},
-	case 2048 128/.style={case 2048 large=big color,fill=tile 128,node contents={128}},
-	case 2048 256/.style={case 2048 large=big color,fill=tile 256,node contents={256}},
-	case 2048 512/.style={case 2048 large=big color,fill=tile 512,node contents={512}},
-	case 2048 1024/.style={case 2048 normal=big color,fill=tile 1024,node contents={1024}},
-	case 2048 2048/.style={case 2048 normal=big color,fill=tile 2048,node contents={2048}},
-	case 2048 4096/.style={case 2048 normal=big color,fill=tile 4096,node contents={4096}},
+    case 2048 base/.style={
+        minimum size=9mm,rounded corners=.3mm,text=#1,inner sep=0,line width=0,
+    },
+    %
+    case 2048 Large/.style={font=\Large\gamefont,case 2048 base=#1},
+    case 2048 large/.style={font=\large\gamefont,case 2048 base=#1},
+    case 2048 normal/.style={font=\normalsize\gamefont,case 2048 base=#1},
+    %
+    case 2048 0/.style={case 2048 Large=black,fill=tile 0,node contents={}},
+    case 2048 2/.style={case 2048 Large=small color,fill=tile 2,node contents={2}},
+    case 2048 4/.style={case 2048 Large=small color,fill=tile 4,node contents={4}},
+    case 2048 8/.style={case 2048 Large=big color,fill=tile 8,node contents={8}},
+    case 2048 16/.style={case 2048 Large=big color,fill=tile 16,node contents={16}},
+    case 2048 32/.style={case 2048 Large=big color,fill=tile 32,node contents={32}},
+    case 2048 64/.style={case 2048 Large=big color,fill=tile 64,node contents={64}},
+    case 2048 128/.style={case 2048 large=big color,fill=tile 128,node contents={128}},
+    case 2048 256/.style={case 2048 large=big color,fill=tile 256,node contents={256}},
+    case 2048 512/.style={case 2048 large=big color,fill=tile 512,node contents={512}},
+    case 2048 1024/.style={case 2048 normal=big color,fill=tile 1024,node contents={1024}},
+    case 2048 2048/.style={case 2048 normal=big color,fill=tile 2048,node contents={2048}},
+    case 2048 4096/.style={case 2048 normal=big color,fill=tile 4096,node contents={4096}},
 }
 
 % Document
@@ -80,121 +80,121 @@
 %\definecolor{testtt}{RGB}{0,136,119}
 %\definecolor{TUDa-3c}{cmyk/RGB/HTML}{1,.2,.6,0/0,136,119/008877}
 \begin{tcolorbox}[
-		colback=\IfDarkModeTF{accentcolor!20!\thepagecolor}{accentcolor!10!\thepagecolor}, %Hintergrundfarbe
-		%colframe=accentcolor, % Randfarbe
-		coltext=.,
-		colframe=gray, % Randfarbe
-		frame hidden,
-		title style=accentcolor,
-		arc=3pt,
-		boxrule=0pt,
-		left=5pt, % Links Platz lassen
-		enhanced, % Erlaubt uns, den ramen zu zeichnen
-		fonttitle=\sffamily, % Titelschriftart auf 
-		overlay={ % Für Grauen Bereich links
-				\begin{tcbclipinterior}%
-					\fill[TUDa-3c] (frame.south west) rectangle ([xshift=4pt]frame.north west); % Zeilennummernbereich färben
-				\end{tcbclipinterior}%
-			}]
-	\textbf{\textsf{Disclaimer}}: Dieser Leitfaden ist nur dafür da um Ideen zu geben, was geprüft werden kann/was man ins Feedback schreiben kann.
+        colback=\IfDarkModeTF{accentcolor!20!\thepagecolor}{accentcolor!10!\thepagecolor}, %Hintergrundfarbe
+        %colframe=accentcolor, % Randfarbe
+        coltext=.,
+        colframe=gray, % Randfarbe
+        frame hidden,
+        title style=accentcolor,
+        arc=3pt,
+        boxrule=0pt,
+        left=5pt, % Links Platz lassen
+        enhanced, % Erlaubt uns, den ramen zu zeichnen
+        fonttitle=\sffamily, % Titelschriftart auf 
+        overlay={ % Für Grauen Bereich links
+            \begin{tcbclipinterior}%
+                \fill[TUDa-3c] (frame.south west) rectangle ([xshift=4pt]frame.north west); % Zeilennummernbereich färben
+            \end{tcbclipinterior}%
+        }]
+    \textbf{\textsf{Disclaimer}}: Dieser Leitfaden ist nur dafür da um Ideen zu geben, was geprüft werden kann/was man ins Feedback schreiben kann.
 
-	Die angegebenen Punktzahlen sind \textbf{Vorschläge}.
+    Die angegebenen Punktzahlen sind \textbf{Vorschläge}.
 \end{tcolorbox}
 Bitte seit nicht zu streng gerade bei den Abgaben ohne Vorerfahrung und gebt \textbf{konstruktives} Feedback.
 \begin{task}[points=auto]{Spiellogik}
-	\begin{subtask}[points=10,title={Startzustand}]
-		\begin{itemize}
-			\item Das Spielfeld hat die Richtige Größe (4x4)
-			\item es sind genau zwei Felder gefüllt.
-		\end{itemize}
-	\end{subtask}
-	\begin{subtask}[points=20,title={Verschieben}]
-		\begin{itemize}
-			\item Alle Kacheln werden weitestmöglich in die gewählte Richtung verschoben
-			\item Die Reihenfolge der Kacheln ist richtig (kein Überspringen)
-		\end{itemize}
-		Testet aber bitte alle Schieberichtungen
-	\end{subtask}
-	\begin{subtask}[points=25,title={Verschmelzen}]
-		Die wichtigsten Fälle werden durch die folgende Verschiebung dargestellt:
-		\begin{center}
-			\begin{tikzpicture}[baseline={([yshift=-.8ex]current bounding box.center)}]
-				\def\tiles{
-					{2,0,4,0},
-					{16,0,0,16},
-					{4,2,2,4},
-					{8,8,8,8},
-				}
+    \begin{subtask}[points=10,title={Startzustand}]
+        \begin{itemize}
+            \item Das Spielfeld hat die Richtige Größe (4x4)
+            \item es sind genau zwei Felder gefüllt.
+        \end{itemize}
+    \end{subtask}
+    \begin{subtask}[points=20,title={Verschieben}]
+        \begin{itemize}
+            \item Alle Kacheln werden weitestmöglich in die gewählte Richtung verschoben
+            \item Die Reihenfolge der Kacheln ist richtig (kein Überspringen)
+        \end{itemize}
+        Testet aber bitte alle Schieberichtungen
+    \end{subtask}
+    \begin{subtask}[points=25,title={Verschmelzen}]
+        Die wichtigsten Fälle werden durch die folgende Verschiebung dargestellt:
+        \begin{center}
+            \begin{tikzpicture}[baseline={([yshift=-.8ex]current bounding box.center)}]
+                \def\tiles{
+                    {2,0,4,0},
+                    {16,0,0,16},
+                    {4,2,2,4},
+                    {8,8,8,8},
+                }
 
-				\foreach \line [count=\y] in \tiles {
-					\foreach \pix [count=\x] in \line {
-						\path (\x,-\y) node[name=c2048-\x-\y,case 2048 \pix];
-					}
-				}
+                \foreach \line [count=\y] in \tiles {
+                    \foreach \pix [count=\x] in \line {
+                        \path (\x,-\y) node[name=c2048-\x-\y,case 2048 \pix];
+                    }
+                }
 
-				\begin{scope}[on background layer]
-					\node[fill=grid color,fit=(c2048-1-1)(c2048-4-4),
-						inner sep=1mm,rounded corners=.3mm]{};
-				\end{scope}
-			\end{tikzpicture}
-			$\stackrel{schieben(r)}{\Longrightarrow}$
-			\begin{tikzpicture}[baseline={([yshift=-.8ex]current bounding box.center)}]
-				\def\tiles{
-					{0,0,2,4},
-					{0,0,0,32},
-					{0,4,4,4},
-					{0,0,16,16},
-				}
+                \begin{scope}[on background layer]
+                    \node[fill=grid color,fit=(c2048-1-1)(c2048-4-4),
+                        inner sep=1mm,rounded corners=.3mm]{};
+                \end{scope}
+            \end{tikzpicture}
+            $\stackrel{schieben(r)}{\Longrightarrow}$
+            \begin{tikzpicture}[baseline={([yshift=-.8ex]current bounding box.center)}]
+                \def\tiles{
+                    {0,0,2,4},
+                    {0,0,0,32},
+                    {0,4,4,4},
+                    {0,0,16,16},
+                }
 
-				\foreach \line [count=\y] in \tiles {
-					\foreach \pix [count=\x] in \line {
-						\path (\x,-\y) node[name=c2048-\x-\y,case 2048 \pix];
-					}
-				}
+                \foreach \line [count=\y] in \tiles {
+                    \foreach \pix [count=\x] in \line {
+                        \path (\x,-\y) node[name=c2048-\x-\y,case 2048 \pix];
+                    }
+                }
 
-				\begin{scope}[on background layer]
-					\node[fill=grid color,fit=(c2048-1-1)(c2048-4-4),
-						inner sep=1mm,rounded corners=.3mm]{};
-				\end{scope}
-			\end{tikzpicture}
-		\end{center}
-		Testet aber bitte alle Richtungen, da man je nach Schieberichtung in unterschiedlicher Reihenfolge durchitterieren muss
-	\end{subtask}
-	\begin{subtask}[points=15,title={Zufall}]
-		Wenn \pythoninline{import random} verwendet wurde gibt es hier \textbf{0 Punkte}
-		\begin{itemize}
-			\item Verteilung der Zufallszahlen ist linear
-			\item alle freien Felder haben die gleiche Wahrscheinlichkeit
-			\item  Die Wahrscheinlichkeit, dass einem freien Feld eine 4 statt einer 2 zugewiesen wird,
-			      beträgt $10\%$
-		\end{itemize}
-	\end{subtask}
-	\begin{subtask}[points=20,title={Spieleablauf (nach Startzustand)}]
-		\begin{itemize}
-			\item In jeder weiteren Runde wird die Verschieberichtung abgefragt
-			\item In jeder weiteren Runde wird ein weiteres zufälliges, freies Feld mit 2 oder 4 gefüllt
-			\item Ist kein Verschieben mehr möglich, wird ein \enquote{loose screen} angezeigt
-			\item Wird 2048 erreicht, wird ein \enquote{win screen} angezeigt
-		\end{itemize}
-	\end{subtask}
-	\begin{subtask}[points=10,title={Anzeige}]
-		Hier können auch gerne Bonuspunkte für besonders hübsche Anzeigen (z.B. mit unicode) vergeben werden ;$)$
-		\begin{itemize}
-			\item Alle Felder des Spielfeldes werden jede Runde angezeigt
-			\item Die Anzeige sieht auch bei größeren Zahlen gut aus
-			\item Die möglichen Eingaben werden angezeigt
-			\item Es gibt einen einfachen Weg, das Spiel jederzeit ohne Fehlermeldung zu beenden
-			\item (Besonders schön wäre: Punkte+Rundencounter sowie highscore)
-		\end{itemize}
-	\end{subtask}
+                \begin{scope}[on background layer]
+                    \node[fill=grid color,fit=(c2048-1-1)(c2048-4-4),
+                        inner sep=1mm,rounded corners=.3mm]{};
+                \end{scope}
+            \end{tikzpicture}
+        \end{center}
+        Testet aber bitte alle Richtungen, da man je nach Schieberichtung in unterschiedlicher Reihenfolge durchitterieren muss
+    \end{subtask}
+    \begin{subtask}[points=15,title={Zufall}]
+        Wenn \pythoninline{import random} verwendet wurde gibt es hier \textbf{0 Punkte}
+        \begin{itemize}
+            \item Verteilung der Zufallszahlen ist linear
+            \item alle freien Felder haben die gleiche Wahrscheinlichkeit
+            \item  Die Wahrscheinlichkeit, dass einem freien Feld eine 4 statt einer 2 zugewiesen wird,
+                beträgt $10\%$
+        \end{itemize}
+    \end{subtask}
+    \begin{subtask}[points=20,title={Spieleablauf (nach Startzustand)}]
+        \begin{itemize}
+            \item In jeder weiteren Runde wird die Verschieberichtung abgefragt
+            \item In jeder weiteren Runde wird ein weiteres zufälliges, freies Feld mit 2 oder 4 gefüllt
+            \item Ist kein Verschieben mehr möglich, wird ein \enquote{loose screen} angezeigt
+            \item Wird 2048 erreicht, wird ein \enquote{win screen} angezeigt
+        \end{itemize}
+    \end{subtask}
+    \begin{subtask}[points=10,title={Anzeige}]
+        Hier können auch gerne Bonuspunkte für besonders hübsche Anzeigen (z.B. mit unicode) vergeben werden ;$)$
+        \begin{itemize}
+            \item Alle Felder des Spielfeldes werden jede Runde angezeigt
+            \item Die Anzeige sieht auch bei größeren Zahlen gut aus
+            \item Die möglichen Eingaben werden angezeigt
+            \item Es gibt einen einfachen Weg, das Spiel jederzeit ohne Fehlermeldung zu beenden
+            \item (Besonders schön wäre: Punkte+Rundencounter sowie highscore)
+        \end{itemize}
+    \end{subtask}
 \end{task}
 \begin{task}[points=auto]{Sonstiges}
-	Andere Sachen, die ihr gerne im Feedback erwähnen könnt:
-	\begin{itemize}
-		\item Kreativität
-		\item Code Stil (und Kommentarstil)
-		\item loben für hat wahrscheinlich vorerfahrung/hat es mit Vorkurswissen gelöst
-		\item Abgabezeitpunkt
-	\end{itemize}
+    Andere Sachen, die ihr gerne im Feedback erwähnen könnt:
+    \begin{itemize}
+        \item Kreativität
+        \item Code Stil (und Kommentarstil)
+        \item loben für hat wahrscheinlich vorerfahrung/hat es mit Vorkurswissen gelöst
+        \item Abgabezeitpunkt
+    \end{itemize}
 \end{task}
 \end{document}

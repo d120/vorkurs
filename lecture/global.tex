@@ -4,7 +4,7 @@
 
 %include guard:
 \ifdefined\GlobalAlreadyIncluded
-  \expandafter\endinput
+    \expandafter\endinput
 \fi
 
 \gdef\GlobalAlreadyIncluded{}
@@ -46,15 +46,15 @@
 
 % macro for change speaker sign
 \newcommand{\changespeaker}{
-	\begin{tikzpicture}[line width=.6mm, shorten >= 3pt, shorten <= 3pt]
+    \begin{tikzpicture}[line width=.6mm, shorten >= 3pt, shorten <= 3pt]
 
-		\coordinate (c1);
-		\coordinate[right of=c1] (c2);
+        \coordinate (c1);
+        \coordinate[right of=c1] (c2);
 
-		\draw[rectangle, draw=red!80, fill=red!80, align=center, rounded corners] ($(c1.north west)+(0,-0.3)$) rectangle ($(c2.south east)+(0, 0.3)$) {};
-		\draw[->,white] (c1)[bend left] to node[auto] {} (c2);
-		\draw[->,white] (c2)[bend left] to node[auto] {} (c1);
-	\end{tikzpicture}
+        \draw[rectangle, draw=red!80, fill=red!80, align=center, rounded corners] ($(c1.north west)+(0,-0.3)$) rectangle ($(c2.south east)+(0, 0.3)$) {};
+        \draw[->,white] (c1)[bend left] to node[auto] {} (c2);
+        \draw[->,white] (c2)[bend left] to node[auto] {} (c1);
+    \end{tikzpicture}
 }
 
 %Listing-Style pyhon
@@ -67,41 +67,41 @@
 
 % macros
 \newcommand{\livecoding}{
-		%\ifdefined\StreamSlides
-			\begin{frame}
-				\frametitle{\insertsectionhead \\  {\small \insertsubsectionhead}}\centering \huge 	\vskip 2cm\textbf{\textcolor{red}{Live-Coding}}
-			\end{frame}
-		%\fi
-	}
+    %\ifdefined\StreamSlides
+    \begin{frame}
+        \frametitle{\insertsectionhead \\  {\small \insertsubsectionhead}}\centering \huge 	\vskip 2cm\textbf{\textcolor{red}{Live-Coding}}
+    \end{frame}
+    %\fi
+}
 
 %\newcommand{\slidehead}{\frametitle{\insertsectionhead \\ {\small \insertsubsectionhead}}\vspace{3mm}}
 \newcommand{\slidehead}{\frametitle{\insertsectionhead} \framesubtitle{\insertsubsectionhead}\vspace{3mm}}
 \newcommand{\tocslide}{\begin{frame}[t]\frametitle{Inhaltsverzeichnis}\vspace{3mm}{\small\tableofcontents[subsectionstyle=shaded]}\end{frame}}
 
 \newcommand{\nextvid}[2]{
-	\ifdefined\StreamSlides
-	\else
-		\section{Nächstes Video}
-		\begin{frame}[t]
-			\slidehead
-			\begin{block}{Nächstes Video}
-				\vspace{0.5cm}
-				#1
-				\vspace{0.5cm}
-			\end{block}
-			\ifx\hfuzz#2\hfuzz
-				\vspace{2.5cm}
-			\else
-				{\begin{block}{Bonus Video}
-					\vspace{0.5cm}
-					#2
-					\vspace{0.5cm}
-				\end{block}}
-			\fi
-			Danke fürs Zuschauen!\\
-			Links zu den Folien und Quellen sind in der Videobeschreibung.
-		\end{frame}
-	\fi
+    \ifdefined\StreamSlides
+    \else
+        \section{Nächstes Video}
+        \begin{frame}[t]
+            \slidehead
+            \begin{block}{Nächstes Video}
+                \vspace{0.5cm}
+                #1
+                \vspace{0.5cm}
+            \end{block}
+            \ifx\hfuzz#2\hfuzz
+                \vspace{2.5cm}
+                \else
+                {\begin{block}{Bonus Video}
+                        \vspace{0.5cm}
+                        #2
+                        \vspace{0.5cm}
+                    \end{block}}
+            \fi
+            Danke fürs Zuschauen!\\
+            Links zu den Folien und Quellen sind in der Videobeschreibung.
+        \end{frame}
+    \fi
 }
 
 

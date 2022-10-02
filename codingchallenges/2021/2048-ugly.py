@@ -101,7 +101,7 @@ for i in state:
 
 
 # Game Rounds
-while(True):
+while (True):
     # Ask the User to input the next Move
     move = input("\nNächster Zug (a=links,s=unten,w=oben,d=rechts):")
 
@@ -147,7 +147,7 @@ while(True):
         for x in xrange:
             field = state[y][x]
             # Wenn das Feld leer ist, müssen wir nichts verschieben
-            if(field == ''):
+            if (field == ''):
                 continue
             # Neue Schiebeposition Ermitteln
             newX = x
@@ -185,7 +185,7 @@ while(True):
                 newMergeY = prevY
             # Verschieben an neue Position, und ggf multiplizieren
             newState[y][x] = 0
-            if(newState[newMergeY][newMergeX] != 0):
+            if (newState[newMergeY][newMergeX] != 0):
                 newState[newY][newX] = 2*field
                 newState[newMergeY][newMergeX] = 0
             else:
@@ -196,7 +196,7 @@ while(True):
     noEmptySlots = True
     for y in range(4):
         for x in range(4):
-            if(state[y][x] == 0):
+            if (state[y][x] == 0):
                 noEmptySlots = False
     if noEmptySlots:
         print("You lost, there are no free spots left :(")
@@ -207,7 +207,7 @@ while(True):
     hasEmptySlots = False
     for y in range(4):
         for x in range(4):
-            if(state[y][x] == 0):
+            if (state[y][x] == 0):
                 hasEmptySlots = True
     if hasEmptySlots:
         # Position

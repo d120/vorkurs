@@ -36,165 +36,165 @@
 \definecolor{big color}{HTML}{F9F6F2}
 %
 \tikzset{
-  case 2048 base/.style={
-    minimum size=9mm,rounded corners=.3mm,text=#1,inner sep=0,line width=0,
-  },
-  %
-  case 2048 Large/.style={font=\Large\gamefont,case 2048 base=#1},
-  case 2048 large/.style={font=\large\gamefont,case 2048 base=#1},
-  case 2048 normal/.style={font=\normalsize\gamefont,case 2048 base=#1},
-  %
-  case 2048 0/.style={case 2048 Large=black,fill=tile 0,node contents={}},
-  case 2048 2/.style={case 2048 Large=small color,fill=tile 2,node contents={2}},
-  case 2048 4/.style={case 2048 Large=small color,fill=tile 4,node contents={4}},
-  case 2048 8/.style={case 2048 Large=big color,fill=tile 8,node contents={8}},
-  case 2048 16/.style={case 2048 Large=big color,fill=tile 16,node contents={16}},
-  case 2048 32/.style={case 2048 Large=big color,fill=tile 32,node contents={32}},
-  case 2048 64/.style={case 2048 Large=big color,fill=tile 64,node contents={64}},
-  case 2048 128/.style={case 2048 large=big color,fill=tile 128,node contents={128}},
-  case 2048 256/.style={case 2048 large=big color,fill=tile 256,node contents={256}},
-  case 2048 512/.style={case 2048 large=big color,fill=tile 512,node contents={512}},
-  case 2048 1024/.style={case 2048 normal=big color,fill=tile 1024,node contents={1024}},
-  case 2048 2048/.style={case 2048 normal=big color,fill=tile 2048,node contents={2048}},
-  case 2048 4096/.style={case 2048 normal=big color,fill=tile 4096,node contents={4096}},
+    case 2048 base/.style={
+        minimum size=9mm,rounded corners=.3mm,text=#1,inner sep=0,line width=0,
+    },
+    %
+    case 2048 Large/.style={font=\Large\gamefont,case 2048 base=#1},
+    case 2048 large/.style={font=\large\gamefont,case 2048 base=#1},
+    case 2048 normal/.style={font=\normalsize\gamefont,case 2048 base=#1},
+    %
+    case 2048 0/.style={case 2048 Large=black,fill=tile 0,node contents={}},
+    case 2048 2/.style={case 2048 Large=small color,fill=tile 2,node contents={2}},
+    case 2048 4/.style={case 2048 Large=small color,fill=tile 4,node contents={4}},
+    case 2048 8/.style={case 2048 Large=big color,fill=tile 8,node contents={8}},
+    case 2048 16/.style={case 2048 Large=big color,fill=tile 16,node contents={16}},
+    case 2048 32/.style={case 2048 Large=big color,fill=tile 32,node contents={32}},
+    case 2048 64/.style={case 2048 Large=big color,fill=tile 64,node contents={64}},
+    case 2048 128/.style={case 2048 large=big color,fill=tile 128,node contents={128}},
+    case 2048 256/.style={case 2048 large=big color,fill=tile 256,node contents={256}},
+    case 2048 512/.style={case 2048 large=big color,fill=tile 512,node contents={512}},
+    case 2048 1024/.style={case 2048 normal=big color,fill=tile 1024,node contents={1024}},
+    case 2048 2048/.style={case 2048 normal=big color,fill=tile 2048,node contents={2048}},
+    case 2048 4096/.style={case 2048 normal=big color,fill=tile 4096,node contents={4096}},
 }
 
 
 %\logo[2]{\includegraphics[scale=5]{../../lecture/globalMedia/bildmarke_ohne_rand}}
 
 
-	
+
 \begin{document}
 
 %Deckblatt
 \subtitle{Programmierchallenge}
 
 \titlegraphic{
-	\begin{columns}[c]
-		\begin{column}{4cm}
-			\begin{center}
-				{\huge 2048}
-			\end{center}
-		\end{column}
-		\begin{column}{4cm}
-			\begin{figure}
-				\centering
-				%\includeinvertablegraphics[scale=.35]{media/conditionals.png}
-				\begin{tikzpicture}
-					\def\tiles{
-						{2,4,0,2048},
-						{8,0,2,64},
-						{8,16,32,64},
-						{1024,512,256,128},
-					}
-					\foreach \line [count=\y] in \tiles {
-						\foreach \pix [count=\x] in \line {
-							\path (\x,-\y) node[name=c2048-\x-\y,case 2048 \pix];
-						}
-					}
-					\begin{scope}[on background layer]
-						\node[fill=grid color,fit=(c2048-1-1)(c2048-4-4),
-							inner sep=1mm,rounded corners=.3mm]{};
-					\end{scope}
-				\end{tikzpicture}
-				\\	\sffamily \tiny Beispiel: \href{https://play2048.co/}{https://play2048.co/}
-			\end{figure}
-		\end{column}
-	\end{columns}}
+    \begin{columns}[c]
+        \begin{column}{4cm}
+            \begin{center}
+                {\huge 2048}
+            \end{center}
+        \end{column}
+        \begin{column}{4cm}
+            \begin{figure}
+                \centering
+                %\includeinvertablegraphics[scale=.35]{media/conditionals.png}
+                \begin{tikzpicture}
+                    \def\tiles{
+                        {2,4,0,2048},
+                        {8,0,2,64},
+                        {8,16,32,64},
+                        {1024,512,256,128},
+                    }
+                    \foreach \line [count=\y] in \tiles {
+                        \foreach \pix [count=\x] in \line {
+                            \path (\x,-\y) node[name=c2048-\x-\y,case 2048 \pix];
+                        }
+                    }
+                    \begin{scope}[on background layer]
+                        \node[fill=grid color,fit=(c2048-1-1)(c2048-4-4),
+                            inner sep=1mm,rounded corners=.3mm]{};
+                    \end{scope}
+                \end{tikzpicture}
+                \\	\sffamily \tiny Beispiel: \href{https://play2048.co/}{https://play2048.co/}
+            \end{figure}
+        \end{column}
+    \end{columns}}
 \maketitle
 \section{Programmierchallenge}
 \subsection{Was ist das?}
 \begin{frame}
-	\slidehead
-	\pause
-	\begin{itemize}
-		\item Ein größeres freiwilliges Projekt, dass man nach oder alternativ zu den Aufgaben machen kann (empfohlen ist nach der Übung!)
-		\item Ihr bekommt die Möglichkeit eure Spiele abzugeben
-		\item Die besten Ideen werden am Montag gezeigt
-	\end{itemize}
+    \slidehead
+    \pause
+    \begin{itemize}
+        \item Ein größeres freiwilliges Projekt, dass man nach oder alternativ zu den Aufgaben machen kann (empfohlen ist nach der Übung!)
+        \item Ihr bekommt die Möglichkeit eure Spiele abzugeben
+        \item Die besten Ideen werden am Montag gezeigt
+    \end{itemize}
 \end{frame}
 
 \subsection{Warum?}
 \begin{frame}
-	\slidehead
-	\pause
-	\begin{itemize}
-		\item Euch eine mögliche Anwendung eures gelerntes Wissens zeigen
-		\item Ein Spiel programmieren
-		\item Euch herausfordern
-	\end{itemize}
-	\pause
-	\vspace{\fill}
-	\begin{center}
-		\textbf{\huge Und deswegen gibt es heute eine Programmierchallenge!}
-	\end{center}
-	\vspace{\fill}
+    \slidehead
+    \pause
+    \begin{itemize}
+        \item Euch eine mögliche Anwendung eures gelerntes Wissens zeigen
+        \item Ein Spiel programmieren
+        \item Euch herausfordern
+    \end{itemize}
+    \pause
+    \vspace{\fill}
+    \begin{center}
+        \textbf{\huge Und deswegen gibt es heute eine Programmierchallenge!}
+    \end{center}
+    \vspace{\fill}
 \end{frame}
 
 \subsection{Wie soll das gehen?}
 \begin{frame}
-	\slidehead
-	\begin{itemize}
-		\item Keine Vorerfahrung
-		\item Nur vier Tage Programmiervorkurs-Vorlesungen
-		\item Und dann ein komplettes Spiel programmieren?
-	\end{itemize}
-	\pause
-	\vspace{\fill}
-	\begin{center}
-		\textbf{\huge Wie sollen wir da schon bereit für ein größeres Projekt sein?}
-	\end{center}
-	\vspace{\fill}
+    \slidehead
+    \begin{itemize}
+        \item Keine Vorerfahrung
+        \item Nur vier Tage Programmiervorkurs-Vorlesungen
+        \item Und dann ein komplettes Spiel programmieren?
+    \end{itemize}
+    \pause
+    \vspace{\fill}
+    \begin{center}
+        \textbf{\huge Wie sollen wir da schon bereit für ein größeres Projekt sein?}
+    \end{center}
+    \vspace{\fill}
 \end{frame}
 
 \subsection{Ihr seid bereit.}
 \begin{frame}
-	\slidehead
-	\begin{itemize}
-		\item Ihr kennt jetzt die wichtigsten Grundkonzepte in Python
-		\item Die Challenge lässt sich mit dem Wissen des Vorkurses lösen
-		\item So riesig ist das Projekt dann doch nicht $\Rightarrow$ gut schaffbar in zwei Tagen
-		\item Ihr dürft in Gruppen abgeben (beliebige Größe)
-		\item Wir helfen euch gerne
-	\end{itemize}
-	\pause
-	\vspace{\fill}
-	\begin{center}
-		\textbf{\huge Ihr Schafft das!}
-	\end{center}
-	\vspace{\fill}
+    \slidehead
+    \begin{itemize}
+        \item Ihr kennt jetzt die wichtigsten Grundkonzepte in Python
+        \item Die Challenge lässt sich mit dem Wissen des Vorkurses lösen
+        \item So riesig ist das Projekt dann doch nicht $\Rightarrow$ gut schaffbar in zwei Tagen
+        \item Ihr dürft in Gruppen abgeben (beliebige Größe)
+        \item Wir helfen euch gerne
+    \end{itemize}
+    \pause
+    \vspace{\fill}
+    \begin{center}
+        \textbf{\huge Ihr Schafft das!}
+    \end{center}
+    \vspace{\fill}
 \end{frame}
 
 \subsection{Ablauf}
 \begin{frame}
-	\slidehead
-	\begin{itemize}
-		\item Freischaltung der genauen Aufgabenstellung nach dieser Vorstellung (Moodle)
-		\item Sucht euch Gruppen
-		\item Abgabe bis 08.10.2021 23:59 Uhr in Moodle
-		\item Die besten Abgaben werden am Montag vorgestellt
-	\end{itemize}
+    \slidehead
+    \begin{itemize}
+        \item Freischaltung der genauen Aufgabenstellung nach dieser Vorstellung (Moodle)
+        \item Sucht euch Gruppen
+        \item Abgabe bis 08.10.2021 23:59 Uhr in Moodle
+        \item Die besten Abgaben werden am Montag vorgestellt
+    \end{itemize}
 \end{frame}
 
 \subsection{Was muss man beachten?}
 \begin{frame}
-	\slidehead
-	\begin{itemize}
-		\item KISS
-		\item Eine Datei, keine Projekte
-		\item Kommentiert euren Code
-		\item Ihr dürft \textbf{keine} Imports verwenden
-		\item euer Programm \textbf{muss} ohne Fehler gestartet werden können
-	\end{itemize}
+    \slidehead
+    \begin{itemize}
+        \item KISS
+        \item Eine Datei, keine Projekte
+        \item Kommentiert euren Code
+        \item Ihr dürft \textbf{keine} Imports verwenden
+        \item euer Programm \textbf{muss} ohne Fehler gestartet werden können
+    \end{itemize}
 \end{frame}
 
 \section{Ansonsten...}
 \begin{frame}
-	\slidehead
-	\vspace{\fill}
-	\begin{center}
-		\huge ...noch viel Spaß !
-	\end{center}
-	\vspace{\fill}
+    \slidehead
+    \vspace{\fill}
+    \begin{center}
+        \huge ...noch viel Spaß !
+    \end{center}
+    \vspace{\fill}
 \end{frame}
 \end{document}

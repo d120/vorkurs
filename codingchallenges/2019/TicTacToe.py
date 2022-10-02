@@ -37,15 +37,17 @@ def has_won(player):
     for tup in winners:
         win = True
         for ix in tup:
-           if board[ix] != player:
-               win = False
+            if board[ix] != player:
+                win = False
         if win:
             return win
     return win
 
+
 def make_move(player, move):
     if can_move(move):
         board[move] = player
+
 
 def test_move(player, move):
     if can_move(move):
@@ -53,6 +55,7 @@ def test_move(player, move):
         win = has_won(player)
         board[move] = move
         return win
+
 
 def computer_move():
     # If I can win, others don't matter.
@@ -70,10 +73,12 @@ def computer_move():
             possible_moves.append(i)
     return make_move(computer, random.choice(possible_moves))
 
+
 def game_over():
     if board.count(player)+board.count(computer) == 9:
         return True
     return False
+
 
 print('Player Figure/Symbol/Character:')
 player = input()
@@ -113,7 +118,3 @@ while not game_over():
 
 print_board()
 print("Unentschieden")
-
-
-
-

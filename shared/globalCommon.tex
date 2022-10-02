@@ -17,36 +17,36 @@
 \bool_gset_false:N \g_dark_mode_bool % Disable by default
 \definecolor{anthrazitgrau}{HTML}{293133}
 \newcommand{\enableDarkMode}[1][anthrazitgrau]{ %Command to enable Dark Mode (only works before \begin{document})
-	\pagecolor{#1}
-	\color{white}
+    \pagecolor{#1}
+    \color{white}
 
-	\cs_if_exist:NT \setbeamercolor {
-		\setbeamercolor*{smallrule}{bg=.}
-		\setbeamercolor*{normal~text}{bg=,fg=.}
-		\setbeamercolor*{background canvas}{parent=normal~text}
-		\setbeamercolor*{section~in~toc}{parent=normal~text}
-		\setbeamercolor*{subsection~in~toc}{parent=normal~text,fg=\thepagecolor}
-		\setbeamercolor*{footline}{parent=normal~text}
-		\setbeamercolor{block~title~alerted}{fg=white,bg=white!20!\thepagecolor}
-		\setbeamercolor*{block~body}{bg=black!70!gray!98!blue}
-		\setbeamercolor*{block~body~alerted}{bg=\thepagecolor}
-	}
-	\cs_if_exist:NT \setbeamertemplate {
-		\setbeamertemplate{subsection~in~toc~shaded}[default][50]
-	}
-	\bool_gset_true:N \g_dark_mode_bool
-	% Prefer inverted Logo with dark Mode
-	% \IfFileExists{tuda_logo_inverted.pdf}{\tl_gset:Nn \g_ptxcd_logofile_tl {tuda_logo_inverted.pdf}}{}
-	% \hbox_gset:Nn \g__ptxcd_logo_box {% Update Logo Box
-	% 	\makebox[2.2\c_ptxcd_logoheight_dim][l]{\includegraphics[height=\c_ptxcd_logoheight_dim]{\g_ptxcd_logofile_tl}}%
-	% }
+    \cs_if_exist:NT \setbeamercolor {
+        \setbeamercolor*{smallrule}{bg=.}
+        \setbeamercolor*{normal~text}{bg=,fg=.}
+        \setbeamercolor*{background canvas}{parent=normal~text}
+        \setbeamercolor*{section~in~toc}{parent=normal~text}
+        \setbeamercolor*{subsection~in~toc}{parent=normal~text,fg=\thepagecolor}
+        \setbeamercolor*{footline}{parent=normal~text}
+        \setbeamercolor{block~title~alerted}{fg=white,bg=white!20!\thepagecolor}
+        \setbeamercolor*{block~body}{bg=black!70!gray!98!blue}
+        \setbeamercolor*{block~body~alerted}{bg=\thepagecolor}
+    }
+    \cs_if_exist:NT \setbeamertemplate {
+        \setbeamertemplate{subsection~in~toc~shaded}[default][50]
+    }
+    \bool_gset_true:N \g_dark_mode_bool
+    % Prefer inverted Logo with dark Mode
+    % \IfFileExists{tuda_logo_inverted.pdf}{\tl_gset:Nn \g_ptxcd_logofile_tl {tuda_logo_inverted.pdf}}{}
+    % \hbox_gset:Nn \g__ptxcd_logo_box {% Update Logo Box
+    % 	\makebox[2.2\c_ptxcd_logoheight_dim][l]{\includegraphics[height=\c_ptxcd_logoheight_dim]{\g_ptxcd_logofile_tl}}%
+    % }
 }
 
 % dark Mode Makros
 \prg_new_conditional:Nnn \__ptxcd_if_dark_mode: {T,F,TF} { % Conditional to check if dark Mode is active
-	\bool_if:NTF \g_dark_mode_bool
-	{\prg_return_true:}
-	{\prg_return_false:}
+    \bool_if:NTF \g_dark_mode_bool
+    {\prg_return_true:}
+    {\prg_return_false:}
 }
 
 \cs_set_eq:NN\IfDarkModeT \__ptxcd_if_dark_mode:T % Easy dark Mode check for use in document
@@ -54,10 +54,10 @@
 \cs_set_eq:NN\IfDarkModeTF \__ptxcd_if_dark_mode:TF
 
 \newcommand{\includeinvertablegraphics}[2][]{% Grafik wird beim Dark Mode automatisch Invertiert (rgb)
-	\IfDarkModeTF{\includegraphics[decodearray={1.0~0.0~1.0~0.0~1.0~0.0},#1]{#2}}{\includegraphics[#1]{#2}}
+    \IfDarkModeTF{\includegraphics[decodearray={1.0~0.0~1.0~0.0~1.0~0.0},#1]{#2}}{\includegraphics[#1]{#2}}
 }
 \newcommand{\includeinvertablegrayscalegraphics}[2][]{% Grafik wird beim Dark Mode automatisch Invertiert (grayscale)
-	\IfDarkModeTF{\includegraphics[decodearray={1.0~0.0},#1]{#2}}{\includegraphics[#1]{#2}}
+    \IfDarkModeTF{\includegraphics[decodearray={1.0~0.0},#1]{#2}}{\includegraphics[#1]{#2}}
 }
 
 % DARK_MODE environment check (enable if DARK_MODE=1)
@@ -73,81 +73,81 @@
 \newcommand{\code}{\inputminted[]{python}}
 
 \IfDarkModeTF{
-	\newmintedfile[pythonfile]{python}{
-		fontsize=\small,
-		style=native,
-		linenos=true,
-		numberblanklines=true,
-		tabsize=4,
-		obeytabs=false,
-		breaklines=true,
-		autogobble=true,
-		encoding="utf8",
-		showspaces=false,
-		xleftmargin=20pt,
-		frame=single,
-		framesep=5pt,
-	}
-	\newmintinline{python}{
-		style=native,
-		encoding="utf8"
-	}
+    \newmintedfile[pythonfile]{python}{
+        fontsize=\small,
+        style=native,
+        linenos=true,
+        numberblanklines=true,
+        tabsize=4,
+        obeytabs=false,
+        breaklines=true,
+        autogobble=true,
+        encoding="utf8",
+        showspaces=false,
+        xleftmargin=20pt,
+        frame=single,
+        framesep=5pt,
+    }
+    \newmintinline{python}{
+        style=native,
+        encoding="utf8"
+    }
 
-	\definecolor{codegray}{HTML}{eaf1ff}
-	\newminted[bashcode]{awk}{
-		escapeinside=||,
-		fontsize=\small,
-		style=native,
-		linenos=true,
-		numberblanklines=true,
-		tabsize=4,
-		obeytabs=false,
-		breaklines=true,
-		autogobble=true,
-		encoding="utf8",
-		showspaces=false,
-		xleftmargin=20pt,
-		frame=single,
-		framesep=5pt
-	}
+    \definecolor{codegray}{HTML}{eaf1ff}
+    \newminted[bashcode]{awk}{
+        escapeinside=||,
+        fontsize=\small,
+        style=native,
+        linenos=true,
+        numberblanklines=true,
+        tabsize=4,
+        obeytabs=false,
+        breaklines=true,
+        autogobble=true,
+        encoding="utf8",
+        showspaces=false,
+        xleftmargin=20pt,
+        frame=single,
+        framesep=5pt
+    }
 }{
-	\newmintedfile[pythonfile]{python}{
-		fontsize=\small,
-		style=friendly,
-		linenos=true,
-		numberblanklines=true,
-		tabsize=4,
-		obeytabs=false,
-		breaklines=true,
-		autogobble=true,
-		encoding="utf8",
-		showspaces=false,
-		xleftmargin=20pt,
-		frame=single,
-		framesep=5pt,
-	}
-	\newmintinline{python}{
-		style=friendly,
-		encoding="utf8"
-	}
+    \newmintedfile[pythonfile]{python}{
+        fontsize=\small,
+        style=friendly,
+        linenos=true,
+        numberblanklines=true,
+        tabsize=4,
+        obeytabs=false,
+        breaklines=true,
+        autogobble=true,
+        encoding="utf8",
+        showspaces=false,
+        xleftmargin=20pt,
+        frame=single,
+        framesep=5pt,
+    }
+    \newmintinline{python}{
+        style=friendly,
+        encoding="utf8"
+    }
 
-	\definecolor{codegray}{HTML}{eaf1ff}
-	\newminted[bashcode]{awk}{
-		escapeinside=||,
-		fontsize=\small,
-		style=friendly,
-		linenos=true,
-		numberblanklines=true,
-		tabsize=4,
-		obeytabs=false,
-		breaklines=true,
-		autogobble=true,
-		encoding="utf8",
-		showspaces=false,
-		xleftmargin=20pt,
-		frame=single,
-		framesep=5pt
-	}
+    \definecolor{codegray}{HTML}{eaf1ff}
+    \newminted[bashcode]{awk}{
+        escapeinside=||,
+        fontsize=\small,
+        style=friendly,
+        linenos=true,
+        numberblanklines=true,
+        tabsize=4,
+        obeytabs=false,
+        breaklines=true,
+        autogobble=true,
+        encoding="utf8",
+        showspaces=false,
+        xleftmargin=20pt,
+        frame=single,
+        framesep=5pt
+    }
 }
 
 \let\origpythonfile\pythonfile

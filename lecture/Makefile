@@ -10,7 +10,7 @@ ifeq ($(VORKURS_NOTES), 1)
 endif
 
 define pdflatex_cmd
-    $(PDFLATEX) $(PDFLATEX_FLAGS) '\AtBeginDocument{$(PDFLATEX_PREAMBLE)}\input{$(1)}'
+	$(PDFLATEX) $(PDFLATEX_FLAGS) '\AtBeginDocument{$(PDFLATEX_PREAMBLE)}\input{$(1)}'
 endef
 
 SUBDIRS := $(wildcard */*.tex)
