@@ -5,9 +5,3 @@ Ein Beispiel wäre die folgende Rechnung:
 >>> (19 ** 7) % 33
 13
 \end{lstlisting}
-
-Um Strings damit zu verschlüsseln/entschlüsseln, könnte man diese Funktionen verwenden:
-\begin{lstlisting}
->>> enc = lambda x: [(ord(c) - ord('a')) ** 3 % 33 for c in x if ord('a') <= ord(c) and ord(c) <= ord('z')]
->>> dec = lambda x: "".join([chr((v ** 7 % 33) + ord('a')) for v in x if 0 <= v and v < 33])
-\end{lstlisting}
