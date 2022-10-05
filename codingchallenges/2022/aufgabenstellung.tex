@@ -1,0 +1,76 @@
+\documentclass[ngerman,accentcolor=3c,colorbacktitle,12pt]{tudaexercise}
+
+% Packages
+\usepackage{hyperref}
+\usepackage{fancyvrb}
+
+%\usepackage{ClearSans}
+\usepackage{csquotes}
+\usepackage{tikz}
+\usetikzlibrary{fit,backgrounds}
+
+\input{../../shared/globalCommon}
+
+\usepackage[font=normalsize, labelfont=sf, position=bottom]{caption}
+\usepackage[labelfont=normalfont, position=bottom]{subcaption}
+
+\setlength{\parindent}{0pt}
+
+\def\gamefont{\bfseries\sffamily}
+
+% Document
+\begin{document}
+
+
+\title{Programmierchallenge Wintersemester 2022/23 \\ {\small der Fachschaft Informatik}}
+\subtitle{Wintersemester 2021/22}
+\author{Autoren: Moritz ?, Ruben Deisenroth}
+\maketitle
+
+\section*{Hangman (Galgenmännchen) \hyperref[footnote:1]{\footnotemark[1]}}
+\footnotetext[1]{\label{footnote:1}\url{https://de.wikipedia.org/wiki/Galgenmännchen}}
+\subsection*{Ablauf des Spiels}
+\subsubsection*{Spielbetrieb}
+\begin{minipage}[t]{.7\textwidth}
+    Vor Beginn des Spiels wird ein Wort und eine Anzahl an Fehlversuchen festgelegt. Wenn das Spiel beginnt, wird dem Spieler ein Hinweis auf die Länge des Wortes gegeben, z.B. kann man alle Buchstaben durch einen Unterstrich \enquote{\_} ersetzen. Der Spieler kann nun Buchstaben raten. Wenn der Spieler einen Buchstaben richtig errät, wird dieser im Wort angezeigt. Wenn der Spieler einen Buchstaben falsch errät, ist das ein Fehlversuch. Wenn der Spieler alle Buchstaben richtig errät, hat er das Spiel gewonnen. Wenn der Spieler die Anzahl der Fehlversuche überschreitet, hat er das Spiel verloren.
+\end{minipage}%
+\begin{minipage}[t]{.3\textwidth}%
+    \centering%
+    \captionsetup{type=figure}
+    \begin{BVerbatim}
+        +---+
+        |   |
+        O   |
+        /|\  |
+        / \  |
+        |
+        =========
+        V O R K _ R S
+        A C E M P Y X
+    \end{BVerbatim}
+    \captionof*{figure}{Beispiel Mögliche Hang\-man-Im\-ple\-men\-tierung\\- obere Zeile zeigt Wort \enquote{VORKURS} \\- untere Zeile zeigt falsch geratene Buchstaben \enquote{ACEMPYX}}
+\end{minipage}%
+
+\subsection*{Die Aufgabe}
+Programmiert in Python eine Spieladaption des oben beschriebenen \emph{Hangman}.
+Dieses soll auf und in der Konsole funktionieren.
+Hierbei sollen das zu erratende Wort, die richtig geratenen Buchstaben, die falsch geratenen Buchstaben und die Anzahl der Fehlversuche bei jedem Zug angezeigt werden.
+Nach jedem Zug soll der*die Spieler*in mittels der Konsole einen Buchstaben zum Raten auswählen können und eine entsprechende Rückmeldung erhalten.
+
+Das Programm soll selbst erkennen wann das Spiel für eine*n der Spieler*innen gewonnen oder verloren ist.
+Im Anschluss zeigt das Programm den Ausgang des Spiels an und beendet sich.
+
+\clearpage
+\subsection*{Rahmen}
+Es existiert kein \enquote{Rahmen} oder \enquote{Framework}.
+Das Projekt besitzt außer diesem Dokument keine weiteren Unterlagen.
+Bei Fragen könnt ihr euch am besten an die Tutor*innen oder an die Orga wenden.
+Bitte haltet euch an das KISS-Prinzip\footnote[2]{\url{https://de.wikipedia.org/wiki/KISS-Prinzip}} (Keep it simple, stupid), versucht also eine möglichst einfache Lösung zu erstellen.
+Es muss auch kein Wunderwerk der Technik sein.
+Dennoch sind kreative Ideen gerne gesehen.
+
+\subsection*{Die Abgabe}
+Es gibt zwei Möglichkeiten der Abgabe: Bis spätestens 23:59 Uhr am Freitag (08.10.2021) könnt ihr eure \texttt{.py}-Datei in Moodle hochladen oder ihr schickt uns eine Mail an \href{mailto:vorkurs@d120.de}{\nolinkurl{vorkurs@d120.de}}.
+Dort hängt ihr die Datei bitte als Anhang an.
+Dabei gilt die Ankunftszeit bei uns.
+\end{document}
