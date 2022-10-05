@@ -9,20 +9,12 @@ windig = True
 # korrekt erkannt werden, stimmt sie wahrscheinlich trotzdem.
 if wettervorhersage == "regen":
     freibad = False
+elif temperatur > 24:
+    freibad = True
+elif wettervorhersage == "sonnig":
+    freibad = not (temperatur < 18 and windig)
 else:
-    if temperatur > 24:
-        freibad = True
-    else:
-        if wettervorhersage == "sonnig":
-            if temperatur < 18 and windig:
-                freibad = False
-            else:
-                freibad = True
-        else:
-            if temperatur >= 18 and not windig:
-                freibad = True
-            else:
-                freibad = False
+    freibad = temperatur >= 18 and not windig
 
 if freibad:
     print("Geh ins Freibad")
