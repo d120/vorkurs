@@ -1,0 +1,323 @@
+\input{preamble.tex}
+\sheetnumber{2}
+\title{Aufgaben Programmiervorkurs}
+\subtitle{von der Fachschaft Informatik\hfill\ptitle}
+\begin{document}
+\maketitle{}
+
+Für die folgenden Aufgaben solltet ihr jeweils eine Python-Programmdatei
+anlegen. Öffnet dazu einen beliebigen Ordner in eurem Dateiexplorer. Öffnet
+dann ein Terminal im selben Verzeichnis.
+
+\begin{itemize}
+    \item Unter Linux \& Mac (u.a. den Poolrechnern): Rechtsklick -> In Terminal öffnen
+    \item Unter Windows: Shift+Rechtsklick -> Powershell hier öffnen
+\end{itemize}
+
+Öffnet dann einen Texteditor eurer Wahl. Unter Linux ist das etwa gedit, unter
+Windows kann Notepad verwendet werden. Erstellt eine Datei mit eurem Programm
+und speichert sie mit der Endung \texttt{.py}, beispielsweise \texttt{datei.py}
+in dem vorher ausgewählten Ordner.
+
+Ihr könnt diese Datei dann starten, indem ihr \texttt{python datei.py} in dem geöffneten Terminal ausführt.
+
+\begin{solution}
+    Eine Python Datei kann erstellt und ausgeführt werden.
+\end{solution}
+\begin{task}[points=auto]{Zum Aufwärmen \stage1}
+    \begin{subtask*}[points=0]{Anweisungen}
+        \begin{itemize}
+            \mchead
+            \mcitemt{Eine if-Anweisung beeinflusst den Programmablauf.}
+            \mcitemf{Eine if-Anweisung benötigt eine else-Klausel.}
+            \mcitemt{Ein \lstinline{if 4:} führt immer den eingeschlossenen Codeblock aus.}
+        \end{itemize}
+
+        \begin{solution}
+            Die erste und dritte Aussage treffen zu.
+        \end{solution}
+    \end{subtask*}
+\end{task}
+\begin{task}[points=auto]{Variablen \stage1}
+    \begin{subtask*}[points=0]{Fehlersuche}
+        Gegeben ist folgendes Listing:
+        \begin{codeBlock}[]{minted language=python}
+            mein_alter = 21
+            meinalter = meinalter + 1
+            print(mein_alter)
+        \end{codeBlock}
+        Beim Ausführen der zweiten Zeile wirft Python einen Fehler. Warum? Verbessert das Listing.
+        \begin{solution}
+            Die Variable in Zeile 2 müsste mein\textbf{\_}alter heißen und nicht meinalter.
+        \end{solution}
+    \end{subtask*}
+    \begin{subtask*}[points=0]{Namenskonvention}
+        Welches sind \textbf{gültige} Variablennamen?
+        \begin{multicols}{3}
+            \begin{enumerate}
+                \item Matrikelnummer
+                \item ÄhmKeineAhnung
+                \item 2fancy4python
+                \item {\_}meinAlter
+                \item richtig\&gut
+                \item {\_}2Euro
+                \item Variable2
+                \item noch$\_$besser
+                \item \#Falsch
+            \end{enumerate}
+        \end{multicols}
+        \begin{solution}
+            Die Antworten c), e) und i) sind nicht gültig.\\Gültig sind somit: Matrikelnummer, ÄhmKeineAhnung, {\_}meinAlter, {\_}2Euro, Variable2, noch$\_$besser
+        \end{solution}
+    \end{subtask*}
+    \begin{subtask*}[points=0]{Assignment}
+        Ergänzt im folgenden Listing die fehlenden Variablenzuweisungen, so dass keine Fehler auftreten und am Ende \texttt{variable1} zu \texttt{True}, \texttt{variable2} zu \texttt{5} und \texttt{variable3} zu \texttt{'abc'} auswertet.
+        \begin{codeBlock}[]{minted language=python}
+            variable1 = # hier Zuweisung 1 einsetzen
+            variable2 = 3
+            variable3 = # hier Zuweisung 2 einsetzen
+            variable2 += variable1
+            if variable3 > 5:
+                variable2 = 0
+            else:
+                variable2 *= variable3
+            variable1 = # hier Zuweisung 3 einsetzen
+            variable3 = # hier Zuweisung 4 einsetzen
+            variable3 += variable1
+            variable1 = # hier Zuweisung 5 einsetzen
+            variable1 = variable1 > variable2 * 2
+            variable3 += "c"
+            print(variable1)
+            print(variable2)
+            print(variable3)
+        \end{codeBlock}
+
+        \textit{Hinweis: Hier habt ihr 5 Zeilen, wo ihr eure Zuweisungen einsetzen könnt. Es kann hilfreich sein, mit den Ergebnissen anzufangen, die am Ende rauskommen sollen, und euch dann von hinten nach vorne durchzuarbeiten.}
+
+        \begin{solution}
+            Zuweisung 1: variable1 = 2 \\
+            Zuweisung 2: variable3 = 1 \\
+            Zuweisung 3: variable1 = 'b' \\
+            Zuweisung 4: variable3 = 'a' \\
+            Zuweisung 5: variable1 = 11 \\
+            Es gibt natürlich auch noch andere Möglichkeiten
+        \end{solution}
+    \end{subtask*}
+\end{task}
+\begin{task}[points=auto]{Logische Operationen \stage1}
+    \begin{subtask*}[points=0]{Operatoren}
+        \subsection{Operatoren}
+        Es seien die folgenden Variablen deklariert und initialisiert:
+        \begin{codeBlock}[]{minted language=python}
+            x = 6
+            y = 7
+            z = 0
+            a = False
+        \end{codeBlock}
+        Welchen Wert enthält die Variable b jeweils nach Ausführung der folgenden Anweisungen?
+        \begin{enumerate}
+            \item \lstinline{b = x > 5 or y < 7 and z != 0}
+            \item \lstinline{b = x * y != y * x and x / z == 0}
+            \item \lstinline{b = not x == y and z <= 0}
+            \item \lstinline{b = x >= 11 or x < 9 and not y == 2 and x + y * z > 0 or a}
+            \item \lstinline{b = z != z or not a and x - y * z <= 0}
+            \item \lstinline{b = not a and z < y - x}
+        \end{enumerate}
+
+        \begin{solution}
+            \begin{multicols}{3}
+                \begin{enumerate}
+                    \item \lstinline{b == True}
+                    \item \lstinline{b == False}
+                    \item \lstinline{b == True}
+                    \item \lstinline{b == True}
+                    \item \lstinline{b == False}
+                    \item \lstinline{b == True}
+                \end{enumerate}
+            \end{multicols}
+        \end{solution}
+    \end{subtask*}
+\end{task}
+\begin{task}[points=auto]{Eingabe/Ausgabe \stage2}
+    \begin{subtask*}[points=0]{Variablen einlesen}
+        Im Rahmen der Vorlesung habt ihr die Funktion \texttt{input} kennengelernt, welche es euch erlaubt, auf einfache Art und Weise Benutzereingaben von der Konsole einzulesen. Schreibt jetzt ein Programm, welches mit Hilfe dieser Funktion nacheinander folgende Eingaben einliest und in Variablen speichert.
+        \begin{itemize}
+            \item euren Namen als Zeichenkette
+            \item euer Geburtsdatum als drei ganze Zahlen: Tag, Monat, Jahr
+        \end{itemize}
+        Insgesamt sollen also vier Eingaben verarbeiten werden. Achtet dabei darauf, dass euer Programm die erwarteten Eingaben textuell klar strukturiert (Stichwort: Bedienerfreundlichkeit).\\
+        Nachdem die letzte Eingabe verarbeitet ist, soll folgende Zeichenkette ausgegeben werden (wobei natürlich die Platzhalter zu ersetzen sind):\\
+        Ausgabe: {\ttfamily{\dq}}<euer Name> hat am <tt.mm.jjjj> Geburtstag.{\ttfamily{\dq}}\\
+        \\
+        \textit{Hinweis: Die Verarbeitung von Eingaben wird im Foliensatz 'Variablen.pdf' erläutert.}\\
+        \\
+        \textit{Hinweis: Variablen sollten in Strings nicht mit '\pythoninline{+}' eingefügt werden, stattdessen vor den String ein '\pythoninline{f}' setzen und an die entsprechenden Stellen im String \pythoninline{{variable0}}, \pythoninline{{variable1}}, ... einsetzen. \\
+        Beispiel: \pythoninline{f"{variable0} ist kleiner {variable1}"} ergibt wenn variable0 = 4 und variable1 = 42 {\ttfamily{\dq}}4 ist kleiner 42{\ttfamily{\dq}}}\\
+
+        \begin{solution}
+            \begin{codeBlock}[]{minted language=python}
+                #!/usr/bin/python3
+                name = input("Bitte gib deinen Namen ein: ")
+                tag = int(input("Gib den Tag deiner Geburt ein: "))
+                monat = int(input("Gib den Monat deiner Geburt ein: "))
+                jahr = int(input("Gib das Jahr deiner Geburt ein: "))
+
+                print(f"{name} hat am {tag}.{monat}.{jahr} Geburtstag.")
+            \end{codeBlock}
+        \end{solution}
+    \end{subtask*}
+    \begin{subtask*}[points=0]{Taschenrechner}
+        In dieser Aufgabe soll ein sehr einfacher Taschenrechner implementiert werden, wobei wir uns dabei auf die Grundrechenarten beschränken wollen. Euer Programm soll nacheinander drei Eingaben entgegennehmen, zwei Operanden (\textbf{ganze Zahlen}) und einen Operator (\textbf{+, -, *, /}). Schließlich soll der Taschenrechner eine Ausgabe mit dem entsprechenden Ergebnis liefern. Vergesst nicht, euer Programm zu testen.
+
+        \begin{solution}
+            \begin{codeBlock}[]{minted language=python}
+                op1 = int(input("Wie lautet der erste Operand: "))
+                op2 = int(input("Wie lautet der zweite Operand: "))
+                op = input("Wie lautet der Operator: ")
+
+                if op == "+":
+                    print("Das Ergebnis lautet:", op1 + op2)
+                elif op == "-":
+                    print("Das Ergebnis lautet:", op1 - op2)
+                elif op == "*":
+                    print("Das Ergebnis lautet:", op1 * op2)
+                elif op == "/":
+                    print("Das Ergebnis lautet:", op1 / op2)
+                else:
+                    print("Keine gültige Eingabe!")
+            \end{codeBlock}
+        \end{solution}
+    \end{subtask*}
+\end{task}
+\begin{task}[points=auto]{Zum Weiterdenken \stage3}
+    \begin{subtask*}[points=0]{Entscheidungsbaum}
+        Wenn große Mengen von Daten verarbeitet werden müssen, geht es oft darum, diese in bestimmte Gruppen bzw. Klassen einzuteilen, zum Beispiel sollen häufig fehlerhafte Daten von korrekten getrennt werden. Eine mögliche Klassifikationsmethode, die für Tabellendaten genutzt werden kann, ist ein Entscheidungsbaum.\\
+        \\
+        Entscheidungsbäume funktionieren so, dass man für einen Datenpunkt (also eine Tabellenzeile) nach und nach die Spalteneinträge überprüft, bis man an einem Punkt ankommt, wo man sicher die Klasse festlegen kann. Das kann je nach dem, in welcher Reihenfolge man die Spalten betrachtet, unterschiedlich kompliziert sein (manchmal reicht sogar eine einzelne Spalte, um sicher zu wissen, welche Klasse es ist).\\
+        \\
+        Deine Aufgabe ist es, mit den Daten in der folgenden Tabelle einen Entscheidungsbaum zu konstruieren, der euch ausgibt, wann es sich lohnt, ins Freibad zu gehen (so, wie es in der Tabellenspalte ganz rechts festgelegt ist). Lege dazu am Besten pro Spalte eine Variable an, wo du dann Zeile für Zeile die Werte nacheinander durchprobieren kannst, um deine Implementierung zu testen.
+        \begin{table}[ht]
+            \centering
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                Wettervorhersage & Temperatur & Luftfeuchtigkeit & Wind  & Freibad \\\hline
+                sonnig           & 29         & hoch             & False & Ja      \\\hline
+                sonnig           & 29         & mittel           & True  & Ja      \\\hline
+                regen            & 13         & mittel           & True  & Nein    \\\hline
+                bewölkt          & 22         & mittel           & False & Ja      \\\hline
+                regen            & 13         & hoch             & False & Nein    \\\hline
+                bewölkt          & 29         & mittel           & False & Ja      \\\hline
+                sonnig           & 14         & mittel           & True  & Nein    \\\hline
+                bewölkt          & 27         & hoch             & True  & Ja      \\\hline
+                bewölkt          & 14         & hoch             & True  & Nein    \\\hline
+                sonnig           & 20         & mittel           & False & Ja      \\\hline
+                regen            & 27         & mittel           & False & Nein    \\\hline
+                bewölkt          & 14         & mittel           & False & Nein    \\\hline
+                regen            & 20         & mittel           & True  & Nein    \\\hline
+                sonnig           & 22         & hoch             & True  & Ja      \\\hline
+                sonnig           & 14         & hoch             & False & Ja      \\\hline
+                bewölkt          & 22         & mittel           & True  & Nein    \\\hline
+                regen            & 29         & mittel           & True  & Nein    \\\hline
+                regen            & 22         & hoch             & False & Nein    \\\hline
+            \end{tabular}
+        \end{table}
+        \newpage
+        Wenn du überprüfen möchtest, ob dein Entscheidungsbaum gut funktioniert, kannst du auch noch diese Datenpunkte ausprobieren:
+        \begin{table}[ht]
+            \centering
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                Wettervorhersage & Temperatur & Luftfeuchtigkeit & Wind  & Freibad \\\hline
+                bewölkt          & 15         & hoch             & False & Nein    \\\hline
+                sonnig           & 28         & mittel           & False & Ja      \\\hline
+                sonnig           & 21         & hoch             & False & Ja      \\\hline
+                regen            & 27         & hoch             & False & Nein    \\\hline
+                regen            & 20         & mittel           & False & Nein    \\\hline
+                bewölkt          & 28         & hoch             & False & Ja      \\\hline
+                sonnig           & 13         & hoch             & True  & Nein    \\\hline
+                bewölkt          & 21         & hoch             & False & Ja      \\\hline
+                regen            & 27         & hoch             & True  & Nein    \\\hline
+            \end{tabular}
+        \end{table}
+
+        \textit{Hinweis: Euer Programm soll am Ende so funktionieren, dass ihr die Eckdaten (also Wettervorhersage, Temperatur, Luftfeuchtigkeit und Wind) eingebt, und das Programm dann Antwortet, ob ihr ins Freibad gehen solltet oder nicht.}
+
+        \begin{solution}
+            \begin{codeBlock}[]{minted language=python}
+                # hier die Werte eintragen
+                wettervorhersage = "regen"
+                temperatur = 27
+                luftfeuchtigkeit = "hoch"
+                windig = True
+                # Die Zahlenwerte, gegen die verglichen wird,
+                # können von den hier eingetragenen abweichen.
+                # Eure Lösung kann auch anders vorgehen, wenn die Testdaten
+                # korrekt erkannt werden, stimmt sie wahrscheinlich trotzdem.
+                if wettervorhersage == "regen":
+                    freibad = False
+                elif temperatur > 24:
+                    freibad = True
+                elif wettervorhersage == "sonnig":
+                    freibad = not (temperatur < 18 and windig)
+                else:
+                    freibad = temperatur >= 18 and not windig
+
+                if freibad:
+                    print("Geh ins Freibad")
+                else:
+                    print("Bleib zu Hause")
+            \end{codeBlock}
+        \end{solution}
+    \end{subtask*}
+    \begin{subtask*}[points=0]{Ein einfacher Prozessor}
+        Prozessoren bestehen im allgemeinen aus einer kleinen Anzahl von Registern, mit denen die eigentlichen Berechnungen durchgeführt werden. Im Folgenden sollt ihr das Verhalten eines kleinen Prozessors in Python simulieren. \\
+        Der Prozessor soll aus 4 Registern bestehen, die beliebige Werte speichern können (Diese könnt ihr als Variablen modellieren). Außerdem kann der Prozessor grundlegende Berechnungen (+, -, *, /, \%) auf seinen Registern durchführen und Werte in Registern vergleichen (\textbf{Achtung:} Ihr müsst also nach jeder einzelnen Rechung oder einem Vergleich das Ergebnis in eines der Register speichern, und dürft nicht mehrere Rechnungen nacheinander ausführen (Also statt \pythoninline{a = 2 + 3 * 4} müsstet ihr \pythoninline{b = 3 * 4} gefolgt von \pythoninline{a = 2 + b} schreiben. If-Abfragen sind auf diese Art möglich: \pythoninline{if a:}, also kein \pythoninline{else:} und ihr müsst den Wahrheitswert, den ihr mit if überpfürt, zuerst in ein Register schreiben.)) \\
+        In den Berechnungen dürft ihr außer den Registern auch Zahlenwerte verwenden, jedoch nicht das Register in das das Ergebnis geschrieben wird.\\
+        Erstellt nun mit diesen Randbedinungen ein Programm, dass das folgende tut: \\
+        \begin{codeBlock}[]{minted language=python}
+            lese eine Ganzzahl a ein
+            lese eine Ganzzahl b ein
+            lese eine Ganzzahl c ein
+            verdoppele a und addiere 3 hinzu
+            lese eine Ganzzahl d ein
+            gib b und c aus
+            wenn a > d gilt, setze d = a
+            wenn a < d gilt, speichere Wert c = d - a, sonst speichere Wert c = 0
+            setze a = c * d + a * a
+            setze Wert b = a + d
+            setze c = b + d
+            gib a,b,c und d aus
+        \end{codeBlock}
+
+        \begin{solution}
+            \begin{codeBlock}[]{minted language=python}
+                a = int(input("Zahl a einlesen: "))
+                b = int(input("Zahl b einlesen: "))
+                c = int(input("Zahl c einlesen: "))
+                d = 2 * a
+                a = d + 3
+                d = int(input("Zahl d einlesen: "))
+                print(b)
+                print(c)
+                c = a > d
+                if c:
+                    d = a
+                c = a < d
+                if c:
+                    c = d - a
+                b = a * a
+                a = b
+                b = c * d
+                c = a + b
+                a = c
+                b = a + d
+                c = b + d
+                print(a)
+                print(b)
+                print(c)
+                print(d)
+            \end{codeBlock}
+        \end{solution}
+    \end{subtask*}
+\end{task}
+\end{document}

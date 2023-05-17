@@ -1,0 +1,277 @@
+\input{preamble.tex}
+\sheetnumber{1}
+\title{Aufgaben Programmiervorkurs}
+\subtitle{von der Fachschaft Informatik\hfill\ptitle}
+\begin{document}
+\maketitle{}
+
+\begin{task}[points=auto]{Einleitung}
+    \begin{subtask*}[points=0]{Python Installieren}
+        Hey, willkommen bei den Übungen zum Programmiervorkurs im \ptitle. Wie in der
+        Vorlesung verwenden wir für die Übungen die Programmiersprache Python. \\\\
+        %
+        Auf den Poolrechnern und auf den meisten Linux-Distributionen sollte die
+        benötigte Version 3 schon installiert sein. Prüft das, indem ihr (etwa mit
+        Rechtsklick -> \textit{Terminal öffnen}) auf dem Desktop) ein Terminal öffnet,
+        und führt den Befehl \texttt{python ----version} aus. Dieser sollte so etwas wie
+        \textit{Python 3.7.9} ausgeben. Wenn ihr stattdessen \textit{Python 2.x.x} (x = irgendwelche Zahlen) bekommt, versucht es mit \texttt{python3} statt \texttt{python}, wenn das klappt, ersetzt im Folgenden einfach immer \texttt{python} durch \texttt{python3}.
+
+        Sollte das nicht funktionieren, installiert Python 3 über einen Paketmanager
+        eurer Wahl (etwa mit \texttt{apt install python}). \\\\
+        %
+        Für Windows oder MacOS müsst ihr Python von der offiziellen Seite
+        \url{https://python.org/downloads} herunterladen. Klickt dort einfach die
+        Schaltfläche \textit{Download Python 3.10.7} (höhere Versionsnummer möglich) an.
+        Öffnet nun auch hier ein Terminal (Auf Windows die Windows-Taste drücken und \texttt{PowerShell} eingeben und das Programm auswählen.). \\\\
+        %
+        Führt nun den Befehl \texttt{python} oder \texttt{python3} aus um eine
+        interaktive Eingabezeile zu starten.
+
+        Wenn ihr bei der Installation oder den Aufgaben nicht weiterkommt, fragt uns einfach! Es mag vielleicht nach einer guten Idee aussehen, im Internet nach der Antwort zu suchen, aber da habt ihr dann keine Garantie, dass es eine sinnvolle Erklärung dazu gibt. Außerdem wisst ihr dann nicht, ob ihr vielleicht etwas nicht richtig verstanden habt. Zu guter Letzt gibt es für viele der Probleme, die wir euch hier Präsentieren, sehr schnelle Lösungen in Python, welche aber höhere Programmierkenntnisse voraussetzen. Ziel ist es nicht, möglichst alle Aufgaben richtig zu beantworten, sondern dass ihr versteht, was ihr dabei tun müsst.
+        \begin{solution}
+            Python ist installiert und dem Pfad hinzugefügt. Der Befehl
+            \texttt{python ----version} gibt eine Versionsnummer von mindestens \textit{3.4.0}
+            aus, oder der Befehl \texttt{python3} wird verwendet. Der Python Interpreter
+            wurde gestartet.
+        \end{solution}
+    \end{subtask*}
+    \begin{subtask*}[points=0]{Theoriefragen}
+        \subsection{Theoriefragen}
+        \begin{itemize}
+            \mchead
+            \mcitemt{Programmcode steht üblicherweise in Textdateien}
+            \mcitemf{Ein Prozessor kann Python direkt ausführen}
+            \mcitemt{Um Python-Code auszuführen kann ein Interpreter verwendet werden}
+            \mcitemf{Es ist niemals sinnvoll seinen Code mit Kommentaren zu überladen}
+        \end{itemize}
+        \begin{solution}
+            Die zutreffenden Antworten sind die Aussagen 1 und 3.
+        \end{solution}
+    \end{subtask*}
+\end{task}
+\begin{task}[points=auto]{Ausdrücke \stage1}
+    \begin{subtask*}[points=0]{Frage \& Antwort}
+        Gebt nacheinander die folgenden Ausdrücke in den Interpreter ein. Drückt nach
+        jedem Eintrag \textit{ENTER}, um den Ausdruck auszuwerten. Was passiert?
+        Versucht, zu erklären, warum. Probiert auch noch weitere Ausdrücke, die euch
+        einfallen.
+
+        \begin{multicols}{3}
+            \begin{itemize}
+                \item \texttt{2}
+                \item \texttt{10.0}
+                \item \texttt{"1"}
+                \item \texttt{'1'}
+                \item \texttt{Test}
+                \item \texttt{"Test"}
+                \item \texttt{0x11}
+                \item \texttt{0b11}
+                \item \texttt{true}
+                \item \texttt{True}
+                \item \texttt{false}
+                \item \texttt{False}
+            \end{itemize}
+        \end{multicols}
+
+        \bonus{Wenn ihr den Typ herausfinden wollt, den ein Ausdruck ergibt,
+            könnt ihr das machen, indem ihr ihn mit \texttt{type(...)} umschließt.}
+
+        \begin{solution}
+            Zahlen ohne Anführungszeichen ergeben die Zahl. Rationale Zahlen brauchen einen
+            Dezimal\textbf{punkt}. Anführungszeichen (\texttt{'}, \texttt{"}) ergeben Strings,
+            der Prefix \texttt{0x} erwartet hexadezimales Format, der Prefix \texttt{0b}
+            binäres Format. Wahrheitswerte müssen groß geschrieben werden (\texttt{True},
+            \texttt{False})
+        \end{solution}
+    \end{subtask*}
+    \begin{subtask*}[points=0]{Mathe 0 für Informatiker*innen}
+        Wenn euch das Programm aber nur das zurückgeben könnte, was ihr hinschreibt,
+        dann wäre das ja noch lange kein \textit{Computer}. Darum rechnen wir nun etwas.
+        Überlegt euch was die folgenden Ausdrücke ergeben, und was die verwendeten
+        Symbole für Operationen bezeichnen. Beachtet dabei, die Operatorenpräzedenz.
+
+        \begin{multicols}{3}
+            \begin{itemize}
+                \item \texttt{16 + 26}
+                \item \texttt{13.75 + 28.67}
+                \item \texttt{2 * 3 + 6 * 6}
+                \item \texttt{'4' + '2'}
+                \item \texttt{4 ** 3 - 11 * 2}
+                \item \texttt{12 * 133 / 28 - 15}
+                \item \texttt{12 * 'a'}
+                \item \texttt{1.3 * 5.6}
+            \end{itemize}
+        \end{multicols}
+
+        %\bonus{Mit \texttt{ord(...)} könnt ihr den Codepunkt eines Zeichens
+        %    herausfinden, mit \texttt{chr(...)} das Zeichen zu einem Codepunkt.}
+
+        \begin{solution}
+            Das Ergebnis ist meistens eine Variante von 42. Wichtig ist, dass hier
+            Punkt- vor Strichrechnung gilt. Der \texttt{**} Operator potenziert.
+            String mal Zahl ergibt eine Wiederholung des Strings. Die letzte Aufgabe
+            betont, dass manche Operationen auf Kommazahlen keine genauen Ergebnisse
+            liefern.
+        \end{solution}
+    \end{subtask*}
+\end{task}
+\begin{task}[points=auto]{Konvertierung \stage2}
+    \begin{subtask*}[points=0]{Konvertierung}
+        Nehmen wir mal an, ihr habt den Text \texttt{"1000"} zur Verfügung. Vielleicht
+        errechnet; vielleicht aus einer API (\textit{application programming interface}, allgemeine Bezeichnung für Schnittstellen zwischen Programmen)? Es kommt immer wieder vor, dass die Daten noch den falschen Typ haben, wenn ihr sie bekommt. In Python schreibt ihr dafür
+        den Typ hin, den ihr erhalten wollt, sowie den Ausdruck in Klammern dahinter.
+        Python versucht, den am Besten passenden Wert des gewünschten Typs zu finden.
+
+        Gebt die folgenden Ausdrücke ein, und findet das Ergebnis heraus.
+
+        \textit{Hinweis: es kann sein, dass einige Konvertierungen fehlschlagen. In diesem Fall überlegt euch, warum. Die Fehlermeldung kann dabei hilfreich sein.}
+
+        \begin{multicols}{3}
+            \begin{enumerate}
+                \item \pythoninline{int("100")}
+                \item \pythoninline{float("1.3")}
+                \item \pythoninline{float("NaN")}
+                \item \pythoninline{str(234)}
+                \item \pythoninline{int("0x11")}
+                \item \pythoninline{str(2) + '5'}
+                \item \pythoninline{str(2 + 5)}
+                \item \pythoninline{float(5)}
+                \item \pythoninline{int(5.5)}
+                \item \pythoninline{int("4.2")}
+            \end{enumerate}
+        \end{multicols}
+
+        \begin{solution}
+            \begin{multicols}{3}
+                \begin{enumerate}
+                    \item \pythoninline{100}
+                    \item \pythoninline{1.3}
+                    \item \pythoninline{nan}
+                    \item \pythoninline{'234'}
+                    \item \textbf{ValueError}
+                    \item \pythoninline{'25'}
+                    \item \pythoninline{'7'}
+                    \item \pythoninline{5.0}
+                    \item \pythoninline{5}
+                    \item \textbf{ValueError}
+                \end{enumerate}
+            \end{multicols}
+        \end{solution}
+    \end{subtask*}
+    \begin{subtask*}[points=0]{Verrückte Eingabe \stage3}
+        Versucht einen Ausdruck zu finden, der nur \pythoninline{'1'}, \pythoninline{0},
+        \pythoninline{int(...)}, \pythoninline{str(...)} und Operationen verwendet, der
+        insgesamt zu \pythoninline{3000} auswertet. Beachtet, dass solche Ausdrücke
+        wie ihr hier schreiben sollt, so \textbf{niemals} in echtem Code auftauchen
+        sollten.
+
+        \textit{Hinweis: Zwar soll am Ende eine Zahl rauskommen, ihr werdet aber in dieser Aufgabe oft zwischen Zahl und Text hin- und herkonvertieren müssen.}
+
+        \begin{solution}
+            \begin{codeBlock}[]{minted language=python}
+                >>> int(str(int('1') + int('1') + int('1')) + str(0) + str(0) + str(0))
+                3000
+            \end{codeBlock}
+            Es gibt natürlich auch noch andere Möglichkeiten.
+        \end{solution}
+    \end{subtask*}
+\end{task}
+\begin{task}[points=auto]{Fehler}
+    \begin{subtask*}[points=0]{Fehlertypen \stage1}
+
+        Ordnet die folgenden drei Fehlertypen den folgenden Ausdrücken zu.
+        \begin{multicols}{3}
+            \begin{itemize}
+                \item[] \textbf{SyntaxError}
+                \item[] \textbf{ZeroDivisionError}
+                \item[] \textbf{NameError}
+            \end{itemize}
+            \begin{itemize}
+                \item[] \pythoninline{true}
+                \item[] \pythoninline{4 +* 5}
+                \item[] \pythoninline{2 / 0}
+            \end{itemize}
+            \begin{itemize}
+                \item[] \textit{Syntaktischer Fehler}
+                \item[] \textit{Lexikalischer Fehler}
+                \item[] \textit{Semantischer Fehler}
+            \end{itemize}
+        \end{multicols}
+
+        \begin{solution}
+            \begin{enumerate}
+                \item \pythoninline{true} ist ein falsch geschriebenes Schlüsselwort und
+                      somit ein \\ lexikalischer Fehler (\textbf{NameError}, \dots)
+                \item \pythoninline{4 +* 5} sind Operatoren, denen ein Parameter dazwischen
+                      fehlt, somit ein
+                      \\ syntaktischer Fehler (\textbf{SyntaxError}, \textbf{IndentationError}, \dots)
+                \item \pythoninline{2 / 0} ist eine undefinierte Rechnung, also ein
+                      \\ semantischer Fehler (\textbf{ZeroDivisionError}, \textbf{ValueError}, \dots)
+            \end{enumerate}
+
+        \end{solution}
+    \end{subtask*}
+    \begin{subtask*}[points=0]{Finde den Fehler \stage2}
+        Gegeben sind die folgenden Listings. Führt die Programme aus und beschreibt, warum jeweils ein Fehler auftritt.
+        \begin{codeBlock}[]{minted language=python}
+            >>> prinnt("Hello World!") # a)
+            >>> print(Hello World!)    # b)
+            >>> print("Alter: " + 18)  # c)
+            >>> print("Hello World!)   # d)
+        \end{codeBlock}
+        \begin{solution}
+            \begin{enumerate}
+                \item \texttt{NameError: name 'prinnt' is not defined}: Ein \textcolor{red}{Lexikalischer Fehler}, da es keine Funktion mit dem angegebenen Namen
+                      \texttt	{prinnt} gibt. Gültig wäre \texttt{print}. Ein klassische Tippfehler.
+                \item \texttt{SyntaxError: invalid syntax}: Ein \textcolor{red}{Syntaktischer Fehler}, da Strings immer in einfachen oder doppelten Anführungszeichen
+                      stehen müssen.
+                \item \texttt{TypeError: must be str, not int}: Ein \textcolor{red}{Semantischer Fehler}, da Texte und Zahlen nicht eindeutig addierbar sind.
+                      \textbf{Bonus Fact}: Um irgendeinen Wert in einen String zu verwandeln gibt es die Funktion \texttt{str(...)}
+                \item \texttt{SyntaxError: EOL while scanning string literal}: Ein \textcolor{red}{Syntaktischer Fehler}, da der Rest der Zeile nun auch als String
+                      gelesen wird, der aber nie endet.
+            \end{enumerate}
+
+        \end{solution}
+    \end{subtask*}
+\end{task}
+\begin{task}[points=auto]{Challenge}
+    \begin{subtask*}[points=0]{Wir rechnen Modulo \stage3}
+        %\newcommand{\mod}{\mathop{mod}}
+
+        Für eine RSA-Verschlüsselung werden zwei Primzahlen $p,q$ benötigt.
+        Deren Produkt definiert einen Ring $\mathbb Z_n$ mit $n = p * q$.
+        Das heißt, nach jeder Operation wir das Ergebnis mittels \textbf{Modulo}
+        in das Intervall $[0,n)$ gebracht. \\\\
+        %
+        In Python wird das mit dem \texttt{\%} Operator dargestellt. So gilt
+        \pythoninline{20 % 10 == 0}, \pythoninline{15 % 9 == 6}, \dots \\\\
+        %
+        Wenn wir nun etwas verschlüsseln/entschlüsseln wollen, benötigen wir zunächst
+        $N = \phi(n) = (p-1) * (q-1)$ und ausserdem ein $0 < e < N$ mit $ggT(e,N) = 1$,
+        sowie ein $0 < d < N$ mit $ed \mod N = 1$. \\\\
+        %
+        Da das hier keine Krypto-Vorlesung ist, haben wir für euch die Werte: \\
+        $p=3$, $q=11$, $n=33$, $N=20$, $e=3$, $d=7$ berechnet. Eine Nachricht $m$ wird
+        nun als $m^e \mod n$ verschlüsselt, ein Chiffretext $c$ als $c^d \mod n$
+        entschlüsselt.\\\\
+        %
+        Verschlüsselt mit den vorgegebenen (oder eigenen) Werten nun ein
+        paar Zahlen ($0 <= x < n$), und probiert ob ihr sie wieder entschlüsseln könnt.
+        Ihr könnt diese auch an eure Sitznachbarn weitergeben!
+
+        % Bonus
+        % enc = lambda x: [(ord(c) - ord('a')) ** 3 % 33 for c in x if ord('a') <= ord(c) and ord(c) <= ord('z')]
+        % dec = lambda x: "".join([chr((v ** 7 % 33) + ord('a')) for v in x if 0 <= v and v < 33])
+        \begin{solution}
+            Ein Beispiel wäre die folgende Rechnung:
+            \begin{codeBlock}[]{minted language=python}
+                >>> (13 ** 3) % 33
+                19
+                >>> (19 ** 7) % 33
+                13
+            \end{codeBlock}
+
+        \end{solution}
+    \end{subtask*}
+\end{task}
+\end{document}

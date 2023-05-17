@@ -1,0 +1,58 @@
+\RequirePackage[minted_workaround,caption_workaround,boxarc]{algo-common}
+\ExplSyntaxOn
+% Solution environment check (enable if SOLUTION=1)
+\sys_get_shell:nnN { kpsewhich ~ --var-value ~ SOLUTION } { } \l_solution_env_var_tl
+\tl_trim_spaces:N \l_solution_env_var_tl
+\tl_if_eq:NnT \l_solution_env_var_tl {1} {\PassOptionsToClass{solution=true}{tudaexercise}}
+\ExplSyntaxOff
+\documentclass[accentcolor=3c,colorbacktitle,12pt,T1]{tudaexercise}
+\usepackage[T1]{fontenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage[ngerman]{babel}
+\input{../shared/globalCommon}
+\usepackage{hyperref}
+\usepackage{ifthen}
+\usepackage{listings}
+%\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{luainputenc}
+
+
+\definecolor{darkblue}{rgb}{0,0,.5}
+\hypersetup{colorlinks=true, breaklinks=true, linkcolor=\IfDarkModeTF{cyan}{darkblue}, menucolor=darkblue, urlcolor=\IfDarkModeTF{cyan}{darkblue}}
+
+% configuration
+\makeatletter
+\@ifundefined{c@ex}{
+    \newcounter{ex}\setcounter{ex}{1}
+}{}
+\makeatother
+\IfDarkModeT{
+    \selectcolormodel{RGB}
+}
+\newboolean{sln}\setboolean{sln}{false}
+\newboolean{SoSe}\setboolean{SoSe}{false}
+\newcounter{nextyear}\setcounter{nextyear}{\year+1}
+%
+
+\newcommand{\ext}{py}
+\newcommand{\sln}[1]{\ifthenelse{\boolean{sln}}{\subsubsection*{Antwort}{\itshape #1}}{}}
+\newcommand{\slnformat}[1]{\ifthenelse{\boolean{sln}}{#1}{}}
+\newcommand{\vorkurstaskformat}[1]{\ifthenelse{\boolean{sln}}{}{#1}}
+\newcommand{\vorkurstask}[1]{\input{task/#1}\IfFileExists{./sln/#1.tex}{\sln{\input{sln/#1}}}{\IfFileExists{./sln/#1.\ext}{\sln{\pythonfile{sln/#1.\ext}}}{\ClassError{Vorkurs-TeX}{No solution specified for task #1}{Add solution file #1.tex or #1.\ext}}}}
+\newcommand{\mccmd}{Kreuze zu jeder Antwort an, ob sie zutrifft (\textbf{w}) oder nicht (\textbf{f}).}
+\newcommand{\mchead}{\item[\textbf{w} \textbf{f} ]}
+\newcommand{\mcitem}[1]{\item[$\square\ \square$] #1}
+\newcommand{\mcitemt}[1]{\item[$\ifthenelse{\boolean{sln}}{\blacksquare}{\square}\ \square$] #1}
+\newcommand{\mcitemf}[1]{\item[$\square\ \ifthenelse{\boolean{sln}}{\blacksquare}{\square}$] #1}
+\newcommand{\ptitle}{\ifthenelse{\boolean{SoSe}}{Sommersemester \the\year}{Wintersemester \the\year/\thenextyear}}
+
+\newcommand{\lstinlinenoit}[1]{\upshape{\lstinline|#1|}\itshape}
+\lstset{language=Python, basicstyle=\ttfamily\small, keywordstyle=\color{\IfDarkModeTF{cyan!60!black}{blue!80!black}}, identifierstyle=, commentstyle=\color{green!50!.}, stringstyle=\ttfamily,
+    tabsize=4, breaklines=true, numbers=left, numberstyle=\small, frame=single, backgroundcolor=\color{blue!3!\thepagecolor}}
+\author{Fachschaft Informatik}
+
+\newcommand{\stage}[1]{(\ifcase#1\or{Einstieg}\or{Vertiefung}\or{Herausforderung}\else\fi)}
+\newcommand{\bonus}[1]{\textit{BonusFact: }#1}
