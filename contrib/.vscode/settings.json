@@ -63,7 +63,8 @@ git update-index --no-assume-unchanged .vscode/settings.json
                 "%DOC%"
             ],
             "env": {
-                "DARK_MODE": "1"
+                "DARK_MODE": "1",
+                "SOLUTION": "1"
             }
         },
         {

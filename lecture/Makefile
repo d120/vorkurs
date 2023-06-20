@@ -8,12 +8,11 @@ endef
 define build_latex_with_jobname_and_env
 	$(eval DIR := $(dir $(1)))
 	$(eval FILE := $(notdir $(1)))
-	@echo "Compiling $(FILE) in $(DIR)..."
+	@echo -e "\e[1;32mCompiling \"$(FILE)\" in \"$(DIR)\" with jobname \"$(2)\"$<\e[0m"
 	@$(call compile_latex_with_jobname_and_env,$(FILE),$(2),$(3),$(DIR))
-	@# copy PDF file to outdir
+	@echo -e "\e[1;32mSuccessfully compiled \"$(FILE)\" in \"$(DIR)\" with jobname \"$(2)\"$<\e[0m"
 	@mkdir -p $(OUT_DIR)
 	@mv $(DIR)/$(2).pdf $(OUT_DIR)/
-	@echo
 endef
 
 SUBDIRS := $(wildcard */*.tex)
@@ -23,7 +22,7 @@ all:
 	$(MAKE) compile
 
 compile: $(SUBDIRS:.tex=.tex.regular) $(SUBDIRS:.tex=.tex.darkmode) $(SUBDIRS:.tex=.tex.highcontrast)
-	@echo -e "\e[1;42mPDFs can be found in $(OUT_DIR)\e[0m"
+	@echo -e "\e[1;42mAll Done. PDFs can be found in $(OUT_DIR)\e[0m"
 
 $(SUBDIRS:.tex=.tex.regular):
 	$(eval FILE := $(patsubst %.tex.regular,%.tex,$@))
@@ -41,19 +40,18 @@ $(SUBDIRS:.tex=.tex.highcontrast):
 define recurse_cp
 	$(eval DIR := $(dir $(1)))
 	$(eval RECFILE := $(notdir $(1)))
-	@echo "Compiling Rec $(RECFILE) in $(DIR)..."
+	@echo -e "\e[1;32mCompiling Recursive slides \"$(RECFILE)\" in \"$(DIR)\" with jobname \"$(2)\". Iteration $(4)/5\e[0m"
 	@$(call compile_latex_with_jobname_and_env,$(RECFILE),$(2),$(3),$(DIR))
 	@mv $(DIR)/$(2).pdf $(DIR)/$(2)_tmp.pdf
 endef
 
 define recursive_cp_helper
-	@echo recursive
-	$(call recurse_cp,$(1),$(2),$(3))
-	$(call recurse_cp,$(1),$(2),$(3))
-	$(call recurse_cp,$(1),$(2),$(3))
-	$(call recurse_cp,$(1),$(2),$(3))
-	$(call recurse_cp,$(1),$(2),$(3))
-	@# original without recurse
+	$(call recurse_cp,$(1),$(2),$(3),1)
+	$(call recurse_cp,$(1),$(2),$(3),2)
+	$(call recurse_cp,$(1),$(2),$(3),3)
+	$(call recurse_cp,$(1),$(2),$(3),4)
+	$(call recurse_cp,$(1),$(2),$(3),5)
+	@echo -e "\e[1;32mPreparation for recursive slides \"$(1)\" in \"$(2)\" with jobname \"$(2)\" complete. Now compiling normally$<\e[0m"
 	$(call build_latex_with_jobname_and_env,$(1),$(2),$(3))
 endef
 
