@@ -30,13 +30,19 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v3
 
-      # 5. Build the documents
+      # 2. Link texmf folder to the current texmf home
+      - name: Link texmf folder to the current texmf home
+        run: |
+          ln -s /root/texmf $(kpsewhich -var-value=TEXMFHOME)
+          texhash --verbose
+
+      # 3. Build the documents
       - name: "Build the documents"
         run: |
           make -j $(nproc) -C lecture
           mv lecture/pdfout pdfout
 
-      # 8. Upload artifacts to GitHub
+      # 4. Upload artifacts to GitHub
       - name: Upload artifacts to GitHub
         if: ${{ !env.ACT }}
         uses: actions/upload-artifact@v3
