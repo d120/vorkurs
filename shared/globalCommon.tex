@@ -11,6 +11,26 @@
 \author{Vorkursteam der Fachschaft Informatik}
 \let\Author\@author
 
+% dark mode
+\ExplSyntaxOn
+\IfDarkModeT{
+    \cs_if_exist:NT \setbeamercolor {
+        \setbeamercolor*{smallrule}{bg=.}
+        \setbeamercolor*{normal~text}{bg=\thepagecolor,fg=.}
+        \setbeamercolor*{background~canvas}{parent=normal~text}
+        \setbeamercolor*{section~in~toc}{parent=normal~text}
+        \setbeamercolor*{subsection~in~toc}{parent=normal~text,fg=.}
+        \setbeamercolor*{footline}{parent=normal~text}
+        \setbeamercolor{block~title~alerted}{fg=white,bg=white!20!\thepagecolor}
+        \setbeamercolor*{block~body}{bg=black!70!gray!98!blue}
+        \setbeamercolor*{block~body~alerted}{bg=\thepagecolor}
+    }
+    \cs_if_exist:NT \setbeamertemplate {
+        \setbeamertemplate{subsection~in~toc~shaded}[default][50]
+    }
+}
+\ExplSyntaxOff
+
 % macros
 \renewcommand{\arraystretch}{1.2} % Höhe einer Tabellenspalte minimal erhöhen
 \newcommand{\N}{{\mathbb N}}
