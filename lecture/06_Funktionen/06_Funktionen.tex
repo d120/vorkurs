@@ -294,9 +294,9 @@
 
         \begin{column}{7cm}
             \begin{figure}
-                \ifcsname vorkursRecurse\endcsname
-                    \includegraphics[width=\textwidth,page=2]{06_05_Rekursion_tmp.pdf}
-                \fi
+                \IfFileExists{\jobname_tmp.pdf}{
+                    \includegraphics[width=\textwidth,page=24]{\jobname_tmp.pdf}
+                }{}
             \end{figure}
         \end{column}
     \end{columns}
@@ -312,17 +312,17 @@
     \begin{columns}
         \begin{column}{5cm}
             \begin{figure}
-                \ifcsname vorkursRecurse\endcsname
-                    \includegraphics[width=\textwidth,page=3]{06_05_Rekursion_tmp.pdf}
-                \fi
+                \IfFileExists{\jobname_tmp.pdf}{
+                    \includegraphics[width=\textwidth,page=25]{\jobname_tmp.pdf}
+                }{}
             \end{figure}
         \end{column}
 
         \begin{column}{5cm}
             \begin{figure}
-                \ifcsname vorkursRecurse\endcsname
-                    \includegraphics[width=\textwidth,page=3]{06_05_Rekursion_tmp.pdf}
-                \fi
+                \IfFileExists{\jobname_tmp.pdf}{
+                    \includegraphics[width=\textwidth,page=25]{\jobname_tmp.pdf}
+                }{}
             \end{figure}
         \end{column}
     \end{columns}

@@ -22,7 +22,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     container:
-      image: registry.gitlab.com/islandoftex/images/texlive:latest
+      image: ghcr.io/tudalgo/algotex:latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -30,39 +30,19 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v3
 
-      # 2. Install additional dependencies
-      - run: apt-get update && apt-get install -y librsvg2-bin rsync
-
-      # 3. Setup TU-Logo by converting it to pdf and copying it to the tex-path
-      - name: "Setup TU-Logo"
+      # 2. Link texmf folder to the current texmf home
+      - name: Link texmf folder to the current texmf home
         run: |
-          mkdir -p "$(kpsewhich -var-value=TEXMFHOME)/tex/latex/local"
-          curl -o tuda_logo.svg -L https://upload.wikimedia.org/wikipedia/de/2/24/TU_Darmstadt_Logo.svg\?download
-          rsvg-convert -f pdf -o tuda_logo.pdf tuda_logo.svg
-          mv tuda_logo.pdf "$(kpsewhich -var-value=TEXMFHOME)/tex/latex/local"
+          ln -s /root/texmf $(kpsewhich -var-value=TEXMFHOME)
           texhash --verbose
 
-      # 5. Build the documents
+      # 3. Build the documents
       - name: "Build the documents"
         run: |
-          make -C lecture
-          mv lecture/pdfout .
+          make -j $(nproc) -C lecture
+          mv lecture/pdfout pdfout
 
-      # 6. Build the documents (dark mode)
-      - name: "Build the documents (dark mode)"
-        run: |
-          DARK_MODE=1 make -C lecture
-          for f in lecture/pdfout/*.pdf; do mv "$f" "${f%.pdf}-dark.pdf"; done
-          mv lecture/pdfout/*-dark.pdf pdfout
-      
-      # 7. Build the documents (high contrast)
-      - name: "Build the documents (high contrast)"
-        run: |
-          DARK_MODE=2 make -C lecture
-          for f in lecture/pdfout/*.pdf; do mv "$f" "${f%.pdf}-high-contrast.pdf"; done
-          mv lecture/pdfout/*-high-contrast.pdf pdfout
-
-      # 8. Upload artifacts to GitHub
+      # 4. Upload artifacts to GitHub
       - name: Upload artifacts to GitHub
         if: ${{ !env.ACT }}
         uses: actions/upload-artifact@v3
