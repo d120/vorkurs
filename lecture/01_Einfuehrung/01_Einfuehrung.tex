@@ -56,9 +56,9 @@
 \begin{frame}
     \slidehead
     \begin{itemize}
-        \item Programmieren mit Python \textcolor{gray}{[\textprimstress pa\textsci \texttheta n] [\textprimstress pa\textsci \texttheta \textscripta n]}
+        \item Programmieren mit Kotlin \textcolor{gray}{[\textprimstress k\textopeno t\textscripta l\textsci n]}
             \pause
-        \item Python?
+        \item Kotlin?
             \pause
         \item[] $\Rightarrow$ Programmiersprache!
         \item[] $\Rightarrow$ Verständlicher für Menschen
@@ -90,7 +90,7 @@
     \end{frame}
 \end{comment}
 
-\section{Interpreter?}
+\section{Compiler?}
 \begin{frame}[t]
     \slidehead
     \begin{columns}[T]
@@ -100,7 +100,7 @@
                 \node[] (mensch) at (0,0) {\includeinvertablegraphics[height=1.3cm]{media/wesen_notebook.png}};
 
                 \visible<2->{
-                    \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (interpreter) at (0,-1.8) {Interpreter};
+                    \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (interpreter) at (0,-1.8) {Compiler};
                     \draw[->,line width=.6mm] (mensch.south) -- (interpreter.north);
                 }
                 \visible<3->{
@@ -118,8 +118,7 @@
                 \item[]
                 \item[]
                     \visible<2->{
-                \item \textbf{Der Interpreter} interpretiert den Quelltext als Maschinenbefehle
-
+                \item \textbf{Der Compiler} kompiliert den Quelltext zu Maschinenbefehle
                     }
                 \item[]
                 \item[]
