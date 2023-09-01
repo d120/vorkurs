@@ -162,7 +162,9 @@
     \slidehead
     \hskip .8cm
     \vspace{.5cm}
-    \pythonfile{listings/HelloWorld.py}
+
+%    \kotlinfile{listings/helloworld.kts}
+    \inputCode[minted language]{}{listings/helloworld.kts}
 
     \pause
 
@@ -255,7 +257,7 @@
         \item Computer benutzen Dateien um Daten (Bilder, Texte, Programme, ...) permanent zu speichern
         \item Dabei werden die Dateien oft in einer Ordnerstruktur abgelegt
         \item Dateien haben einen eindeutigen Namen innerhalb ihres Ordners
-        \item Dateien haben meist eine Dateiendung, welche signalisiert, um welche Art von Datei es sich handelt. (z.B: .png, .txt, .doc, .py, .exe)
+        \item Dateien haben meist eine Dateiendung, welche signalisiert, um welche Art von Datei es sich handelt. (z.B: .png, .txt, .doc, .kts, .exe)
     \end{itemize}
 \end{frame}
 
@@ -268,24 +270,20 @@
             \begin{tikzpicture}
                 \node[] (mensch) at (0,0) {\includeinvertablegraphics[height=1.3cm]{media/wesen_notebook.png}};
 
-                \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (file) at (0,-1.8) {helloworld.py};
+                \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (file) at (0,-1.8) {helloworld.kts};
                 \draw[->,line width=.6mm] (mensch.south) -- (file.north);
 
-                \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (python) at (0,-4) {\texttt{python helloworld.py}};
+                \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (python) at (0,-4) {\texttt{kotlin helloworld.kts}};
                 \draw[->,line width=.6mm] (file.south) -- (python.north);
             \end{tikzpicture}
         \end{column}
         \begin{column}{.6\textwidth}
             \begin{itemize}
-                \item Ausführen: \texttt{python dateiName.py}
-                \item Python-Programme laufen überall, wo Python installiert ist
+                \item Ausführen: \texttt{kotlin dateiName.kts}
+                \item Kotlin-Programme laufen überall, wo Kotlin installiert ist
             \end{itemize}
             \begin{block}{Hinweis}
-                Wenn \texttt{python -\,-version}\, kleiner 3 ist, müsst ihr entweder updaten oder \texttt{python3} als Befehl verwenden!
-            \end{block}
-            %\vspace{2cm}
-            \begin{block}{Hinweis}
-                Python-Quelltext mit der Dateiendung \texttt{.py} kennzeichnen und sinnvoll benennen! Leerzeichen sind problematisch.
+                Kotlin-Script-Quelltext mit der Dateiendung \texttt{.kts} kennzeichnen und sinnvoll benennen! Leerzeichen sind problematisch.
             \end{block}
         \end{column}
     \end{columns}
