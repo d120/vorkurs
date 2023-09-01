@@ -1,0 +1,94 @@
+{
+    "name": "latex",
+    "image": "ghcr.io/tudalgo/algotex:latest",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "james-yu.latex-workshop",
+                // Git
+                "eamodio.gitlens",
+                // Other helpers
+                "shardulm94.trailing-spaces",
+                "stkb.rewrap", // rewrap comments after n characters on one line
+                // Other
+                "vscode-icons-team.vscode-icons",
+                "draivin.hsnips"
+            ],
+            "settings": {
+                // General settings
+                "files.eol": "\n",
+                // Latex settings
+                "latex-workshop.linting.chktex.enabled": true,
+                "latex-workshop.linting.chktex.exec.path": "chktex",
+                "latex-workshop.latex.clean.subfolder.enabled": true,
+                "latex-workshop.latex.autoClean.run": "onBuilt",
+                "editor.formatOnSave": true,
+                "files.associations": {
+                    "*.tex": "latex",
+                    "*.sty": "latex-expl3",
+                    "*.cls": "latex-expl3",
+                    "*.def": "latex",
+                    "*.aux": "latex",
+                    "*.toc": "latex",
+                    "*.pygstyle": "latex",
+                    "*.pygtex": "latex"
+                },
+                "latex-workshop.latexindent.path": "latexindent",
+                "latex-workshop.latexindent.args": [
+                    "-c",
+                    "%DIR%/",
+                    "%TMPFILE%",
+                    "-y=defaultIndent: '%INDENT%'"
+                ],
+                "latex-workshop.latex.tools": [
+                    {
+                        "name": "latexmk",
+                        "command": "latexmk",
+                        "args": [
+                            "--shell-escape",
+                            "-synctex=1",
+                            "-interaction=nonstopmode",
+                            "-file-line-error",
+                            "-lualatex",
+                            //"-pdflatex",
+                            "-outdir=%OUTDIR%",
+                            "%DOC%"
+                        ],
+                        "env": {
+                            //"DARK_MODE": "1"
+                        }
+                    },
+                    {
+                        "name": "pdflatex",
+                        "command": "pdflatex",
+                        "args": [
+                            "--shell-escape",
+                            "-synctex=1",
+                            "-interaction=nonstopmode",
+                            "-file-line-error",
+                            "%DOC%"
+                        ]
+                    },
+                    {
+                        "name": "lualatex",
+                        "command": "lualatex",
+                        "args": [
+                            "-synctex=1",
+                            "-interaction=nonstopmode",
+                            "-file-line-error",
+                            "-luatex",
+                            "%DOC%"
+                        ]
+                    },
+                    {
+                        "name": "bibtex",
+                        "command": "bibtex",
+                        "args": [
+                            "%DOCFILE%"
+                        ]
+                    }
+                ],
+            }
+        }
+    }
+}
