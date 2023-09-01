@@ -1,0 +1,95 @@
+% !TeX document-id = {505cbeed-ac21-4fdd-a7f4-eefb28b91c1e}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+% \documentclass[accentcolor=3c,colorbacktitle,12pt]{tudaexercise}
+\RequirePackage{import}
+\subimport{../../exercises}{preamble.tex}
+\usepackage{hyperref}
+\title{Installation von Kotlin}
+\subsubtitle{vorkurs@d120.de}
+
+\begin{document}
+\maketitle
+
+
+In dieser Installationsanleitung installieren wir:
+\begin{itemize}
+    \item Kotlin version 1.9
+    \item Java Jdk 17 (wird für Kotlin benötigt)
+\end{itemize}
+\section*{Windows}
+\subsection*{Komanndozeile öffnen (Powershell)}
+Sowohl für die Installation als auch für die Verwendung von Kotlin benötigst du eine Kommandozeile. Diese öffnest du auf Windows wie folgt:
+\begin{enumerate}
+    \item Drücke die Windows-Taste + R
+    \item Gebe \texttt{powershell} ein und drücke Strg + Shift + Enter (damit wird die Powershell als Administrator gestartet)
+    \item Bestätige die Sicherheitsabfrage
+\end{enumerate}
+\begin{hinweis}
+    Falls die \enquote{Terminal App} installiert ist, kann auch diese verwendet werden.
+\end{hinweis}
+\subsection*{Automatische Installation durch Winget}
+\begin{hinweis}
+    Winget gibt es erst ab Windows 10 2004. Wenn du eine ältere Version hast, musst du die manuelle Installation verwenden.
+\end{hinweis}
+\begin{itemize}
+    \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{Befehl generiert mit \url{https://winstall.app/apps/JetBrains.Kotlin.Complier}}:
+    \begin{commandshell}
+        @\shellprefix{}@winget install --id=JetBrains.Kotlin.Complier -e
+    \end{commandshell}
+    \item Warte, bis die Installation abgeschlossen ist
+    \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
+\end{itemize}
+\clearpage
+\subsection*{Automatische Installation durch Chocolatey}
+\subsubsection*{Chocolatey installieren}
+\begin{itemize}
+    \item Falls chocolatey schon installiert ist, kannst du diesen Schritt überspringen
+    \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{Befehl generiert mit \url{https://chocolatey.org/install}}:
+    \begin{commandshell}
+        @\shellprefix{}@Set-ExecutionPolicy Bypass -Scope Process -Force; 
+        [System.Net.ServicePointManager]::SecurityProtocol = 
+        [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; 
+        iex ((New-Object System.Net.WebClient)
+        .DownloadString('https://community.chocolatey.org/install.ps1'))
+    \end{commandshell}
+    \item Warte, bis die Installation abgeschlossen ist
+\end{itemize}
+\subsubsection*{Kotlin Compiler durch Chocolatey installieren}
+\begin{itemize}
+    \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{siehe auch \url{https://community.chocolatey.org/packages/kotlinc}}:
+    \begin{commandshell}
+        @\shellprefix{}@choco install kotlin -y
+    \end{commandshell}
+\end{itemize}
+\subsection*{Manuell (nicht empfohlen!!!, nur wenn Winget und Chocolatey nicht funktionieren)}
+\subsubsection*{Download}
+\begin{itemize}
+    \item Gehe auf die Seite \url{https://github.com/JetBrains/kotlin/releases} und lade die neuste Version herunter (die neuste Version ist die oberste in der Liste). Die Datei sollte den Namen \texttt{kotlin-compiler-<version>.zip} haben. 
+    \item Entpacke die Datei in einen Ordner deiner Wahl. 
+    \item Gehe nun in den bin-Ordner der entpackten Datei und öffne dort ein Terminal. (Shift + Rechtsklick $\rightarrow$ \enquote{Eingabeaufforderung hier öffnen} oder \enquote{PowerShell-Fenster hier öffnen}).
+    \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
+\end{itemize}
+\begin{hinweis}
+    Diese Installation funktioniert nur, solange sich deine Komandozeile im bin-Ordner befindet. Wenn du die Komandozeile schließt, musst du sie erneut öffnen und in den bin-Ordner wechseln.
+\end{hinweis}
+\section*{Mac OS}
+Kaufe jetzt das Kotlin Starter Kit für nur 99,99€ im App Store und erhalte eine kostenlose Kotlin-Tasse im Wert von 9,99€ dazu! Nur solange der Vorrat reicht! (Nein, Spaß, aber wir haben leider keine Macs zum Testen.)
+
+\section*{Linux}
+\begin{itemize}
+    \item Ihr wisst, was ihr tut...
+\end{itemize}
+
+\section*{Überprüfung der Installation}\label{sec:check}
+Um zu testen ob alles geklappt hat, öffne eine Kommandozeile und gebe den folgenden Befehl ein:
+\begin{commandshell}
+    @\shellprefix{}@kotlin -version
+\end{commandshell}
+
+Wenn alles geklappt hat, sollte die Ausgabe in etwa so aussehen (die Versionsnummern können abweichen):
+\begin{commandshell}[][]
+    @\shellprefix{}@kotlin -version
+        Kotlin version 1.9.10-release-459 (JRE 17.0.8.1+1)
+\end{commandshell}
+
+\end{document}

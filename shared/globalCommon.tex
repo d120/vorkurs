@@ -4,6 +4,8 @@
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{minted}
+\RequirePackage{csquotes}
+\RequirePackage{fontawesome5}
 
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 
@@ -121,3 +123,27 @@
 \DeclareDocumentCommand{\kotlinfile}{O{} O{} m}{\inputCode[#1]{minted language=kotlin,#2}{#3}}
 
 \newcommand*{\ditto}{\texttt{\char`\"}}
+
+\newcommand{\shellprefix}{\textcolor{TUDa-3a}{\ttfamily\bfseries \$~}}
+\DeclareTCBListing{commandshell}{ O{} O{} }{
+    colback=\IfDarkModeTF{black}{black!80},
+    colupper=white,
+    colframe=TUDa-3a,
+    listing only,
+    % listing options={style=tcblatex,language=sh},
+    listing engine=minted,
+    minted style=dracula,
+    minted options={
+        % linenos=true,
+        numbersep=3mm,
+        texcl=true,
+        autogobble,
+        escapeinside=@@,
+        breaklines,
+        highlightcolor=yellow!50!black,
+        #1
+    },
+    #2,
+    % before upper={\textcolor{red}{\small\ttfamily\bfseries root \$> }},
+    % every listing line={\textcolor{red}{\small\ttfamily\bfseries root \$> }}
+}
