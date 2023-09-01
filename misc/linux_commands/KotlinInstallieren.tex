@@ -25,21 +25,31 @@ Sowohl für die Installation als auch für die Verwendung von Kotlin benötigst 
     \item Bestätige die Sicherheitsabfrage
 \end{enumerate}
 \begin{hinweis}
-    Falls die \enquote{Terminal App} installiert ist, kann auch diese verwendet werden.
+    Falls die \enquote{Terminal App} installiert ist, kann auch diese verwendet werden. (auch hier als Administrator starten)
 \end{hinweis}
 \subsection*{Automatische Installation durch Winget}
 \begin{hinweis}
     Winget gibt es erst ab Windows 10 2004. Wenn du eine ältere Version hast, musst du die manuelle Installation verwenden.
 \end{hinweis}
 \begin{itemize}
+    \item Als erstes musst du die JDK installieren. Ob du bereits eine JDK installiert hast, kannst du mit dem folgenden Befehl feststellen:
+    \begin{commandshell}
+        @\shellprefix{}@java -version
+    \end{commandshell}
+    Wenn die Rückgabe sowas wie \verb+java version "17.0.1"+ ist, hast du bereits eine JDK installiert. In diesem Fall kannst du die JDK-Installation überspringen. Für die aktuelle Kotlin Version wird mindestens JDK-Version 17 benötigt.
     \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{Befehl generiert mit \url{https://winstall.app/apps/JetBrains.Kotlin.Complier}}:
+    \begin{commandshell}
+        @\shellprefix{}@winget install --id=EclipseAdoptium.Temurin.17.JDK -e
+    \end{commandshell}
+    \item Wenn verlangt wird, dass du die Nutzungsbedingungen akzeptierst, drücke \texttt{y} und Enter
+    \item Warte, bis die Installation abgeschlossen ist
+    \item Als nächstes installieren wir den Kotlin Compiler. Gebe dazu den folgenden Befehl ein und drücke Enter\footnote{Befehl generiert mit \url{https://winstall.app/apps/JetBrains.Kotlin.Complier}}:
     \begin{commandshell}
         @\shellprefix{}@winget install --id=JetBrains.Kotlin.Complier -e
     \end{commandshell}
-    \item Warte, bis die Installation abgeschlossen ist
+    \item Damit die neuen Befehle erkannnt werden, musst du die Kommandozeile neu starten, also einmal schließen und wieder öffnen.
     \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
 \end{itemize}
-\clearpage
 \subsection*{Automatische Installation durch Chocolatey}
 \subsubsection*{Chocolatey installieren}
 \begin{itemize}
@@ -54,16 +64,23 @@ Sowohl für die Installation als auch für die Verwendung von Kotlin benötigst 
     \end{commandshell}
     \item Warte, bis die Installation abgeschlossen ist
 \end{itemize}
-\subsubsection*{Kotlin Compiler durch Chocolatey installieren}
+\begin{hinweis}
+    Ab Windows 10 kann chocolatey auch über winget per \texttt{winget install chocolatey} installiert werden.
+\end{hinweis}
+\subsubsection*{JVM und Kotlin Compiler durch Chocolatey installieren}
 \begin{itemize}
-    \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{siehe auch \url{https://community.chocolatey.org/packages/kotlinc}}:
+    \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{siehe auch \url{https://community.chocolatey.org/packages/kotlinc} und \url{https://community.chocolatey.org/packages/Temurin17/}}:
     \begin{commandshell}
-        @\shellprefix{}@choco install kotlin -y
+        @\shellprefix{}@choco install temurin17 kotlin -y
     \end{commandshell}
+    \item Warte, bis die Installation abgeschlossen ist
+    \item Damit die neuen Befehle erkannnt werden, musst du die Kommandozeile neu starten, also einmal schließen und wieder öffnen.
+    \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
 \end{itemize}
 \subsection*{Manuell (nicht empfohlen!!!, nur wenn Winget und Chocolatey nicht funktionieren)}
 \subsubsection*{Download}
 \begin{itemize}
+    \item JDK 17 oder höher wird vorausgesetzt
     \item Gehe auf die Seite \url{https://github.com/JetBrains/kotlin/releases} und lade die neuste Version herunter (die neuste Version ist die oberste in der Liste). Die Datei sollte den Namen \texttt{kotlin-compiler-<version>.zip} haben. 
     \item Entpacke die Datei in einen Ordner deiner Wahl. 
     \item Gehe nun in den bin-Ordner der entpackten Datei und öffne dort ein Terminal. (Shift + Rechtsklick $\rightarrow$ \enquote{Eingabeaufforderung hier öffnen} oder \enquote{PowerShell-Fenster hier öffnen}).
