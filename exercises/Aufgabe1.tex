@@ -126,40 +126,40 @@
 
         \begin{multicols}{3}
             \begin{enumerate}
-                \item \pythoninline{"100".toInt()}
-                \item \pythoninline{"1.3".toFloat()}
-                \item \pythoninline{"NaN".toFloat()}
-                \item \pythoninline{123.toString()}
-                \item \pythoninline{"0x11".toInt()}
-                \item \pythoninline{2.toString() + "5"}
-                \item \pythoninline{(2 + 5).toString()}
-                \item \pythoninline{5.toFloat()}
-                \item \pythoninline{5.5.toInt()}
-                \item \pythoninline{"4.2".toInt()}
+                \item \kotlininline{"100".toInt()}
+                \item \kotlininline{"1.3".toFloat()}
+                \item \kotlininline{"NaN".toFloat()}
+                \item \kotlininline{123.toString()}
+                \item \kotlininline{"0x11".toInt()}
+                \item \kotlininline{2.toString() + "5"}
+                \item \kotlininline{(2 + 5).toString()}
+                \item \kotlininline{5.toFloat()}
+                \item \kotlininline{5.5.toInt()}
+                \item \kotlininline{"4.2".toInt()}
             \end{enumerate}
         \end{multicols}
 
         \begin{solution}
             \begin{multicols}{3}
                 \begin{enumerate}
-                    \item \pythoninline{kotlin.Int = 100}
-                    \item \pythoninline{kotlin.Float = 1.3}
-                    \item \pythoninline{kotlin.Float = NaN}
-                    \item \pythoninline{kotlin.String = 123}
+                    \item \kotlininline{kotlin.Int = 100}
+                    \item \kotlininline{kotlin.Float = 1.3}
+                    \item \kotlininline{kotlin.Float = NaN}
+                    \item \kotlininline{kotlin.String = 123}
                     \item \textbf{NumberFormatException}
-                    \item \pythoninline{kotlin.String = 25}
-                    \item \pythoninline{kotlin.String = 7}
-                    \item \pythoninline{kotlin.Float = 5.0}
-                    \item \pythoninline{kotlin.Int = 5}
+                    \item \kotlininline{kotlin.String = 25}
+                    \item \kotlininline{kotlin.String = 7}
+                    \item \kotlininline{kotlin.Float = 5.0}
+                    \item \kotlininline{kotlin.Int = 5}
                     \item \textbf{NumberFormatException}
                 \end{enumerate}
             \end{multicols}
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Verrückte Eingabe \stage3}
-        Versucht einen Ausdruck zu finden, der nur \pythoninline{'1'}, \pythoninline{0},
-        \pythoninline{toInt}, \pythoninline{toString} und Operationen verwendet, der
-        insgesamt zu \pythoninline{3000} auswertet. Beachtet, dass solche Ausdrücke
+        Versucht einen Ausdruck zu finden, der nur \kotlininline{'1'}, \kotlininline{0},
+        \kotlininline{toInt}, \kotlininline{toString} und Operationen verwendet, der
+        insgesamt zu \kotlininline{3000} auswertet. Beachtet, dass solche Ausdrücke
         wie ihr hier schreiben sollt, so \textbf{niemals} in echtem Code auftauchen
         sollten.
 
@@ -185,9 +185,9 @@
                 \item[] \textbf{unresolved reference}
             \end{itemize}
             \begin{itemize}
-                \item[] \pythoninline{True}
-                \item[] \pythoninline{2.toInt)3(}
-                \item[] \pythoninline{2 / 0}
+                \item[] \kotlininline{True}
+                \item[] \kotlininline{2.toInt)3(}
+                \item[] \kotlininline{2 / 0}
             \end{itemize}
             \begin{itemize}
                 \item[] \textit{Syntaktischer Fehler}
@@ -198,11 +198,11 @@
 
         \begin{solution}
             \begin{enumerate}
-                \item \pythoninline{True} ist ein falsch geschriebenes Schlüsselwort und somit ein \\
+                \item \kotlininline{True} ist ein falsch geschriebenes Schlüsselwort und somit ein \\
                     lexikalischer Fehler (unresolved reference)
-                \item \pythoninline{2.toInt)3(} hat die Klammern vertauscht, somit ein \\
+                \item \kotlininline{2.toInt)3(} hat die Klammern vertauscht, somit ein \\
                     syntaktischer Fehler (expecting an expression)
-                \item \pythoninline{2 / 0} ist eine undefinierte Rechnung, also ein
+                \item \kotlininline{2 / 0} ist eine undefinierte Rechnung, also ein
                     \\ semantischer Fehler (\textbf{ArithmeticException})
             \end{enumerate}
 
@@ -241,7 +241,7 @@
         in das Intervall $[0,n)$ gebracht. \\\\
         %
         In Python wird das mit dem {\ttfamily \%} Operator dargestellt. So gilt
-        \pythoninline{20 % 10 == 0}, \pythoninline{15 % 9 == 6}, \dots \\\\
+        \kotlininline{20 % 10 == 0}, \kotlininline{15 % 9 == 6}, \dots \\\\
         %
         Wenn wir nun etwas verschlüsseln/entschlüsseln wollen, benötigen wir zunächst
         $N = \phi(n) = (p-1) * (q-1)$ und ausserdem ein $0 < e < N$ mit $ggT(e,N) = 1$,
