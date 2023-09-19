@@ -2,6 +2,10 @@
 \sheetnumber{1}
 \title{Aufgaben Programmiervorkurs}
 \subtitle{von der Fachschaft Informatik\hfill\ptitle}
+
+\usepackage{hyperref}
+\usepackage{wrapfig}
+
 \begin{document}
 \maketitle{}
 
@@ -211,63 +215,63 @@
     \begin{subtask*}[points=0]{Finde den Fehler \stage2}
         Gegeben sind die folgenden Listings. Führt die Programme aus und beschreibt, warum jeweils ein Fehler auftritt.
         \begin{codeBlock}[]{minted language=kotlin}
-            >>> prinntln("Hello World!") // a)
+            >>> prinntln("Hello World") // a)
             >>> println(Hello World!)    // b)
-            >>> println("Alter: " + 18)  // c)
+            >>> println("Alter: " * 18)  // c)
             >>> println("Hello World!)   // d)
         \end{codeBlock}
         \begin{solution}
             \begin{enumerate}
-                \item {\ttfamily unresolved reference: prinnt}: Ein \textcolor{red}{Lexikalischer Fehler}, da es keine Funktion mit dem angegebenen Namen
-                    \texttt	{prinnt} gibt. Gültig wäre {\ttfamily println}. Ein klassische Tippfehler.
-                \item {\ttfamily SyntaxError: invalid syntax}: Ein \textcolor{red}{Syntaktischer Fehler}, da Strings immer in einfachen oder doppelten Anführungszeichen
+                \item {\ttfamily unresolved reference: prinntln}: Ein \textcolor{red}{Lexikalischer Fehler}, da es keine Funktion mit dem angegebenen Namen
+                    \texttt	{prinntln} gibt. Gültig wäre {\ttfamily println}. Ein klassische Tippfehler.
+                \item Ein \textcolor{red}{Syntaktischer Fehler}, da Strings immer in einfachen oder doppelten Anführungszeichen
                     stehen müssen.
-                \item {\ttfamily TypeError: must be str, not int}: Ein \textcolor{red}{Semantischer Fehler}, da Texte und Zahlen nicht eindeutig addierbar sind.
-                    \textbf{Bonus Fact}: Um irgendeinen Wert in einen String zu verwandeln gibt es die Funktion {\ttfamily str(...)}
-                \item {\ttfamily SyntaxError: EOL while scanning string literal}: Ein \textcolor{red}{Syntaktischer Fehler}, da der Rest der Zeile nun auch als String
-                    gelesen wird, der aber nie endet.
+                \item {\ttfamily Unresolved reference}: Ein \textcolor{red}{Semantischer Fehler}, da Texte und Zahlen multiplizierbar sind.
+                    \textbf{Bonus Fact}: Hierfür kann man z.B. \kotlininline{"Hallo ".repeat(3)} nutzen.
+                \item Ein \textcolor{red}{Syntaktischer Fehler}, da der Rest der Zeile nun auch als String gelesen wird, der aber nie endet.
             \end{enumerate}
 
         \end{solution}
     \end{subtask*}
 \end{task}
 \begin{task}[points=auto]{Challenge}
-    \begin{subtask*}[points=0]{Wir rechnen Modulo \stage3}
-        %\newcommand{\mod}{\mathop{mod}}
+    \begin{subtask*}[points=0]{Caesar Cipher \stage3}
+        \begin{wrapfigure}{r}{0.2\textwidth}
+            \begin{center}
+            \includegraphics{caesar-cipher.jpg}
+            \end{center}
+            Quelle: Wikipedia
+        \end{wrapfigure}
+        Wir wollen einen sehr einfaches Verschlüsselungsverfahren implementieren, den Caesar Cipher\footnote{\url{https://de.wikipedia.org/wiki/Caesar-Verschlüsselung}}.
+        Grundidee ist, das Alphabet auf zwei Scheiben zu schrieben und gegeneinander zu drehen.
+        Eine Verschiebung von $5$ wäre zum Beispiel
+        \begin{align*}
+            A \to F \\
+            B \to G \\
+            M \to R
+        \end{align*}
 
-        Für eine RSA-Verschlüsselung werden zwei Primzahlen $p,q$ benötigt.
-        Deren Produkt definiert einen Ring $\mathbb Z_n$ mit $n = p * q$.
-        Das heißt, nach jeder Operation wir das Ergebnis mittels \textbf{Modulo}
-        in das Intervall $[0,n)$ gebracht. \\\\
-        %
-        In Python wird das mit dem {\ttfamily \%} Operator dargestellt. So gilt
-        \kotlininline{20 % 10 == 0}, \kotlininline{15 % 9 == 6}, \dots \\\\
-        %
-        Wenn wir nun etwas verschlüsseln/entschlüsseln wollen, benötigen wir zunächst
-        $N = \phi(n) = (p-1) * (q-1)$ und ausserdem ein $0 < e < N$ mit $ggT(e,N) = 1$,
-        sowie ein $0 < d < N$ mit $ed \mod N = 1$. \\\\
-        %
-        Da das hier keine Krypto-Vorlesung ist, haben wir für euch die Werte: \\
-        $p=3$, $q=11$, $n=33$, $N=20$, $e=3$, $d=7$ berechnet. Eine Nachricht $m$ wird
-        nun als $m^e \mod n$ verschlüsselt, ein Chiffretext $c$ als $c^d \mod n$
-        entschlüsselt.\\\\
-        %
-        Verschlüsselt mit den vorgegebenen (oder eigenen) Werten nun ein
-        paar Zahlen ($0 <= x < n$), und probiert ob ihr sie wieder entschlüsseln könnt.
-        Ihr könnt diese auch an eure Sitznachbarn weitergeben!
+        Geben soll eine Verschiebung \kotlininline{val n = 5}
+        und einen Char \kotlininline{val c = 'B'} sein.
+        Es soll einmal die Ver- und die Entschlüsselung berechnet werden.
+        Man muss natürlich aufpassen, dass man bei z.B.
+        \kotlininline{'A'} nicht \enquote{zu weit nach links} geht.
 
-        % Bonus
-        % enc = lambda x: [(ord(c) - ord('a')) ** 3 % 33 for c in x if ord('a') <= ord(c) and ord(c) <= ord('z')]
-        % dec = lambda x: "".join([chr((v ** 7 % 33) + ord('a')) for v in x if 0 <= v and v < 33])
         \begin{solution}
-            Ein Beispiel wäre die folgende Rechnung:
-            \begin{codeBlock}[]{minted language=python}
-                >>> (13 ** 3) % 33
-                19
-                >>> (19 ** 7) % 33
-                13
+            Ein Beispiel für die Verschlüsselung wäre die folgende Rechnung:
+            \begin{codeBlock}[]{minted language=kotlin}
+                [0] val n = 5
+                [1] val c = 'B'
+                [2] 'A' + ((c - 'A') + n) % 26
+                res2: Char = G
             \end{codeBlock}
-
+            Und für die Entschlüsselung die folgende Rechnung:
+            \begin{codeBlock}[]{minted language=kotlin}
+                [0] val n = 5
+                [1] val c = 'B'
+                [2] 'A' + ((c - 'A') - n + 26) % 26
+                res2: Char = B
+            \end{codeBlock}
         \end{solution}
     \end{subtask*}
 \end{task}
