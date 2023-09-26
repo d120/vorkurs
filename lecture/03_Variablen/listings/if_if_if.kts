@@ -1,7 +1,9 @@
-if a == b:
+if (a == b) {
     print("a ist gleich b")
-else:
-    if a > b:
+} else {
+    if (a > b) {
         print("a ist größer als b")
-    else:
+    } else {
         print("b ist größer als a")
+    }
+}
