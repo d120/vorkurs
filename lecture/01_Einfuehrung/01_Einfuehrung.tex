@@ -163,37 +163,15 @@
     \hskip .8cm
     \vspace{.5cm}
 
-    \kotlinfile{listings/helloworld.kts}
-
-    \pause
-
-    \vspace{-2.55cm}
-    \hskip .8cm
-    \begin{tikzpicture}
-        \draw [decorate,decoration={brace,amplitude=6pt}]
-        (0,0.5) -- (3.7,0.5) node [.,midway,yshift=15pt,xshift=3.4cm] {Kommentar: wird vom Computer \textbf{ignoriert}, ist für Menschen \textbf{nützlich}};
+    \kotlinfile[escapeinside=\$\$,texcomments]{listings/helloworld.kts}
+    
+    \begin{tikzpicture}[remember picture,overlay]
+        \draw<2->[decorate,decoration={brace,amplitude=6pt}] ([yshift=1em]pic cs:commentstart) -- ([yshift=1em]pic cs:commentend) node [midway,yshift=15pt,xshift=3.4cm] {Kommentar: wird vom Computer \textbf{ignoriert}, ist für Menschen \textbf{nützlich}};
+        \draw<3->[decorate,decoration={mirror,brace,amplitude=6pt}] ([yshift=-1ex]pic cs:commandstart) -- ([yshift=-1ex]pic cs:commandend) node [midway,yshift=-15pt] {Befehl};
+        \draw<4->[decorate,decoration={mirror,brace,amplitude=6pt}] ([yshift=-1ex]pic cs:textstart) -- ([yshift=-1ex]pic cs:textend) node [midway,yshift=-15pt] {Text};
     \end{tikzpicture}
 
-    \pause
-
-    \vspace{1.8cm}
-    \hskip .8cm
-    \begin{minipage}[b]{0.4\textwidth}
-        \begin{tikzpicture}
-            \draw [decorate,decoration={mirror,brace,amplitude=6pt}]
-            (0,0.5) -- (1,0.5) node [.,midway,yshift=-15pt] {Befehl};
-        \end{tikzpicture}
-    \end{minipage}
-    \pause
-    \hskip -4.8cm
-    \begin{minipage}[b]{0.4\textwidth}
-        \begin{tikzpicture}
-            \draw [decorate,decoration={mirror,brace,amplitude=6pt}]
-            (1.1,0.5) -- (3.35,0.5) node [.,midway,yshift=-15pt] {Text};
-        \end{tikzpicture}
-    \end{minipage}
-
-    \pause
+    \onslide<5->
     \vspace{0.25cm}
     \begin{block}{Wichtig}
         \begin{itemize}
