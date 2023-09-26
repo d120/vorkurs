@@ -1,5 +1,0 @@
-
-File "zweiterTest.py", line 1
-    print)
-         ^
-SyntaxError: invalid syntax

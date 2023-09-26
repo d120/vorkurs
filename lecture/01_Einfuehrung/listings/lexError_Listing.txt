@@ -1,3 +1,0 @@
-  File "test.py", line 1, in <module>
-    prit("ein test")
-NameError: name 'prit' is not defined
