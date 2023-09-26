@@ -32,13 +32,13 @@
     \begin{center}
         \begin{tabular}[h]{|c|c|c|}
             \hline
-            \textbf{Typ} & \textbf{Wertebereich} & \textbf{Beispiele}                        \\
+            \textbf{Typ} & \textbf{Wertebereich} & \textbf{Beispiele}                    \\
             \hline
-            bool         & Wahrheitswert         & \pythoninline{True}, \pythoninline{False} \\
+            Boolean      & Wahrheitswert         & \inlinejava{true}, \inlinejava{false} \\
             \hline
-            int          & Ganzzahl              & 42, -2                                    \\
+            Int          & Ganzzahl              & 42, -2                                \\
             \hline
-            float        & Fließkommazahl        & 42.5, 0.1                                 \\
+            Float        & Fließkommazahl        & 42.5, 0.1                             \\
             \hline
         \end{tabular}\\
     \end{center}
@@ -54,23 +54,22 @@
     \slidehead
     Es ist nicht ganz so einfach...
 
-    \begin{itemize}
-        \item Bei anderen Sprachen muss der verwendete Typ explizit festgelegt werden % Hier kann ich kein Beispiel geben, weil wir noch keine Variablen eingeführt haben
+    \begin{itemize}[<+->]
+        \item Der verwendete Typ muss immer zur Compile-Zeit fest sein
+        \item Kann sehr oft weggelassen werden, weil der Compiler den Typ selber nachvollziehen kann\\
+            \texttt{(Type inference)}
+            %        \item Bei anderen Sprachen muss der verwendete Typ explizit festgelegt werden % Hier kann ich kein Beispiel geben, weil wir noch keine Variablen eingeführt haben
     \end{itemize}
 
-    \pause
-    In Python gilt:
-    \begin{itemize}
-        \item \pythoninline{float} kann nur Zahlen zwischen \pythoninline{-1.7976931348623157e+308} und \pythoninline{1.7976931348623157e+308} speichern
-        \item Kleinster positiver \pythoninline{float} ist \pythoninline{2.2250738585072014e-308}
-            \pause
-        \item \pythoninline{int} kann in Python beliebig große Zahlen speichern
+    \pause % TODO: Ruben hilfe
+    In Kotlin gilt:
+    \begin{itemize}[<+->]
+        \item \inlinejava{Float} kann nur Zahlen zwischen \inlinejava{-1.7976931348623157e+308} und \inlinejava{1.7976931348623157e+308} speichern
             \begin{itemize}
-                \item Das ist in den meisten Sprachen nicht so!
-                    \pause
-                \item Zahlen, die mehr als 4300 Ziffern haben, können nicht einfach angezeigt werden, man kann aber mit ihnen normal weiterrechnen
+                \item Kleinster positiver \inlinejava{Float} ist \inlinejava{2.2250738585072014e-308}
             \end{itemize}
-
+        \item \inlinejava{Int} kann nur Zahlen im Interval $[-2^{31}, 2^{31}-1]$ (inklusiv) speichern.
+        \item Es gibt weitere Typen, die mehr speichern können
     \end{itemize}
 \end{frame}
 
@@ -106,12 +105,12 @@
         \item Symbol, das den \textbf{Interpreter} zur Ausführung einer Aktion veranlasst
         \item Operatortypen:
     \end{itemize}
-    \tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=., fill=\IfDarkModeTF{red!30!black}{red!10}]
+    \tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw, text width=5cm, fill=\IfDarkModeTF{red!30!black}{red!10}]
     \centering
     \begin{tikzpicture}[node distance=1.5cm]
-        \node (1) [rect, text width=5cm, minimum height=1cm] {\textbf{Mathematische Operatoren}};
-        \node (2) [rect, below of=1, text width=5cm, minimum height=1cm] {\textbf{Vergleichsoperatoren}};
-        \node (3) [rect, below of=2, text width=5cm, minimum height=1cm] {\textbf{Bitoperatoren}};
+        \node[rect] (1) {\textbf{Mathematische Operatoren}};
+        \node[rect, below of=1] (2) {\textbf{Vergleichsoperatoren}};
+        \node[rect, below of=2] (3) {\textbf{Bitoperatoren}};
     \end{tikzpicture}
 \end{frame}
 
@@ -119,27 +118,26 @@
 \begin{frame}
     \slidehead
     \vspace{-0.2cm}
-    \tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=., fill=\IfDarkModeTF{red!30!black}{red!10}]
+    \tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered, draw, text width=3cm, fill=\IfDarkModeTF{red!30!black}{red!10}]
     \vspace{0.05cm}
     \centering
-    \begin{tikzpicture}[node distance=1.1cm]
-        \node (1) [rect, text width=3cm, minimum height=1cm] {Addition: $+$};
-        \node (2) [rect, below of=1, text width=3cm, minimum height=1cm] {Subtraktion: $-$};
-        \node (3) [rect, below of=2, text width=3cm, minimum height=1cm] {Multiplikation: $*$};
-        \node (4) [rect, node distance=3.5cm, right of=1, text width=3cm, minimum height=1cm] {Division: $/$};
-        \node (5) [rect, below of=4, text width=3cm, minimum height=1cm] {Exponentiation: $**$};
-        \node (6) [rect, below of=5, text width=3cm, minimum height=1cm] {Modulo: $\%$};
+    \begin{tikzpicture}
+        \node[rect] (1) {Addition: $+$};
+        \node[rect, right=0.5em of 1] (2) {Subtraktion: $-$};
+        \node[rect, below=0.5em of 1] (3) {Multiplikation: $*$};
+        \node[rect, right=0.5em of 3] (4) {Division: $/$};
+        \node[rect] at ([yshift=-2em]$(3.south)!0.5!(4.south)$) (5) {Modulo: $\%$};
     \end{tikzpicture}
     \pause
     \vspace{-0.1cm}
     \begin{block}{Hinweis}
         \begin{itemize}
             \item Modulo liefert den \textit{Rest einer Division}: $23 \% 4 = 3$
-            \item Arithmetische Operationen zwischen Ganzzahlen und Fließkommazahlen resultieren in \textit{Fließkommazahlen}! \pythoninline{1 + 2.0 = 3.0} % Für die*den Programmieranfänger*innen mag es zwar total normal scheinen, dass man Kommazahlen mit Integers addieren kann, aber für den Computer ist das ein wichtiger Unterschied! Jetzt kommt der Moment wo ich alle überzeugen kann, dass der Computer wirklich komplett anders denkt als wir Menschen. Er hat ein komplett anderes Konzept, sich 0.1 vorzustellen.
+            \item Arithmetische Operationen zwischen Ganzzahlen und Fließkommazahlen resultieren in \textit{Fließkommazahlen}! \inlinejava{1 + 2.0 = 3.0} % Für die*den Programmieranfänger*innen mag es zwar total normal scheinen, dass man Kommazahlen mit Integers addieren kann, aber für den Computer ist das ein wichtiger Unterschied! Jetzt kommt der Moment wo ich alle überzeugen kann, dass der Computer wirklich komplett anders denkt als wir Menschen. Er hat ein komplett anderes Konzept, sich 0.1 vorzustellen.
 
                 %Umfrage, glaubt ihr Computer können rechnen?
                 \pause
-            \item \pythoninline{0.1 + 0.2 =} \pause \pythoninline{0.30000000000000004} $\Rightarrow$ Fließkommazahlen sind nicht exakt
+            \item \inlinejava{0.1 + 0.2 =} \pause \inlinejava{0.30000000000000004} $\Rightarrow$ Fließkommazahlen sind nicht exakt
         \end{itemize}
     \end{block}
 \end{frame}
@@ -150,9 +148,9 @@
     \slidehead
 
     \begin{itemize}
-        \item Vergleichsoperatoren werten zu einem Wert vom Typ \pythoninline{bool} aus
+        \item Vergleichsoperatoren werten zu einem Wert vom Typ \inlinejava{Boolean} aus
         \item Beispiel:
-            \pythonfile{listings/vergleich_Listing.py}
+            \kotlinfile{listings/vergleich.kts}
     \end{itemize}
 \end{frame}
 
@@ -168,25 +166,25 @@
         \begin{tabular}{|l|c|c|c|}
             \hline
             \textbf{Operator}       & \textbf{Symbol} & \textbf{Beispiel} & \textbf{Rückgabewert} \\ \hline
-            gleich                  & ==              & 100 == 50;        & False                 \\
-                                    &                 & 50 == 50;         & True                  \\ \hline
-            ungleich                & !=              & 100 != 50;        & True                  \\
-                                    &                 & 50 != 50          & False                 \\ \hline
-            größer als              & >               & 100 > 50;         & True                  \\
-                                    &                 & 50 > 50;          & False                 \\ \hline
-            größer als oder gleich  & >=              & 100 >= 50;        & True                  \\
-                                    &                 & 50 >= 50          & True                  \\ \hline
-            kleiner als             & <               & 100 < 50;         & False                 \\
-                                    &                 & 50 < 50;          & False                 \\ \hline
-            kleiner als oder gleich & <=              & 100 <= 50;        & False                 \\
-                                    &                 & 50 <= 50;         & True                  \\ \hline
+            gleich                  & ==              & 100 == 50;        & \inlinejava{false}    \\
+                                    &                 & 50 == 50;         & \inlinejava{true}     \\ \hline
+            ungleich                & !=              & 100 != 50;        & \inlinejava{true}     \\
+                                    &                 & 50 != 50          & \inlinejava{false}    \\ \hline
+            größer als              & >               & 100 > 50;         & \inlinejava{true}     \\
+                                    &                 & 50 > 50;          & \inlinejava{false}    \\ \hline
+            größer als oder gleich  & >=              & 100 >= 50;        & \inlinejava{true}     \\
+                                    &                 & 50 >= 50          & \inlinejava{true}     \\ \hline
+            kleiner als             & <               & 100 < 50;         & \inlinejava{false}    \\
+                                    &                 & 50 < 50;          & \inlinejava{false}    \\ \hline
+            kleiner als oder gleich & <=              & 100 <= 50;        & \inlinejava{false}    \\
+                                    &                 & 50 <= 50;         & \inlinejava{true}     \\ \hline
         \end{tabular}
         \endgroup
     \end{center}
 
-    \note{
-        == geht auch für Strings!
-    }
+%    \note{
+%        == geht auch für Strings!
+%    }
 \end{frame}
 
 \subsection{Bitoperatoren}
@@ -201,9 +199,9 @@
 \begin{frame}
     \slidehead
 
-    \pythonfile{listings/Rangfolge_Listing.py}
+    \kotlinfile{listings/rangfolge_basic.kts}
     \pause
-    \pythonfile{listings/Rangfolge_Listing_parenthesis.py}
+    \kotlinfile{listings/rangfolge_parenthesis.kts}
     \pause
     \begin{itemize}
         \item Die Operatorpräzedenz gibt die \textbf{Reihenfolge} vor, in der Ausdrücke ausgewertet werden:
@@ -248,12 +246,10 @@
 
 \begin{frame}
     \slidehead
-    \begin{itemize}
+    \begin{itemize}[<+->]
         \item Habt ihr vorhin kennengelernt
-            \pause
         \item Zeichenketten werden als \textit{Strings} bezeichnet
         \item Ein String kann beliebig viele Zeichen enthalten
-            \pause
         \item Strings können mit \textbf{+} konkateniert werden
     \end{itemize}
 \end{frame}
@@ -297,13 +293,13 @@
 
     \begin{itemize}
         \item Länge eines Strings
-            \pythonfile{listings/String_len_Listing.py}
+            \kotlinfile{listings/string_length.kts}
 
         \item Umwandeln in Kleinbuchstaben
-            \pythonfile{listings/String_lower_Listing.py}
+            \kotlinfile{listings/string_lowercase.kts}
 
         \item Umwandeln in Großbuchstaben
-            \pythonfile{listings/String_upper_Listing.py}
+            \kotlinfile{listings/string_uppercase.kts}
     \end{itemize}
 \end{frame}
 
@@ -315,16 +311,16 @@
         Strings sind keine Zahlen
     \end{block}
 
-    \pythonfile{listings/String_is_not_a_number_Listing.py}
+    \kotlinfile{listings/string_not_a_number.kts}
 
     \pause
 
-    \begin{itemize}
+    \begin{itemize}[<+->]
         \item Strings müssen zum Rechnen konvertiert werden
-        \item \textbf{int(x)} konvertiert x zu int
-        \item \textbf{float(x)} konvertiert x zu float
-            %			\item \textbf{bool(x)} konvertiert x zu boolean  % Das lassen wir weg, weil es durch leere Zeichenketten und Zahlen zu mehr Verwirrung sorgt als es hilfreich ist
-        \item \textbf{str(x)} konvertiert x zu String
+        \item \textbf{.toInt()} konvertiert x zu \inlinejava{Int}
+        \item \textbf{.toFloat()} konvertiert x zu \inlinejava{Float}
+            %            \item \textbf{boolean(x)} konvertiert x zu boolean  % Das lassen wir weg, weil es durch leere Zeichenketten und Zahlen zu mehr Verwirrung sorgt als es hilfreich ist
+        \item \textbf{.toString()} konvertiert x zu \inlinejava{String}
     \end{itemize}
 
 \end{frame}
@@ -334,7 +330,7 @@
 \begin{frame}
     \slidehead
     \begin{block}{Beispiel}
-        \pythonfile{listings/String_conversion_Listing.py}
+        \kotlinfile{listings/string_conversion.kts}
     \end{block}
 \end{frame}
 
@@ -343,15 +339,11 @@
 \section{Quiz}
 \begin{frame}
     \slidehead
-    \begin{itemize}
-        \item Wie kann ich \textbf{'} in Strings verwenden?
-            \pause
-        \item Wo liegt der Unterschied zwischen \pythoninline{int} und \pythoninline{float}?
-            \pause
-        \item In welcher Reihenfolge wird \pythoninline{2+4*2 == 9} ausgewertet?
-            \pause
+    \begin{itemize}[<+->]
+        \item Wie kann ich \textbf{"} in Strings verwenden?
+        \item Wo liegt der Unterschied zwischen \inlinejava{Int} und \inlinejava{Float}?
+        \item In welcher Reihenfolge wird \inlinejava{2 + 4 * 2 == 9} ausgewertet?
         \item Was ist das Ergebnis?
-            \pause
         \item Wofür gibt es Kommentare?
     \end{itemize}
 \end{frame}

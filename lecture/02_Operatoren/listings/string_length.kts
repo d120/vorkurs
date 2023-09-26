@@ -1,0 +1,1 @@
+"hallo".length // 5
