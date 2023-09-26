@@ -1,8 +1,10 @@
-i = 0
-while i != 5:
+var i = 0
+while (i != 5) {
     i += 1
-    if i == 2:
+    if (i == 2) {
         break
-    else:
+    } else {
         continue
+    }
     print("nicht erreichbar")
+}

@@ -1,0 +1,4 @@
+while (bedingung) {
+    // code
+    // ...
+}
