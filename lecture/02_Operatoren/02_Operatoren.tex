@@ -32,15 +32,15 @@
     \begin{center}
         \begin{tabular}[h]{|c|c|c|}
             \hline
-            \textbf{Typ} & \textbf{Wertebereich} & \textbf{Beispiele}                                      \\
+            \textbf{Typ} & \textbf{Wertebereich} & \textbf{Beispiele}                                                                                    \\
             \hline
-            Boolean      & Wahrheitswert         & \kotlininline{true}, \kotlininline{false}               \\
+            Boolean      & Wahrheitswert         & \kotlininline{true}, \kotlininline{false}                                                             \\
             \hline
-            Int          & Ganzzahl              & 42, -2                                                  \\
+            Int          & Ganzzahl              & 42, -2                                                                                                \\
             \hline
-            Double       & Fließkommazahl        & 42.5, 0.1                                               \\
+            Double       & Fließkommazahl        & 42.5, 0.1                                                                                             \\
             \hline
-            String       & Text                  & \kotlininline{"test"}, \kotlininline{"Zeilen\numbruch"} \\
+            String       & Text                  & \kotlininline{"test"}, \kotlininline{"Zeilen\numbruch"}                                               \\
             \hline
             Char         & einzelnes Textzeichen & \kotlininline{'a'}, \kotlininline{'€'}, \kotlininline[escapeinside=||]{|\PYG{l+s}{'\PYGZbs{}u263A'}|} \\
             \hline
@@ -137,8 +137,8 @@
     \vspace{-0.1cm}
     \begin{block}{Hinweis}
         \begin{itemize}
-            \item Modulo liefert den \textit{Rest einer Division}: $23 \% 4 = 3$
-            \item Arithmetische Operationen zwischen Ganzzahlen und Fließkommazahlen resultieren in \textit{Fließkommazahlen}! \kotlininline{1 + 2.0 = 3.0} % Für die*den Programmieranfänger*innen mag es zwar total normal scheinen, dass man Kommazahlen mit Integers addieren kann, aber für den Computer ist das ein wichtiger Unterschied! Jetzt kommt der Moment wo ich alle überzeugen kann, dass der Computer wirklich komplett anders denkt als wir Menschen. Er hat ein komplett anderes Konzept, sich 0.1 vorzustellen.
+            \item Modulo liefert den \textit{Rest einer Division}: \kotlininline{23 % 4 = 3}
+            \item Arithmetische Operationen zwischen Ganzzahlen und Fließkommazahlen resultieren in \textit{Fließkommazahlen}: \kotlininline{1 + 2.0 = 3.0} % Für die*den Programmieranfänger*innen mag es zwar total normal scheinen, dass man Kommazahlen mit Integers addieren kann, aber für den Computer ist das ein wichtiger Unterschied! Jetzt kommt der Moment wo ich alle überzeugen kann, dass der Computer wirklich komplett anders denkt als wir Menschen. Er hat ein komplett anderes Konzept, sich 0.1 vorzustellen.
 
                 %Umfrage, glaubt ihr Computer können rechnen?
                 \pause
@@ -170,19 +170,19 @@
         \fontsize{10pt}{11pt}\selectfont
         \begin{tabular}{|l|>{\ttfamily}c|>{\ttfamily}c|>{\ttfamily}c|}
             \hline
-            \textbf{Operator}       & \textbf{Symbol} & \textbf{Beispiel} & \textbf{Rückgabewert} \\ \hline
-            gleich                  & ==              & 100 == 50         & \kotlininline{false}  \\
-                                    &                 & 50 == 50          & \kotlininline{true}   \\ \hline
-            ungleich                & !=              & 100 != 50         & \kotlininline{true}   \\
-                                    &                 & 50 != 50          & \kotlininline{false}  \\ \hline
-            größer als              & >               & 100 > 50          & \kotlininline{true}   \\
-                                    &                 & 50 > 50           & \kotlininline{false}  \\ \hline
-            größer als oder gleich  & >=              & 100 >= 50         & \kotlininline{true}   \\
-                                    &                 & 50 >= 50          & \kotlininline{true}   \\ \hline
-            kleiner als             & <               & 100 < 50          & \kotlininline{false}  \\
-                                    &                 & 50 < 50           & \kotlininline{false}  \\ \hline
-            kleiner als oder gleich & <=              & 100 <= 50         & \kotlininline{false}  \\
-                                    &                 & 50 <= 50          & \kotlininline{true}   \\ \hline
+            \textbf{Operator}       & \textbf{Symbol} & \textbf{Beispiel}        & \textbf{Rückgabewert} \\ \hline
+            gleich                  & ==              & \kotlininline{100 == 50} & \kotlininline{false}  \\
+                                    &                 & \kotlininline{50 == 50}  & \kotlininline{true}   \\ \hline
+            ungleich                & !=              & \kotlininline{100 != 50} & \kotlininline{true}   \\
+                                    &                 & \kotlininline{50 != 50}  & \kotlininline{false}  \\ \hline
+            größer als              & >               & \kotlininline{100 > 50}  & \kotlininline{true}   \\
+                                    &                 & \kotlininline{50 > 50}   & \kotlininline{false}  \\ \hline
+            größer als oder gleich  & >=              & \kotlininline{100 >= 50} & \kotlininline{true}   \\
+                                    &                 & \kotlininline{50 >= 50}  & \kotlininline{true}   \\ \hline
+            kleiner als             & <               & \kotlininline{100 < 50}  & \kotlininline{false}  \\
+                                    &                 & \kotlininline{50 < 50}   & \kotlininline{false}  \\ \hline
+            kleiner als oder gleich & <=              & \kotlininline{100 <= 50} & \kotlininline{false}  \\
+                                    &                 & \kotlininline{50 <= 50}  & \kotlininline{true}   \\ \hline
         \end{tabular}
         \endgroup
     \end{center}
@@ -259,7 +259,7 @@
     \begin{itemize}[<+->]
         \item Habt ihr vorhin kennengelernt
         \item Zeichenketten werden als \textit{Strings} bezeichnet
-        \item Ein String kann beliebig viele Zeichen enthalten
+        \item Ein String kann beliebig viele Zeichen(\textit{Chars}) enthalten
         \item Strings können mit \textbf{+} konkateniert werden
     \end{itemize}
 \end{frame}
@@ -350,7 +350,7 @@
 \begin{frame}
     \slidehead
     \begin{itemize}[<+->]
-        \item Wie kann ich \textbf{"} in Strings verwenden?
+        \item Wie kann ich \kotlininline{"} in Strings verwenden?
         \item Wo liegt der Unterschied zwischen \kotlininline{Int} und \kotlininline{Double}?
         \item In welcher Reihenfolge wird \kotlininline{2 + 4 * 2 == 9} ausgewertet?
         \item Was ist das Ergebnis?
