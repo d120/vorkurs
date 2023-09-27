@@ -32,13 +32,17 @@
     \begin{center}
         \begin{tabular}[h]{|c|c|c|}
             \hline
-            \textbf{Typ} & \textbf{Wertebereich} & \textbf{Beispiele}                    \\
+            \textbf{Typ} & \textbf{Wertebereich} & \textbf{Beispiele}                                      \\
             \hline
-            Boolean      & Wahrheitswert         & \inlinejava{true}, \inlinejava{false} \\
+            Boolean      & Wahrheitswert         & \kotlininline{true}, \kotlininline{false}               \\
             \hline
-            Int          & Ganzzahl              & 42, -2                                \\
+            Int          & Ganzzahl              & 42, -2                                                  \\
             \hline
-            Float        & Fließkommazahl        & 42.5, 0.1                             \\
+            Double       & Fließkommazahl        & 42.5, 0.1                                               \\
+            \hline
+            String       & Text                  & \kotlininline{"test"}, \kotlininline{"Zeilen\numbruch"} \\
+            \hline
+            Char         & einzelnes Textzeichen & \kotlininline{'a'}, \kotlininline{'€'}, \kotlininline[escapeinside=||]{|\PYG{l+s}{'\PYGZbs{}u263A'}|} \\
             \hline
         \end{tabular}\\
     \end{center}
@@ -59,18 +63,19 @@
         \item Kann sehr oft weggelassen werden, weil der Compiler den Typ selber nachvollziehen kann\\
             \texttt{(Type inference)}
             %        \item Bei anderen Sprachen muss der verwendete Typ explizit festgelegt werden % Hier kann ich kein Beispiel geben, weil wir noch keine Variablen eingeführt haben
+        \item[$\Rightarrow$] Das werdet ihr morgen sehen
     \end{itemize}
 
-    \pause % TODO: Ruben hilfe
-    In Kotlin gilt:
-    \begin{itemize}[<+->]
-        \item \inlinejava{Float} kann nur Zahlen zwischen \inlinejava{-1.7976931348623157e+308} und \inlinejava{1.7976931348623157e+308} speichern
-            \begin{itemize}
-                \item Kleinster positiver \inlinejava{Float} ist \inlinejava{2.2250738585072014e-308}
-            \end{itemize}
-        \item \inlinejava{Int} kann nur Zahlen im Interval $[-2^{31}, 2^{31}-1]$ (inklusiv) speichern.
-        \item Es gibt weitere Typen, die mehr speichern können
-    \end{itemize}
+    % \pause % TODO: Ruben hilfe % Nein
+    % In Kotlin gilt:
+    % \begin{itemize}[<+->]
+    %     \item \kotlininline{Double} kann nur Zahlen zwischen \kotlininline{-1.7976931348623157e+308} und \kotlininline{1.7976931348623157e+308} speichern
+    %         \begin{itemize}
+    %             \item Kleinster positiver \kotlininline{Double} ist \kotlininline{2.2250738585072014e-308}
+    %         \end{itemize}
+    %     \item \kotlininline{Int} kann nur Zahlen im Interval $[-2^{31}, 2^{31}-1]$ (inklusiv) speichern.
+    %     \item Es gibt weitere Typen, die mehr speichern können
+    % \end{itemize}
 \end{frame}
 
 %	\nextvid{Operatoren}{}
@@ -102,7 +107,7 @@
     \slidehead
 
     \begin{itemize}
-        \item Symbol, das den \textbf{Interpreter} zur Ausführung einer Aktion veranlasst
+        \item Symbol, das den \textbf{Compiler} zur Ausführung einer Aktion veranlasst
         \item Operatortypen:
     \end{itemize}
     \tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw, text width=5cm, fill=\IfDarkModeTF{red!30!black}{red!10}]
@@ -115,29 +120,29 @@
 \end{frame}
 
 \subsection{Mathematische Operatoren}
-\begin{frame}
+\begin{frame}[fragile]
     \slidehead
     \vspace{-0.2cm}
     \tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm, text centered, draw, text width=3cm, fill=\IfDarkModeTF{red!30!black}{red!10}]
     \vspace{0.05cm}
     \centering
     \begin{tikzpicture}
-        \node[rect] (1) {Addition: $+$};
-        \node[rect, right=0.5em of 1] (2) {Subtraktion: $-$};
-        \node[rect, below=0.5em of 1] (3) {Multiplikation: $*$};
-        \node[rect, right=0.5em of 3] (4) {Division: $/$};
-        \node[rect] at ([yshift=-2em]$(3.south)!0.5!(4.south)$) (5) {Modulo: $\%$};
+        \node[rect] (1) {Addition: \verb|+|};
+        \node[rect, right=0.5em of 1] (2) {Subtraktion: \verb+-+};
+        \node[rect, below=0.5em of 1] (3) {Multiplikation: \verb+*+};
+        \node[rect, right=0.5em of 3] (4) {Division: \verb+/+};
+        \node[rect] at ([yshift=-2em]$(3.south)!0.5!(4.south)$) (5) {Modulo: \verb+%+};
     \end{tikzpicture}
     \pause
     \vspace{-0.1cm}
     \begin{block}{Hinweis}
         \begin{itemize}
             \item Modulo liefert den \textit{Rest einer Division}: $23 \% 4 = 3$
-            \item Arithmetische Operationen zwischen Ganzzahlen und Fließkommazahlen resultieren in \textit{Fließkommazahlen}! \inlinejava{1 + 2.0 = 3.0} % Für die*den Programmieranfänger*innen mag es zwar total normal scheinen, dass man Kommazahlen mit Integers addieren kann, aber für den Computer ist das ein wichtiger Unterschied! Jetzt kommt der Moment wo ich alle überzeugen kann, dass der Computer wirklich komplett anders denkt als wir Menschen. Er hat ein komplett anderes Konzept, sich 0.1 vorzustellen.
+            \item Arithmetische Operationen zwischen Ganzzahlen und Fließkommazahlen resultieren in \textit{Fließkommazahlen}! \kotlininline{1 + 2.0 = 3.0} % Für die*den Programmieranfänger*innen mag es zwar total normal scheinen, dass man Kommazahlen mit Integers addieren kann, aber für den Computer ist das ein wichtiger Unterschied! Jetzt kommt der Moment wo ich alle überzeugen kann, dass der Computer wirklich komplett anders denkt als wir Menschen. Er hat ein komplett anderes Konzept, sich 0.1 vorzustellen.
 
                 %Umfrage, glaubt ihr Computer können rechnen?
                 \pause
-            \item \inlinejava{0.1 + 0.2 =} \pause \inlinejava{0.30000000000000004} $\Rightarrow$ Fließkommazahlen sind nicht exakt
+            \item \kotlininline{0.1 + 0.2 =} \pause \kotlininline{0.30000000000000004} $\Rightarrow$ Fließkommazahlen sind nicht exakt
         \end{itemize}
     \end{block}
 \end{frame}
@@ -148,7 +153,7 @@
     \slidehead
 
     \begin{itemize}
-        \item Vergleichsoperatoren werten zu einem Wert vom Typ \inlinejava{Boolean} aus
+        \item Vergleichsoperatoren werten zu einem Wert vom Typ \kotlininline{Boolean} aus
         \item Beispiel:
             \kotlinfile{listings/vergleich.kts}
     \end{itemize}
@@ -163,34 +168,36 @@
         \vskip -7 pt
         \begingroup
         \fontsize{10pt}{11pt}\selectfont
-        \begin{tabular}{|l|c|c|c|}
+        \begin{tabular}{|l|>{\ttfamily}c|>{\ttfamily}c|>{\ttfamily}c|}
             \hline
             \textbf{Operator}       & \textbf{Symbol} & \textbf{Beispiel} & \textbf{Rückgabewert} \\ \hline
-            gleich                  & ==              & 100 == 50;        & \inlinejava{false}    \\
-                                    &                 & 50 == 50;         & \inlinejava{true}     \\ \hline
-            ungleich                & !=              & 100 != 50;        & \inlinejava{true}     \\
-                                    &                 & 50 != 50          & \inlinejava{false}    \\ \hline
-            größer als              & >               & 100 > 50;         & \inlinejava{true}     \\
-                                    &                 & 50 > 50;          & \inlinejava{false}    \\ \hline
-            größer als oder gleich  & >=              & 100 >= 50;        & \inlinejava{true}     \\
-                                    &                 & 50 >= 50          & \inlinejava{true}     \\ \hline
-            kleiner als             & <               & 100 < 50;         & \inlinejava{false}    \\
-                                    &                 & 50 < 50;          & \inlinejava{false}    \\ \hline
-            kleiner als oder gleich & <=              & 100 <= 50;        & \inlinejava{false}    \\
-                                    &                 & 50 <= 50;         & \inlinejava{true}     \\ \hline
+            gleich                  & ==              & 100 == 50         & \kotlininline{false}  \\
+                                    &                 & 50 == 50          & \kotlininline{true}   \\ \hline
+            ungleich                & !=              & 100 != 50         & \kotlininline{true}   \\
+                                    &                 & 50 != 50          & \kotlininline{false}  \\ \hline
+            größer als              & >               & 100 > 50          & \kotlininline{true}   \\
+                                    &                 & 50 > 50           & \kotlininline{false}  \\ \hline
+            größer als oder gleich  & >=              & 100 >= 50         & \kotlininline{true}   \\
+                                    &                 & 50 >= 50          & \kotlininline{true}   \\ \hline
+            kleiner als             & <               & 100 < 50          & \kotlininline{false}  \\
+                                    &                 & 50 < 50           & \kotlininline{false}  \\ \hline
+            kleiner als oder gleich & <=              & 100 <= 50         & \kotlininline{false}  \\
+                                    &                 & 50 <= 50          & \kotlininline{true}   \\ \hline
         \end{tabular}
         \endgroup
     \end{center}
 
-%    \note{
-%        == geht auch für Strings!
-%    }
+    %    \note{
+    %        == geht auch für Strings!
+    %    }
 \end{frame}
 
 \subsection{Bitoperatoren}
 \begin{frame}
     \slidehead
     Ja, es gibt auch Bitoperatoren ...
+
+    $\Rightarrow$ Die werden wir hier aber nicht behandeln
 \end{frame}
 
 \livecoding
@@ -207,6 +214,9 @@
         \item Die Operatorpräzedenz gibt die \textbf{Reihenfolge} vor, in der Ausdrücke ausgewertet werden:
             \begin{enumerate}
                 \item Arithmetische Ausdrücke
+                    \begin{itemize}
+                        \item[$\Rightarrow$] Wie aus Schulmathematik bekannt
+                    \end{itemize}
                 \item Vergleiche
                 \item Logische Ausdrücke (hierzu später mehr)
                 \item Zuweisungen
@@ -317,10 +327,10 @@
 
     \begin{itemize}[<+->]
         \item Strings müssen zum Rechnen konvertiert werden
-        \item \textbf{.toInt()} konvertiert x zu \inlinejava{Int}
-        \item \textbf{.toFloat()} konvertiert x zu \inlinejava{Float}
+        \item \textbf{.toInt()} konvertiert x zu \kotlininline{Int}
+        \item \textbf{.toDouble()} konvertiert x zu \kotlininline{Double}
             %            \item \textbf{boolean(x)} konvertiert x zu boolean  % Das lassen wir weg, weil es durch leere Zeichenketten und Zahlen zu mehr Verwirrung sorgt als es hilfreich ist
-        \item \textbf{.toString()} konvertiert x zu \inlinejava{String}
+        \item \textbf{.toString()} konvertiert x zu \kotlininline{String}
     \end{itemize}
 
 \end{frame}
@@ -341,8 +351,8 @@
     \slidehead
     \begin{itemize}[<+->]
         \item Wie kann ich \textbf{"} in Strings verwenden?
-        \item Wo liegt der Unterschied zwischen \inlinejava{Int} und \inlinejava{Float}?
-        \item In welcher Reihenfolge wird \inlinejava{2 + 4 * 2 == 9} ausgewertet?
+        \item Wo liegt der Unterschied zwischen \kotlininline{Int} und \kotlininline{Double}?
+        \item In welcher Reihenfolge wird \kotlininline{2 + 4 * 2 == 9} ausgewertet?
         \item Was ist das Ergebnis?
         \item Wofür gibt es Kommentare?
     \end{itemize}
