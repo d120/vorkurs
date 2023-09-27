@@ -114,3 +114,16 @@
 
 % colors
 \definecolor{lightpetrol}{RGB}{\IfDarkModeTF{0,136,119}{0,223,194}}
+
+\RequirePackage{qrcode}
+
+\DeclareDocumentCommand{\urlslide}{om}{
+    \begin{frame}[c]
+        \slidehead{}
+        \begin{figure}
+            \centering
+            \qrcode[height=3cm]{#2}
+            \caption{\IfNoValueF{#1}{#1\\}\url{#2}}
+        \end{figure}
+    \end{frame}
+}
