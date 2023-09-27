@@ -243,13 +243,13 @@
                 \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (file) at (0,-1.8) {helloworld.kts};
                 \draw[->,line width=.6mm] (mensch.south) -- (file.north);
 
-                \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (kotlin) at (0,-4) {\texttt{kotlin helloworld.kts}};
+                \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (kotlin) at (0,-4) {\texttt{kotlinc helloworld.kts}};
                 \draw[->,line width=.6mm] (file.south) -- (kotlin.north);
             \end{tikzpicture}
         \end{column}
         \begin{column}{.6\textwidth}
             \begin{itemize}
-                \item Ausführen: \texttt{kotlin dateiName.kts}
+                \item Ausführen: \texttt{kotlinc dateiName.kts}
                 \item Kotlin-Programme laufen überall, wo Kotlin installiert ist
             \end{itemize}
             \begin{block}{Hinweis}
@@ -300,12 +300,9 @@
     \slidehead
     % \begin{noindent}
     \begin{commandshell}
-@\shellprefix@ ki
-ki-shell 0.5.2/1.7.0
-type :h for help
-[0] :load HelloWorld.kts
+@\shellprefix@ kotlinc HelloWorld.kts
 Hello World!
-[1] @\shellcursor@
+@\shellprefix\shellcursor@
     \end{commandshell}
     % \end{noindent}
     \begin{itemize}
@@ -324,7 +321,7 @@ ki-shell 0.5.2/1.7.0
 type :h for help
 [0] println(@\PYG{l+s}{"Hello World!"}@)
 Hello World!
-[1]
+[1] @\shellcursor@
     \end{commandshell}
     %\end{noindent}
     %|\texttt{Python 3.7.0 (default, Jul 15 2018, 10:44:58)}|
@@ -399,8 +396,9 @@ Hello World!
     \kotlinfile[][title=\codeBlockTitle{test.kts}]{listings/lexError_Listing.kts}
     \pause
     \begin{commandshell}[][minted language=text]
-        [0] :load test.kts
-        ERROR Unresolved reference: pritln (test.kts:1:1)
+        test.kts:1:1: error: unresolved reference: pritln
+        pritln("ein test")
+        ^
     \end{commandshell}
     \pause
     \begin{itemize}[<+->]
@@ -415,16 +413,22 @@ Hello World!
 
 \begin{frame}[fragile]
     \slidehead
-    \kotlinfile[][title=\codeBlockTitle{zweiterTest.kts}]{listings/otherSynError_Listing.kts}
+    \kotlinfile[][title=\codeBlockTitle{zweiterTest.kts},top=0cm,bottom=0cm]{listings/otherSynError_Listing.kts}
     \pause
-    \begin{commandshell}[][minted language=text]
-        [0] :load zweiterTest.kts
-        ERROR Expecting an element (zweiterTest.kts:1:7)
+    % \begin{noindent}
+    \begin{commandshell}[fontsize=\small][minted language=text,top=0cm,bottom=0cm]
+        zweiterTest.kts:1:8: error: expecting an element
+        println)
+               ^
+        zweiterTest.kts:1:1: error: function invocation 'println()' expected
+        println)
+        ^
     \end{commandshell}
+    % \end{noindent}
     \pause
     \begin{itemize}[<+->]
         \item Fehler in \texttt{zweiterTest.kts}
-        \item in \texttt{Zeile 1} an \textbf{Position 7} fehlt eine \texttt{(}
+        \item in \texttt{Zeile 1} an \textbf{Position 8} fehlt eine \texttt{(}
         \item der Compiler versteht hier nicht was gemeint war, da das kein richtiger Kotlin-Code ist.
     \end{itemize}
 \end{frame}
@@ -433,15 +437,18 @@ Hello World!
     \slidehead
     \kotlinfile[][title=\codeBlockTitle{andererTest.kts}]{listings/eofError_Listing.kts}
     \pause
+    % \begin{noindent}
     \begin{commandshell}[][minted language=text]
-        [0] :load andererTest.kts
-        ERROR expecting ) (andererTest.kts:1:24)
+        andererTest.kts:1:24: error: expecting ')'
+        println("noch ein test"
+                               ^
     \end{commandshell}
+    % \end{noindent}
     \pause
     \begin{itemize}[<+->]
         \item Fehler in \texttt{andererTest.kts}
             % \item In \texttt{line 3} stimmt hier nicht ganz, aber in \texttt{line 1} fehlt eine \texttt{)}
-        \item Der Compiler sucht nach der geöffneten Klammer nach \texttt{)}, aber die Datei ist nach \textbf{Zeile 1, Position 24} bereits zu ende.
+        \item Der Compiler sucht nach der geöffneten Klammer nach \texttt{)}, aber die Datei ist nach \textbf{Zeile 1, Position 23} bereits zu ende.
             % \item Deshalb \texttt{unexpected EOF}: \textbf{EOF} steht für \textbf{E}nd \textbf{O}f \textbf{F}ile
     \end{itemize}
 \end{frame}
