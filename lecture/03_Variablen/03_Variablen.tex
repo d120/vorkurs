@@ -27,27 +27,23 @@
     \slidehead
     % Analogie: Fächer; Computer muss wissen, WAS in ein Fach gelegt werden soll.
     % Idee: Kinderspielzeug -> Bauklötze in verschiedenen Formen als Bild?
-    \begin{itemize}
+    \begin{itemize}[<+->]
         \item Speicherplatz für Werte
-            \pause
         \item Ein Fach im Speicher, in das man Werte ablegen kann
-            \pause
         \item Variablennamen sind für Menschen besser zu merken als nummerierte Speicherplätze
     \end{itemize}
 \end{frame}
 
-\section{Variablen}
+\section{Variablen und Konstanten}
 \subsection{Zuweisung}
 \begin{frame}
     \slidehead
-    \begin{itemize}
-        \item Variablen, die \textbf{ein} mal zugewiesen werden können\\
-        \pause
-        \kotlininline{val variableName = Wert}
-        \vspace{1em}
+    \begin{itemize}[<+->]
+        \item Konstanten, die \textbf{ein mal} zugewiesen werden können\\
+            \kotlininline{val variableName = Wert}
+            \vspace{1em}
         \item Variablen, die \textbf{mehrmals} zugewiesen werden können\\
-        \pause
-        \kotlininline{var variableName = Wert}
+            \kotlininline{var variableName = Wert}
     \end{itemize}
     \pause
     \kotlinfile{listings/variables.kts}
@@ -59,7 +55,7 @@
     \vspace{1em}
     \begin{itemize}
         \item \kotlininline[escapeinside=||]{val variableName|\textcolor{red}{: Typ}| = Wert}
-        \vspace{1em}
+            \vspace{1em}
         \item \kotlininline[escapeinside=||]{var variableName|\textcolor{red}{: Typ}| = Wert}
     \end{itemize}
     \pause
@@ -69,14 +65,11 @@
 \begin{frame}
     \slidehead
 
-    \begin{itemize}
+    \begin{itemize}[<+->]
         \item Variablennamen \textbf{müssen} mit einem Buchstaben oder Unterstrich beginnen
         \item Variablennamen \textbf{dürfen keine} Punkte, Bindestriche, Sterne oder andere Sonderzeichen enthalten
-            \pause
         \item Groß- und Kleinschreibung ist \textbf{wichtig}! ("Case sensitive"):\\ $eineVariable \neq EINEVARIABLE \neq EiNeVaRiAbLe$.
-            \pause
         \item Nutze \textbf{aussagekräftige Namen}!
-            \pause
         \item Variablen können als Platzhalter für den darin stehenden Wert verwendet werden
         \item Der Wert einer Variablen kann zum Beispiel mit \kotlininline{println(variablenName)} ausgegeben werden
     \end{itemize}
@@ -173,7 +166,7 @@
 
 
 \subsection{Zusammengesetze Operatoren}
-\begin{frame}
+\begin{frame}[fragile]
     \slidehead
 
     \begin{itemize}
@@ -185,12 +178,12 @@
     \begin{itemize}
         \item Es gibt noch weitere:
             \begin{itemize}
-                \item $-=$
-                \item $*=$
-                \item $/=$
-                \item $\%=$
+                \item \verb+-=+
+                \item \verb+*=+
+                \item \verb+/=+
+                \item \verb+%=+
             \end{itemize}
-        \pause
+            \pause
         \item Quiz: Was passiert bei \kotlininline{val} statt \kotlininline{var}?
     \end{itemize}
 \end{frame}
@@ -238,13 +231,15 @@
 \begin{frame}
     \slidehead
     \visible<2->{
+        \vspace{-1ex}
         \begin{itemize}
             \item Programm läuft sequentiell, d.h zeilenweise
             \item If-Anweisungen testen \textit{Bedingungen}
-            \item Bei Auswertung zu \kotlininline{false} wird der Block übersprungen, bei \pythoninline{true} wird dieser ausgeführt
+            \item Bei Auswertung zu \kotlininline{false} wird der Block übersprungen, bei \kotlininline{true} wird dieser ausgeführt
         \end{itemize}}
-    \pythonfile{listings/if_anweisung.kts}
+    \kotlinfile[][top=0cm,bottom=0cm]{listings/if_anweisung.kts}
     \visible<3->{
+        \vspace{-1ex}
         \begin{block}{Hinweis}
             \begin{itemize}
                 \item Nach der If-Anweisung kommen geschweifte klammern \textbf{ \{ ... \} }
@@ -259,10 +254,9 @@
 \end{frame}
 
 \subsection*{Beispiel}
-\begin{frame}
+\begin{frame}[c]
     \slidehead
-    \vspace{-1em}
-    \kotlinfile{listings/if_bsp1.kts}
+    \kotlinfile[][top=0cm,bottom=0cm]{listings/if_bsp1.kts}
 \end{frame}
 
 \livecoding
@@ -295,9 +289,8 @@
     \slidehead
     \begin{itemize}
         \item Oft müssen zwei Fälle unterschieden werden:
-            \vspace{0.58cm}
-            \kotlinfile{listings/if_if.kts}
-        \item Dafür gibt es eine Kurzschreibweise
+            \kotlinfile[][top=0cm,bottom=0cm]{listings/if_if.kts}
+        \item[$\Rightarrow$] Dafür gibt es eine Kurzschreibweise
     \end{itemize}
 \end{frame}
 
@@ -305,7 +298,7 @@
     \slidehead
 
     \begin{itemize}
-        \item \pythoninline{else} bezeichnet einen \textit{alternativ auszuführenden Teil} des Codes
+        \item \kotlininline{else} bezeichnet einen \textit{alternativ auszuführenden Teil} des Codes
         \item Übersetzung: "`Wenn \textbf{DAS} zutrifft, mache \textbf{DIESES}; falls nicht, mache \textbf{JENES}"'
             \kotlinfile{listings/if_bsp2.kts}
     \end{itemize}
@@ -366,20 +359,22 @@
     \slidehead
     \vspace{-0.1cm}
     \begin{itemize}
-        \item Logisches \textbf{Nicht} (\kotlininline{!})  $\Rightarrow$ \pythoninline{not Ausdruck1}
-        \item Logisches \textbf{Und} (\kotlininline{&&}) $\Rightarrow$ \pythoninline{Ausdruck1 and Ausdruck2}
-        \item Logisches \textbf{Oder} (\kotlininline{||})  $\Rightarrow$ \pythoninline{Ausdruck1 or Ausdruck2}
+        \item Logisches \textbf{Nicht} (\kotlininline{!})  $\Rightarrow$ \kotlininline{not Ausdruck1}
+        \item Logisches \textbf{Und} (\kotlininline{&&}) $\Rightarrow$ \kotlininline{Ausdruck1 and Ausdruck2}
+        \item Logisches \textbf{Oder} (\kotlininline{||})  $\Rightarrow$ \kotlininline{Ausdruck1 or Ausdruck2}
     \end{itemize}
     \vspace{-0.15cm}
     \begin{block}{Beispiel:}
-        \pythonfile{listings/logische_operatoren_listing.kts}
+        \vspace{-0.15cm}
+        \kotlinfile[][top=0cm,bottom=0cm]{listings/logische_operatoren_listing.kts}
+        \vspace{-0.15cm}
     \end{block}
     \vspace{-0.15cm}
     \begin{block}{Hinweis}
         \begin{itemize}
             \item Auswertung in der Reihenfolge \kotlininline{!}, \kotlininline{&&} und dann \kotlininline{||}
             \item Reihenfolge immer beachten!
-            Klammern setzen falls nötig!
+                Klammern setzen falls nötig!
         \end{itemize}
     \end{block}
 \end{frame}
@@ -387,19 +382,14 @@
 \livecoding
 
 \section{Quiz}
-\begin{frame}
+\begin{frame}[fragile]
     \slidehead
-    \begin{itemize}
+    \begin{itemize}[<+->]
         \item Was darf nicht in einem Variablennamen enthalten sein?
-            \pause
-        \item Was macht der \textbf{$\%=$} Operator?% das % zeichen geht in minted nicht wie gedacht.
-            \pause
-        \item Sind \pythoninline{=} und \pythoninline{==} gleich?
-            \pause
+        \item Was macht der \kotlininline{%=} Operator?% das % zeichen geht in minted nicht wie gedacht.
+        \item Sind \kotlininline{=} und \kotlininline{==} gleich?
         \item Was \textbf{muss} mit dem Code innerhalb einer If-Anweisung gemacht werden?
-            \pause
         \item Darf eine If-Anweisung leer sein?
-            \pause
         \item Darf eine If-Anweisung im Code-Teil einer anderen If-Anweisung stehen?
     \end{itemize}
 \end{frame}
