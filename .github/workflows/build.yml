@@ -35,7 +35,7 @@ jobs:
           texhash --verbose
 
       # 3. Build the documents
-      - name: "Build the documents (fake for now)"
+      - name: "Build the documents"
         run: |
           make -j $(nproc) -C lecture
           mv lecture/pdfout pdfout
