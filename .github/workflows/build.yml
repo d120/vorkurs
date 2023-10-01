@@ -37,15 +37,14 @@ jobs:
       # 3. Build the documents
       - name: "Build the documents"
         run: |
-          make -j $(nproc) -C lecture
-          mv lecture/pdfout pdfout
+          make -j
 
       # 4. Upload artifacts to GitHub
       - name: Upload artifacts to GitHub
         if: ${{ !env.ACT }}
         uses: actions/upload-artifact@v3
         with:
-          name: Vorkurs-Folien
+          name: Vorkurs-Materialien
           path: "pdfout/*.pdf"
           if-no-files-found: error
       
@@ -69,7 +68,7 @@ jobs:
       #     prerelease: false
 
   deploy:
-    if: ${{ github.event_name == 'push' }}
+    if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     needs: build_latex
