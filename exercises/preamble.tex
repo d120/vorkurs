@@ -34,7 +34,9 @@
 }
 \newboolean{sln}\setboolean{sln}{false}
 \newboolean{SoSe}\setboolean{SoSe}{false}
-\newcounter{nextyear}\setcounter{nextyear}{\year+1}
+\AtBeginDocument{
+    \newcounter{nextyear}\setcounter{nextyear}{\year+1}
+}
 %
 
 \newcommand{\ext}{py}

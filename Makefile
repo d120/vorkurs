@@ -1,39 +1,45 @@
 
 OUT_DIR := pdfout/
 # find all makefiles in subdirectories
-FILES := $(shell find . -mindepth 2 -name 'Makefile' -not -path './.git/*' -not -path './.devcontainer')
+MAKEFILES := $(shell find . -mindepth 2 -name 'Makefile' -not -path './.git/*' -not -path './.devcontainer')
 
-$(FILES:Makefile=Makefile.all):
-	$(eval FILE := $(patsubst %.all,%,$@))
-	@$(MAKE) -C $(dir $(FILE)) -f $(notdir $(FILE)) all
+$(MAKEFILES:Makefile=Makefile.all):
+	$(eval MAKEFILE := $(patsubst %.all,%,$@))
+	@$(MAKE) -C $(dir $(MAKEFILE)) -f $(notdir $(MAKEFILE)) all
+	@mkdir -p $(OUT_DIR)
+	@cp $(dir $(MAKEFILE))/$(OUT_DIR)/*.pdf $(OUT_DIR)
 
-$(FILES:Makefile=Makefile.compile):
-	$(eval FILE := $(patsubst %.compile,%,$@))
-	@$(MAKE) -C $(dir $(FILE)) -f $(notdir $(FILE)) compile
+$(MAKEFILES:Makefile=Makefile.compile):
+	$(eval MAKEFILE := $(patsubst %.compile,%,$@))
+	$(MAKE) -C $(dir $(MAKEFILE)) -f $(notdir $(MAKEFILE)) compile
+	@mkdir -p $(OUT_DIR)
+	@cp $(dir $(MAKEFILE))/$(OUT_DIR)/*.pdf $(OUT_DIR)
 
-$(FILES:Makefile=Makefile.clean):
-	$(eval FILE := $(patsubst %.clean,%,$@))
-	@$(MAKE) -C $(dir $(FILE)) -f $(notdir $(FILE)) clean
+$(MAKEFILES:Makefile=Makefile.clean):
+	$(eval MAKEFILE := $(patsubst %.clean,%,$@))
+	$(MAKE) -C $(dir $(MAKEFILE)) -f $(notdir $(MAKEFILE)) clean
 
-$(FILES:Makefile=Makefile.cleanBuild):
-	$(eval FILE := $(patsubst %.cleanBuild,%,$@))
-	@$(MAKE) -C $(dir $(FILE)) -f $(notdir $(FILE)) cleanBuild
+# $(MAKEFILES:Makefile=Makefile.cleanBuild):
+# 	$(eval MAKEFILE := $(patsubst %.cleanBuild,%,$@))
+# 	@$(MAKE) -C $(dir $(MAKEFILE)) -f $(notdir $(MAKEFILE)) cleanBuild
 
-$(FILES:Makefile=Makefile.cleanAll):
-	$(eval FILE := $(patsubst %.cleanAll,%,$@))
-	@$(MAKE) -C $(dir $(FILE)) -f $(notdir $(FILE)) cleanAll
+$(MAKEFILES:Makefile=Makefile.cleanAll):
+	$(eval MAKEFILE := $(patsubst %.cleanAll,%,$@))
+	@$(MAKE) -C $(dir $(MAKEFILE)) -f $(notdir $(MAKEFILE)) cleanAll
 
-all: $(FILES:Makefile=Makefile.all)
+all: $(MAKEFILES:Makefile=Makefile.all)
 	@echo -e "\e[1;42mAll Done. PDFs can be found in $(OUT_DIR)\e[0m"
 
-compile: $(FILES:Makefile=Makefile.compile)
+compile: $(MAKEFILES:Makefile=Makefile.compile)
 	@echo -e "\e[1;42mAll Done. PDFs can be found in $(OUT_DIR)\e[0m"
 
-clean: $(FILES:Makefile=Makefile.clean)
+clean: $(MAKEFILES:Makefile=Makefile.clean)
 	@echo -e "\e[1;44mCleaned up all subdirectories.\e[0m"
 
-cleanBuild: $(FILES:Makefile=Makefile.cleanBuild)
-	@echo -e "\e[1;44mCleaned up build dir in all subdirectories.\e[0m"
+cleanBuild:
+	@echo -e "\e[1;34mCleaning up build directory...$<\e[0m"
+	@rm -rf $(OUT_DIR)
+	@echo -e "\e[1;44mDone cleaning up build directory.$<\e[0m"
 
-cleanAll: $(FILES:Makefile=Makefile.cleanAll)
+cleanAll: $(MAKEFILES:Makefile=Makefile.cleanAll) cleanBuild
 	@echo -e "\e[1;44mCleaned up all subdirectories + build dirs.\e[0m"

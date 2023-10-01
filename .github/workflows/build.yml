@@ -36,12 +36,10 @@ jobs:
 
       # 3. Build the documents
       - name: "Build the documents"
-        run: |
-          make -j
+        run: make -j compile
 
       # 4. Upload artifacts to GitHub
       - name: Upload artifacts to GitHub
-        if: ${{ !env.ACT }}
         uses: actions/upload-artifact@v3
         with:
           name: Vorkurs-Materialien
