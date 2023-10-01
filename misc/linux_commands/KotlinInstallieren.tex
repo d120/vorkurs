@@ -33,20 +33,20 @@ Sowohl für die Installation als auch für die Verwendung von Kotlin benötigst 
 \end{hinweis}
 \begin{itemize}
     \item Als erstes musst du die JDK installieren. Ob du bereits eine JDK installiert hast, kannst du mit dem folgenden Befehl feststellen:
-    \begin{commandshell}
-        @\shellprefix{}@java -version
-    \end{commandshell}
-    Wenn die Rückgabe sowas wie \verb+java version "17.0.1"+ ist, hast du bereits eine JDK installiert. In diesem Fall kannst du die JDK-Installation überspringen. Für die aktuelle Kotlin Version wird mindestens JDK-Version 17 benötigt.
+        \begin{commandshell}
+            @\shellprefix{}@java -version
+        \end{commandshell}
+        Wenn die Rückgabe sowas wie \verb+java version "17.0.1"+ ist, hast du bereits eine JDK installiert. In diesem Fall kannst du die JDK-Installation überspringen. Für die aktuelle Kotlin Version wird mindestens JDK-Version 17 benötigt.
     \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{Befehl generiert mit \url{https://winstall.app/apps/JetBrains.Kotlin.Complier}}:
-    \begin{commandshell}
-        @\shellprefix{}@winget install --id=EclipseAdoptium.Temurin.17.JDK -e
-    \end{commandshell}
+        \begin{commandshell}
+            @\shellprefix{}@winget install --id=EclipseAdoptium.Temurin.17.JDK -e
+        \end{commandshell}
     \item Wenn verlangt wird, dass du die Nutzungsbedingungen akzeptierst, drücke \texttt{y} und Enter
     \item Warte, bis die Installation abgeschlossen ist
     \item Als nächstes installieren wir den Kotlin Compiler. Gebe dazu den folgenden Befehl ein und drücke Enter\footnote{Befehl generiert mit \url{https://winstall.app/apps/JetBrains.Kotlin.Complier}}:
-    \begin{commandshell}
-        @\shellprefix{}@winget install --id=JetBrains.Kotlin.Complier -e
-    \end{commandshell}
+        \begin{commandshell}
+            @\shellprefix{}@winget install --id=JetBrains.Kotlin.Complier -e
+        \end{commandshell}
     \item Damit die neuen Befehle erkannnt werden, musst du die Kommandozeile neu starten, also einmal schließen und wieder öffnen.
     \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
 \end{itemize}
@@ -55,13 +55,13 @@ Sowohl für die Installation als auch für die Verwendung von Kotlin benötigst 
 \begin{itemize}
     \item Falls chocolatey schon installiert ist, kannst du diesen Schritt überspringen
     \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{Befehl generiert mit \url{https://chocolatey.org/install}}:
-    \begin{commandshell}
-        @\shellprefix{}@Set-ExecutionPolicy Bypass -Scope Process -Force; 
-        [System.Net.ServicePointManager]::SecurityProtocol = 
-        [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; 
-        iex ((New-Object System.Net.WebClient)
-        .DownloadString('https://community.chocolatey.org/install.ps1'))
-    \end{commandshell}
+        \begin{commandshell}
+            @\shellprefix{}@Set-ExecutionPolicy Bypass -Scope Process -Force;
+            [System.Net.ServicePointManager]::SecurityProtocol =
+            [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
+            iex ((New-Object System.Net.WebClient)
+            .DownloadString('https://community.chocolatey.org/install.ps1'))
+        \end{commandshell}
     \item Warte, bis die Installation abgeschlossen ist
 \end{itemize}
 \begin{hinweis}
@@ -70,9 +70,9 @@ Sowohl für die Installation als auch für die Verwendung von Kotlin benötigst 
 \subsubsection*{JVM und Kotlin Compiler durch Chocolatey installieren}
 \begin{itemize}
     \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{siehe auch \url{https://community.chocolatey.org/packages/kotlinc} und \url{https://community.chocolatey.org/packages/Temurin17/}}:
-    \begin{commandshell}
-        @\shellprefix{}@choco install temurin17 kotlin -y
-    \end{commandshell}
+        \begin{commandshell}
+            @\shellprefix{}@choco install temurin17 kotlin -y
+        \end{commandshell}
     \item Warte, bis die Installation abgeschlossen ist
     \item Damit die neuen Befehle erkannnt werden, musst du die Kommandozeile neu starten, also einmal schließen und wieder öffnen.
     \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
@@ -81,8 +81,8 @@ Sowohl für die Installation als auch für die Verwendung von Kotlin benötigst 
 \subsubsection*{Download}
 \begin{itemize}
     \item JDK 17 oder höher wird vorausgesetzt
-    \item Gehe auf die Seite \url{https://github.com/JetBrains/kotlin/releases} und lade die neuste Version herunter (die neuste Version ist die oberste in der Liste). Die Datei sollte den Namen \texttt{kotlin-compiler-<version>.zip} haben. 
-    \item Entpacke die Datei in einen Ordner deiner Wahl. 
+    \item Gehe auf die Seite \url{https://github.com/JetBrains/kotlin/releases} und lade die neuste Version herunter (die neuste Version ist die oberste in der Liste). Die Datei sollte den Namen \texttt{kotlin-compiler-<version>.zip} haben.
+    \item Entpacke die Datei in einen Ordner deiner Wahl.
     \item Gehe nun in den bin-Ordner der entpackten Datei und öffne dort ein Terminal. (Shift + Rechtsklick $\rightarrow$ \enquote{Eingabeaufforderung hier öffnen} oder \enquote{PowerShell-Fenster hier öffnen}).
     \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
 \end{itemize}
@@ -106,7 +106,7 @@ Um zu testen ob alles geklappt hat, öffne eine Kommandozeile und gebe den folge
 Wenn alles geklappt hat, sollte die Ausgabe in etwa so aussehen (die Versionsnummern können abweichen):
 \begin{commandshell}[][]
     @\shellprefix{}@kotlin -version
-        Kotlin version 1.9.10-release-459 (JRE 17.0.8.1+1)
+    Kotlin version 1.9.10-release-459 (JRE 17.0.8.1+1)
 \end{commandshell}
 
 \end{document}
