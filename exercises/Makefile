@@ -28,15 +28,23 @@ $(FILES:.tex=.tex.sol.regular):
 	$(eval FILE := $(patsubst %.tex.sol.regular,%.tex,$@))
 	$(call build_latex_with_jobname_and_env,$(FILE),$(patsubst %.tex,%-sol,$(FILE)),SOLUTION=1)
 
-$(FILES:.tex=.tex.darkmode):
-	$(eval FILE := $(patsubst %.tex.darkmode,%.tex,$@))
-	$(call build_latex_with_jobname_and_env,$(FILE),$(patsubst %.tex,%-darkmode,$(FILE)),DARK_MODE=1)
+$(FILES:.tex=.tex.dark):
+	$(eval FILE := $(patsubst %.tex.dark,%.tex,$@))
+	$(call build_latex_with_jobname_and_env,$(FILE),$(patsubst %.tex,%-dark,$(FILE)),DARK_MODE=1)
 
-$(FILES:.tex=.tex.sol.darkmode):
-	$(eval FILE := $(patsubst %.tex.sol.darkmode,%.tex,$@))
-	$(call build_latex_with_jobname_and_env,$(FILE),$(patsubst %.tex,%-sol-darkmode,$(FILE)),DARK_MODE=1 SOLUTION=1)
+$(FILES:.tex=.tex.sol.dark):
+	$(eval FILE := $(patsubst %.tex.sol.dark,%.tex,$@))
+	$(call build_latex_with_jobname_and_env,$(FILE),$(patsubst %.tex,%-sol-dark,$(FILE)),DARK_MODE=1 SOLUTION=1)
 
-compile: $(FILES:.tex=.tex.regular) $(FILES:.tex=.tex.sol.regular) $(FILES:.tex=.tex.darkmode) $(FILES:.tex=.tex.sol.darkmode)
+$(FILES:.tex=.tex.high-contrast):
+	$(eval FILE := $(patsubst %.tex.high-contrast,%.tex,$@))
+	$(call build_latex_with_jobname_and_env,$(FILE),$(patsubst %.tex,%-high-contrast,$(FILE)),DARK_MODE=2)
+
+$(FILES:.tex=.tex.sol.high-contrast):
+	$(eval FILE := $(patsubst %.tex.sol.high-contrast,%.tex,$@))
+	$(call build_latex_with_jobname_and_env,$(FILE),$(patsubst %.tex,%-sol-high-contrast,$(FILE)),DARK_MODE=2 SOLUTION=1)
+
+compile: $(FILES:.tex=.tex.regular) $(FILES:.tex=.tex.sol.regular) $(FILES:.tex=.tex.dark) $(FILES:.tex=.tex.sol.dark) $(FILES:.tex=.tex.high-contrast) $(FILES:.tex=.tex.sol.high-contrast)
 	@echo -e "\e[1;42mAll Done. PDFs can be found in $(OUT_DIR)\e[0m"
 
 clean:
