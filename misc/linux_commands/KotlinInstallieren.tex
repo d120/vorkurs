@@ -77,7 +77,7 @@ Aktuell gibt es leider keinen \enquote{schönen} Weg, \texttt{ki} über einen Pa
     \item Lade KI von hier herunter \url{https://github.com/Kotlin/kotlin-interactive-shell/releases/tag/v0.5.2}
     \item Entpacke die Datei in einen Ordner deiner Wahl.
     \item Gehe nun in den bin-Ordner der entpackten Datei und öffne dort ein Terminal. (Siehe Terminal-Anleitung)
-    \item Es kann sein, dass du statt dem Befehl \texttt{ki} den Befehl \texttt{ki.bat} ausführen musst.
+    \item Es kann sein, dass du statt dem Befehl \texttt{ki} den Befehl \mintinline{text}{.\ki.bat} ausführen musst.
     \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
 \end{itemize}
 \begin{hinweis}
@@ -107,6 +107,21 @@ Aktuell gibt es leider keinen \enquote{schönen} Weg, \texttt{ki} über einen Pa
 % \end{hinweis}
 \section*{Mac OS}
 % Kaufe jetzt das Kotlin Starter Kit für nur 99,99€ im App Store und erhalte eine kostenlose Kotlin-Tasse im Wert von 9,99€ dazu! Nur solange der Vorrat reicht! (Nein, Spaß, aber wir haben leider keine Macs zum Testen.)
+
+\subsection*{Homebrew Installieren}
+\begin{itemize}
+    \item Auf der seite \url{https://brew.sh} den Befehl kopieren
+    \item Im terminal diesen Befehl einfügen
+    \item Installations-Anweisungen folgen (passwort eingeben), die Installation dauert ca. 2 Minuten
+    \item Sobald der homebrew install Befehl fertig ist, diese Befehle ausführen
+    %\begin{noindent}
+    \begin{commandshell}
+@\shellprefix{}@(echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') @\texttt{>>}@ ~/.profile
+@\shellprefix{}@eval "$(/usr/local/bin/brew shellenv)"
+    \end{commandshell}
+    %\end{noindent}
+\end{itemize}
+
 \subsection*{Automatische Installation durch Homebrew}
 \begin{itemize}
     \item Gebe in der Komandozeile den folgenden Befehl ein und drücke Enter\footnote{Befehle generiert mit \url{https://formulae.brew.sh/formula/kotlin} und \url{https://formulae.brew.sh/formula/ki}}:
