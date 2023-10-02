@@ -1,5 +1,5 @@
 // Texteingabe mit Fragetext
-print("Wie heißt du? ")
+println("Wie heißt du?")
 val name = readln()
 
 // Ausgabe
