@@ -192,7 +192,8 @@
 
 %\nextvid{If-Anweisung}{Anweisungen und Ausdrücke Beispiel}
 
-\section{If-Anweisung}
+\section{Control Flow}
+\subsection{If-Anweisung}
 \begin{frame}
     \slidehead
     \note{If-Anweisungen sind mächtig. Bisher war alles einspurig. Immer der gleiche Weg von Start bis Ziel. Das kann auch der Taschenrechner. Ab jetzt kann das Programm selber Entscheidungen treffen, welche Codezeilen ausgeführt werden. Berechnungen können nun entscheiden, ob andere Berechnungen gemacht werden.}
@@ -308,7 +309,7 @@
     \end{block}
 \end{frame}
 
-\subsection{Elif-Klausel}
+\subsection{Else If-Klausel}
 
 \begin{frame}
     \slidehead
@@ -327,6 +328,16 @@
         \item Es handelt sich um ein \kotlininline{else} gefolgt von einem \kotlininline{if}
         \item Weitere \kotlininline{else if}-Klauseln werden nur dann überprüft, wenn alle vorherigen Klauseln nicht eingetreten sind.
             \kotlinfile{listings/if_else_if_example.kts}
+    \end{itemize}
+\end{frame}
+
+\livecoding
+
+\begin{frame}
+    \slidehead
+    \begin{itemize}
+        \item Mehrere \kotlininline{else if}-Klauseln können durch einer \kotlininline{when}-Klausel ersetzt werden
+        \kotlinfile{listings/when.kts}
     \end{itemize}
 \end{frame}
 
