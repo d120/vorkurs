@@ -243,13 +243,13 @@
                 \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (file) at (0,-1.8) {helloworld.kts};
                 \draw[->,line width=.6mm] (mensch.south) -- (file.north);
 
-                \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (kotlin) at (0,-4) {\texttt{kotlinc helloworld.kts}};
+                \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (kotlin) at (0,-4) {\texttt{kotlinc -script helloworld.kts}};
                 \draw[->,line width=.6mm] (file.south) -- (kotlin.north);
             \end{tikzpicture}
         \end{column}
         \begin{column}{.6\textwidth}
             \begin{itemize}
-                \item Ausführen: \texttt{kotlinc dateiName.kts}
+                \item Ausführen: \texttt{kotlinc -script dateiName.kts}
                 \item Kotlin-Programme laufen überall, wo Kotlin installiert ist
             \end{itemize}
             \begin{block}{Hinweis}
@@ -300,7 +300,7 @@
     \slidehead
     % \begin{noindent}
     \begin{commandshell}
-@\shellprefix@ kotlinc HelloWorld.kts
+@\shellprefix@ kotlinc -script HelloWorld.kts
 Hello World!
 @\shellprefix\shellcursor@
     \end{commandshell}
