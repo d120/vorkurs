@@ -215,5 +215,16 @@ Wenn alles geklappt hat, sollte die Ausgabe in etwa so aussehen (die Versionsnum
     type :h for help
     [0] @\shellcursor@
 \end{commandshell}
+Falls folgende Ausgabe kommt, ist nicht mindestens Java 11 installiert und muss anhand der Anleitung oben nachgeholt werden:
+\nopagebreak
+\begin{commandshell}[][minted language=text]
+Error: LinkageError occurred while loading main class org.jetbrains.kotlinx.ki.shell.KotlinShell
+        java.lang.UnsupportedClassVersionError: org/jetbrains/kotlinx/ki/shell/KotlinShell has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 54.0
+\end{commandshell}
+Falls folgende Ausgabe kommt, ist Java gar nicht installiert und muss anhand der Anleitung oben nachgeholt werden:
+\nopagebreak
+\begin{commandshell}[][minted language=text]
+The syntax of the command is incorrect.
+\end{commandshell}
 
 \end{document}
