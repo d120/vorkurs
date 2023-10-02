@@ -22,26 +22,20 @@
             \begin{figure}
                 \centering
                 \includegraphics[scale=.28]{media/tattoo_ideas\IfDarkModeT{_dark}.png}
-                \\	\sffamily \tiny Bild: \href{https://xkcd.com/2255/}{https://xkcd.com/2255/}
+                \\	\sffamily \tiny Bild: \href{https://xkcd.com/2255/}{https://xkcd.com/2255/}\label{fig:figure-xkcd-2255}
             \end{figure}
         \end{column}
     \end{columns}}
 \maketitle
 
 
-\section{Listen?}
+\section{Listen?}\label{sec:listen?}
 \begin{frame}
     \slidehead
-    \pythonfile{listings/no_list.py}
+    \kotlinfile{listings/no_list.kts}
 \end{frame}
 
-\begin{frame}
-    \slidehead
-    \pythonfile{listings/no_list_for.py}
-\end{frame}
-
-
-\section{Adressierung}
+\section{Adressierung}\label{sec:adressierung}
 \begin{frame}
     \slidehead
 
@@ -77,38 +71,53 @@
             \draw [-, ultra thick] (16.25,0.25) -- (17.0,1);
             \node at (17.5, 1.25) {Element an Index 9};
 
-        \end{tikzpicture}
+        \end{tikzpicture}\label{fig:figure}
 
     \end{figure}
     \pause
     Beispiel:\\
-    \pythoninline{eineListe = [1, 2, 5, 9]}
+    \kotlininline{eineListe = listOf(1, 2, 5, 9)}
     \begin{itemize}
         \item Der Wert 1 steht an Index 0
         \item Der Wert 2 steht an Index 1
         \item Der Wert 5 steht an Index 2 ...
-        \item Die Liste hat eine Länge von 4
+        \item Die Liste hat eine Länge von 4 (via \kotlininline{eineListe.size})
     \end{itemize}
 \end{frame}
 
-\subsection{Negative Adressierung}
-\begin{frame}
+% TODO: Put this somewhere
+%\begin{frame}
+%    \slidehead
+%    \kotlinfile{listings/no_list_for.kts}
+%\end{frame}
+
+\section{Syntax}\label{sec:syntax}
+\begin{frame}[c]
     \slidehead
-    \begin{itemize}
-        \item Der Index -1 gibt das letzte Element zurück
-        \item -2 das zweite Element von hinten
-        \item ...
-    \end{itemize}
+    \kotlinfile[escapeinside=\$\$,texcomments]{listings/list_syntax_immutable_intro.kts}
+
+    \begin{tikzpicture}[remember picture,overlay]
+        \draw<2->[decorate,decoration={brace,amplitude=6pt}] ([yshift=1.25em]pic cs:typestart) -- ([yshift=1.25em]pic cs:typeend) node [midway,yshift=15pt] {Elemententyp};
+        \draw<3->[decorate,decoration={brace,amplitude=6pt,mirror}] ([yshift=-0.75em]pic cs:elementsstart) -- ([yshift=-0.75em]pic cs:elementsend) node [midway,yshift=-15pt] {Elemente};
+    \end{tikzpicture}
 \end{frame}
 
-\section{Syntax}
 \begin{frame}
     \slidehead
-    \only<1>{\pythonfile{listings/list_syntax_no_solution.py}}
-    \only<2>{\pythonfile{listings/list_syntax.py}}
+    \kotlinfile{listings/list_syntax_immutable_basic.kts}
 \end{frame}
 
-\section{Zugriffsfehler}
+\begin{frame}
+    \slidehead
+    \kotlinfile[escapeinside=\$\$,texcomments]{listings/list_syntax_immutable_no_type.kts}
+
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[draw, inner sep=0.75em, fill=accentcolor!50!\thepagecolor, rounded corners=3pt, above right=3.5em and -6em of pic cs:notype] (node) {Typ nicht nötig, wenn es Elemente gibt};
+        \draw[thick, -Latex] (node) -- ([yshift=0.5em]pic cs:notype);
+    \end{tikzpicture}
+\end{frame}
+
+\section{Zugriffsfehler}\label{sec:zugriffsfehler}
 \begin{frame}
     \slidehead
     \pythonfile{listings/OutofBounce_Listing.py}
@@ -138,7 +147,7 @@
 % 	\end{columns}}
 % \maketitle
 
-\section{Nützliche Listen-Funktionen}
+\section{Nützliche Listen-Funktionen}\label{sec:nutzliche-listen-funktionen}
 \begin{frame}
     \slidehead
     \begin{itemize}

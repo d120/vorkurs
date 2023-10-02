@@ -4,6 +4,11 @@
 
 \usepackage{listings}
 \usepackage{tikz}
+\usepackage{tabularx,booktabs,multirow,multicol,colortbl}
+\aboverulesep = 0mm \belowrulesep = 0mm
+
+\def\streamlink{https://youtu.be/dTWa0Tk3C9U}
+\def\moodlecourselink{https://moodle.informatik.tu-darmstadt.de/course/view.php?id=1502}
 
 \begin{document}
 
@@ -46,19 +51,108 @@
     \huge Mehr auf D120.de
 \end{frame}
 
+\section{Moodle-Kurs}
+\begin{frame}[c]
+    \slidehead
+    \begin{columns}[c]
+        \begin{column}{.6\linewidth}
+            \centering
+            \begin{itemize}
+                \item Vorlesungsfolien \& Übungen
+                \item Ankündigungen
+                \item Fragen, Foren
+            \end{itemize}
+        \end{column}%
+        \begin{column}{.4\linewidth}
+            \begin{figure}
+                \centering\mbox{}
+                \qrcode[height=2.5cm]{\moodlecourselink}
+                \caption{\href{\moodlecourselink}{Link zum Moodle-Kurs}}
+            \end{figure}
+        \end{column}
+    \end{columns}
+    \vspace{-1em}
+    \begin{block}{Lernportal Informatik - Vorkurs}
+        {\Huge Gastschlüssel: PVK-2023}
+
+        \vspace{1em}Nähere Informationen zum Zugriff auf die Materialien:\\
+        \href{https://d120.de/vorkurs}{https://d120.de/vorkurs}
+    \end{block}
+\end{frame}
+
+
+\section{Discord}
+\begin{frame}[c]
+    \slidehead
+    \begin{columns}[c]
+        \begin{column}{.6\linewidth}
+            \begin{itemize}
+                \item Discord-Server der Fachschaft (D120)
+                    % \item zu finden im TU Darmstadt Student Hub
+                \item dort könnt ihr euch untereinander austauschen
+                \item dort könnt ihr auch mit erfahrenen Tutor*innen reden
+            \end{itemize}
+        \end{column}%
+        \begin{column}{.4\linewidth}
+            \begin{figure}
+                \centering\mbox{}
+                % \qrcode[height=2.5cm]{https://discord.gg/JUCns6f7vT}
+                % \caption{\href{https://discord.gg/JUCns6f7vT}{Link zum TU-Darmstadt Student Hub}}
+                \qrcode[height=2.5cm]{https://discord.gg/GBj9rvszDT}
+                \caption{\href{https://discord.gg/GBj9rvszDT}{Link zum D120-Discord-Server}}
+            \end{figure}
+        \end{column}
+    \end{columns}
+    \begin{block}{d120 Discord - Vorkurs}
+        Für Discord braucht ihr einen Account!
+
+        Ihr könnt Discord hier herunterladen: \url{https://discord.com/}
+
+        % Wie ihr in Discord kommt, erfahrt ihr auf der Vorkurs Seite.
+        Lest euch bitte auf dem Server die Willkommensnachricht durch!
+    \end{block}
+\end{frame}
+
+
+\section{YouTube}
+\begin{frame}[c]
+    \slidehead
+    \begin{columns}[c]
+        \begin{column}{.5\textwidth}
+            \begin{itemize}
+                \item wir streamen für euch die Vorlesungen auf YouTube live
+                \item ihr könnt während dessen fragen auf Discord stellen!
+                    %		\item Diskutiert auch gerne parallel in Discord.
+                \item Link zum Live-Stream: \url{\streamlink}
+            \end{itemize}
+        \end{column}%
+        \begin{column}{.5\textwidth}
+            \begin{figure}
+                \centering\mbox{}
+                \qrcode[height=3cm]{\streamlink}
+                \caption{\href{\streamlink}{Link zum Vorlesungs-Stream}}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
 \section{Kontakt}
 \begin{frame}
     \slidehead
     \begin{itemize}
         \item \textbf{Mail:} \href{mailto:vorkurs@d120.de}{vorkurs@d120.de}
-        \item \textbf{Moodle:}  \href{https://moodle.informatik.tu-darmstadt.de/course/view.php?id=624} {https://moodle.informatik.tu-darmstadt.de}
+        \item \textbf{Moodle:}  Foren im \href{\moodlecourselink}{Moodle-Kurs}
     \end{itemize}
-    \vspace{2.5cm}
-    \begin{alertblock}{Hinweise}
-        Ihr habt allgemeine Fragen: Schreibt ins Moodle-Forum. \\
-        Ihr habt spezielle Fragen an uns: Schreibt uns eine Mail. \\
-        Ihr könnt uns natürlich auch in Discord ansprechen.
-    \end{alertblock}
+    \vspace{\fill}
+    \begin{defBox}[title=Hinweise]%
+        \vspace{-1em}
+        \begin{itemize}
+            \item allgemeine Fragen: Schreibt ins Moodle-Forum.
+            \item spezielle Fragen an uns: Schreibt uns eine Mail.
+        \end{itemize}
+        Ihr könnt uns natürlich auch ansprechen.
+    \end{defBox}
 \end{frame}
 
 \section{Ablauf des Vorkurses}
@@ -68,9 +162,11 @@
     \begin{itemize}
         \item \textbf{Vormittags Vorlesung (Hybrid) 9:00 - 12:00}
             \begin{itemize}
+                \item Vorlesung im Hörsaal S2|02 C205
+                \item Übertragung in C110/C120, falls zu viele Leute da sind
                 \item interaktiv
                 \item heißt: Fragen stellen
-                \item zusätzlicher Stream auf \href{https://youtu.be/2V5YFfyPcr4}{https://youtu.be/2V5YFfyPcr4}
+                \item zusätzlicher Stream auf \url{\streamlink}
             \end{itemize}
             \pause
         \item \textbf{Mittagspause 12:00 - 13:00}
@@ -92,34 +188,105 @@
 \subsection{Wochenplan}
 \begin{frame}
     \slidehead
-    \textbf{Allgemeines Programm}
-    \begin{itemize}
-        \item Montag
-            \begin{itemize}
-                \item Vorlesung um 9:00
-                \item Nachmittags: Python installieren und Übung
-            \end{itemize}
-            \pause
-        \item Mittwoch, Donnerstag und Freitag
-            \begin{itemize}
-                \item Vorlesung um 9:00
-                \item Nachmittags: Übung
-            \end{itemize}
-    \end{itemize}
+    % \textbf{Allgemeines Programm}
+    \begin{table}[ht!]
+        \small\centering
+        \def\vlcolor{\cellcolor{brown!15!\thepagecolor}}
+        \def\pausecolor{\cellcolor{accentcolor!15!\thepagecolor}}
+        \def\excolor{\cellcolor{TUDa-1b!15!\thepagecolor}}
+        \rowcolors{2}{\thepagecolor}{fgcolor!10!\thepagecolor}
+        \begin{tabularx}{\textwidth}{l>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+            \toprule
+            \fatsf{Zeit} & \fatsf{Montag}& \fatsf{Dienstag}& \fatsf{Mittwoch}& \fatsf{Donnerstag}& \fatsf{Freitag}\\
+            \midrule
+            \phantom{09:00} &  &  &  &  & \\
+            \tikzmark{tpos-1} & \vlcolor{} &  & \vlcolor{} & \vlcolor{} & \vlcolor{}\\
+            \tikzmark{tpos-2} & \vlcolor{} &  & \vlcolor{} & \vlcolor{} & \vlcolor{}\\
+            \tikzmark{tpos-3} & \multirow{-3}{*}{\vlcolor{}\begin{minipage}[t][2cm][t]{\textwidth}
+                    \tiny \fatsf{Vorlesung}\\
+                    Foliensätze:\\
+                    \quad - 00-Orga\\
+                    \quad - 01-Erste Schritte\\
+                    \quad - 02-Datentypen-Zeichenketten
+                \end{minipage}} & & \multirow{-3}{*}{\vlcolor{}\begin{minipage}[t][2cm][t]{\textwidth}
+                    \tiny \fatsf{Vorlesung}\\
+                    Foliensätze:\\
+                    \quad - 03-Variablen + If
+                \end{minipage}}  &
+            \multirow{-3}{*}{\vlcolor{}\begin{minipage}[t][2cm][t]{\textwidth}
+                    \tiny \fatsf{Vorlesung}\\
+                    Foliensätze:\\
+                    \quad - 04-Schleifen\\
+                    \quad - 05-Listen
+                \end{minipage}} &
+            \multirow{-3}{*}{\vlcolor{}\begin{minipage}[t][2cm][t]{\textwidth}
+                    \tiny \fatsf{Vorlesung}\\
+                    Foliensätze:\\
+                    \quad - 06-Funktionen + Rekursion
+                \end{minipage}}\\
+            \tikzmark{tpos-4} & \pausecolor{}{\footnotesize Mittagspause} & & \pausecolor{}{\footnotesize Mittagspause} & \pausecolor{}{\footnotesize Mittagspause} & \pausecolor{}{\footnotesize Mittagspause}\\
+            \tikzmark{tpos-5} & \excolor{} &  & \excolor{} & \excolor{} & \excolor{}\\
+            \tikzmark{tpos-6} & \excolor{} &  & \excolor{} & \excolor{} & \excolor{}\\
+            \tikzmark{tpos-7} & \excolor{} &  & \excolor{} & \excolor{} & \excolor{}\\
+            \tikzmark{tpos-8} & \excolor{} &  & \excolor{} & \excolor{} & \excolor{}\\
+            \tikzmark{tpos-9} &
+            \multirow{-4}{*}{\excolor{}\begin{minipage}[t][3cm][t]{\textwidth}
+                    \tiny \fatsf{Übungsphase}\\
+                    \quad - Kotlin installieren\\
+                    \quad - Übungsblatt 1
+                \end{minipage}} & \multirow{-9}{*}{\textcolor{TUDa-9b}{Feiertag}} & \multirow{-4}{*}{\excolor{}\begin{minipage}[t][3cm][t]{\textwidth}
+                    \tiny \fatsf{Übungsphase}\\
+                    % \quad - Kotlin installieren\\
+                    \quad - Übungsblatt 2
+                \end{minipage}} & \multirow{-4}{*}{\excolor{}\begin{minipage}[t][3cm][t]{\textwidth}
+                    \tiny \fatsf{Übungsphase}\\
+                    % \quad - Kotlin installieren\\
+                    \quad - Übungsblatt 3
+                \end{minipage}} & \multirow{-4}{*}{\excolor{}\begin{minipage}[t][3cm][t]{\textwidth}
+                    \tiny \fatsf{Übungsphase}\\
+                    % \quad - Kotlin installieren\\
+                    \quad - Übungsblatt 4\\
+                    \quad - Challenge
+                \end{minipage}}\\
+            \tikzmark{tpos-10} &  &  &  &  & \\
+            \bottomrule
+        \end{tabularx}
+        \caption{Caption}
+        \label{tab:newtab}
+
+        \begin{tikzpicture}[remember picture,overlay]
+            \foreach \x in {1,...,10} {
+                \node[anchor=south west] at ([xshift=-1mm,yshift=.5ex]pic cs:tpos-\x) {\padzeroes{\the\numexpr8+\x\relax}:00};
+            }
+        \end{tikzpicture}
+    \end{table}
+    % \begin{itemize}
+    %     \item Montag
+    %         \begin{itemize}
+    %             \item Vorlesung um 9:00
+    %             \item Nachmittags: Kotlin installieren und Übung
+    %         \end{itemize}
+    %         \pause
+    %     \item Mittwoch, Donnerstag und Freitag
+    %         \begin{itemize}
+    %             \item Vorlesung um 9:00
+    %             \item Nachmittags: Übung
+    %         \end{itemize}
+    % \end{itemize}
 \end{frame}
 
-\subsection{Stoffplan}
-\begin{frame}
-    \slidehead
-    \begin{itemize}
-        \item Erste Schritte im Programmieren?
-        \item Was ist Python?
-        \item Mein erstes Programm
-        \item Datentypen und Operatoren
-        \item Schleifen und bedingte Anweisungen
-        \item Funktionen \& Rekursion
-    \end{itemize}
-\end{frame}
+% \subsection{Stoffplan}
+% \begin{frame}
+%     \slidehead
+%     \begin{itemize}
+%         \item Erste Schritte im Programmieren?
+%         \item Was ist Kotlin?
+%         \item Mein erstes Programm
+%         \item Datentypen und Operatoren
+%         \item Schleifen und bedingte Anweisungen
+%         \item Funktionen \& Rekursion
+%     \end{itemize}
+% \end{frame}
 
 \subsection{Voraussetzungen}
 \begin{frame}
@@ -145,7 +312,7 @@
 \begin{frame}
     \slidehead
     \begin{itemize}
-        \item Aufgaben mit unterschiedlichen Schwierigkeitsgrad
+        \item Aufgaben mit unterschiedlichen Schwierigkeitsgraden
         \item Tutor*innen
             %in Discord,
             die euch unterstützen
@@ -153,78 +320,6 @@
         \item Ihr müsst nicht alle Aufgaben lösen
     \end{itemize}
 \end{frame}
-
-\section{Moodle}
-\begin{frame}
-    \slidehead
-    \vskip -1.1em
-    \begin{columns}
-        \begin{column}{.667\linewidth}
-            \begin{itemize}
-                \item Vorlesungsfolien \& Übungen
-                \item Ankündigungen
-                \item Fragen, Foren
-            \end{itemize}
-        \end{column}
-        \begin{column}{.3\linewidth}
-            \\
-            \vspace{-0.2cm}
-            \includegraphics[width=.7\linewidth]{media/moodle_qr.png}
-        \end{column}
-    \end{columns}
-    \vspace{-0.2cm}
-    \begin{block}{Lernportal Informatik - Vorkurs}
-        \vskip 1 pt
-        \Huge{Gastschlüssel erhaltet ihr in Discord}\\
-        \normalsize
-        \vskip 1 pt
-        Nähere Informationen zum Zugriff auf die Materialien:\\
-        \quad \href{https://d120.de/vorkurs}{https://d120.de/vorkurs}
-    \end{block}
-\end{frame}
-
-
-\section{Discord}
-\begin{frame}
-    \slidehead
-    \vskip -1.1em
-    \begin{columns}
-        \begin{column}{.667\linewidth}
-            \begin{itemize}
-                \item Wir haben für euch einen Discord Server angelegt!
-                \item dort könnt ihr euch untereinander austauschen
-                \item dort könnt ihr auch mit erfahrenen Tutor*innen reden
-            \end{itemize}
-        \end{column}
-        \begin{column}{.3\linewidth}
-            \\
-            \vspace{-0.2cm}
-            %\includegraphics[width=.7\linewidth]{media/moodle_qr.png} %TODO QR code für discord link
-        \end{column}
-    \end{columns}
-    \vspace{0.9cm}
-    \begin{block}{Discord - Vorkurs}
-        \normalsize
-        \vskip 1 pt
-        Für Discord braucht ihr einen Account!\\
-        Ihr könnt Discord hier herunter laden:\\
-        \quad \href{https://discord.com/}{https://discord.com/}\\
-        Wie ihr in Discord kommt, erfahrt ihr auf der Vorkurs Seite.
-        Lest euch bitte auf dem Server die Willkommensnachricht durch!
-    \end{block}
-\end{frame}
-
-
-\section{YouTube}
-\begin{frame}
-    \slidehead
-    \begin{itemize}
-        \item wir streamen für euch die Vorlesungen Live
-        \item ihr könnt während dessen fragen auf Discord stellen!
-            %		\item Diskutiert auch gerne parallel in Discord.
-    \end{itemize}
-\end{frame}
-
 
 \section{Ophase}
 \begin{frame}

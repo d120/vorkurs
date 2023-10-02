@@ -7,7 +7,10 @@
 
 \begin{task}[points=auto]{Funktionen}
     \begin{subtask*}[points=0]{Taschenrechner Reloaded \stage1}
-        In der vorigen Übung sollte ein simpler Taschenrechner programmiert werden. Nun wollen wir diesen Taschenrechner erweitern. Schreibt zuerst jeweils eine Funktion für jede der angebotenen Grundrechenarten (\lstinline[language=python]{def plus(3, 5):} soll beispielsweise 8 liefern).\\
+        In der vorigen Übung sollte ein simpler Taschenrechner programmiert werden. Nun wollen wir diesen Taschenrechner erweitern. Schreibt zuerst jeweils eine Funktion für jede der angebotenen Grundrechenarten.
+
+        \kotlininline{fun plus(a: Int, b: Int): Int} soll beispielsweise \kotlininline{plus(3, 5) == 8} liefern.
+
         Im Anschluss sollen die Rechenanweisungen in der if-Struktur durch Funktionsaufrufe ersetzt werden. Vergesst nicht, das Ergebnis auszugeben.
 
         \begin{solution}
@@ -15,98 +18,124 @@
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Taschenrechner Reloaded II \stage1}
-        Erweitert den Taschenrechner nun noch um einen weiteren Operator. Dabei soll auch das Potenzieren möglich sein. Dabei gilt $a^n=a\cdot a\cdot a \cdot\ldots\cdot a$ (d.h. a wird n-mal mit sich selbst malgenommen). Zum Aufruf der Potenzier-Funktion soll der Benutzer \^{} (das kleine "`Dach"' links oben auf der Tastatur) eingeben.
+        Erweitert den Taschenrechner nun noch um einen weiteren Operator. Dabei soll auch das Potenzieren möglich sein. Dabei gilt $a^n=a\cdot a\cdot a \cdot\ldots\cdot a$ (d.h. a wird n-mal mit sich selbst miltipliziert). Zum Aufruf der Potenzier-Funktion soll der Benutzer \^{} (das kleine "`Dach"' links oben auf der Tastatur) eingeben.
 
         \begin{solution}
-            \begin{codeBlock}[]{minted language=python}
-                def plus(op1, op2):
+            \begin{codeBlock}[]{minted language=kotlin}
+                fun plus(op1: Double, op2: Double): Double {
                     return op1 + op2
+                }
 
-
-                def minus(op1, op2):
+                fun minus(op1: Double, op2: Double): Double {
                     return op1 - op2
+                }
 
-
-                def mal(op1, op2):
+                fun mal(op1: Double, op2: Double): Double {
                     return op1 * op2
+                }
 
-
-                def teilen(op1, op2):
+                fun teilen(op1: Double, op2: Double): Double {
                     return op1 / op2
+                }
 
+                fun potenz(op1: Double, op2: Double): Double {
+                    return Math.pow(op1, op2)
+                }
 
-                def potenz(op1, op2):
-                    return op1 ** op2
+                print("Wie lautet der erste Operand: ")
+                val op1 = readln().toDouble()
 
+                print("Wie lautet der zweite Operand: ")
+                val op2 = readln().toDouble()
 
-                op1 = float(input("Wie lautet der erste Operand: "))
-                op2 = float(input("Wie lautet der zweite Operand: "))
-                op = input("Wie lautet der Operator: ")
-                if op == "+":
-                    print("Das Ergebnis lautet: " + str(plus(op1, op2)))
-                elif op == "-":
-                    print("Das Ergebnis lautet: " + str(minus(op1, op2)))
-                elif op == "*":
-                    print("Das Ergebnis lautet: " + str(mal(op1, op2)))
-                elif op == "/":
-                    print("Das Ergebnis lautet: " + str(teilen(op1, op2)))
-                elif op == "^":
-                    print("Das Ergebnis lautet: " + str(potenz(op1, op2)))
-                else:
-                    print("Keine gueltige Eingabe!")
+                print("Wie lautet der Operator: ")
+                val op = readln()
+
+                if (op == "+") {
+                    println("Das Ergebnis lautet: ${plus(op1, op2)}")
+                } else if (op == "-") {
+                    println("Das Ergebnis lautet: ${minus(op1, op2)}")
+                } else if (op == "*") {
+                    println("Das Ergebnis lautet: ${mal(op1, op2)}")
+                } else if (op == "/") {
+                    if (op2 != 0.0) {
+                        println("Das Ergebnis lautet: ${teilen(op1, op2)}")
+                    } else {
+                        println("Division durch Null ist nicht erlaubt.")
+                    }
+                } else if (op == "^") {
+                    println("Das Ergebnis lautet: ${potenz(op1, op2)}")
+                } else {
+                    println("Keine gültige Eingabe!")
+                }
             \end{codeBlock}
         \end{solution}
     \end{subtask*}
 \end{task}
 \begin{task}[points=auto]{Schriftliches Dividieren}
     \begin{subtask*}[points=0]{Schriftliches Dividieren - Theorie \stage2}
-        Gleitkommaberechnungen sind in Python, sowie in den meisten anderen Programmiersprachen, nicht exakt. Könnt ihr euch denken, wieso?\\
+        Gleitkommaberechnungen sind in Kotlin, sowie in den meisten anderen Programmiersprachen, nicht exakt. Könnt ihr euch denken, wieso?\\
         Ihr könnt das Problem an dem folgenden Beispiel betrachten.
-        \begin{codeBlock}[]{minted language=python}
-            a = 5.6
-            b = 5.8
-            c = a + b
-            print(f"{a} + {b} = {c}")
+        \begin{codeBlock}[]{minted language=kotlin}
+            val a = 5.6
+            val b = 5.8
+            val c = a + b
+            println("$a + $b = $c")
         \end{codeBlock}
 
         \begin{solution}
-            Bei Gleitkommazahlen werden oft nicht die angegebene Zahlen gespeichert sondern eine Approximation, eine Annäherung. Das hängt unter anderem mit der Art der Speicherung einer Gleitkommazahl zusammen. Während im Dezimalsystem eine 0,1 ganz einfach darzustellen ist, arbeitet der Rechner im Binärsystem (also auf Zweierbasis) und im Binärsystem ist die Dezimalzahl 0,1 periodisch ($0.1_2$=0,00011001100110011...). Da der Speicher einer Gleitkommazahl beschränkt ist, schneidet der Rechner nach einer bestimmten Länge einfach ab.\\
+            Bei Gleitkommazahlen werden oft nicht die angegebene Zahlen gespeichert sondern eine Approximation, deutsch \enquote{Annäherung}. Das hängt unter anderem mit der Art der Speicherung einer Gleitkommazahl zusammen. Während im Dezimalsystem eine 0,1 ganz einfach darzustellen ist, arbeitet der Rechner im Binärsystem (also auf Zweierbasis) und im Binärsystem ist die Dezimalzahl 0,1 periodisch ($0,1_2=0,00011001100110011 \dots$) Da der Speicher einer Gleitkommazahl beschränkt ist, schneidet der Rechner nach einer bestimmten Länge einfach ab.
+            Das ist nicht neues für uns. Schon in der Schule hat man ohne
+            große Bedenken gerundet. Etwa bei $\frac13 \approx 0.3333$.
+
             Eine andere Fehlerquelle birgt die Verrechnung - hier beispielhaft die Addition - von sehr großen mit sehr kleinen Zahlen. Um ein konkretes Beispiel zu geben: Wenn man die beiden floats 100.000.000 und 0,000000001 addiert erhält man als Ergebnis 100.000.000. Auch hier reicht die Art der Speicherung für float-Zahlen nicht aus, um eine 100.000.000,000000001 zu speichern. Die genaue Erklärung ersparen wir uns hier, da sie zu technisch wäre.
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Schriftliches Dividieren \stage2}
-        Um das Problem der ungenauen Gleitkommadivision zumindest zum Teil zu lösen, ist eure Aufgabe, eine Funktion zu schreiben, die zwei (positive) Ganzzahlen dividiert und das Ergebnis als String zurück gibt. Das Ergebnis soll anschließend (in der main-Funktion) auf der Konsole ausgegeben werden. Dabei wollen wir uns das Vorgehen des schriftliches Dividierens zunutze machen. Den ganzzahligen Anteil des Ergebnisses dürft ihr direkt berechnen und braucht das Vorgehen erst zur Berechnung der Nachkommastellen anwenden. Wenn die Division nicht aufgeht, also eine periodische Zahl liefern würde (zum Beispiel 1/3), braucht euer Programm nicht zu terminieren, es muss also kein Ergebnis liefern und darf endlos vor sich hin rechnen.
+        Um das Problem der ungenauen Gleitkommadivision zumindest zum Teil zu lösen, ist eure Aufgabe, eine Funktion zu schreiben, die zwei (positive) Ganzzahlen dividiert und das Ergebnis als String zurück gibt. Das Ergebnis soll anschließend (in der main-Funktion) auf der Konsole ausgegeben werden. Dabei wollen wir uns das Vorgehen des schriftliches Dividierens zunutze machen. Den ganzzahligen Anteil des Ergebnisses dürft ihr direkt berechnen und braucht das Vorgehen erst zur Berechnung der Nachkommastellen anwenden.
 
-        \textit{Hinweis: Ganzzahldivision könnt ihr mit // durchführen}
+        Wenn die Division nicht aufgeht, also eine periodische Zahl liefern würde (zum Beispiel $\frac13$), braucht euer Programm nicht zu terminieren, es muss also kein Ergebnis liefern und darf endlos vor sich hin rechnen.
+        Ihr dürft aber auch nach jedem Schritt ein Teil des Ergebnisses ausgeben,
+        im obigen Beispiel also endlos viele Dreien.
+
+        Schaft ihr es, (außer bei Nutzereingaben natürlich) ohne die Funktionen
+        \kotlininline{toString} und \kotlininline{toInt} auszukommen?
+
+        \textit{Hinweis: Ganzzahldivision könnt ihr wie gewohnt auf Ints durchführen.
+            Mit \enquote{\%} bekommt ihr den Rest der Division $\frac{a}{b}$.}
 
         \begin{solution}
-            \begin{codeBlock}[]{minted language=python}
-                def stepwise_division(dividend, divisor):
-                quotient = str(dividend // divisor)
-                remainder = dividend % divisor
-                if remainder == 0:
-                    return quotient
+            \begin{codeBlock}[]{minted language=kotlin}
+                fun longdivide(a: Int, b: Int) {
+                    var div = a / b
+                    var rem = a % b
 
-                decimals = ""
-                position = 0
-                while remainder != 0:
-                    decimals += str(remainder * 10 // divisor)
-                    remainder = remainder * 10 % divisor
-                    position += 1
-                return f"{quotient},{decimals}"
+                    print(div)
+                    if (rem == 0) {
+                        return
+                        println()
+                    }
 
+                    print(",")
+                    while (rem != 0) {
+                        div = rem * 10
+                        rem = div % b
+                        div = div / b
+                        print(div)
+                    }
 
-            dividend = int(input("Dividend: "))
-            divisor = int(input("Divisor: "))
+                    println()
+                }
 
-            quotient = stepwise_division(dividend, divisor)
-            print("Quotient: " + quotient)
+                longdivide(6283, 2000) // something close to pi
             \end{codeBlock}
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Schriftliches Dividieren Reloaded \stage3}
-        Da viele Divisionen nicht aufgehen, wollen wir die definierte Funktion dahingehend überarbeiten, damit wir im Anschluss jedes (positive) Ganzzahlenpaar dividieren können. Dafür müsst ihr zuerst überlegen, woran periodische Ergebnisse während der Division erkannt werden können und eine entsprechende Detektion in eure Funktion einbauen. Außerdem soll euer Programm ein periodisches Ergebnis auch korrekt ausgeben. Es gibt international verschiedene Schreibweisen für periodische Zahlen, am einfachsten für uns ist, wenn wir die wiederkehrenden Ziffern einfach einklammern:
-        \begin{codeBlock}[]{minted language=python}
+        Da viele Divisionen nicht aufgehen, wollen wir die definierte Funktion dahingehend überarbeiten, damit wir im Anschluss jedes (positive) Ganzzahlenpaar dividieren können.
+        Dafür müsst ihr zuerst überlegen, woran periodische Ergebnisse während der Division erkannt werden können und eine entsprechende Detektion in eure Funktion einbauen.
+        Außerdem soll euer Programm ein periodisches Ergebnis auch korrekt ausgeben. Es gibt international verschiedene Schreibweisen für periodische Zahlen, am einfachsten für uns ist, wenn wir die wiederkehrenden Ziffern einfach einklammern:
+        \begin{codeBlock}[]{minted language=kotlin}
             1/3 = 0,(3)
             40/3 = 13,(3)
             17/130 = 0,1(307692)
@@ -114,314 +143,51 @@
         \end{codeBlock}
 
         \begin{solution}
-            \begin{codeBlock}[]{minted language=python}
-                def stepwise_division(dividend, divisor):
-                    quotient = str(dividend // divisor)
-                    remainder = dividend % divisor
-                    if remainder == 0:
-                        return quotient
+            \begin{codeBlock}[]{minted language=kotlin}
+                fun longdivide(a: Int, b: Int) {
+                    var div = a / b
+                    var rem = a % b
 
-                    decimals = ""
-                    position = 0
-                    remainders = [0] * divisor
-                    is_periodic = False
-                    while remainder != 0 and not is_periodic:
-                        position += 1
-                        if remainders[remainder] == 0:
-                            remainders[remainder] = position
-                            decimals += str(remainder * 10 // divisor)
-                            remainder = remainder * 10 % divisor
-                        else:
-                            is_periodic = True
-                            position = remainders[remainder] - 1
-                            decimals = "{0}({1})".format(decimals[0:position], decimals[position:])
-                    return f"{quotient},{decimals}"
+                    val seenRemainders = mutableListOf(rem)
+                    var afterKomma = ""
 
+                    print(div)
+                    if (rem == 0) {
+                        return
+                        println()
+                    }
 
-                dividend = int(input("Dividend: "))
-                divisor = int(input("Divisor: "))
+                    print(",")
 
-                quotient = stepwise_division(dividend, divisor)
-                print("Quotient: " + quotient)
-            \end{codeBlock}
-        \end{solution}
-    \end{subtask*}
-\end{task}
-\begin{task}[points=auto]{Listen und Funktionen}
-    \begin{subtask*}[points=0]{}
-        \subsection{Summe und Durchschnitt einer Liste \stage1}
-        Ergänzt im folgende Code die fehlenden Codestellen, damit die beiden Funktionen die Summe und den Durchschnitt errechnen.
-        \begin{codeBlock}[]{minted language=python}
-            def summe(werte):
-                # to do: Rechnet die Summe der Listenwerte aus
+                    while (rem != 0) {
+                        div = rem * 10
 
-            def durchschnitt(werte):
-                # to do: Berechnet den Durchschnitt mit Hilfe der Funktion "summe"
+                        rem = div % b
+                        div = div / b
+                        afterKomma += div
 
-            werte = [2,4,6,8,10,12,14,16,18]
-            print(summe(werte))
-            print(durchschnitt(werte))
-        \end{codeBlock}
+                        val index = seenRemainders.indexOf(rem)
+                        if (index >= 0) {
+                            print(afterKomma.slice(0 until index))
 
-        \begin{solution}
-            \begin{codeBlock}[]{minted language=python}
-                def summe(werte):
-                    summe = 0
-                    for n in werte:
-                        summe += n
-                    return summe
+                            print("(")
+                            print(afterKomma.slice(index until afterKomma.length))
+                            println(")")
 
-                def durchschnitt(werte):
-                    return summe(werte) / len(werte)
+                            return
+                        }
 
-                werte = [2, 4, 6, 8, 10, 12, 14, 16, 18]
-                print(summe(werte))
-                print(durchschnitt(werte))
-            \end{codeBlock}
-        \end{solution}
-    \end{subtask*}
-\end{task}
-\begin{task}[points=auto]{Rekursion}
-    \begin{subtask*}[points=0]{Fakultät rekursiv \stage1}
-        Einnert euch an die Fakultät, diese ist wie folgt definiert:
-        $n! =\left\{\begin{array}{cl} 1, & \mbox{falls }  n = 0 \\ n \cdot(n-1)!, & \mbox{sonst} \end{array}\right.$
-        \begin{enumerate}
-            \item Berechnet diese nun mitmilfe einer rekusiven Funktion.
-            \item Vergleicht das Ergebnis \textbf{15!} mit dem gestern berechneten Wert.
-        \end{enumerate}
+                        seenRemainders.add(rem)
+                    }
 
-        \begin{solution}
-            \begin{codeBlock}[]{minted language=python}
-                def fac(n):
-                    if n <= 0:
-                        return 1
-                    else:
-                        return fac(n - 1) * n
+                    println(afterKomma)
+                }
 
-
-                print(fac(15))
-            \end{codeBlock}
-        \end{solution}
-    \end{subtask*}
-    \begin{subtask*}[points=0]{Pascalsches Dreieck \stage2}
-        Schreibt eine Funktion, die eine Zahl im \href{https://de.wikipedia.org/wiki/Pascalsches_Dreieck}{Pascalschen Dreieck}
-        berechnet. Eure Funktion bekommt zwei Parameter, wobei der erste die Zeile und
-        der zweite die Position in der Zeile repräsentiert. Zur Berechnung soll die
-        Summe zweier Zellen in der darüberliegenden Zeile gebildet werden (Animation
-        auf der Wikipedia-Seite). Zeile 0 soll dabei die oberste Zeile sein. Sei n die
-        Zeile, dann soll der zweite Parameter die Zahlen 0 bis n annehmen können.
-
-        \begin{solution}
-            \begin{codeBlock}[]{minted language=python}
-                def pascal(row, column):
-                    if row < 0 or column > row:
-                        return -1
-                    if column == 0 or column == row:
-                        return 1
-                    return pascal(row - 1, column - 1) + pascal(row - 1, column)
-
-
-                zeile = int(input("Zeile: "))
-                spalte = int(input("Spalte: "))
-                print(pascal(zeile, spalte))
-            \end{codeBlock}
-        \end{solution}
-    \end{subtask*}
-    \begin{subtask*}[points=0]{Fibonacci-Folge \stage2}
-        Die Fibonacci-Folge ist eine Folge von Zahlen die nach einer festen Regel berechnet werden.
-        Die ersten beiden Fibonacci-Zahlen sind definiert mit 0 und 1. Jede weitere Fibonacci-Zahl
-        ist die Summe der beiden "`Vorgänger"'-Fibonacci-Zahlen. Der Anfang der Folge ist also 0,1,1,2,3,5,8,13,...\\
-        Schreibt eine Funktion, die jeweils die n-te Fibonacci-Zahl mittels Rekursion berechnet.\\
-        Gebt anschließend die ersten 20 Fibonacci-Zahlen aus.
-
-        \begin{solution}
-            \begin{codeBlock}[]{minted language=python}
-                def fib(n):
-                    n = int(n)
-                    if n <= 0:
-                        return 0
-                    elif n == 1:
-                        return 1
-                    else:
-                        return fib(n - 1) + fib(n - 2)
-
-
-                for i in range(1, 21):
-                    print(fib(i))
-            \end{codeBlock}
-        \end{solution}
-    \end{subtask*}
-    \begin{subtask*}[points=0]{}
-        \subsection{Gerade oder Ungerade \stage2}
-        Schreibt zwei Funktionen \texttt{even} und \texttt{odd}, welche jeweils eine Zahl
-        als Parameter entgegennehmen und ein boolean zurückgeben, wenn bei even die Zahl
-        gerade und bei odd die Zahl ungerade ist. Für diese Funktionen dürft ihr weder den \%-Operator noch den /-Operator nutzen.
-
-        \begin{solution}
-            \begin{codeBlock}[]{minted language=python}
-                def even(n):
-                    n = int(n)
-                    if n == 0:
-                        return True
-                    else:
-                        return odd(n - 1)
-
-
-                def odd(n):
-                    n = int(n)
-                    if n == 0:
-                        return False
-                    else:
-                        return even(n - 1)
-
-
-                print(f"even(42)= {even(42)}")
-                print(f"odd(42)= {odd(42)}")
-                print(f"even(23)= {even(23)}")
-                print(f"odd(23)= {odd(23)}")
-            \end{codeBlock}
-        \end{solution}
-    \end{subtask*}
-    \begin{subtask*}[points=0]{Ultimate Taschenrechner \stage3}
-        Wir wollen den Taschenrechner nun auf Rekursion umstellen. Ihr könnt zur Vereinfachung
-        davon ausgehen, dass beide Operanden positiv und ganze Zahlen sind (für Testeingaben
-        müsst ihr euch selbst dann aber auch daran halten).\\
-        Im Folgenden werden an die verschiedenen Operatoren Bedingungen gestellt (die
-        Funktionsnamen sind so gewählt wie in der Musterlösung von Tag 3, wenn eure
-        Addierfunktion beispielsweise "`add"' heißt, müsst ihr das \texttt{plus} in der Aufgabenstellung duch \texttt{add} ersetzen):
-        \begin{itemize}
-            \item \textbf{\textcolor[rgb]{0,0.5,1}{plus:}} verwendet "`+1"', "`-1"' und plus
-            \item \textbf{\textcolor[rgb]{0,0.5,1}{minus:}} verwendet "`+1"', "`-1"' und minus
-            \item \textbf{\textcolor[rgb]{0,0.5,1}{mal:}} verwendet plus, minus und mal
-            \item \textbf{\textcolor[rgb]{0,0.5,1}{teilen:}} verwendet plus, minus und teilen (schreibe nur die Ganzzahldivision)
-            \item \textbf{\textcolor[rgb]{0,0.5,1}{potenz:}} verwendet plus, minus, mal, teilen und potenz
-        \end{itemize}
-        Ihr dürft nur die genannten Funktionen (wenn plus erlaubt ist, dürft ihr "`plus(x,y)"' aufrufen),
-        konstante Zahlen, die Variablen zahl1 und zahl2 (also die Parameter) und das Prinzip
-        der Rekursion verwenden. Ihr dürft keine Schleifen und keine arithmetischen Operatoren
-        (+, -, *, /, ... ; nur +1 und -1) verwenden. Ihr dürft die if-Anweisung verwenden.
-
-        \textit{Hinweis: Wenn ihr einen Operator nicht umsetzen könnt, dann versucht euch an einem anderen.
-            Ihr könnt beispielsweise die Multiplikation rekursiv umschreiben, ohne eine rekursive
-            Addition zu schreiben; nutzt dann einfach die bestehende Additionsfunktion.}
-
-        \begin{solution}
-            siehe nächste Teilaufgabe
-            \begin{codeBlock}[]{minted language=python}
-
-            \end{codeBlock}
-        \end{solution}
-    \end{subtask*}
-    \begin{subtask*}[points=0]{Ultimate Taschenrechner II \stage3}
-        Erweitert den Taschenrechner im selben Stil noch um weitere Funktionen (in Klammern ist angegeben, wie die Funktion aufgerufen werden sollte):
-        \begin{itemize}
-            \item \textbf{\textcolor[rgb]{0,0.5,1}{modulo (\%):}} verwende plus, minus und modulo
-            \item \textbf{\textcolor[rgb]{0,0.5,1}{ggT (T):}} verwende plus, minus, modulo und ggT
-            \item \textbf{\textcolor[rgb]{0,0.5,1}{min ( \underline{\ \ } ):}} verwende plus, minus und min
-            \item \textbf{\textcolor[rgb]{0,0.5,1}{max (|):}} verwende plus, minus und max
-        \end{itemize}
-        Für den ggT (größten gemeinsamen Teiler) gilt:
-        $$ggT(a,b)=\left\{\begin{tabular}{cc}b&wenn a=0,\\a&wenn b=0,\\ggt(b, a \% b)&sonst\end{tabular}\right.$$
-
-        \begin{solution}
-            siehe nächste Teilaufgabe
-            \begin{codeBlock}[]{minted language=python}
-                def plus(op1, op2):
-                    if op1 == 0:
-                        return op2
-                    elif op2 == 0:
-                        return op1
-                    else:
-                        return plus(op1 + 1, op2 - 1)
-
-
-                def minus(op1, op2):
-                    if op2 == 0:
-                        return op1
-                    else:
-                        return minus(op1 - 1, op2 - 1)
-
-
-                def mal(op1, op2):
-                    if op1 == 0 or op2 == 0:
-                        return 0
-                    else:
-                        return plus(mal(op1, minus(op2, 1)), op1)
-
-
-                def teilen(op1, op2):
-                    if op2 == 0:
-                        return -1
-                    elif op1 < op2:
-                        return 0
-                    else:
-                        return plus(teilen(minus(op1, op2), op2), 1)
-
-
-                def modulo(op1, op2):
-                    if op2 == 0:
-                        return -1
-                    elif op1 < op2:
-                        return op1
-                    else:
-                        return modulo(minus(op1, op2), op2)
-
-
-                def potenz(op1, op2):
-                    if op2 == 0:
-                        return 1
-                    else:
-                        return mal(potenz(op1, minus(op2, 1)), op1)
-
-
-                def ggT(op1, op2):
-                    if op1 == 0:
-                        return op2
-                    elif op2 == 0:
-                        return op1
-                    else:
-                        return ggT(op2, modulo(op1, op2))
-
-
-                def minimum(op1, op2):
-                    if op1 == 0 or op2 == 0:
-                        return 0
-                    else:
-                        return plus(minimum(minus(op1, 1), minus(op2, 1)), 1)
-
-
-                def maximum(op1, op2):
-                    if op1 == 0:
-                        return op2
-                    elif op2 == 0:
-                        return op1
-                    else:
-                        return plus(maximum(minus(op1, 1), minus(op2, 1)), 1)
-
-
-                op1 = int(input("Wie lautet der erste Operand: "))
-                op2 = int(input("Wie lautet der zweite Operand: "))
-                op = input("Wie lautet der Operator: ")
-                if op == "+":
-                    print(f"Das Ergebnis lautet: {plus(op1, op2)}")
-                elif op == "-":
-                    print(f"Das Ergebnis lautet: {minus(op1, op2)}")
-                elif op == "*":
-                    print(f"Das Ergebnis lautet: {mal(op1, op2)}")
-                elif op == "/":
-                    print(f"Das Ergebnis lautet: {teilen(op1, op2)}")
-                elif op == "%":
-                    print(f"Das Ergebnis lautet: {modulo(op1, op2)}")
-                elif op == "^":
-                    print(f"Das Ergebnis lautet: {potenz(op1, op2)}")
-                elif op == "T":
-                    print(f"Das Ergebnis lautet: {ggT(op1, op2)}")
-                elif op == "_":
-                    print(f"Das Ergebnis lautet: {minimum(op1, op2)}")
-                elif op == "|":
-                    print(f"Das Ergebnis lautet: {maximum(op1, op2)}")
-                else:
-                    print("Keine gültige Eingabe!")
+                longdivide(9, 2) // = 4,5
+                longdivide(1, 3) // = 0,(3)
+                longdivide(40, 3) // = 13,(3)
+                longdivide(17, 130) // = 0,1(307692)
+                longdivide(35, 24) // = 1,458(3)
             \end{codeBlock}
         \end{solution}
     \end{subtask*}

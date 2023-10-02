@@ -1,1 +1,0 @@
-prit("ein test")

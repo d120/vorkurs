@@ -34,7 +34,7 @@
 }
 \newboolean{sln}\setboolean{sln}{false}
 \newboolean{SoSe}\setboolean{SoSe}{false}
-\newcounter{nextyear}\setcounter{nextyear}{\year+1}
+\newcommand{\thenextyear}{\the\numexpr\year+1\relax}
 %
 
 \newcommand{\ext}{py}

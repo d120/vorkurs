@@ -2,37 +2,27 @@
 \sheetnumber{1}
 \title{Aufgaben Programmiervorkurs}
 \subtitle{von der Fachschaft Informatik\hfill\ptitle}
+
+\usepackage{hyperref}
+\usepackage{wrapfig}
+
 \begin{document}
 \maketitle{}
 
 \begin{task}[points=auto]{Einleitung}
-    \begin{subtask*}[points=0]{Python Installieren}
+    \begin{subtask*}[points=0]{Kotlin Installieren}
         Hey, willkommen bei den Übungen zum Programmiervorkurs im \ptitle. Wie in der
-        Vorlesung verwenden wir für die Übungen die Programmiersprache Python. \\\\
+        Vorlesung verwenden wir für die Übungen die Programmiersprache Kotlin. \\\\
         %
-        Auf den Poolrechnern und auf den meisten Linux-Distributionen sollte die
-        benötigte Version 3 schon installiert sein. Prüft das, indem ihr (etwa mit
-        Rechtsklick -> \textit{Terminal öffnen}) auf dem Desktop) ein Terminal öffnet,
-        und führt den Befehl \texttt{python ----version} aus. Dieser sollte so etwas wie
-        \textit{Python 3.7.9} ausgeben. Wenn ihr stattdessen \textit{Python 2.x.x} (x = irgendwelche Zahlen) bekommt, versucht es mit \texttt{python3} statt \texttt{python}, wenn das klappt, ersetzt im Folgenden einfach immer \texttt{python} durch \texttt{python3}.
-
-        Sollte das nicht funktionieren, installiert Python 3 über einen Paketmanager
-        eurer Wahl (etwa mit \texttt{apt install python}). \\\\
-        %
-        Für Windows oder MacOS müsst ihr Python von der offiziellen Seite
-        \url{https://python.org/downloads} herunterladen. Klickt dort einfach die
-        Schaltfläche \textit{Download Python 3.10.7} (höhere Versionsnummer möglich) an.
-        Öffnet nun auch hier ein Terminal (Auf Windows die Windows-Taste drücken und \texttt{PowerShell} eingeben und das Programm auswählen.). \\\\
-        %
-        Führt nun den Befehl \texttt{python} oder \texttt{python3} aus um eine
-        interaktive Eingabezeile zu starten.
-
-        Wenn ihr bei der Installation oder den Aufgaben nicht weiterkommt, fragt uns einfach! Es mag vielleicht nach einer guten Idee aussehen, im Internet nach der Antwort zu suchen, aber da habt ihr dann keine Garantie, dass es eine sinnvolle Erklärung dazu gibt. Außerdem wisst ihr dann nicht, ob ihr vielleicht etwas nicht richtig verstanden habt. Zu guter Letzt gibt es für viele der Probleme, die wir euch hier Präsentieren, sehr schnelle Lösungen in Python, welche aber höhere Programmierkenntnisse voraussetzen. Ziel ist es nicht, möglichst alle Aufgaben richtig zu beantworten, sondern dass ihr versteht, was ihr dabei tun müsst.
+        Für das Installieren und Starten von Kotlin haben wir eigene Guides in Moodle verlinkt.
+        Folgt denen, sodass ihr Kotlin ausführen könnt.
         \begin{solution}
-            Python ist installiert und dem Pfad hinzugefügt. Der Befehl
-            \texttt{python ----version} gibt eine Versionsnummer von mindestens \textit{3.4.0}
-            aus, oder der Befehl \texttt{python3} wird verwendet. Der Python Interpreter
-            wurde gestartet.
+            Kotlin ist installiert und dem Pfad hinzugefügt. Der Befehl
+            {\ttfamily kotlinc -version} gibt eine Versionsnummer von mindestens {\ttfamily 1.8.22} aus.
+            % Der Kotlin Interpreter mit {\ttfamily kotlin} wurde gestartet.
+
+            Das Repl wurde korrekt installiert und mit {\ttfamily ki} gestartet. Der Befehl
+            {\ttfamily ki} gibt eine Versionsnummer von mindestens {\ttfamily 0.5.2} aus.
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Theoriefragen}
@@ -40,8 +30,8 @@
         \begin{itemize}
             \mchead
             \mcitemt{Programmcode steht üblicherweise in Textdateien}
-            \mcitemf{Ein Prozessor kann Python direkt ausführen}
-            \mcitemt{Um Python-Code auszuführen kann ein Interpreter verwendet werden}
+            \mcitemf{Ein Prozessor kann Kotlin direkt ausführen}
+            \mcitemt{Um Kotlin-Code auszuführen kann ein Interpreter verwendet werden}
             \mcitemf{Es ist niemals sinnvoll seinen Code mit Kommentaren zu überladen}
         \end{itemize}
         \begin{solution}
@@ -58,30 +48,32 @@
 
         \begin{multicols}{3}
             \begin{itemize}
-                \item \texttt{2}
-                \item \texttt{10.0}
-                \item \texttt{"1"}
-                \item \texttt{'1'}
-                \item \texttt{Test}
-                \item \texttt{"Test"}
-                \item \texttt{0x11}
-                \item \texttt{0b11}
-                \item \texttt{true}
-                \item \texttt{True}
-                \item \texttt{false}
-                \item \texttt{False}
+                \item {\ttfamily 2}
+                \item {\ttfamily 10.0}
+                \item {\ttfamily \verb="1"=}
+                \item {\ttfamily '1'}
+                \item {\ttfamily Test}
+                \item {\ttfamily \verb="Test"=}
+                \item {\ttfamily 0x11}
+                \item {\ttfamily 0b11}
+                \item {\ttfamily true}
+                \item {\ttfamily True}
+                \item {\ttfamily false}
+                \item {\ttfamily False}
             \end{itemize}
         \end{multicols}
 
-        \bonus{Wenn ihr den Typ herausfinden wollt, den ein Ausdruck ergibt,
-            könnt ihr das machen, indem ihr ihn mit \texttt{type(...)} umschließt.}
+        \bonus{Kotlin gibt nicht nur den Wert eines Ausdrucks,
+            sondern auch seinen Typ an.}
 
         \begin{solution}
             Zahlen ohne Anführungszeichen ergeben die Zahl. Rationale Zahlen brauchen einen
-            Dezimal\textbf{punkt}. Anführungszeichen (\texttt{'}, \texttt{"}) ergeben Strings,
-            der Prefix \texttt{0x} erwartet hexadezimales Format, der Prefix \texttt{0b}
-            binäres Format. Wahrheitswerte müssen groß geschrieben werden (\texttt{True},
-            \texttt{False})
+            Dezimal\textbf{punkt}. Doppelte Anführungszeichen ({\ttfamily \verb+"+}) ergeben Strings,
+            der Prefix {\ttfamily 0x} erwartet hexadezimales Format, der Prefix {\ttfamily 0b}
+            binäres Format. Wahrheitswerte müssen klein geschrieben werden ({\ttfamily true},
+            {\ttfamily false}).
+            Einfache Anführungszeichen ergeben Chars, hier wird ein einzelnes Zeichen als numerischer Wert abgespeichert.
+            Strings sind dann die Verkettung von Chars.
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Mathe 0 für Informatiker*innen}
@@ -92,35 +84,38 @@
 
         \begin{multicols}{3}
             \begin{itemize}
-                \item \texttt{16 + 26}
-                \item \texttt{13.75 + 28.67}
-                \item \texttt{2 * 3 + 6 * 6}
-                \item \texttt{'4' + '2'}
-                \item \texttt{4 ** 3 - 11 * 2}
-                \item \texttt{12 * 133 / 28 - 15}
-                \item \texttt{12 * 'a'}
-                \item \texttt{1.3 * 5.6}
+                \item {\ttfamily 16 + 26}
+                \item {\ttfamily 13.75 + 28.67}
+                \item {\ttfamily 2 * 3 + 6 * 6}
+                \item {\ttfamily \verb="4" + 2=}
+                \item {\ttfamily 12 * 133 / 28 - 15}
+                \item {\ttfamily \Verb{'a' + 5}}
+                \item {\ttfamily 1.3 * 5.6}
             \end{itemize}
         \end{multicols}
 
-        %\bonus{Mit \texttt{ord(...)} könnt ihr den Codepunkt eines Zeichens
-        %    herausfinden, mit \texttt{chr(...)} das Zeichen zu einem Codepunkt.}
+        \bonus{Weitere mathematische Operationen können mit {\ttfamily import kotlin.math.*} importiert werden.
+
+            \begin{multicols}{3}
+                \begin{itemize}
+                    \item {\ttfamily PI}
+                    \item {\ttfamily 12.0.pow(3)}
+                    \item {\ttfamily sqrt(2.0)}
+                \end{itemize}
+            \end{multicols}}
 
         \begin{solution}
-            Das Ergebnis ist meistens eine Variante von 42. Wichtig ist, dass hier
-            Punkt- vor Strichrechnung gilt. Der \texttt{**} Operator potenziert.
-            String mal Zahl ergibt eine Wiederholung des Strings. Die letzte Aufgabe
-            betont, dass manche Operationen auf Kommazahlen keine genauen Ergebnisse
-            liefern.
+            Das Ergebnis ist meistens eine Variante von 42.
+            Wichtig ist, dass hier Punkt- vor Strichrechnung gilt.
+            Beachtet die unterschiedlichen Datentypen.
+            Die letzte Aufgabe betont, dass manche Operationen auf Kommazahlen keine genauen Ergebnisse liefern.
         \end{solution}
     \end{subtask*}
 \end{task}
 \begin{task}[points=auto]{Konvertierung \stage2}
     \begin{subtask*}[points=0]{Konvertierung}
-        Nehmen wir mal an, ihr habt den Text \texttt{"1000"} zur Verfügung. Vielleicht
-        errechnet; vielleicht aus einer API (\textit{application programming interface}, allgemeine Bezeichnung für Schnittstellen zwischen Programmen)? Es kommt immer wieder vor, dass die Daten noch den falschen Typ haben, wenn ihr sie bekommt. In Python schreibt ihr dafür
-        den Typ hin, den ihr erhalten wollt, sowie den Ausdruck in Klammern dahinter.
-        Python versucht, den am Besten passenden Wert des gewünschten Typs zu finden.
+        Nehmen wir mal an, ihr habt den Text {\ttfamily \verb="1000"=} zur Verfügung. Vielleicht
+        errechnet; vielleicht aus einer API (\textit{application programming interface}, allgemeine Bezeichnung für Schnittstellen zwischen Programmen)? Es kommt immer wieder vor, dass die Daten noch den falschen Typ haben, wenn ihr sie bekommt.
 
         Gebt die folgenden Ausdrücke ein, und findet das Ergebnis heraus.
 
@@ -128,49 +123,49 @@
 
         \begin{multicols}{3}
             \begin{enumerate}
-                \item \pythoninline{int("100")}
-                \item \pythoninline{float("1.3")}
-                \item \pythoninline{float("NaN")}
-                \item \pythoninline{str(234)}
-                \item \pythoninline{int("0x11")}
-                \item \pythoninline{str(2) + '5'}
-                \item \pythoninline{str(2 + 5)}
-                \item \pythoninline{float(5)}
-                \item \pythoninline{int(5.5)}
-                \item \pythoninline{int("4.2")}
+                \item \kotlininline{"100".toInt()}
+                \item \kotlininline{"1.3".toFloat()}
+                \item \kotlininline{"NaN".toFloat()}
+                \item \kotlininline{123.toString()}
+                \item \kotlininline{"0x11".toInt()}
+                \item \kotlininline{2.toString() + "5"}
+                \item \kotlininline{(2 + 5).toString()}
+                \item \kotlininline{5.toFloat()}
+                \item \kotlininline{5.5.toInt()}
+                \item \kotlininline{"4.2".toInt()}
             \end{enumerate}
         \end{multicols}
 
         \begin{solution}
             \begin{multicols}{3}
                 \begin{enumerate}
-                    \item \pythoninline{100}
-                    \item \pythoninline{1.3}
-                    \item \pythoninline{nan}
-                    \item \pythoninline{'234'}
-                    \item \textbf{ValueError}
-                    \item \pythoninline{'25'}
-                    \item \pythoninline{'7'}
-                    \item \pythoninline{5.0}
-                    \item \pythoninline{5}
-                    \item \textbf{ValueError}
+                    \item \kotlininline{kotlin.Int = 100}
+                    \item \kotlininline{kotlin.Float = 1.3}
+                    \item \kotlininline{kotlin.Float = NaN}
+                    \item \kotlininline{kotlin.String = 123}
+                    \item \textbf{NumberFormatException}
+                    \item \kotlininline{kotlin.String = 25}
+                    \item \kotlininline{kotlin.String = 7}
+                    \item \kotlininline{kotlin.Float = 5.0}
+                    \item \kotlininline{kotlin.Int = 5}
+                    \item \textbf{NumberFormatException}
                 \end{enumerate}
             \end{multicols}
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Verrückte Eingabe \stage3}
-        Versucht einen Ausdruck zu finden, der nur \pythoninline{'1'}, \pythoninline{0},
-        \pythoninline{int(...)}, \pythoninline{str(...)} und Operationen verwendet, der
-        insgesamt zu \pythoninline{3000} auswertet. Beachtet, dass solche Ausdrücke
+        Versucht einen Ausdruck zu finden, der nur \kotlininline{'1'}, \kotlininline{0},
+        \kotlininline{toInt}, \kotlininline{toString} und Operationen verwendet, der
+        insgesamt zu \kotlininline{3000} auswertet. Beachtet, dass solche Ausdrücke
         wie ihr hier schreiben sollt, so \textbf{niemals} in echtem Code auftauchen
         sollten.
 
         \textit{Hinweis: Zwar soll am Ende eine Zahl rauskommen, ihr werdet aber in dieser Aufgabe oft zwischen Zahl und Text hin- und herkonvertieren müssen.}
 
         \begin{solution}
-            \begin{codeBlock}[]{minted language=python}
-                >>> int(str(int('1') + int('1') + int('1')) + str(0) + str(0) + str(0))
-                3000
+            \begin{codeBlock}[]{minted language=kotlin}
+                >>> (("1".toInt() + "1".toInt() + "1".toInt()).toString() + 0.toString() + 0.toString() + 0.toString()).toInt()
+                res4: kotlin.Int = 3000
             \end{codeBlock}
             Es gibt natürlich auch noch andere Möglichkeiten.
         \end{solution}
@@ -182,14 +177,14 @@
         Ordnet die folgenden drei Fehlertypen den folgenden Ausdrücken zu.
         \begin{multicols}{3}
             \begin{itemize}
-                \item[] \textbf{SyntaxError}
-                \item[] \textbf{ZeroDivisionError}
-                \item[] \textbf{NameError}
+                \item[] \textbf{expecting an expression}
+                \item[] \textbf{ArithmeticException}
+                \item[] \textbf{unresolved reference}
             \end{itemize}
             \begin{itemize}
-                \item[] \pythoninline{true}
-                \item[] \pythoninline{4 +* 5}
-                \item[] \pythoninline{2 / 0}
+                \item[] \kotlininline{True}
+                \item[] \kotlininline{2.toInt)3(}
+                \item[] \kotlininline{2 / 0}
             \end{itemize}
             \begin{itemize}
                 \item[] \textit{Syntaktischer Fehler}
@@ -200,77 +195,76 @@
 
         \begin{solution}
             \begin{enumerate}
-                \item \pythoninline{true} ist ein falsch geschriebenes Schlüsselwort und
-                    somit ein \\ lexikalischer Fehler (\textbf{NameError}, \dots)
-                \item \pythoninline{4 +* 5} sind Operatoren, denen ein Parameter dazwischen
-                    fehlt, somit ein
-                    \\ syntaktischer Fehler (\textbf{SyntaxError}, \textbf{IndentationError}, \dots)
-                \item \pythoninline{2 / 0} ist eine undefinierte Rechnung, also ein
-                    \\ semantischer Fehler (\textbf{ZeroDivisionError}, \textbf{ValueError}, \dots)
+                \item \kotlininline{True} ist ein falsch geschriebenes Schlüsselwort und somit ein \\
+                    lexikalischer Fehler (unresolved reference)
+                \item \kotlininline{2.toInt)3(} hat die Klammern vertauscht, somit ein \\
+                    syntaktischer Fehler (expecting an expression)
+                \item \kotlininline{2 / 0} ist eine undefinierte Rechnung, also ein
+                    \\ semantischer Fehler (\textbf{ArithmeticException})
             \end{enumerate}
 
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Finde den Fehler \stage2}
         Gegeben sind die folgenden Listings. Führt die Programme aus und beschreibt, warum jeweils ein Fehler auftritt.
-        \begin{codeBlock}[]{minted language=python}
-            >>> prinnt("Hello World!") # a)
-            >>> print(Hello World!)    # b)
-            >>> print("Alter: " + 18)  # c)
-            >>> print("Hello World!)   # d)
+        \begin{codeBlock}[]{minted language=kotlin}
+            >>> prinntln("Hello World") // a)
+            >>> println(Hello World!)    // b)
+            >>> println("Alter: " * 18)  // c)
+            >>> println("Hello World!)   // d)
         \end{codeBlock}
         \begin{solution}
             \begin{enumerate}
-                \item \texttt{NameError: name 'prinnt' is not defined}: Ein \textcolor{red}{Lexikalischer Fehler}, da es keine Funktion mit dem angegebenen Namen
-                    \texttt	{prinnt} gibt. Gültig wäre \texttt{print}. Ein klassische Tippfehler.
-                \item \texttt{SyntaxError: invalid syntax}: Ein \textcolor{red}{Syntaktischer Fehler}, da Strings immer in einfachen oder doppelten Anführungszeichen
+                \item {\ttfamily unresolved reference: prinntln}: Ein \textcolor{red}{Lexikalischer Fehler}, da es keine Funktion mit dem angegebenen Namen
+                    \texttt	{prinntln} gibt. Gültig wäre {\ttfamily println}. Ein klassische Tippfehler.
+                \item Ein \textcolor{red}{Syntaktischer Fehler}, da Strings immer in einfachen oder doppelten Anführungszeichen
                     stehen müssen.
-                \item \texttt{TypeError: must be str, not int}: Ein \textcolor{red}{Semantischer Fehler}, da Texte und Zahlen nicht eindeutig addierbar sind.
-                    \textbf{Bonus Fact}: Um irgendeinen Wert in einen String zu verwandeln gibt es die Funktion \texttt{str(...)}
-                \item \texttt{SyntaxError: EOL while scanning string literal}: Ein \textcolor{red}{Syntaktischer Fehler}, da der Rest der Zeile nun auch als String
-                    gelesen wird, der aber nie endet.
+                \item {\ttfamily Unresolved reference}: Ein \textcolor{red}{Semantischer Fehler}, da Texte und Zahlen multiplizierbar sind.
+                    \textbf{Bonus Fact}: Hierfür kann man z.B. \kotlininline{"Hallo ".repeat(3)} nutzen.
+                \item Ein \textcolor{red}{Syntaktischer Fehler}, da der Rest der Zeile nun auch als String gelesen wird, der aber nie endet.
             \end{enumerate}
 
         \end{solution}
     \end{subtask*}
 \end{task}
 \begin{task}[points=auto]{Challenge}
-    \begin{subtask*}[points=0]{Wir rechnen Modulo \stage3}
-        %\newcommand{\mod}{\mathop{mod}}
+    \begin{subtask*}[points=0]{Caesar Cipher \stage3}
+        \begin{wrapfigure}{r}{0.2\textwidth}
+            \begin{center}
+                \includegraphics{caesar-cipher.jpg}
+            \end{center}
+            Quelle: Wikipedia
+        \end{wrapfigure}
+        Wir wollen einen sehr einfaches Verschlüsselungsverfahren implementieren, den Caesar Cipher\footnote{\url{https://de.wikipedia.org/wiki/Caesar-Verschlüsselung}}.
+        Grundidee ist, das Alphabet auf zwei Scheiben zu schrieben und gegeneinander zu drehen.
+        Eine Verschiebung von $5$ wäre zum Beispiel
+        \begin{align*}
+            A \to F \\
+            B \to G \\
+            M \to R
+        \end{align*}
 
-        Für eine RSA-Verschlüsselung werden zwei Primzahlen $p,q$ benötigt.
-        Deren Produkt definiert einen Ring $\mathbb Z_n$ mit $n = p * q$.
-        Das heißt, nach jeder Operation wir das Ergebnis mittels \textbf{Modulo}
-        in das Intervall $[0,n)$ gebracht. \\\\
-        %
-        In Python wird das mit dem \texttt{\%} Operator dargestellt. So gilt
-        \pythoninline{20 % 10 == 0}, \pythoninline{15 % 9 == 6}, \dots \\\\
-        %
-        Wenn wir nun etwas verschlüsseln/entschlüsseln wollen, benötigen wir zunächst
-        $N = \phi(n) = (p-1) * (q-1)$ und ausserdem ein $0 < e < N$ mit $ggT(e,N) = 1$,
-        sowie ein $0 < d < N$ mit $ed \mod N = 1$. \\\\
-        %
-        Da das hier keine Krypto-Vorlesung ist, haben wir für euch die Werte: \\
-        $p=3$, $q=11$, $n=33$, $N=20$, $e=3$, $d=7$ berechnet. Eine Nachricht $m$ wird
-        nun als $m^e \mod n$ verschlüsselt, ein Chiffretext $c$ als $c^d \mod n$
-        entschlüsselt.\\\\
-        %
-        Verschlüsselt mit den vorgegebenen (oder eigenen) Werten nun ein
-        paar Zahlen ($0 <= x < n$), und probiert ob ihr sie wieder entschlüsseln könnt.
-        Ihr könnt diese auch an eure Sitznachbarn weitergeben!
+        Geben soll eine Verschiebung \kotlininline{val n = 5}
+        und einen Char \kotlininline{val c = 'B'} sein.
+        Es soll einmal die Ver- und die Entschlüsselung berechnet werden.
+        Man muss natürlich aufpassen, dass man bei z.B.
+        \kotlininline{'A'} nicht \enquote{zu weit nach links} geht.
 
-        % Bonus
-        % enc = lambda x: [(ord(c) - ord('a')) ** 3 % 33 for c in x if ord('a') <= ord(c) and ord(c) <= ord('z')]
-        % dec = lambda x: "".join([chr((v ** 7 % 33) + ord('a')) for v in x if 0 <= v and v < 33])
         \begin{solution}
-            Ein Beispiel wäre die folgende Rechnung:
-            \begin{codeBlock}[]{minted language=python}
-                >>> (13 ** 3) % 33
-                19
-                >>> (19 ** 7) % 33
-                13
+            Ein Beispiel für die Verschlüsselung wäre die folgende Rechnung:
+            \begin{codeBlock}[]{minted language=kotlin}
+                [0] val n = 5
+                [1] val c = 'B'
+                [2] 'A' + ((c - 'A') + n) % 26
+                res2: Char = G
             \end{codeBlock}
-
+            Und für die Entschlüsselung die folgende Rechnung:
+            \begin{codeBlock}[]{minted language=kotlin}
+                [0] val n = 5
+                [1] val c = 'B'
+                [2] 'A' + ((c - 'A') - n + 26) % 26
+                res2: Char = B
+            \end{codeBlock}
         \end{solution}
     \end{subtask*}
 \end{task}

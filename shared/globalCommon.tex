@@ -4,6 +4,8 @@
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{minted}
+\RequirePackage{csquotes}
+\RequirePackage{fontawesome5}
 
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 
@@ -56,6 +58,11 @@
         style=native,
         encoding="utf8"
     }
+    \newmintinline{kotlin}{
+        style=native,
+        encoding="utf8"
+    }
+
 
     \definecolor{codegray}{HTML}{eaf1ff}
     \newminted[bashcode]{awk}{
@@ -94,6 +101,10 @@
         style=friendly,
         encoding="utf8"
     }
+    \newmintinline{kotlin}{
+        style=friendly,
+        encoding="utf8"
+    }
 
     \definecolor{codegray}{HTML}{eaf1ff}
     \newminted[bashcode]{awk}{
@@ -118,4 +129,69 @@
 \renewcommand{\pythonfile}[1]{\pythonfileh{#1}{}}
 \newcommand{\pythonfileh}[2]{\origpythonfile[#2]{#1}}
 
+\DeclareDocumentCommand{\kotlinfile}{O{} O{} m}{\inputCode[#1]{minted language=kotlin,minted style=native,#2}{#3}}
+
 \newcommand*{\ditto}{\texttt{\char`\"}}
+
+\RequirePackage{caption,subcaption}
+
+\newcommand{\shellprefix}{\textcolor{TUDa-3a}{\ttfamily\bfseries \$~}}
+\newcommand{\shellcursor}{\tikz[baseline=-.5ex]{\node[fill,text height=1em, text width=1.5mm, inner sep=0pt,outer sep=0pt]{};}}
+\DeclareTCBListing{commandshell}{ O{} O{} }{
+    colback=\IfDarkModeTF{black}{black!80},
+    colupper=white,
+    colframe=TUDa-3a,
+    listing only,
+    % listing options={style=tcblatex,language=sh},
+    listing engine=minted,
+    minted style=native,
+    minted options={
+        % linenos=true,
+        numbersep=3mm,
+        texcl=true,
+        autogobble,
+        escapeinside=@@,
+        breaklines,
+        highlightcolor=yellow!50!black,
+        #1
+    },
+    #2,
+    % before upper={\textcolor{red}{\small\ttfamily\bfseries root \$> }},
+    % every listing line={\textcolor{red}{\small\ttfamily\bfseries root \$> }}
+}
+
+\ExplSyntaxOn
+\DeclareTCBListing{codeBlock}{ O{} m }{
+listing~engine=minted, % Minted verwenden
+colback=\IfDarkModeTF{codebg}{black!10!\thepagecolor}, %Hintergrundfarbe
+colframe=black!70, % Randfarbe
+coltext=.,
+listing~only,  % Sonst will er den Plain Text nach dem Minted Listing noch anfügen
+frame~hidden,
+boxrule=0pt,
+arc=\rubos@boxarc,
+%hbox, % This option could be used to limit the Length of Code Blocks automatically, but does not work with the minted Line Numbers
+title~style=\IfDarkModeTF{accentcolor!60!black}{accentcolor},
+minted~style/.expanded=\IfDarkModeTF{native}{tango}, % Highlighting Style anpassen
+minted~language=java, % Sprache setzen
+minted~options={ %Minted Optionen
+linenos=true,
+numbersep=3mm,
+texcl=true,
+autogobble,
+escapeinside=@@,
+breaklines,
+highlightcolor=\IfDarkModeTF{yellow!50!black}{yellow!80},
+#1 % weitere optionen für Minted zulassen
+},
+left=7.1mm, % Links Platz lassen
+enhanced, % Erlaubt uns, den ramen zu zeichnen
+fonttitle=\sffamily, % Titelschriftart auf
+overlay={ % Für Grauen Bereich links
+    \begin{tcbclipinterior}
+        \fill[black!70] (frame.south~west) rectangle ([xshift=5mm]frame.north~west); % Zeilennummernbereich färben
+    \end{tcbclipinterior}
+},
+#2 % Weitere Argumente zulassen
+}
+\ExplSyntaxOff

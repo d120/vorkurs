@@ -7,25 +7,21 @@
 %Deckblatt
 \subtitle{Kapitel 1: Erste Schritte}
 \titlegraphic{
-    \begin{columns}
-        \begin{column}{6cm}
-            \vspace{4.32mm}
-            \begin{center}
-                {\huge Mit einem Computer Reden}
-            \end{center}
-            \vspace{-5.0mm}
+    \begin{columns}[b]
+        \begin{column}{.6\textwidth}
+            \centering
+            {\huge Mit einem\\Computer Reden}
             \begin{figure}
                 \centering
                 \includeinvertablegraphics[scale=0.3]{code_quality.png}
-                \\	\sffamily \tiny Bild: \href{https://xkcd.com/1513/}{https://xkcd.com/1513/}
+                \caption*{Bild: \href{https://xkcd.com/1513/}{https://xkcd.com/1513/}}
             \end{figure}
-        \end{column}
-        \begin{column}{3.5cm}
-            \vspace{-0.3mm}
+        \end{column}%
+        \begin{column}{.4\textwidth}
             \begin{figure}
                 \centering
                 \includeinvertablegraphics[scale=0.2]{good_code.png}
-                \\	\sffamily \tiny Bild: \href{https://xkcd.com/844/}{https://xkcd.com/844/}
+                \caption*{Bild: \href{https://xkcd.com/844/}{https://xkcd.com/844/}}
             \end{figure}
         \end{column}
     \end{columns}}
@@ -40,29 +36,25 @@
 \begin{frame}
     \slidehead
     \vspace{3mm}
-    \begin{itemize}
-        \pause
+    \begin{itemize}[<+->]
         \item Computer sind rein-mathematische Maschinen
-            \pause
         \item Computer führen einfache Arbeitsschritte extrem \textbf{schnell} aus
-            \pause
         \item Programme sind aus vielen Arbeitsschritten zusammengesetzt
-            \pause
-            \pythonfile{listings/Programmieren.txt}
+            \kotlinfile{listings/Programmieren.txt}
     \end{itemize}
 \end{frame}
 
 \section{Was tun wir hier eigentlich?}
 \begin{frame}
     \slidehead
-    \begin{itemize}
-        \item Programmieren mit Python \textcolor{gray}{[\textprimstress pa\textsci \texttheta n] [\textprimstress pa\textsci \texttheta \textscripta n]}
-            \pause
-        \item Python?
-            \pause
-        \item[] $\Rightarrow$ Programmiersprache!
-        \item[] $\Rightarrow$ Verständlicher für Menschen
-        \item[] $\Rightarrow$ Oft verwendet
+    \begin{itemize}[<+->]
+        \item Programmieren mit Kotlin \textcolor{gray}{[\textprimstress{}k\textturnscripta{}tl\textsci{}n]}
+        \item Kotlin?
+            \begin{itemize}[<3->]
+                \item[] $\Rightarrow$ Programmiersprache!
+                \item[] $\Rightarrow$ Verständlicher für Menschen
+                \item[] $\Rightarrow$ Oft verwendet
+            \end{itemize}
     \end{itemize}
 
     \pause
@@ -90,7 +82,7 @@
     \end{frame}
 \end{comment}
 
-\section{Interpreter?}
+\section{Compiler?}
 \begin{frame}[t]
     \slidehead
     \begin{columns}[T]
@@ -100,7 +92,7 @@
                 \node[] (mensch) at (0,0) {\includeinvertablegraphics[height=1.3cm]{media/wesen_notebook.png}};
 
                 \visible<2->{
-                    \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (interpreter) at (0,-1.8) {Interpreter};
+                    \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (interpreter) at (0,-1.8) {Compiler};
                     \draw[->,line width=.6mm] (mensch.south) -- (interpreter.north);
                 }
                 \visible<3->{
@@ -118,8 +110,7 @@
                 \item[]
                 \item[]
                     \visible<2->{
-                \item \textbf{Der Interpreter} interpretiert den Quelltext als Maschinenbefehle
-
+                \item \textbf{Der Compiler} kompiliert den Quelltext zu Maschinenbefehlen
                     }
                 \item[]
                 \item[]
@@ -158,46 +149,25 @@
 % \maketitle
 
 \section{Erstes Program}
-\begin{frame}
+\begin{frame}[fragile]
     % Beispiel, um zu zeigen wie so ein Befehl aussieht (und ein Kommentar)
     \slidehead
     \hskip .8cm
     \vspace{.5cm}
-    \pythonfile{listings/HelloWorld.py}
 
-    \pause
+    \kotlinfile[escapeinside=\$\$,texcomments]{listings/helloworld.kts}
 
-    \vspace{-2.55cm}
-    \hskip .8cm
-    \begin{tikzpicture}
-        \draw [decorate,decoration={brace,amplitude=6pt}]
-        (0,0.5) -- (3.7,0.5) node [.,midway,yshift=15pt,xshift=3.4cm] {Kommentar: wird vom Computer \textbf{ignoriert}, ist für Menschen \textbf{nützlich}};
+    \begin{tikzpicture}[remember picture,overlay]
+        \draw<2->[decorate,decoration={brace,amplitude=6pt}] ([yshift=1em]pic cs:commentstart) -- ([yshift=1em]pic cs:commentend) node [midway,yshift=15pt,xshift=3.4cm] {Kommentar: wird vom Computer \textbf{ignoriert}, ist für Menschen \textbf{nützlich}};
+        \draw<3->[decorate,decoration={mirror,brace,amplitude=6pt}] ([yshift=-1ex]pic cs:commandstart) -- ([yshift=-1ex]pic cs:commandend) node [midway,yshift=-15pt] {Befehl};
+        \draw<4->[decorate,decoration={mirror,brace,amplitude=6pt}] ([yshift=-1ex]pic cs:textstart) -- ([yshift=-1ex]pic cs:textend) node [midway,yshift=-15pt] {Text};
     \end{tikzpicture}
 
-    \pause
-
-    \vspace{1.8cm}
-    \hskip .8cm
-    \begin{minipage}[b]{0.4\textwidth}
-        \begin{tikzpicture}
-            \draw [decorate,decoration={mirror,brace,amplitude=6pt}]
-            (0,0.5) -- (1,0.5) node [.,midway,yshift=-15pt] {Befehl};
-        \end{tikzpicture}
-    \end{minipage}
-    \pause
-    \hskip -4.8cm
-    \begin{minipage}[b]{0.4\textwidth}
-        \begin{tikzpicture}
-            \draw [decorate,decoration={mirror,brace,amplitude=6pt}]
-            (1.1,0.5) -- (3.35,0.5) node [.,midway,yshift=-15pt] {Text};
-        \end{tikzpicture}
-    \end{minipage}
-
-    \pause
+    \onslide<5->
     \vspace{0.25cm}
     \begin{block}{Wichtig}
         \begin{itemize}
-            \item Text muss in \pythoninline{" "} oder in \pythoninline{' '} stehen
+            \item Text muss in \kotlininline{" "} stehen
             \item Verwende \textbf{aussagekräftige} Kommentare \footnotesize (dein späteres Ich wird es dir danken)!
         \end{itemize}
     \end{block}
@@ -212,40 +182,41 @@
     % Beispiel wie kleinkariert man mit diesem Computer reden muss - unintuitiv für Menschen, dass man nicht einfach "Enter" drücken kann, sondern so kryptisch "\n" schreiben muss
     \slidehead
     \begin{itemize}
-        \item Mithilfe des Befehls \pythoninline{print()} kann Text auf der Konsole ausgeben werden
+        \item Mithilfe des Befehls \kotlininline{println()} kann Text auf der Konsole ausgeben werden
     \end{itemize}
     \pause
     \begin{columns}
-        \begin{column}{6cm}
-            \pythonfile{listings/print_Listing.py}
-        \end{column}
-        \begin{column}{7cm}
-            \pythonfile{listings/printSingleLine_Listing.py}
+        \begin{column}{.4\textwidth}
+            \kotlinfile{listings/print_Listing.kts}
+        \end{column}%
+        \begin{column}{.6\textwidth}
+            \kotlinfile{listings/printSingleLine_Listing.kts}
         \end{column}
     \end{columns}
     \vspace{0.25cm}
     \begin{block}{Merke}
-        \pythoninline{print()} erzeugt einen Zeilenumbruch nach der Ausgabe
+        \kotlininline{println()} erzeugt einen Zeilenumbruch nach der Ausgabe
     \end{block}
 \end{frame}
 
 \subsection{Steuerzeichen}
-\begin{frame}
+\begin{frame}[fragile]
     \slidehead
 
     \begin{table}[htbp]
         \begin{tabular}{|l|l|}
             \hline
-            \textbf{Symbol}         & \textbf{Wirkung}                                               \\ \hline
-            $\backslash$n           & Zeilenumbruch                                                  \\ \hline
-            $\backslash$\"          & Doppeltes Anführungszeichen  (nur in \pythoninline{" "} nötig) \\ \hline
-            $\backslash$'           & Einfaches Anführungszeichen (nur in \pythoninline{' '} nötig)  \\ \hline
-            $\backslash \backslash$ & Backslash                                                      \\ \hline
+            \textbf{Symbol} & \textbf{Wirkung}                                               \\ \hline
+            \verb+\n+       & Zeilenumbruch                                                  \\ \hline
+            \verb+\"+       & Doppeltes Anführungszeichen  (nur in \kotlininline{" "} nötig) \\ \hline
+            % \verb+\'+       & Einfaches Anführungszeichen (nur in \kotlininline{' '} nötig)  \\ \hline
+            \verb+\t+       & einen Tab einfügen                                             \\ \hline
+            \verb+\\+       & Backslash                                                      \\ \hline
         \end{tabular}
         \label{}
     \end{table}
     \pause
-    \pythonfile{listings/Steuerzeichen_Listing.py}
+    \kotlinfile{listings/Steuerzeichen_Listing.kts}
 \end{frame}
 
 \section{Dateisystem}
@@ -256,7 +227,7 @@
         \item Computer benutzen Dateien um Daten (Bilder, Texte, Programme, ...) permanent zu speichern
         \item Dabei werden die Dateien oft in einer Ordnerstruktur abgelegt
         \item Dateien haben einen eindeutigen Namen innerhalb ihres Ordners
-        \item Dateien haben meist eine Dateiendung, welche signalisiert, um welche Art von Datei es sich handelt. (z.B: .png, .txt, .doc, .py, .exe)
+        \item Dateien haben meist eine Dateiendung, welche signalisiert, um welche Art von Datei es sich handelt. (z.B: .png, .txt, .doc, .kts, .exe)
     \end{itemize}
 \end{frame}
 
@@ -269,30 +240,26 @@
             \begin{tikzpicture}
                 \node[] (mensch) at (0,0) {\includeinvertablegraphics[height=1.3cm]{media/wesen_notebook.png}};
 
-                \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (file) at (0,-1.8) {helloworld.py};
+                \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (file) at (0,-1.8) {helloworld.kts};
                 \draw[->,line width=.6mm] (mensch.south) -- (file.north);
 
-                \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (python) at (0,-4) {\texttt{python helloworld.py}};
-                \draw[->,line width=.6mm] (file.south) -- (python.north);
+                \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (kotlin) at (0,-4) {\texttt{kotlinc helloworld.kts}};
+                \draw[->,line width=.6mm] (file.south) -- (kotlin.north);
             \end{tikzpicture}
         \end{column}
         \begin{column}{.6\textwidth}
             \begin{itemize}
-                \item Ausführen: \texttt{python dateiName.py}
-                \item Python-Programme laufen überall, wo Python installiert ist
+                \item Ausführen: \texttt{kotlinc dateiName.kts}
+                \item Kotlin-Programme laufen überall, wo Kotlin installiert ist
             \end{itemize}
             \begin{block}{Hinweis}
-                Wenn \texttt{python -\,-version}\, kleiner 3 ist, müsst ihr entweder updaten oder \texttt{python3} als Befehl verwenden!
-            \end{block}
-            %\vspace{2cm}
-            \begin{block}{Hinweis}
-                Python-Quelltext mit der Dateiendung \texttt{.py} kennzeichnen und sinnvoll benennen! Leerzeichen sind problematisch.
+                Kotlin-Script-Quelltext mit der Dateiendung \texttt{.kts} kennzeichnen und sinnvoll benennen! Leerzeichen sind problematisch.
             \end{block}
         \end{column}
     \end{columns}
 \end{frame}
 
-\section{Ein Python-Programm schreiben}
+\section{Ein Kotlin-Programm schreiben}
 \begin{frame}
     \slidehead
 
@@ -303,11 +270,11 @@
 
     \begin{itemize}
         \item Programm wird in einem herkömmlichen Editor geschrieben
-        \item hier ein paar Editor Beispiele: \texttt{gedit}, \texttt{atom}, \texttt{kate}
+        \item hier ein paar Editor Beispiele: \texttt{Gedit}, \texttt{VS Code}, \texttt{Kate}
     \end{itemize}
-    \begin{alertblock}{Wichtig}
+    \begin{defBox}[title={Wichtig}]
         Verwendet \textbf{keine} Textverarbeitung wie LibreOffice, Pages oder MS Word!
-    \end{alertblock}
+    \end{defBox}
 \end{frame}
 
 % \begin{frame}
@@ -328,34 +295,35 @@
 % 	Ihr könnt euch während dessen natürlich auf Discord unterhalten.
 % \end{frame}
 
-\section{Ein Python-Programm ausführen}
+\section{Ein Kotlin-Programm ausführen}
 \begin{frame}[fragile]
     \slidehead
-    \begin{bashcode}
-        $ python helloworld.py
-            Hello World!
-        $
-    \end{bashcode}
-
+    % \begin{noindent}
+    \begin{commandshell}
+@\shellprefix@ kotlinc HelloWorld.kts
+Hello World!
+@\shellprefix\shellcursor@
+    \end{commandshell}
+    % \end{noindent}
     \begin{itemize}
-        \item Programm mit \texttt{python dateiName.py} starten
+        \item Programm mit Dateinamen \texttt{HelloWorld.kts} starten
     \end{itemize}
 \end{frame}
 
-\subsection{Interaktiver Interpreter}
+\subsection{Interaktive Shell}
 \begin{frame}[fragile]
-    \slidehead
-
-    \begin{bashcode}
-        $ python
-        |\texttt{Python 3.10.7 (main, Sep  6 2022, 21:22:27)}|
-        |\texttt{[GCC 12.2.0] on linux}|
-        |\texttt{Type {\ditto}help{\ditto}, {\ditto}copyright{\ditto}, {\ditto}credits{\ditto} or {\ditto}license{\ditto} for more information.}|
-        >>> print("Hello World!")
-        Hello World!
-        >>>
-    \end{bashcode}
-
+    \slidehead{}
+    \vspace{-1em}
+    %\begin{noindent}
+    \begin{commandshell}[][top=0cm,bottom=0cm]
+@\shellprefix@ ki
+ki-shell 0.5.2/1.7.0
+type :h for help
+[0] println(@\PYG{l+s}{"Hello World!"}@)
+Hello World!
+[1] @\shellcursor@
+    \end{commandshell}
+    %\end{noindent}
     %|\texttt{Python 3.7.0 (default, Jul 15 2018, 10:44:58)}|
     %|\texttt{[GCC 8.1.1 20180531] on linux}|
     %|\texttt{Type {\ditto}help{\ditto}, {\ditto}copyright{\ditto}, {\ditto}credits{\ditto} or %{\ditto}license{\ditto} for more information.}|
@@ -363,15 +331,14 @@
     \vskip -.5em
 
     \begin{itemize}
-        \item Der Python-Interpreter hat einen interaktiven Modus
-        \item Dieser kann mit dem Konsolenbefehl \texttt{python} gestartet werden
-        \item Anschließend können Python-Befehle eingegeben werden
-        \item[]  %leerzeile
-        \item \textbf{Strg+D} (außer Windows) oder der Befehl \pythoninline{quit()} beendet den Interpreter wieder
+        \item Die Kotlin-Interactive-Shell hat einen interaktiven Modus
+        \item Dieser kann mit dem Konsolenbefehl \texttt{ki} gestartet werden
+        \item Anschließend können Kotlin-Befehle eingegeben werden
+        \item \textbf{Strg+D} (außer Windows) oder der Befehl \kotlininline{:quit} beendet die Shell wieder
     \end{itemize}
-    \begin{alertblock}{Wichtig}
-        Der Python-Interpreter ist \textbf{kein} Editor!
-    \end{alertblock}
+    \begin{defBox}[title={Wichtig}]
+        Die Kotlin-Interactive-Shell ist \textbf{kein} Editor!
+    \end{defBox}
 \end{frame}
 
 \livecoding
@@ -408,7 +375,7 @@
             \begin{itemize}
                 \item Beispielsweise Tippfehler
                     % ACHTUNG: print ist bewusst falsch geschrieben!
-                \item \pythoninline{prit("Lexikalischer Fehler")}
+                \item \kotlininline{pritln("Lexikalischer Fehler")}
             \end{itemize}
         \item \textbf{Syntaktische Fehler}
             \begin{itemize}
@@ -424,56 +391,65 @@
 
 \section{Fehlerbeispiele}
 \subsection{Lexikalischer Fehler}
-\begin{frame}
+\begin{frame}[fragile]
     \slidehead
-    \begin{itemize}
-        \item \texttt{test.py}:
-            \pythonfile{listings/lexError_Listing.py}
-            \pause
-            \pythonfile{listings/lexError_Listing.txt}
-            \pause
-        \item Fehler in \texttt{test.py}
-            \pause
-        \item In \texttt{line 1}, also \textbf{Zeile 1}
-            \pause
-        \item Der Name \texttt{prit} existiert nicht
-            \pause
-        \item Es war \texttt{print} gemeint (das weiß der Interpreter natürlich nicht)
+    \kotlinfile[][title=\codeBlockTitle{test.kts}]{listings/lexError_Listing.kts}
+    \pause
+    \begin{commandshell}[][minted language=text]
+        test.kts:1:1: error: unresolved reference: pritln
+        pritln("ein test")
+        ^
+    \end{commandshell}
+    \pause
+    \begin{itemize}[<+->]
+        \item Fehler in \texttt{test.kts}
+        \item In \textbf{Zeile 1}, \textbf{Position 1} (Befehlsanfang)
+        \item Der Name \texttt{pritln} existiert nicht
+        \item Es war \texttt{println} gemeint (das weiß der Compiler natürlich nicht)
     \end{itemize}
 \end{frame}
 
 \subsection{Syntaktischer Fehler}
 
-\begin{frame}
+\begin{frame}[fragile]
     \slidehead
-    \begin{itemize}
-        \item \texttt{zweiterTest.py}:
-            \pythonfile{listings/otherSynError_Listing.py}
-            \pause
-            \pythonfile{listings/otherSynError_Listing.txt}
-            \pause
-        \item Fehler in \texttt{zweiterTest.py}
-            \pause
-        \item in \texttt{line 1} fehlt eine \texttt{(}
-        \item der Interpreter versteht hier nicht was gemeint war, da das kein richtiger Python-Code ist.
+    \kotlinfile[][title=\codeBlockTitle{zweiterTest.kts},top=0cm,bottom=0cm]{listings/otherSynError_Listing.kts}
+    \pause
+    % \begin{noindent}
+    \begin{commandshell}[fontsize=\small][minted language=text,top=0cm,bottom=0cm]
+        zweiterTest.kts:1:8: error: expecting an element
+        println)
+               ^
+        zweiterTest.kts:1:1: error: function invocation 'println()' expected
+        println)
+        ^
+    \end{commandshell}
+    % \end{noindent}
+    \pause
+    \begin{itemize}[<+->]
+        \item Fehler in \texttt{zweiterTest.kts}
+        \item in \texttt{Zeile 1} an \textbf{Position 8} fehlt eine \texttt{(}
+        \item der Compiler versteht hier nicht was gemeint war, da das kein richtiger Kotlin-Code ist.
     \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
     \slidehead
-    \begin{itemize}
-        \item \texttt{andererTest.py}:
-            \pythonfile{listings/eofError_Listing.py}
-            \pause
-            \pythonfile{listings/eofError_Listing.txt}
-            \pause
-        \item Fehler in \texttt{andererTest.py}
-            \pause
-        \item In \texttt{line 3} stimmt hier nicht ganz, aber in \texttt{line 1} fehlt eine \texttt{)}
-            \pause
-        \item Der Interpreter sucht weiterhin nach \texttt{)}, aber die Datei ist in \textbf{Zeile 3} zu Ende
-            \pause
-        \item Deshalb \texttt{unexpected EOF}: \textbf{EOF} steht für \textbf{E}nd \textbf{O}f \textbf{F}ile
+    \kotlinfile[][title=\codeBlockTitle{andererTest.kts}]{listings/eofError_Listing.kts}
+    \pause
+    % \begin{noindent}
+    \begin{commandshell}[][minted language=text]
+        andererTest.kts:1:24: error: expecting ')'
+        println("noch ein test"
+                               ^
+    \end{commandshell}
+    % \end{noindent}
+    \pause
+    \begin{itemize}[<+->]
+        \item Fehler in \texttt{andererTest.kts}
+            % \item In \texttt{line 3} stimmt hier nicht ganz, aber in \texttt{line 1} fehlt eine \texttt{)}
+        \item Der Compiler sucht nach der geöffneten Klammer nach \texttt{)}, aber die Datei ist nach \textbf{Zeile 1, Position 23} bereits zu ende.
+            % \item Deshalb \texttt{unexpected EOF}: \textbf{EOF} steht für \textbf{E}nd \textbf{O}f \textbf{F}ile
     \end{itemize}
 \end{frame}
 

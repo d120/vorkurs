@@ -32,13 +32,13 @@
 \begin{frame}
     \slidehead
 
-    \pythonfile{listings/why.py}
+    \kotlinfile{listings/why.kts}
 \end{frame}
 
 \begin{frame}
     \slidehead
 
-    \pythonfile{listings/why2.py}
+    \kotlinfile{listings/why2.kts}
     \pause
     \begin{block}{Hinweis}
         Sei faul!
@@ -48,7 +48,7 @@
 \begin{frame}
     \slidehead
 
-    \pythonfile{listings/while_Listing.py}
+    \kotlinfile{listings/while.kts}
     \begin{itemize}
         \item Code wird \textit{kürzer}
         \item Code wird \textit{lesbarer}
@@ -87,8 +87,8 @@
 
     \begin{itemize}
         \item Syntax:
-            \pythonfile{listings/while.txt}
-        \item Solange die Bedingung zu \pythoninline{True} ausgewertet wird, werden Anweisungen wiederholt
+            \kotlinfile{listings/while-syntax.kts}
+        \item Solange die Bedingung zu \kotlininline{true} ausgewertet wird, werden Anweisungen wiederholt
         \item Zeile 1 wird Schleifenkopf genannt
         \item Zeile 2 und folgende werden Schleifenkörper genannt
     \end{itemize}
@@ -98,7 +98,7 @@
     \slidehead
     \begin{itemize}
         \item Alle logischen Operatoren können verwendet werden:
-            \pythonfile{listings/while_Listing2.py}
+            \kotlinfile{listings/while2.kts}
     \end{itemize}
 \end{frame}
 
@@ -109,10 +109,10 @@
     \slidehead
 
     \begin{itemize}
-        \item \pythoninline{continue} springt zum Anfang der Schleife
-        \item \pythoninline{break} bricht die Schleife komplett ab
+        \item \kotlininline{continue} springt zum Anfang der Schleife
+        \item \kotlininline{break} bricht die Schleife komplett ab
     \end{itemize}
-    \pythonfile{listings/continueBreak.py}
+    \kotlinfile{listings/continue-break.kts}
 \end{frame}
 
 \livecoding
@@ -149,13 +149,10 @@
     \begin{itemize}
         \vspace{-0.1cm}
         \item Häufig gibt es folgende Schleifenart:
-            \vspace{0.15cm}
-            \pythonfile{listings/while_Listing3.py}
-
+            \kotlinfile{listings/while3.kts}
             \pause
         \item Kurzschreibweise:
-            \vspace{0.15cm}
-            \pythonfile{listings/forschleife_Listing.py}
+            \kotlinfile{listings/forschleife.kts}
     \end{itemize}
     \begin{block}{Frage:}
         Von wo bis wo zählt diese Schleife?
@@ -168,9 +165,9 @@
     \begin{itemize}
         \item Sinnvoll, wenn eine Variable bis zu einem bestimmten Wert \textit{hochzählen} soll
         \item Syntax:
-            \pythonfile{listings/forschleifeSyntax_Listing.py}
+            \kotlinfile{listings/forschleife.kts}
         \item Beispiel:
-            \pythonfile{listings/forschleifePrint_Listing.py}
+            \kotlinfile{listings/forschleife-print.kts}
     \end{itemize}
 \end{frame}
 
@@ -178,16 +175,16 @@
     \slidehead
 
     \begin{itemize}
-        \item \pythoninline{range} kann auch bei einer bestimmten Zahl anfangen
+        \item Ein range kann auch bei einer bestimmten Zahl anfangen
             \begin{itemize}
-                \item Schreibweise: \pythoninline{range(startwert, grenzwert)}
+                \item Schreibweise: \kotlininline{startwert until grenzwert}
             \end{itemize}
         \item Oder mit einer festen Schrittweite arbeiten:
             \begin{itemize}
-                \item Schreibweise: \pythoninline{range(startwert, grenzwert, schrittweite)}
+                \item Schreibweise: \kotlininline{startwert until grenzwert step schrittweite}
             \end{itemize}
             Beispiel:
-            \pythonfile{listings/range_Listing.py}
+            \kotlinfile{listings/range.kts}
     \end{itemize}
 \end{frame}
 
@@ -198,7 +195,7 @@
     \begin{itemize}
         \item Natürlich lassen sich Schleifen auch \textit{verschachteln}:
             \vspace{0.1cm}
-            \pythonfile{listings/geschachteltfor_listing.py}
+            \kotlinfile{listings/geschachteltfor.kts}
     \end{itemize}
 
     \begin{block}{Frage: Was wird ausgegeben?}
@@ -217,13 +214,13 @@
     \slidehead
     \pause
     \begin{itemize}
-        \item Welche Schleifenarten gibt es in Python?\pause
+        \item Welche Schleifenarten gibt es in Kotlin?\pause
         \item Was \textbf{muss} mit Code in einer Schleife gemacht werden?\pause
-        \item Wann ist die Verwendung einer \pythoninline{for}-Schleife sinnvoll?\pause
-        \item Ist es möglich, \pythoninline{while}-Schleifen in \pythoninline{for}-Schleifen zu verschachteln?\pause
+        \item Wann ist die Verwendung einer \kotlininline{for}-Schleife sinnvoll?\pause
+        \item Ist es möglich, \kotlininline{while}-Schleifen in \kotlininline{for}-Schleifen zu verschachteln?\pause
     \end{itemize}
     \begin{block}{Finde drei Fehler}
-        \pythonfile{listings/FrageStunde_Schleife_ErrorListing.py}
+        \kotlinfile{listings/FrageStunde_Schleife_ErrorListing.kts}
     \end{block}
     % while in range (Syntaxfehler)
     % : fehlt (Syntaxfehler)

@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Build
 
 # Controls when the workflow will run
@@ -39,15 +37,19 @@ jobs:
       # 3. Build the documents
       - name: "Build the documents"
         run: |
-          make -j $(nproc) -C lecture
-          mv lecture/pdfout pdfout
+          make -j -C lecture compile
+          make -j -C exercises compile
+          make -j -C misc/linux_commands compile
+          mkdir -p pdfout
+          cp lecture/pdfout/*.pdf pdfout/
+          cp exercises/pdfout/*.pdf pdfout/
+          cp misc/linux_commands/pdfout/*.pdf pdfout/
 
       # 4. Upload artifacts to GitHub
       - name: Upload artifacts to GitHub
-        if: ${{ !env.ACT }}
         uses: actions/upload-artifact@v3
         with:
-          name: Vorkurs-Folien
+          name: Vorkurs-Materialien
           path: "pdfout/*.pdf"
           if-no-files-found: error
       
@@ -69,3 +71,31 @@ jobs:
       #     fail_on_unmatched_files: true
       #     draft: false
       #     prerelease: false
+
+  deploy:
+    if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch'|| github.event_name == 'pull_request' }}
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    needs: build_latex
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_SECRET_KEY }}
+          known_hosts: "just-a-placeholder-so-we-dont-get-errors"
+
+      - name: Adding Known Hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H login.d120.de > ~/.ssh/known_hosts
+
+      # save the pdf file from the previous workflow
+      - name: Save pdf file
+        uses: actions/download-artifact@v3
+        with:
+          path: .
+          name: Vorkurs-Materialien
+
+      - name: Deploy with rsync
+        run: rsync -avz * ${{ secrets.SSH_USER }}@login.d120.de:public_html
