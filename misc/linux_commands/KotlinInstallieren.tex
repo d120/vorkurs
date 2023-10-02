@@ -15,10 +15,46 @@ Bitte schaue vorher, dass dein System auf dem aktuellen Stand ist.
 In dieser Installationsanleitung installieren wir:
 \begin{itemize}
     \item Kotlin version 1.9
-    \item Java Jdk 17 (wird für Kotlin benötigt)
+    \item Java JDK 11+ (wird für Kotlin benötigt)
     \item \href{https://github.com/Kotlin/kotlin-interactive-shell}{ki (\underline{K}otlin \underline{I}nteractive-Shell)}
 \end{itemize}
 \section*{Windows}
+\subsection*{Automatische Installation durch scoop}
+\subsubsection*{Terminal öffnen (Powershell)}
+Siehe Terminal Guide
+\subsubsection*{Scoop installieren}
+Anhand der Anleitung auf \url{https://scoop.sh/} folgendes ins Terminal eingeben und nach jeder Zeile Enter drücken:
+%\begin{noindent}
+\begin{commandshell}
+@\shellprefix{}@Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+@\shellprefix{}@irm get.scoop.sh | iex
+@\shellprefix{}@scoop install git
+\end{commandshell}
+%\end{noindent}
+\subsubsection*{Java installieren}
+Als Erstes kannst du mit folgendem Befehl überprüfen, ob du Java installiert hast:
+\begin{commandshell}
+    @\shellprefix{}@javac -version
+\end{commandshell}
+Wenn mindestens Version 11 angezeigt wird, hast du eine ausreichend aktuelle Version. Wir empfehlen aber in allen Fällen die neuste Version mit den folgenden Befehlen zu installieren:
+%\begin{noindent}
+\begin{commandshell}
+@\shellprefix{}@scoop bucket add java
+@\shellprefix{}@scoop install java/openjdk
+\end{commandshell}
+%\end{noindent}
+\subsubsection*{Kotlin installieren}
+\begin{commandshell}
+    @\shellprefix{}@scoop install main/kotlin
+\end{commandshell}
+\subsubsection*{Kotlin Interactive Shell installieren}
+%\begin{noindent}
+\begin{commandshell}
+@\shellprefix{}@scoop bucket add extras
+@\shellprefix{}@scoop install extras/kotlin-interactive-shell
+\end{commandshell}
+%\end{noindent}
+Nun kannst du die Installation überprüfen (siehe Abschnitt \nameref{sec:check}).
 % \subsection*{Kommandozeile öffnen (Powershell)}
 % Siehe Terminal guide
 % \subsection*{Automatische Installation durch Winget}
@@ -44,46 +80,46 @@ In dieser Installationsanleitung installieren wir:
 %     \item Damit die neuen Befehle erkannnt werden, musst du die Kommandozeile neu starten, also einmal schließen und wieder öffnen.
 %     \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
 % \end{itemize}
-\subsection*{Automatische Installation durch Chocolatey}
-\subsubsection*{Chocolatey installieren}
-\begin{itemize}
-    \item Falls chocolatey schon installiert ist, kannst du diesen Schritt überspringen
-    \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{Befehl generiert mit \url{https://chocolatey.org/install}} (da der Befehl sich nicht gut kopieren lässt am Besten aus dem Link der Fußnote kopieren):
-        \begin{commandshell}
-            @\shellprefix{}@Set-ExecutionPolicy Bypass -Scope Process -Force;
-            [System.Net.ServicePointManager]::SecurityProtocol =
-            [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
-            iex ((New-Object System.Net.WebClient)
-            .DownloadString('https://community.chocolatey.org/install.ps1'))
-        \end{commandshell}
-    \item Warte, bis die Installation abgeschlossen ist
-\end{itemize}
-\begin{hinweis}
-    Ab Windows 10 kann chocolatey auch über winget per \texttt{winget install chocolatey} installiert werden.
-\end{hinweis}
-\clearpage
-\subsubsection*{JVM und Kotlin Compiler durch Chocolatey installieren}
-\begin{itemize}
-    \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{siehe auch \url{https://community.chocolatey.org/packages/kotlinc} und \url{https://community.chocolatey.org/packages/Temurin17/}}:
-        \begin{commandshell}
-            @\shellprefix{}@choco install temurin17 kotlinc -y
-        \end{commandshell}
-    \item Warte, bis die Installation abgeschlossen ist
-    \item Damit die neuen Befehle erkannnt werden, musst du die Kommandozeile neu starten, also einmal schließen und wieder öffnen.
-    \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
-\end{itemize}
-\subsubsection{ki}
-Aktuell gibt es leider keinen \enquote{schönen} Weg, \texttt{ki} über einen Paketmanager zu installieren. Stattdessen kannst du \texttt{ki} lokal installieren. Dazu musst du folgende Schritte ausführen:
-\begin{itemize}
-    \item Lade KI von hier herunter \url{https://github.com/Kotlin/kotlin-interactive-shell/releases/tag/v0.5.2}
-    \item Entpacke die Datei in einen Ordner deiner Wahl.
-    \item Gehe nun in den bin-Ordner der entpackten Datei und öffne dort ein Terminal. (Siehe Terminal-Anleitung)
-    \item Es kann sein, dass du statt dem Befehl \texttt{ki} den Befehl \mintinline{text}{.\ki.bat} ausführen musst.
-    \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
-\end{itemize}
-\begin{hinweis}
-    Diese Installation funktioniert nur, solange sich deine Kommandozeile im bin-Ordner befindet. Wenn du die Kommandozeile schließt, musst du beim nächsten Öffnen erneut in den bin-Ordner wechseln.
-\end{hinweis}
+% \subsection*{Automatische Installation durch Chocolatey}
+% \subsubsection*{Chocolatey installieren}
+% \begin{itemize}
+%     \item Falls chocolatey schon installiert ist, kannst du diesen Schritt überspringen
+%     \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{Befehl generiert mit \url{https://chocolatey.org/install}} (da der Befehl sich nicht gut kopieren lässt am Besten aus dem Link der Fußnote kopieren):
+%         \begin{commandshell}
+%             @\shellprefix{}@Set-ExecutionPolicy Bypass -Scope Process -Force;
+%             [System.Net.ServicePointManager]::SecurityProtocol =
+%             [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
+%             iex ((New-Object System.Net.WebClient)
+%             .DownloadString('https://community.chocolatey.org/install.ps1'))
+%         \end{commandshell}
+%     \item Warte, bis die Installation abgeschlossen ist
+% \end{itemize}
+% \begin{hinweis}
+%     Ab Windows 10 kann chocolatey auch über winget per \texttt{winget install chocolatey} installiert werden.
+% \end{hinweis}
+% \clearpage
+% \subsubsection*{JVM und Kotlin Compiler durch Chocolatey installieren}
+% \begin{itemize}
+%     \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{siehe auch \url{https://community.chocolatey.org/packages/kotlinc} und \url{https://community.chocolatey.org/packages/Temurin17/}}:
+%         \begin{commandshell}
+%             @\shellprefix{}@choco install temurin17 kotlinc -y
+%         \end{commandshell}
+%     \item Warte, bis die Installation abgeschlossen ist
+%     \item Damit die neuen Befehle erkannnt werden, musst du die Kommandozeile neu starten, also einmal schließen und wieder öffnen.
+%     \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
+% \end{itemize}
+% \subsubsection{ki}
+% Aktuell gibt es leider keinen \enquote{schönen} Weg, \texttt{ki} über einen Paketmanager zu installieren. Stattdessen kannst du \texttt{ki} lokal installieren. Dazu musst du folgende Schritte ausführen:
+% \begin{itemize}
+%     \item Lade KI von hier herunter \url{https://github.com/Kotlin/kotlin-interactive-shell/releases/tag/v0.5.2}
+%     \item Entpacke die Datei in einen Ordner deiner Wahl.
+%     \item Gehe nun in den bin-Ordner der entpackten Datei und öffne dort ein Terminal. (Siehe Terminal-Anleitung)
+%     \item Es kann sein, dass du statt dem Befehl \texttt{ki} den Befehl \mintinline{text}{.\ki.bat} ausführen musst.
+%     \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
+% \end{itemize}
+% \begin{hinweis}
+%     Diese Installation funktioniert nur, solange sich deine Kommandozeile im bin-Ordner befindet. Wenn du die Kommandozeile schließt, musst du beim nächsten Öffnen erneut in den bin-Ordner wechseln.
+% \end{hinweis}
 % \subsubsection*{ki durch Chocolatey installieren}
 % \begin{itemize}
 %     \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{siehe auch \url{https://community.chocolatey.org/packages/ki}}:
