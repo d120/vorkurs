@@ -10,15 +10,52 @@
 \begin{document}
 \maketitle
 
+Bitte schaue vorher, dass dein System auf dem aktuellen Stand ist.
 
 In dieser Installationsanleitung installieren wir:
 \begin{itemize}
     \item Kotlin version 1.9
-    \item Java Jdk 17 (wird für Kotlin benötigt)
+    \item Java JDK 11+ (wird für Kotlin benötigt)
     \item \href{https://github.com/Kotlin/kotlin-interactive-shell}{ki (\underline{K}otlin \underline{I}nteractive-Shell)}
 \end{itemize}
 \section*{Windows}
-% \subsection*{Komanndozeile öffnen (Powershell)}
+\subsection*{Automatische Installation durch scoop}
+\subsubsection*{Terminal öffnen (Powershell)}
+Siehe Terminal Guide
+\subsubsection*{Scoop installieren}
+Anhand der Anleitung auf \url{https://scoop.sh/} folgendes ins Terminal eingeben und nach jeder Zeile Enter drücken:
+%\begin{noindent}
+\begin{commandshell}
+@\shellprefix{}@Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+@\shellprefix{}@irm get.scoop.sh | iex
+@\shellprefix{}@scoop install git
+\end{commandshell}
+%\end{noindent}
+\subsubsection*{Java installieren}
+Als Erstes kannst du mit folgendem Befehl überprüfen, ob du Java installiert hast:
+\begin{commandshell}
+    @\shellprefix{}@javac -version
+\end{commandshell}
+Wenn mindestens Version 11 angezeigt wird, hast du eine ausreichend aktuelle Version. Wir empfehlen aber in allen Fällen die neuste Version mit den folgenden Befehlen zu installieren:
+%\begin{noindent}
+\begin{commandshell}
+@\shellprefix{}@scoop bucket add java
+@\shellprefix{}@scoop install java/openjdk
+\end{commandshell}
+%\end{noindent}
+\subsubsection*{Kotlin installieren}
+\begin{commandshell}
+    @\shellprefix{}@scoop install main/kotlin
+\end{commandshell}
+\subsubsection*{Kotlin Interactive Shell installieren}
+%\begin{noindent}
+\begin{commandshell}
+@\shellprefix{}@scoop bucket add extras
+@\shellprefix{}@scoop install extras/kotlin-interactive-shell
+\end{commandshell}
+%\end{noindent}
+Nun kannst du die Installation überprüfen (siehe Abschnitt \nameref{sec:check}).
+% \subsection*{Kommandozeile öffnen (Powershell)}
 % Siehe Terminal guide
 % \subsection*{Automatische Installation durch Winget}
 % \begin{hinweis}
@@ -30,59 +67,59 @@ In dieser Installationsanleitung installieren wir:
 %             @\shellprefix{}@java -version
 %         \end{commandshell}
 %         Wenn die Rückgabe sowas wie \verb+java version "17.0.1"+ ist, hast du bereits eine JDK installiert. In diesem Fall kannst du die JDK-Installation überspringen. Für die aktuelle Kotlin Version wird mindestens JDK-Version 17 benötigt.
-%     \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{Befehl generiert mit \url{https://winstall.app/apps/JetBrains.Kotlin.Complier}}:
+%     \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{Befehl generiert mit \url{https://winstall.app/apps/JetBrains.Kotlin.Compiler}}:
 %         \begin{commandshell}
 %             @\shellprefix{}@winget install --id=EclipseAdoptium.Temurin.17.JDK -e
 %         \end{commandshell}
 %     \item Wenn verlangt wird, dass du die Nutzungsbedingungen akzeptierst, drücke \texttt{y} und Enter
 %     \item Warte, bis die Installation abgeschlossen ist
-%     \item Als nächstes installieren wir den Kotlin Compiler. Gebe dazu den folgenden Befehl ein und drücke Enter\footnote{Befehl generiert mit \url{https://winstall.app/apps/JetBrains.Kotlin.Complier}}:
+%     \item Als nächstes installieren wir den Kotlin Compiler. Gebe dazu den folgenden Befehl ein und drücke Enter\footnote{Befehl generiert mit \url{https://winstall.app/apps/JetBrains.Kotlin.Compiler}}:
 %         \begin{commandshell}
-%             @\shellprefix{}@winget install --id=JetBrains.Kotlin.Complier -e
+%             @\shellprefix{}@winget install --id=JetBrains.Kotlin.Compiler -e
 %         \end{commandshell}
 %     \item Damit die neuen Befehle erkannnt werden, musst du die Kommandozeile neu starten, also einmal schließen und wieder öffnen.
 %     \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
 % \end{itemize}
-\subsection*{Automatische Installation durch Chocolatey}
-\subsubsection*{Chocolatey installieren}
-\begin{itemize}
-    \item Falls chocolatey schon installiert ist, kannst du diesen Schritt überspringen
-    \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{Befehl generiert mit \url{https://chocolatey.org/install}} (da der Befehl sich nicht gut kopieren lässt am Besten aus dem Link der Fußnote kopieren):
-        \begin{commandshell}
-            @\shellprefix{}@Set-ExecutionPolicy Bypass -Scope Process -Force;
-            [System.Net.ServicePointManager]::SecurityProtocol =
-            [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
-            iex ((New-Object System.Net.WebClient)
-            .DownloadString('https://community.chocolatey.org/install.ps1'))
-        \end{commandshell}
-    \item Warte, bis die Installation abgeschlossen ist
-\end{itemize}
-\begin{hinweis}
-    Ab Windows 10 kann chocolatey auch über winget per \texttt{winget install chocolatey} installiert werden.
-\end{hinweis}
-\clearpage
-\subsubsection*{JVM und Kotlin Compiler durch Chocolatey installieren}
-\begin{itemize}
-    \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{siehe auch \url{https://community.chocolatey.org/packages/kotlinc} und \url{https://community.chocolatey.org/packages/Temurin17/}}:
-        \begin{commandshell}
-            @\shellprefix{}@choco install temurin17 kotlinc -y
-        \end{commandshell}
-    \item Warte, bis die Installation abgeschlossen ist
-    \item Damit die neuen Befehle erkannnt werden, musst du die Kommandozeile neu starten, also einmal schließen und wieder öffnen.
-    \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
-\end{itemize}
-\subsubsection{ki}
-Aktuell gibt es leider keinen \enquote{schönen} Weg, \texttt{ki} über einen Paketmanager zu installieren. Stattdessen kannst du \texttt{ki} lokal installieren. Dazu musst du folgende Schritte ausführen:
-\begin{itemize}
-    \item Lade KI von hier herunter \url{https://github.com/Kotlin/kotlin-interactive-shell/releases/tag/v0.5.2}
-    \item Entpacke die Datei in einen Ordner deiner Wahl.
-    \item Gehe nun in den bin-Ordner der entpackten Datei und öffne dort ein Terminal. (Siehe Terminal-Anleitung)
-    \item Es kann sein, dass du statt dem Befehl \texttt{ki} den Befehl \mintinline{text}{.\ki.bat} ausführen musst.
-    \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
-\end{itemize}
-\begin{hinweis}
-    Diese Installation funktioniert nur, solange sich deine Komandozeile im bin-Ordner befindet. Wenn du die Komandozeile schließt, musst du beim nächsten öffnen erneut in den bin-Ordner wechseln.
-\end{hinweis}
+% \subsection*{Automatische Installation durch Chocolatey}
+% \subsubsection*{Chocolatey installieren}
+% \begin{itemize}
+%     \item Falls chocolatey schon installiert ist, kannst du diesen Schritt überspringen
+%     \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{Befehl generiert mit \url{https://chocolatey.org/install}} (da der Befehl sich nicht gut kopieren lässt am Besten aus dem Link der Fußnote kopieren):
+%         \begin{commandshell}
+%             @\shellprefix{}@Set-ExecutionPolicy Bypass -Scope Process -Force;
+%             [System.Net.ServicePointManager]::SecurityProtocol =
+%             [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
+%             iex ((New-Object System.Net.WebClient)
+%             .DownloadString('https://community.chocolatey.org/install.ps1'))
+%         \end{commandshell}
+%     \item Warte, bis die Installation abgeschlossen ist
+% \end{itemize}
+% \begin{hinweis}
+%     Ab Windows 10 kann chocolatey auch über winget per \texttt{winget install chocolatey} installiert werden.
+% \end{hinweis}
+% \clearpage
+% \subsubsection*{JVM und Kotlin Compiler durch Chocolatey installieren}
+% \begin{itemize}
+%     \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{siehe auch \url{https://community.chocolatey.org/packages/kotlinc} und \url{https://community.chocolatey.org/packages/Temurin17/}}:
+%         \begin{commandshell}
+%             @\shellprefix{}@choco install temurin17 kotlinc -y
+%         \end{commandshell}
+%     \item Warte, bis die Installation abgeschlossen ist
+%     \item Damit die neuen Befehle erkannnt werden, musst du die Kommandozeile neu starten, also einmal schließen und wieder öffnen.
+%     \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
+% \end{itemize}
+% \subsubsection{ki}
+% Aktuell gibt es leider keinen \enquote{schönen} Weg, \texttt{ki} über einen Paketmanager zu installieren. Stattdessen kannst du \texttt{ki} lokal installieren. Dazu musst du folgende Schritte ausführen:
+% \begin{itemize}
+%     \item Lade KI von hier herunter \url{https://github.com/Kotlin/kotlin-interactive-shell/releases/tag/v0.5.2}
+%     \item Entpacke die Datei in einen Ordner deiner Wahl.
+%     \item Gehe nun in den bin-Ordner der entpackten Datei und öffne dort ein Terminal. (Siehe Terminal-Anleitung)
+%     \item Es kann sein, dass du statt dem Befehl \texttt{ki} den Befehl \mintinline{text}{.\ki.bat} ausführen musst.
+%     \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
+% \end{itemize}
+% \begin{hinweis}
+%     Diese Installation funktioniert nur, solange sich deine Kommandozeile im bin-Ordner befindet. Wenn du die Kommandozeile schließt, musst du beim nächsten Öffnen erneut in den bin-Ordner wechseln.
+% \end{hinweis}
 % \subsubsection*{ki durch Chocolatey installieren}
 % \begin{itemize}
 %     \item Gebe in der Powershell den folgenden Befehl ein und drücke Enter\footnote{siehe auch \url{https://community.chocolatey.org/packages/ki}}:
@@ -103,7 +140,7 @@ Aktuell gibt es leider keinen \enquote{schönen} Weg, \texttt{ki} über einen Pa
 %     \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
 % \end{itemize}
 % \begin{hinweis}
-%     Diese Installation funktioniert nur, solange sich deine Komandozeile im bin-Ordner befindet. Wenn du die Komandozeile schließt, musst du sie erneut öffnen und in den bin-Ordner wechseln.
+%     Diese Installation funktioniert nur, solange sich deine Kommandozeile im bin-Ordner befindet. Wenn du die Kommandozeile schließt, musst du sie erneut öffnen und in den bin-Ordner wechseln.
 % \end{hinweis}
 \section*{Mac OS}
 % Kaufe jetzt das Kotlin Starter Kit für nur 99,99€ im App Store und erhalte eine kostenlose Kotlin-Tasse im Wert von 9,99€ dazu! Nur solange der Vorrat reicht! (Nein, Spaß, aber wir haben leider keine Macs zum Testen.)
@@ -124,7 +161,7 @@ Aktuell gibt es leider keinen \enquote{schönen} Weg, \texttt{ki} über einen Pa
 
 \subsection*{Automatische Installation durch Homebrew}
 \begin{itemize}
-    \item Gebe in der Komandozeile den folgenden Befehl ein und drücke Enter\footnote{Befehle generiert mit \url{https://formulae.brew.sh/formula/kotlin} und \url{https://formulae.brew.sh/formula/ki}}:
+    \item Gebe in der Kommandozeile den folgenden Befehl ein und drücke Enter\footnote{Befehle generiert mit \url{https://formulae.brew.sh/formula/kotlin} und \url{https://formulae.brew.sh/formula/ki}}:
         %\begin{noindent}
 \begin{commandshell}
 @\shellprefix{}@brew install kotlin
@@ -158,13 +195,13 @@ Für alle anderen haben wir \href{https://raw.githubusercontent.com/d120/vorkurs
 \section*{Überprüfung der Installation}\label{sec:check}
 Um zu testen ob alles geklappt hat, öffne eine Kommandozeile und gebe den folgenden Befehl ein:
 \begin{commandshell}
-    @\shellprefix{}@kotlinc -version
+    @\shellprefix{}@kotlin -version
 \end{commandshell}
 
 Wenn alles geklappt hat, sollte die Ausgabe in etwa so aussehen (die Versionsnummern können abweichen):
 \begin{commandshell}[][]
-    @\shellprefix{}@kotlinc -version
-    info: kotlinc-jvm 1.9.10 (JRE 17.0.8.1+1)
+    @\shellprefix{}@kotlin -version
+    Kotlin version 1.9.10-release-459 (JRE 17.0.8.1+1)
 \end{commandshell}
 
 Ob \texttt{ki} funktioniert, kannst du mit dem folgenden Befehl testen:
@@ -177,6 +214,17 @@ Wenn alles geklappt hat, sollte die Ausgabe in etwa so aussehen (die Versionsnum
     ki-shell 0.5.2/1.7.0
     type :h for help
     [0] @\shellcursor@
+\end{commandshell}
+Falls folgende Ausgabe kommt, ist nicht mindestens Java 11 installiert und muss anhand der Anleitung oben nachgeholt werden:
+\nopagebreak
+\begin{commandshell}[][minted language=text]
+    Error: LinkageError occurred while loading main class org.jetbrains.kotlinx.ki.shell.KotlinShell
+    java.lang.UnsupportedClassVersionError: org/jetbrains/kotlinx/ki/shell/KotlinShell has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime only recognizes class file versions up to 54.0
+\end{commandshell}
+Falls folgende Ausgabe kommt, ist Java gar nicht installiert und muss anhand der Anleitung oben nachgeholt werden:
+\nopagebreak
+\begin{commandshell}[][minted language=text]
+    The syntax of the command is incorrect.
 \end{commandshell}
 
 \end{document}
