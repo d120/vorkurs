@@ -1,4 +1,4 @@
-% !TeX document-id = {dc20ae76-71b7-4d65-b662-f71c46d32e15}
+\usepackage{blkarray}% !TeX document-id = {dc20ae76-71b7-4d65-b662-f71c46d32e15}
 % !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
 \input{../global.tex}
 
@@ -96,6 +96,34 @@
 % 	\end{columns}}
 % \maketitle
 %\subtitle{Konsoleneingabe}
+
+
+\section{Exkurs: String Templates}
+\begin{frame}
+    \slidehead
+
+    \begin{itemize}[<+->]
+        \item \textbf{Ziel}: Ausdrücke in einem \inlinekotlin{String} einfügen
+        \item Kann man so machen
+        \kotlinfile{listings/string_no_template.kts}
+        \item Aber so ist besser
+        \kotlinfile{listings/string_template.kts}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \slidehead
+
+    \begin{itemize}[<+->]
+        \item \textbf{Problem}: Komplexere Ausdrücke gehen nicht
+        \kotlinfile{listings/string_template_complex_mistake.kts}
+        \item \textbf{Lösung}: Geschweifte klammern \inlinekotlin{\$\{ ... \}}
+        \kotlinfile{listings/string_template_complex.kts}
+    \end{itemize}
+    \begin{block}{Hinweis}
+        Ausdrücke mit \inlinekotlin{.} brauchen die Klammern
+    \end{block}\
+\end{frame}
 
 \section{Exkurs: Konsoleneingabe}
 \begin{frame}
