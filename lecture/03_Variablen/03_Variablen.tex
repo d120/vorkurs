@@ -65,13 +65,15 @@
 \begin{frame}
     \slidehead
 
+    Variablennamen:
     \begin{itemize}[<+->]
-        \item Variablennamen \textbf{müssen} mit einem Buchstaben oder Unterstrich beginnen
-        \item Variablennamen \textbf{dürfen keine} Punkte, Bindestriche, Sterne oder andere Sonderzeichen enthalten
+        \item können als Platzhalter für den darin stehenden Wert verwendet werden
+        \item \textbf{müssen} mit einem Buchstaben oder Unterstrich beginnen
+        \item \textbf{dürfen keine} Punkte, Bindestriche, Sterne oder andere Sonderzeichen enthalten\only<3->{\footnote{Mit backticks ( \mintinline{text}{``} ) geht das ;)}}
+        \item sollten \textbf{aussagekräftig} sein!
+        \item können mit \kotlininline{println(variablenName)} ausgeben werden
         \item Groß- und Kleinschreibung ist \textbf{wichtig}! ("Case sensitive"):\\ $eineVariable \neq EINEVARIABLE \neq EiNeVaRiAbLe$.
-        \item Nutze \textbf{aussagekräftige Namen}!
-        \item Variablen können als Platzhalter für den darin stehenden Wert verwendet werden
-        \item Der Wert einer Variablen kann zum Beispiel mit \kotlininline{println(variablenName)} ausgegeben werden
+        \item Namenskonvention \kotlininline{camelCase}
     \end{itemize}
 \end{frame}
 
@@ -103,10 +105,10 @@
     \slidehead
 
     \begin{itemize}[<+->]
-        \item \textbf{Ziel}: Ausdrücke in einem \inlinekotlin{String} einfügen
+        \item \textbf{Ziel}: Ausdrücke in einem \kotlininline{String} einfügen
         \item Kann man so machen
         \kotlinfile{listings/string_no_template.kts}
-        \item Aber so ist besser
+        \item Jetzt nochmal in schön
         \kotlinfile{listings/string_template.kts}
     \end{itemize}
 \end{frame}
@@ -117,12 +119,14 @@
     \begin{itemize}[<+->]
         \item \textbf{Problem}: Komplexere Ausdrücke gehen nicht
         \kotlinfile{listings/string_template_complex_mistake.kts}
-        \item \textbf{Lösung}: Geschweifte klammern \inlinekotlin{\$\{ ... \}}
+        \item \textbf{Lösung}: Geschweifte klammern \kotlininline|"${ ... }"|
         \kotlinfile{listings/string_template_complex.kts}
     \end{itemize}
-    \begin{block}{Hinweis}
-        Ausdrücke mit \inlinekotlin{.} brauchen die Klammern
-    \end{block}\
+    \onslide<2->
+    \vspace{-1ex}
+    \begin{block}{Faustregel}
+        Ausdrücke, die aus mehreren \enquote{Elementen} bestehen, brauchen die Klammern
+    \end{block}
 \end{frame}
 
 \section{Exkurs: Konsoleneingabe}
@@ -136,9 +140,20 @@
     \begin{block}{Beispiele}
         \begin{itemize}
             \item Zeichenkette einlesen
-                \kotlinfile{listings/input.kts}
+                \kotlinfile[][top=0cm,bottom=0cm]{listings/input.kts}
             \item Um andere Typen einzulesen, muss \textit{konvertiert} werden
         \end{itemize}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \slidehead
+
+    Beispiele: Eingabekonvertierung
+    \kotlinfile{listings/string_conversion.kts}
+
+    \begin{block}{Hinweis}
+        In \textbf{ki} kann man sich den Typ eines Ausdrucks mit dem Befehl \kotlininline{:type <Ausdruck>} ausgeben lassen
     \end{block}
 \end{frame}
 
@@ -175,23 +190,20 @@
 \begin{frame}
     \slidehead
     \begin{itemize}
-        \item \textbf{Anweisungen (Statement)} führen etwas aus
-        \item \textbf{Ausdrücke (Expression)} werten zu einem \textit{Wert} aus
+        \item Eine \textbf{Anweisung (Statement)} führt etwas aus
+        \item Ein \textbf{Ausdruck (Expression)} wertet zu einem \textit{Wert} aus
     \end{itemize}
     \pause
     \kotlinfile{listings/anweisungen.kts}
     \begin{itemize}
         \item Jede oben gezeigte Zeile enthält \textit{eine Anweisung}
-        \item $1 + 42 + 5$ ist \textit{ein Ausdruck}
+        \item \kotlininline{1 + 42 + 5} ist ein \textit{Ausdruck}
             \pause
         \item Auch die Zahl $1$ ist hier ein Ausdruck, der zu dem Wert $1$ ausgewertet wird
         \item Das gilt in Zeile 2 auch für den String
     \end{itemize}
 
 \end{frame}
-
-
-
 
 \subsection{Zusammengesetze Operatoren}
 \begin{frame}[fragile]
@@ -236,10 +248,10 @@
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}[c]
     \slidehead
     % Define block styles
-    \tikzstyle{block} = [rectangle, draw, fill=\IfDarkModeTF{blue!40!black}{blue!20},
+    \tikzstyle{block} = [rectangle, draw, fill=\IfDarkModeTF{TUDa-2b!40!black}{TUDa-2b},
     text width=10em, text centered, rounded corners, minimum height=4em]
     \tikzstyle{line} = [draw, -latex']
 
@@ -267,19 +279,15 @@
             \item Bei Auswertung zu \kotlininline{false} wird der Block übersprungen, bei \kotlininline{true} wird dieser ausgeführt
         \end{itemize}}
     \kotlinfile[][top=0cm,bottom=0cm]{listings/if_anweisung.kts}
-    \visible<3->{
-        \vspace{-1ex}
-        \begin{block}{Hinweis}
-            \begin{itemize}
-                \item Nach der If-Anweisung kommen geschweifte klammern \textbf{ \{ ... \} }
-                \item Der Anweisungscode müssen nicht eingerückt werden
-                    \pause
-                    \begin{itemize}
-                        \item Ist aber sehr stark empfohlen
-                    \end{itemize}
-            \end{itemize}
-        \end{block}
-    }
+    \onslide<3->
+    \vspace{-1ex}
+    \begin{block}{Hinweis}
+        \begin{itemize}
+            \item<3-> Nach der If-Anweisung kommen geschweifte klammern \textbf{ \{ ... \} }
+            \item<4-> Der Anweisungscode muss nicht eingerückt werden \only<5->{$\Rightarrow$ Ist aber sehr stark empfohlen}
+            \item<6-> Nein, es gibt keine If-Schleife
+        \end{itemize}
+    \end{block}
 \end{frame}
 
 \subsection*{Beispiel}
@@ -329,9 +337,14 @@
     \begin{itemize}
         \item \kotlininline{else} bezeichnet einen \textit{alternativ auszuführenden Teil} des Codes
         \item Übersetzung: "`Wenn \textbf{DAS} zutrifft, mache \textbf{DIESES}; falls nicht, mache \textbf{JENES}"'
-            \kotlinfile{listings/if_bsp2.kts}
     \end{itemize}
 
+    \onslide<2->
+    \vspace{-1ex}
+    \kotlinfile[][top=0cm,bottom=0cm]{listings/if_bsp2.kts}
+    \vspace{-1ex}
+
+    \onslide<3->
     \begin{block}{Frage}
         Was bringen Kurzschreibweisen wie z.B. \kotlininline{else} überhaupt?
     \end{block}
@@ -344,7 +357,7 @@
     \begin{itemize}
         \item Manchmal gibt es mehr als zwei Fälle:
             \kotlinfile{listings/if_if_if.kts}
-        \item Auch dafür gibt es eine Kurzschreibweise
+        \item[$\Rightarrow$] Auch dafür gibt es eine Kurzschreibweise
     \end{itemize}
 \end{frame}
 
@@ -396,19 +409,12 @@
 
 \begin{frame}
     \slidehead
-    \vspace{-0.1cm}
     \begin{itemize}
         \item Logisches \textbf{Nicht} (\kotlininline{!})  $\Rightarrow$ \kotlininline{not Ausdruck1}
         \item Logisches \textbf{Und} (\kotlininline{&&}) $\Rightarrow$ \kotlininline{Ausdruck1 and Ausdruck2}
         \item Logisches \textbf{Oder} (\kotlininline{||})  $\Rightarrow$ \kotlininline{Ausdruck1 or Ausdruck2}
     \end{itemize}
-    \vspace{-0.15cm}
-    \begin{block}{Beispiel:}
-        \vspace{-0.15cm}
-        \kotlinfile[][top=0cm,bottom=0cm]{listings/logische_operatoren_listing.kts}
-        \vspace{-0.15cm}
-    \end{block}
-    \vspace{-0.15cm}
+    \kotlinfile[][top=0cm,bottom=0cm]{listings/logische_operatoren_listing.kts}
     \begin{block}{Hinweis}
         \begin{itemize}
             \item Auswertung in der Reihenfolge \kotlininline{!}, \kotlininline{&&} und dann \kotlininline{||}
@@ -427,9 +433,8 @@
         \item Was darf nicht in einem Variablennamen enthalten sein?
         \item Was macht der \kotlininline{%=} Operator?% das % zeichen geht in minted nicht wie gedacht.
         \item Sind \kotlininline{=} und \kotlininline{==} gleich?
-        \item Was \textbf{muss} mit dem Code innerhalb einer If-Anweisung gemacht werden?
-        \item Darf eine If-Anweisung leer sein?
-        \item Darf eine If-Anweisung im Code-Teil einer anderen If-Anweisung stehen?
+        \item Darf der Rumpf einer If-Anweisung leer sein?
+        \item Darf eine If-Anweisung im Rumpf einer anderen If-Anweisung stehen?
     \end{itemize}
 \end{frame}
 
