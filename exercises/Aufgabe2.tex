@@ -14,10 +14,10 @@ dann ein Terminal im selben Verzeichnis.
 
 \begin{itemize}
     \item Unter Linux \& Mac (u.a. den Poolrechnern): Rechtsklick $\to$ In Terminal öffnen
-    \item Unter Windows: Shift+Rechtsklick $\to$ Powershell hier öffnen
+    \item Unter Windows: Shift+Rechtsklick $\to$ Powershell hier öffnen (bei Windows 11: Terminal hier öffnen)
 \end{itemize}
 
-Öffnet dann einen Texteditor eurer Wahl. Unter Linux ist das etwa {\ttfamily gedit}, unter
+Öffnet dann einen Texteditor eurer Wahl. Unter Linux z.B. {\ttfamily gedit, kate, usw.}, unter
 Windows kann Notepad verwendet werden. Erstellt eine Datei mit eurem Programm
 und speichert sie mit der Endung {\ttfamily.kts}, beispielsweise {\ttfamily date.kts}
 in dem vorher ausgewählten Ordner.
@@ -34,10 +34,11 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
             \mcitemt{Eine if-Anweisung beeinflusst den Programmablauf.}
             \mcitemf{Eine if-Anweisung benötigt eine else-Klausel.}
             \mcitemt{Ein \lstinline{if (0 < 3)} führt immer den eingeschlossenen Codeblock aus.}
+            \mcitemt{Man kann if-Anweisungen verschachteln}
         \end{itemize}
 
         \begin{solution}
-            Die erste und dritte Aussage treffen zu.
+            Die erste, die dritte und die vierte Aussage treffen zu.
         \end{solution}
     \end{subtask*}
 \end{task}
@@ -45,32 +46,42 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
     \begin{subtask*}[points=0]{Fehlersuche}
         Gegeben ist folgendes Listing:
         \begin{codeBlock}[]{minted language=kotlin}
-            var mein_alter = 21
+            var meinAlter = 21
             meinalter = meinalter + 1
-            println(mein_alter)
+            println(meinAlter)
         \end{codeBlock}
         Beim Ausführen der zweiten Zeile wirft Kotlin einen Fehler. Warum? Verbessert das Listing.
         \begin{solution}
-            Die Variable in Zeile 2 müsste {\ttfamily mein\textbf{\_}alter} heißen und nicht {\ttfamily meinalter}.
+            Die Variable in Zeile 2 müsste {\ttfamily meinAlter} heißen und nicht {\ttfamily meinalter}.
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Namenskonvention}
-        Welches sind \textbf{gültige} Variablennamen?
         \begin{multicols}{3}
             \begin{enumerate}[label=(\alph*)]
-                \item {\ttfamily Matrikelnummer}
-                \item {\ttfamily ÄhmKeineAhnung}
-                \item {\ttfamily 2fancy4kotlin}
-                \item {\ttfamily {\_}meinAlter}
-                \item {\ttfamily richtig\&gut}
-                \item {\ttfamily {\_}2Euro}
-                \item {\ttfamily Variable2}
-                \item {\ttfamily noch$\_$besser}
-                \item {\ttfamily \#Falsch}
+                \item \mintinline{text}{matrikelNummer}
+                \item \mintinline{text}{ÄhmKeineAhnung}
+                \item \mintinline{text}{2fancy4kotlin}
+                \item \mintinline{text}{_meinAlter}
+                \item \mintinline{text}{richtig&gut}
+                \item \mintinline{text}{_2Euro}
+                \item \mintinline{text}{Variable2}
+                \item \mintinline{text}{nochBesser}
+                \item \mintinline{text}{#Falsch}
             \end{enumerate}
         \end{multicols}
+        (i) Welche der aufgelisteten Variablennamen sind \textbf{gültige} Variablennamen?
+
+        (ii) Und welche davon entsprechen der Namenskonvention \enquote{camelCase}?
         \begin{solution}
-            Die Antworten c), e) und i) sind nicht gültig.\\Gültig sind somit: {\ttfamily Matrikelnummer}, {\ttfamily ÄhmKeineAhnung}, {\ttfamily {\_}meinAlter}, {\ttfamily {\_}2Euro}, {\ttfamily Variable2}, {\ttfamily noch$\_$besser}
+            (i) Die Antworten c), e) und i) sind nicht gültig.\\Gültig sind somit:
+            \mintinline{text}{Matrikelnummer},
+            \mintinline{text}{ÄhmKeineAhnung},
+            \mintinline{text}{_meinAlter},
+            \mintinline{text}{_2Euro},
+            \mintinline{text}{Variable2},
+            \mintinline{text}{noch\_$besser}
+
+            (ii) Nur die Antworten a) und h) entsprechen der Namenskonvention \enquote{camelCase} und sind gültig.
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Assignment}
@@ -100,11 +111,11 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
 
         \begin{solution}
             \begin{itemize}
-                \item {\ttfamily \verb+variable1 = 2+}
-                \item {\ttfamily \verb+variable3 = 1+}
-                \item {\ttfamily \verb+variable4 = "b"+}
-                \item {\ttfamily \verb+variable5 = "a"+}
-                \item {\ttfamily \verb+variable7 = 11+}
+                \item \kotlininline{variable1 = 2}
+                \item \kotlininline{variable3 = 1}
+                \item \kotlininline{variable4 = "b"}
+                \item \kotlininline{variable5 = "a"}
+                \item \kotlininline{variable7 = 11}
             \end{itemize}
             Es gibt natürlich auch noch andere Möglichkeiten
         \end{solution}
@@ -112,13 +123,12 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
 \end{task}
 \begin{task}[points=auto]{Logische Operationen \stage1}
     \begin{subtask*}[points=0]{Operatoren}
-        \subsection{Operatoren}
         Es seien die folgenden Variablen deklariert und initialisiert:
         \begin{codeBlock}[]{minted language=kotlin}
-            x = 6
-            y = 7
-            z = 0
-            a = False
+            var x = 6
+            var y = 7
+            var z = 0
+            var a = false
         \end{codeBlock}
         Welchen Wert enthält die Variable b jeweils nach Ausführung der folgenden Anweisungen?
         \begin{enumerate}
@@ -146,32 +156,38 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
 \end{task}
 \begin{task}[points=auto]{Eingabe/Ausgabe \stage2}
     \begin{subtask*}[points=0]{Variablen einlesen}
-        Im Rahmen der Vorlesung habt ihr die Funktion {\ttfamily readln} kennengelernt, welche es euch erlaubt, auf einfache Art und Weise Benutzereingaben von der Konsole einzulesen. Schreibt jetzt ein Programm, welches mit Hilfe dieser Funktion nacheinander folgende Eingaben einliest und in Variablen speichert.
+        Im Rahmen der Vorlesung habt ihr die Funktion \kotlininline{readln()} kennengelernt, welche es euch erlaubt, auf einfache Art und Weise Benutzereingaben von der Konsole einzulesen. Schreibt jetzt ein Programm, welches mit Hilfe dieser Funktion nacheinander folgende Eingaben einliest und in Variablen speichert.
         \begin{itemize}
             \item euren Namen als Zeichenkette
             \item euer Geburtsdatum als drei ganze Zahlen: Tag, Monat, Jahr
         \end{itemize}
-        Insgesamt sollen also vier Eingaben verarbeiten werden. Achtet dabei darauf, dass euer Programm die erwarteten Eingaben textuell klar strukturiert (Stichwort: Bedienerfreundlichkeit).\\
-        Nachdem die letzte Eingabe verarbeitet ist, soll folgende Zeichenkette ausgegeben werden (wobei natürlich die Platzhalter zu ersetzen sind):\\
-        Ausgabe: {\ttfamily{\dq}}<euer Name> hat am <tt.mm.jjjj> Geburtstag.{\ttfamily{\dq}}\\
-        \\
-        \textit{Hinweis: Die Verarbeitung von Eingaben wird im Foliensatz 'Variablen.pdf' erläutert.}\\
-        \\
-        \textit{Hinweis: Variablen sollten in Strings nicht mit '\kotlininline{+}' eingefügt werden, stattdessen an die entsprechenden Stellen im String \kotlininline{$variable0}, \kotlininline{$variable1}, ... einsetzen.}
-        Beispiel: \kotlininline{"$variable0 ist kleiner $variable1"} ergibt wenn \kotlininline{variable0 == 4} und \kotlininline{variable1 == 42} ist den String \kotlininline{"4 ist kleiner 42"}
+        Insgesamt sollen also vier Eingaben verarbeiten werden. Achtet dabei darauf, dass euer Programm die erwarteten Eingaben textuell klar strukturiert (Stichwort: Bedienerfreundlichkeit).
+        Nachdem die letzte Eingabe verarbeitet ist, soll folgende Zeichenkette ausgegeben werden (wobei natürlich die Platzhalter zu ersetzen sind):
+
+        Ausgabe: \kotlininline{"<euer Name> hat am <tt.mm.jjjj> Geburtstag."}
+
+        \begin{hinweise}
+            \begin{itemize}
+                \item Die Verarbeitung von Eingaben wird im Foliensatz \verb+03_Variablen.pdf+ erläutert.
+                \item Variablen sollten in Strings nicht mit \enquote{\kotlininline{+}} eingefügt werden, stattdessen an die entsprechenden Stellen im String mit String-Templates einsetzen.
+
+                    Beispiel: \kotlininline{"$variable0 ist kleiner $variable1"} ergibt wenn \kotlininline{variable0 == 4} und\\
+                    \kotlininline{variable1 == 42} ist den String \kotlininline{"4 ist kleiner 42"}
+            \end{itemize}
+        \end{hinweise}
 
         \begin{solution}
             \begin{codeBlock}[]{minted language=kotlin}
-                print("Bitte gib deinen Namen ein: ")
+                println("Bitte gib deinen Namen ein:")
                 var name = readln()
 
-                print("Gib den Tag deiner Geburt ein: ")
+                println("Gib den Tag deiner Geburt ein:")
                 var tag = readln().toInt()
 
-                print("Gib den Monat deiner Geburt ein: ")
+                println("Gib den Monat deiner Geburt ein:")
                 var monat = readln().toInt()
 
-                print("Gib das Jahr deiner Geburt ein: ")
+                println("Gib das Jahr deiner Geburt ein:")
                 var jahr = readln().toInt()
 
                 println("$name hat am $tag.$monat.$jahr Geburtstag.")
@@ -183,29 +199,37 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
 
         \begin{solution}
             \begin{codeBlock}[]{minted language=kotlin}
-                print("Wie lautet der erste Operand: ")
+                println("Wie lautet der erste Operand:")
                 var op1 = readln().toInt()
 
-                print("Wie lautet der zweite Operand: ")
+                println("Wie lautet der zweite Operand:")
                 var op2 = readln().toInt()
 
-                print("Wie lautet der Operator: ")
+                println("Wie lautet der Operator:")
                 var op = readln()
 
+                var ergebnis = 0
+                var ergebnisOk = true
+
                 if (op == "+") {
-                    println("Das Ergebnis lautet: " + (op1 + op2))
+                    ergebnis = op1 + op2
                 } else if (op == "-") {
-                    println("Das Ergebnis lautet: " + (op1 - op2))
+                    ergebnis = op1 - op2
                 } else if (op == "*") {
-                    println("Das Ergebnis lautet: " + (op1 * op2))
+                    ergebnis = op1 * op2
                 } else if (op == "/") {
-                    if (op2 == 0) {
-                        println("Division durch Null ist nicht erlaubt!")
+                    if(op2 == 0){
+                        ergebnisOk = false
+                        println("Division durch 0 ist nicht erlaubt!")
                     } else {
-                        println("Das Ergebnis lautet: " + (op1 / op2))
+                        ergebnis = op1 / op2
                     }
                 } else {
+                    ergebnisOk = false
                     println("Keine gültige Eingabe!")
+                }
+                if (ergebnisOk) {
+                    println("Das Ergebnis ist: $ergebnis")
                 }
             \end{codeBlock}
         \end{solution}
@@ -319,19 +343,19 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
 
         \begin{solution}
             \begin{codeBlock}[]{minted language=kotlin}
-                print("Zahl a einlesen: ")
+                println("Zahl a einlesen:")
                 var a = readln().toInt()
 
-                print("Zahl b einlesen: ")
+                println("Zahl b einlesen:")
                 var b = readln().toInt()
 
-                print("Zahl c einlesen: ")
+                println("Zahl c einlesen:")
                 var c = readln().toInt()
 
                 var d = 2 * a
                 a = d + 3
 
-                print("Zahl d einlesen: ")
+                println("Zahl d einlesen:")
                 d = readln().toInt()
 
                 println(b)
