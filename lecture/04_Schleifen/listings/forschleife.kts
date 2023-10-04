@@ -1,3 +1,3 @@
-for (zahl in 0 until 100) {
+for (zahl in $\textit{\PYG{l+s}{<range>}}$) { // range wird gleich erklärt
     // code
 }

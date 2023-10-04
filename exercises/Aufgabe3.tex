@@ -6,42 +6,49 @@
 \maketitle{}
 
 \begin{task}[points=auto]{Schleifen}
-    \begin{subtask*}[points=0]{Gaußsche Summenformel Reloaded \stage1}
-        Erinnert euch an die Gaußsche Summenformel aus Übungsblatt 1:
+    \begin{subtask*}[points=0]{Gaußsche Summenformel \stage1}
+        Das hier ist die Gaußsche Summenformel:
         $$1+2+3+\ldots+n = \sum_{k=1}^nk=\frac{n\cdot(n+1)}{2}$$
-        Nun soll die Summe nicht mit Hilfe der geschlossenen Darstellung der Reihe berechnet werden, sondern unter Verwendung einer \textbf{for-Schleife}.
+        (i) Berechne die Summe der Zahlen von \kotlininline{1} bis \kotlininline{100} mit Hilfe der Gaußschen Summenformel.
+
+        (ii) Nun soll die Summe nicht mit Hilfe der geschlossenen Darstellung der Reihe berechnet werden, sondern unter Verwendung einer \textbf{for-Schleife}.
 
         \begin{solution}
-            \begin{codeBlock}[]{minted language=kotlin}
+            (i) Nach der Summenformel gilt: $\frac{100\cdot(100+1)}{2} = \underline{\underline{5050}}$
+
+            (ii) \begin{codeBlock}[]{minted language=kotlin}
                 var summe = 0
 
-                for (k in 1..100) {
+                for (k in 1..100) { // alternativ 1 until 101
                     summe += k
                 }
 
                 println("Die Summe von 1 bis 100 ist $summe.")
             \end{codeBlock}
+            Ausgabe: \mintinline{text}{Die Summe von 1 bis 100 ist 5050.}
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Fakultät \stage1}
         \begin{enumerate}
             \item Schreibt ein Programm, das den Wert des Ausdrucks $1 \cdot 2 \cdot 3 \cdot \ldots \cdot 15 = 15!$ (Fakultät von 15) berechnet, und das Ergebnis auf der Konsole ausgibt.
-            \item Erweitert euer Programm so, dass es von beliebigen Eingaben in der Konsole die Fakultät berechnet.
+            \item Erweitert nun euer Programm so, dass es von beliebigen Eingaben in der Konsole die Fakultät berechnet.
         \end{enumerate}
 
         \begin{solution}
             \begin{codeBlock}[]{minted language=kotlin}
-            print("Welche Fakultät soll berechnet werden: ")
+            println("Welche Fakultät soll berechnet werden: ")
             val fak = readln().toInt()
 
-            var erg = 1
+            var erg = fak
 
-            for (i in 1..fak) {
+            for (i in fak-1 downTo 1) {
                 erg *= i
             }
 
             println("Die $fak. Fakultät ist $erg")
             \end{codeBlock}
+
+            Ausgabe für Eingabe \mintinline{text}{5}: \mintinline{text}{Die 5. Fakultät ist 120}
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{FizzBuzz \stage3}
@@ -89,6 +96,9 @@
 
         \begin{solution}
             \kotlinfile[][]{code/3_1_d_2_sol.kts}
+            \begin{anmerkung}
+                Effizienter wäre es natürlich, wenn man in Zeile 8 nur bis $\sqrt{\text{\kotlininline{prime}}}$ iteriert.
+            \end{anmerkung}
         \end{solution}
     \end{subtask*}
 \end{task}
@@ -138,6 +148,9 @@
         Schreibt nun ein Programm, dass für beliebige Listen alle Elemente der Reihe
         nach ausgibt. Ihr könnt dafür eine \kotlininline{while}-Schleife verwenden.
 
+        \begin{anmerkung}
+            \kotlininline{liste.toString()} ist natürlich nicht erlaubt ;)
+        \end{anmerkung}
         \begin{solution}
             Da die Indices bei 0 anfangen ist \kotlininline{liste.size - 1} der letzte gültige Index.
 
@@ -230,8 +243,8 @@
         Slicing funktioniert auch mit Text. Dabei wird der Text wie eine Liste von
         Buchstaben behandelt. \\
         \kotlininline{"Hallo Welt!".slice(0 .. 4)} ergibt beispielsweise
-        den String \kotlininline{"Hallo"}. Findet ihr einen Ausdruck mittels Slicing ein
-        Palindrom erkennt? \textit{Ein Palindrom ist ein Wort, das vorwärts und rückwärts
+        den String \kotlininline{"Hallo"}. Schafft ihr es, mittels Slicing ein
+        Palindrom zu erkennen? \textit{Ein Palindrom ist ein Wort, das vorwärts und rückwärts
             identisch ist}.
 
         \begin{solution}
@@ -271,6 +284,12 @@
         \end{enumerate}
 
         Was müsst ihr bei der Berechnung des Durchschnitts beachten?
+
+        \begin{infoBox}
+            \fatsf{Herausforderung:}
+
+            Schafft ihr es, die Aufgabe mit nur einer Schleife zu lösen?
+        \end{infoBox}
 
         \begin{solution}
             \begin{codeBlock}[]{minted language=kotlin}

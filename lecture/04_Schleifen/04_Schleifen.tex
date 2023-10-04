@@ -147,33 +147,53 @@
     \slidehead
 
     \begin{itemize}
-        \vspace{-1ex}
+        %\vspace{-1ex}
         \item Häufig gibt es folgende Schleifenart:
-            \vspace{-1ex}
+            %\vspace{-1ex}
             \kotlinfile[][top=0pt,bottom=0pt]{listings/while3.kts}
             \pause
-            \vspace{-1ex}
+            %\vspace{-1ex}
         \item Kurzschreibweise:
-            \vspace{-1ex}
-            \kotlinfile[][top=0pt,bottom=0pt]{listings/forschleife.kts}
-            \vspace{-1ex}
-    \end{itemize}\pause
-    \begin{block}{Frage:}
-        Von wo bis wo zählt diese Schleife?
-    \end{block}
+            %\vspace{-1ex}
+            \kotlinfile[escapeinside=\$\$][top=0pt,bottom=0pt]{listings/forschleife.kts}
+            %\vspace{-1ex}
+    \end{itemize}%\pause
+    % \begin{block}{Frage:}
+    %     Von wo bis wo zählt diese Schleife?
+    % \end{block}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
     \slidehead
 
     \begin{itemize}
-        \item Sinnvoll, wenn eine Variable bis zu einem bestimmten Wert \textit{hochzählen} soll
-        \item Syntax:
-            \kotlinfile{listings/forschleife.kts}
-        \item Beispiel:
-            \kotlinfile{listings/forschleife-print.kts}
+        \item Schleife von 0 bis exklusive 10:
+            \begin{codeBlock}[]{minted language=kotlin}
+                for (zahl in 0 until 10) {
+                    print(zahl + " ")
+                } // Ausgabe: 0 1 2 3 4 5 6 7 8 9
+            \end{codeBlock}
+            \pause
+        \item Schleife von 0 bis inklusive 10:
+            \begin{codeBlock}[]{minted language=kotlin}
+                for (zahl in 0..10) {
+                    print(zahl + " ")
+                } // Ausgabe: 0 1 2 3 4 5 6 7 8 9 10
+            \end{codeBlock}
     \end{itemize}
 \end{frame}
+
+% \begin{frame}
+%     \slidehead
+
+%     \begin{itemize}
+%         \item Sinnvoll, wenn eine Variable bis zu einem bestimmten Wert \textit{hochzählen} soll
+%         \item Syntax:
+%             \kotlinfile{listings/forschleife.kts}
+%         \item Beispiel:
+%             \kotlinfile{listings/forschleife-print.kts}
+%     \end{itemize}
+% \end{frame}
 
 \begin{frame}
     \slidehead
@@ -188,7 +208,29 @@
                 \item Schreibweise: \kotlininline{startwert until grenzwert step schrittweite}
             \end{itemize}
     \end{itemize}
-    \kotlinfile[][top=0cm,bottom=0cm]{listings/range.kts}
+    \kotlinfile[]{listings/range.kts}
+\end{frame}
+
+\begin{frame}[fragile]
+    \slidehead
+
+    Man kann auch rückwärts zählen:
+    \begin{itemize}
+        \item Schreibweise: \kotlininline{startwert downTo endwert}
+            \begin{codeBlock}[]{top=0cm,bottom=0cm,minted language=kotlin}
+            for (zahl in 10 downTo 0) {
+                print(zahl + " ")
+            }
+            // Ausgabe: 10 9 8 7 6 5 4 3 2 1 0
+        \end{codeBlock}
+        \item Schreibweise: \kotlininline{startwert downTo endwert step schrittweite}
+            \begin{codeBlock}[]{top=0cm,bottom=0cm,minted language=kotlin}
+            for (zahl in 10 downTo 0 step 2) {
+                print(zahl + " ")
+            }
+            // Ausgabe: 10 8 6 4 2 0
+        \end{codeBlock}
+    \end{itemize}
 \end{frame}
 
 \subsection{Verschachtelte Schleifen}
@@ -202,7 +244,7 @@
 
     \pause
     \vspace{-1.5ex}
-    \begin{block}{Frage: Was wird ausgegeben?}
+    \begin{block}{Frage: Was wird ausgegeben?}\pause
         \kotlininline{0000000000}\\
         \kotlininline{0000000000}\\
         \kotlininline{...}\\
@@ -226,7 +268,7 @@
         \kotlinfile{listings/FrageStunde_Schleife_ErrorListing.kts}
     \end{block}
     % while in range (Syntaxfehler)
-    % : fehlt (Syntaxfehler)
+    % println außerhalb der Schleife (Logikfehler)
     % schleife wird 10 und nicht 20 mal ausgeführt (Logikfehler)
 \end{frame}
 
