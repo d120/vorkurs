@@ -92,10 +92,10 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
             var variable3 = // hier Zuweisung 2 einsetzen
             variable2 += variable1
             if (variable3 > 5) {
-                variable2 = 0
-            } else {
-                variable2 *= variable3
-            }
+                    variable2 = 0
+                } else {
+                    variable2 *= variable3
+                }
             var variable4 = // hier Zuweisung 3 einsetzen
             var variable5 = // hier Zuweisung 4 einsetzen
             variable5 += variable4
@@ -124,7 +124,7 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
 \begin{task}[points=auto]{Logische Operationen \stage1}
     \begin{subtask*}[points=0]{Operatoren}
         Es seien die folgenden Variablen deklariert und initialisiert:
-        \begin{codeBlock}[]{minted language=kotlin}
+        \begin{codeBlock}[]{title=\codeBlockTitle{asdf},minted language=kotlin}
             var x = 6
             var y = 7
             var z = 0
@@ -171,8 +171,8 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
                 \item Die Verarbeitung von Eingaben wird im Foliensatz \verb+03_Variablen.pdf+ erläutert.
                 \item Variablen sollten in Strings nicht mit \enquote{\kotlininline{+}} eingefügt werden, stattdessen an die entsprechenden Stellen im String mit String-Templates einsetzen.
 
-                    Beispiel: \kotlininline{"$variable0 ist kleiner $variable1"} ergibt wenn \kotlininline{variable0 == 4} und\\
-                    \kotlininline{variable1 == 42} ist den String \kotlininline{"4 ist kleiner 42"}
+                      Beispiel: \kotlininline{"$variable0 ist kleiner $variable1"} ergibt wenn \kotlininline{variable0 == 4} und\\
+                      \kotlininline{variable1 == 42} ist den String \kotlininline{"4 ist kleiner 42"}
             \end{itemize}
         \end{hinweise}
 
@@ -212,25 +212,25 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
                 var ergebnisOk = true
 
                 if (op == "+") {
-                    ergebnis = op1 + op2
-                } else if (op == "-") {
-                    ergebnis = op1 - op2
-                } else if (op == "*") {
-                    ergebnis = op1 * op2
-                } else if (op == "/") {
-                    if(op2 == 0){
-                        ergebnisOk = false
-                        println("Division durch 0 ist nicht erlaubt!")
+                        ergebnis = op1 + op2
+                    } else if (op == "-") {
+                        ergebnis = op1 - op2
+                    } else if (op == "*") {
+                        ergebnis = op1 * op2
+                    } else if (op == "/") {
+                        if(op2 == 0){
+                                ergebnisOk = false
+                                println("Division durch 0 ist nicht erlaubt!")
+                            } else {
+                                ergebnis = op1 / op2
+                            }
                     } else {
-                        ergebnis = op1 / op2
+                        ergebnisOk = false
+                        println("Keine gültige Eingabe!")
                     }
-                } else {
-                    ergebnisOk = false
-                    println("Keine gültige Eingabe!")
-                }
                 if (ergebnisOk) {
-                    println("Das Ergebnis ist: $ergebnis")
-                }
+                        println("Das Ergebnis ist: $ergebnis")
+                    }
             \end{codeBlock}
         \end{solution}
     \end{subtask*}
@@ -304,20 +304,20 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
                 var freibad = false
 
                 if (wettervorhersage == "regen") {
-                    freibad = false
-                } else if (temperatur > 24) {
-                    freibad = true
-                } else if (wettervorhersage == "sonnig") {
-                    freibad = !(temperatur < 18 && windig)
-                } else {
-                    freibad = temperatur >= 18 && !windig
-                }
+                        freibad = false
+                    } else if (temperatur > 24) {
+                        freibad = true
+                    } else if (wettervorhersage == "sonnig") {
+                        freibad = !(temperatur < 18 && windig)
+                    } else {
+                        freibad = temperatur >= 18 && !windig
+                    }
 
                 if (freibad) {
-                    println("Geh ins Freibad")
-                } else {
-                    println("Bleib zu Hause")
-                }
+                        println("Geh ins Freibad")
+                    } else {
+                        println("Bleib zu Hause")
+                    }
             \end{codeBlock}
         \end{solution}
     \end{subtask*}
@@ -342,49 +342,47 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
         \end{codeBlock}
 
         \begin{solution}
+            %\begin{noindent}
             \begin{codeBlock}[]{minted language=kotlin}
-                println("Zahl a einlesen:")
+                println("Ganzzahl a:")
                 var a = readln().toInt()
-
-                println("Zahl b einlesen:")
-                var b = readln().toInt()
-
-                println("Zahl c einlesen:")
+                println("Ganzzahl b:")
+                var b: Any = readln()
+                println("Ganzzahl c:")
                 var c = readln().toInt()
-
-                var d = 2 * a
-                a = d + 3
-
-                println("Zahl d einlesen:")
-                d = readln().toInt()
-
+                a *= 2
+                a += 3
+                println("Ganzzahl d:")
+                var d = readln().toInt()
                 println(b)
                 println(c)
-
-                var condition = a > d
-                if (condition) {
+                b = a > d
+                if (b as Boolean) {
                     d = a
                 }
-
-                condition = a < d
-                if (condition) {
+                b = a < d
+                if (b as Boolean) {
                     c = d - a
                 }
-
+                b = !(b as Boolean);
+                if (b as Boolean) {
+                    c = 0
+                }
                 b = a * a
-                a = b
+                a = b as Int
 
                 b = c * d
-                c = a + b
+                c = a + b as Int
                 a = c
                 b = a + d
-                c = b + d
+                c = b as Int + d
 
                 println(a)
                 println(b)
                 println(c)
                 println(d)
             \end{codeBlock}
+            %\end{noindent}
         \end{solution}
     \end{subtask*}
 \end{task}
