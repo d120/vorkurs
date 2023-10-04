@@ -5,9 +5,12 @@
 \tl_trim_spaces:N \l_solution_env_var_tl
 \tl_if_eq:NnT \l_solution_env_var_tl {1} {\PassOptionsToClass{solution=true}{tudaexercise}}
 \ExplSyntaxOff
-\documentclass[accentcolor=3c,colorbacktitle,12pt,T1]{tudaexercise}
-\usepackage[T1]{fontenc}
+\documentclass[accentcolor=3c,colorbacktitle,12pt]{tudaexercise}
+% \usepackage[T1]{fontenc}
 %\usepackage[utf8]{inputenc}
+\ifPDFTeX
+    \RequirePackage[utf8]{inputenc}
+\fi
 %\usepackage[ngerman]{babel}
 \input{../shared/globalCommon}
 \usepackage{hyperref}
@@ -17,8 +20,17 @@
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{amssymb}
-\usepackage{luainputenc}
-
+\RequirePackage{silence}
+\WarningFilter[sillyfonterror]{latex}{Font~shape~declaration~has}
+\ActivateWarningFilters[sillyfonterror]
+\ifLuaTeX
+    % Fix Font warnings for mathdesign
+    \DeclareFontFamily{TU}{mdbch}{}
+    \DeclareFontShape{TU}{mdbch}{m}{n}{
+        <-> \UnicodeFontFile{lmroman10-regular}{\UnicodeFontTeXLigatures}
+    }{}
+    \RequirePackage[utf8]{luainputenc} % if problems with ß exist
+\fi
 
 \definecolor{darkblue}{rgb}{0,0,.5}
 \hypersetup{colorlinks=true, breaklinks=true, linkcolor=\IfDarkModeTF{cyan}{darkblue}, menucolor=darkblue, urlcolor=\IfDarkModeTF{cyan}{darkblue}}
