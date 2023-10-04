@@ -18,11 +18,11 @@
         Folgt denen, sodass ihr Kotlin ausführen könnt.
         \begin{solution}
             Kotlin ist installiert und dem Pfad hinzugefügt. Der Befehl
-            {\ttfamily kotlin -version} gibt eine Versionsnummer von mindestens {\ttfamily 1.8.22} aus.
-            % Der Kotlin Interpreter mit {\ttfamily kotlin} wurde gestartet.
+            \mintinline{text}{kotlin -version} gibt eine Versionsnummer von mindestens \mintinline{text}{1.8.22} aus.
+            % Der Kotlin Interpreter mit \mintinline{text}{kotlin} wurde gestartet.
 
-            Das Repl wurde korrekt installiert und mit {\ttfamily ki} gestartet. Der Befehl
-            {\ttfamily ki} gibt eine Versionsnummer von mindestens {\ttfamily 0.5.2} aus.
+            Das Repl wurde korrekt installiert und mit \mintinline{text}{ki} gestartet. Der Befehl
+            \mintinline{text}{ki} gibt eine Versionsnummer von mindestens \mintinline{text}{0.5.2} aus.
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Theoriefragen}
@@ -31,7 +31,7 @@
             \mchead
             \mcitemt{Programmcode steht üblicherweise in Textdateien}
             \mcitemf{Ein Prozessor kann Kotlin direkt ausführen}
-            \mcitemt{Um Kotlin-Code auszuführen kann ein Interpreter verwendet werden}
+            \mcitemt{Um Kotlin-Code auszuführen kann ein Compiler verwendet werden}
             \mcitemf{Es ist niemals sinnvoll seinen Code mit Kommentaren zu überladen}
         \end{itemize}
         \begin{solution}
@@ -41,25 +41,25 @@
 \end{task}
 \begin{task}[points=auto]{Ausdrücke \stage1}
     \begin{subtask*}[points=0]{Frage \& Antwort}
-        Gebt nacheinander die folgenden Ausdrücke in den Interpreter ein. Drückt nach
+        Gebt nacheinander die folgenden Ausdrücke in \kotlininline{ki} ein. Drückt nach
         jedem Eintrag \textit{ENTER}, um den Ausdruck auszuwerten. Was passiert?
         Versucht, zu erklären, warum. Probiert auch noch weitere Ausdrücke, die euch
         einfallen.
 
         \begin{multicols}{3}
             \begin{itemize}
-                \item {\ttfamily 2}
-                \item {\ttfamily 10.0}
-                \item {\ttfamily \verb="1"=}
-                \item {\ttfamily '1'}
-                \item {\ttfamily Test}
-                \item {\ttfamily \verb="Test"=}
-                \item {\ttfamily 0x11}
-                \item {\ttfamily 0b11}
-                \item {\ttfamily true}
-                \item {\ttfamily True}
-                \item {\ttfamily false}
-                \item {\ttfamily False}
+                \item \mintinline{text}{2}
+                \item \mintinline{text}{10.0}
+                \item \mintinline{text}{"1"}
+                \item \mintinline{text}{'1'}
+                \item \mintinline{text}{Test}
+                \item \mintinline{text}{"Test"}
+                \item \mintinline{text}{0x11}
+                \item \mintinline{text}{0b11}
+                \item \mintinline{text}{true}
+                \item \mintinline{text}{True}
+                \item \mintinline{text}{false}
+                \item \mintinline{text}{False}
             \end{itemize}
         \end{multicols}
 
@@ -68,10 +68,10 @@
 
         \begin{solution}
             Zahlen ohne Anführungszeichen ergeben die Zahl. Rationale Zahlen brauchen einen
-            Dezimal\textbf{punkt}. Doppelte Anführungszeichen ({\ttfamily \verb+"+}) ergeben Strings,
-            der Prefix {\ttfamily 0x} erwartet hexadezimales Format, der Prefix {\ttfamily 0b}
-            binäres Format. Wahrheitswerte müssen klein geschrieben werden ({\ttfamily true},
-            {\ttfamily false}).
+            Dezimal\fatsf{punkt}. Doppelte Anführungszeichen (\mintinline{text}{"}) ergeben Strings,
+            der Prefix \mintinline{text}{0x} erwartet hexadezimales Format, der Prefix \mintinline{text}{0b}
+            binäres Format. Wahrheitswerte müssen klein geschrieben werden (\kotlininline{true},
+            \kotlininline{false}).
             Einfache Anführungszeichen ergeben Chars, hier wird ein einzelnes Zeichen als numerischer Wert abgespeichert.
             Strings sind dann die Verkettung von Chars.
         \end{solution}
@@ -84,28 +84,28 @@
 
         \begin{multicols}{3}
             \begin{itemize}
-                \item {\ttfamily 16 + 26}
-                \item {\ttfamily 13.75 + 28.67}
-                \item {\ttfamily 2 * 3 + 6 * 6}
-                \item {\ttfamily \verb="4" + 2=}
-                \item {\ttfamily 12 * 133 / 28 - 15}
-                \item {\ttfamily \Verb{'a' + 5}}
-                \item {\ttfamily 1.3 * 5.6}
+                \item \kotlininline{16 + 26}
+                \item \kotlininline{13.75 + 28.67}
+                \item \kotlininline{2 * 3 + 6 * 6}
+                \item \kotlininline{"4" + 2}
+                \item \kotlininline{12 * 133 / 28 - 15}
+                \item \kotlininline{'a' + 5}
+                \item \kotlininline{1.3 * 5.6}
             \end{itemize}
         \end{multicols}
 
-        \bonus{Weitere mathematische Operationen können mit {\ttfamily import kotlin.math.*} importiert werden.
+        \bonus{Weitere mathematische Operationen können mit \kotlininline{import kotlin.math.*} importiert werden.
 
             \begin{multicols}{3}
                 \begin{itemize}
-                    \item {\ttfamily PI}
-                    \item {\ttfamily 12.0.pow(3)}
-                    \item {\ttfamily sqrt(2.0)}
+                    \item \kotlininline{PI}
+                    \item \kotlininline{12.0.pow(3)}
+                    \item \kotlininline{sqrt(2.0)}
                 \end{itemize}
             \end{multicols}}
 
         \begin{solution}
-            Das Ergebnis ist meistens eine Variante von 42.
+            Das Ergebnis ist meistens eine Variante von \kotlininline{42}.
             Wichtig ist, dass hier Punkt- vor Strichrechnung gilt.
             Beachtet die unterschiedlichen Datentypen.
             Die letzte Aufgabe betont, dass manche Operationen auf Kommazahlen keine genauen Ergebnisse liefern.
@@ -114,7 +114,7 @@
 \end{task}
 \begin{task}[points=auto]{Konvertierung \stage2}
     \begin{subtask*}[points=0]{Konvertierung}
-        Nehmen wir mal an, ihr habt den Text {\ttfamily \verb="1000"=} zur Verfügung. Vielleicht
+        Nehmen wir mal an, ihr habt den Text \kotlininline{"1000"} zur Verfügung. Vielleicht
         errechnet; vielleicht aus einer API (\textit{application programming interface}, allgemeine Bezeichnung für Schnittstellen zwischen Programmen)? Es kommt immer wieder vor, dass die Daten noch den falschen Typ haben, wenn ihr sie bekommt.
 
         Gebt die folgenden Ausdrücke ein, und findet das Ergebnis heraus.
@@ -124,13 +124,13 @@
         \begin{multicols}{3}
             \begin{enumerate}
                 \item \kotlininline{"100".toInt()}
-                \item \kotlininline{"1.3".toFloat()}
-                \item \kotlininline{"NaN".toFloat()}
+                \item \kotlininline{"1.3".toDouble()}
+                \item \kotlininline{"NaN".toDouble()}
                 \item \kotlininline{123.toString()}
                 \item \kotlininline{"0x11".toInt()}
                 \item \kotlininline{2.toString() + "5"}
                 \item \kotlininline{(2 + 5).toString()}
-                \item \kotlininline{5.toFloat()}
+                \item \kotlininline{5.toDouble()}
                 \item \kotlininline{5.5.toInt()}
                 \item \kotlininline{"4.2".toInt()}
             \end{enumerate}
@@ -140,15 +140,15 @@
             \begin{multicols}{3}
                 \begin{enumerate}
                     \item \kotlininline{kotlin.Int = 100}
-                    \item \kotlininline{kotlin.Float = 1.3}
-                    \item \kotlininline{kotlin.Float = NaN}
+                    \item \kotlininline{kotlin.Double = 1.3}
+                    \item \kotlininline{kotlin.Double = NaN}
                     \item \kotlininline{kotlin.String = 123}
-                    \item \textbf{NumberFormatException}
+                    \item \kotlininline{NumberFormatException}
                     \item \kotlininline{kotlin.String = 25}
                     \item \kotlininline{kotlin.String = 7}
-                    \item \kotlininline{kotlin.Float = 5.0}
+                    \item \kotlininline{kotlin.Double = 5.0}
                     \item \kotlininline{kotlin.Int = 5}
-                    \item \textbf{NumberFormatException}
+                    \item \kotlininline{NumberFormatException}
                 \end{enumerate}
             \end{multicols}
         \end{solution}
@@ -215,11 +215,11 @@
         \end{codeBlock}
         \begin{solution}
             \begin{enumerate}
-                \item {\ttfamily unresolved reference: prinntln}: Ein \textcolor{red}{Lexikalischer Fehler}, da es keine Funktion mit dem angegebenen Namen
-                    \texttt	{prinntln} gibt. Gültig wäre {\ttfamily println}. Ein klassische Tippfehler.
+                \item \mintinline{text}{unresolved reference: prinntln}: Ein \textcolor{red}{Lexikalischer Fehler}, da es keine Funktion mit dem angegebenen Namen
+                    \mintinline{text}{prinntln} gibt. Gültig wäre \mintinline{text}{println}. Ein klassische Tippfehler.
                 \item Ein \textcolor{red}{Syntaktischer Fehler}, da Strings immer in einfachen oder doppelten Anführungszeichen
                     stehen müssen.
-                \item {\ttfamily Unresolved reference}: Ein \textcolor{red}{Semantischer Fehler}, da Texte und Zahlen multiplizierbar sind.
+                \item \mintinline{text}{Unresolved reference}: Ein \textcolor{red}{Semantischer Fehler}, da Texte und Zahlen multiplizierbar sind.
                     \textbf{Bonus Fact}: Hierfür kann man z.B. \kotlininline{"Hallo ".repeat(3)} nutzen.
                 \item Ein \textcolor{red}{Syntaktischer Fehler}, da der Rest der Zeile nun auch als String gelesen wird, der aber nie endet.
             \end{enumerate}
@@ -229,23 +229,22 @@
 \end{task}
 \begin{task}[points=auto]{Challenge}
     \begin{subtask*}[points=0]{Caesar Cipher \stage3}
-        \begin{wrapfigure}{r}{0.2\textwidth}
+        \begin{wrapfigure}[7]{r}{0.2\textwidth}
             \begin{center}
                 \includegraphics{caesar-cipher.jpg}
             \end{center}
             Quelle: Wikipedia
         \end{wrapfigure}
         Wir wollen einen sehr einfaches Verschlüsselungsverfahren implementieren, den Caesar Cipher\footnote{\url{https://de.wikipedia.org/wiki/Caesar-Verschlüsselung}}.
-        Grundidee ist, das Alphabet auf zwei Scheiben zu schrieben und gegeneinander zu drehen.
-        Eine Verschiebung von $5$ wäre zum Beispiel
+        Grundidee ist, das Alphabet auf zwei Scheiben zu schrieben und diese gegeneinander zu drehen.
+        Eine Verschiebung von $5$ wäre zum Beispiel:
         \begin{align*}
-            A \to F \\
-            B \to G \\
-            M \to R
+            \text{\kotlininline{'A'}} \to \text{\kotlininline{'F'}} \\
+            \text{\kotlininline{'B'}} \to \text{\kotlininline{'G'}} \\
+            \text{\kotlininline{'M'}} \to \text{\kotlininline{'R'}}
         \end{align*}
 
-        Geben soll eine Verschiebung \kotlininline{val n = 5}
-        und einen Char \kotlininline{val c = 'B'} sein.
+        Geben sollen eine Verschiebung von \kotlininline{5} und ein beliebiger Char sein.
         Es soll einmal die Ver- und die Entschlüsselung berechnet werden.
         Man muss natürlich aufpassen, dass man bei z.B.
         \kotlininline{'A'} nicht \enquote{zu weit nach links} geht.
@@ -253,18 +252,16 @@
         \begin{solution}
             Ein Beispiel für die Verschlüsselung wäre die folgende Rechnung:
             \begin{codeBlock}[]{minted language=kotlin}
-                [0] val n = 5
-                [1] val c = 'B'
-                [2] 'A' + ((c - 'A') + n) % 26
-                res2: Char = G
+                'A' + ((@\textit{\color{accentcolor}<unverschlüsselter char>}@ - 'A') + 5) % 26
             \end{codeBlock}
             Und für die Entschlüsselung die folgende Rechnung:
             \begin{codeBlock}[]{minted language=kotlin}
-                [0] val n = 5
-                [1] val c = 'B'
-                [2] 'A' + ((c - 'A') - n + 26) % 26
-                res2: Char = B
+                'A' + ((@\textit{\color{accentcolor}<verschlüsselter char>}@ - 'A') - 5 + 26) % 26
             \end{codeBlock}
+            Dabei sollen \texttt{\textit{\color{accentcolor}<unverschlüsselter char>}} und \texttt{\textit{\color{accentcolor}<verschlüsselter char>}} jeweils mit entsprechenden Wert ersetzt werden.
+            Z.B. würde \kotlininline{'B'} verschlüsselt zu \kotlininline{'G'} und das verschlüsselte \kotlininline{'G'} hier wieder zu \kotlininline{'B'}.
+
+            Wobei man hier allerdings aufpassen muss, ist wenn der zu verschlüsselnde Buchstabe soweit hinten im Alphabet ist, dass man wieder zum Anfang springen muss. Wenn man z.B. \kotlininline{'X'} verschlüsseln will, dann soll das Ergebnis \kotlininline{'C'} sein. Wenn man das \kotlininline{'C'} dann wieder entschlüsseln will soll man wieder bei \kotlininline{'X'} raus kommen. Daher braucht man das Modulo.
         \end{solution}
     \end{subtask*}
 \end{task}
