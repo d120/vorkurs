@@ -9,9 +9,8 @@
 \section{Schleifen}
 \subtitle{Kapitel 4: Befehle wiederholen}
 \titlegraphic{
-    \begin{columns}
+    \begin{columns}[c]
         \begin{column}{4cm}
-            \vspace{1.5cm}
             \begin{center}
                 {\huge Schleifen}
             \end{center}
@@ -37,9 +36,10 @@
 
 \begin{frame}
     \slidehead
-
-    \kotlinfile{listings/why2.kts}
+    \vspace{-1em}
+    \kotlinfile[][top=0pt,bottom=0pt]{listings/why2.kts}
     \pause
+    \vspace{-1.5ex}
     \begin{block}{Hinweis}
         Sei faul!
     \end{block}
@@ -89,15 +89,15 @@
         \item Syntax:
             \kotlinfile{listings/while-syntax.kts}
         \item Solange die Bedingung zu \kotlininline{true} ausgewertet wird, werden Anweisungen wiederholt
-        \item Zeile 1 wird Schleifenkopf genannt
-        \item Zeile 2 und folgende werden Schleifenkörper genannt
+        \item Zeile 1 wird \textbf{Schleifenkopf} genannt
+        \item Alles zwischen den geschweiften Klammern wird \textbf{Schleifenkörper} bzw. \textbf{Schleifenrumpf} genannt
     \end{itemize}
 \end{frame}
 
 \begin{frame}
     \slidehead
     \begin{itemize}
-        \item Alle logischen Operatoren können verwendet werden:
+        \item Alle logischen Operatoren können als \textbf{Ausführbedingung} verwendet werden:
             \kotlinfile{listings/while2.kts}
     \end{itemize}
 \end{frame}
@@ -147,13 +147,17 @@
     \slidehead
 
     \begin{itemize}
-        \vspace{-0.1cm}
+        \vspace{-1ex}
         \item Häufig gibt es folgende Schleifenart:
-            \kotlinfile{listings/while3.kts}
+            \vspace{-1ex}
+            \kotlinfile[][top=0pt,bottom=0pt]{listings/while3.kts}
             \pause
+            \vspace{-1ex}
         \item Kurzschreibweise:
-            \kotlinfile{listings/forschleife.kts}
-    \end{itemize}
+            \vspace{-1ex}
+            \kotlinfile[][top=0pt,bottom=0pt]{listings/forschleife.kts}
+            \vspace{-1ex}
+    \end{itemize}\pause
     \begin{block}{Frage:}
         Von wo bis wo zählt diese Schleife?
     \end{block}
@@ -183,27 +187,26 @@
             \begin{itemize}
                 \item Schreibweise: \kotlininline{startwert until grenzwert step schrittweite}
             \end{itemize}
-            Beispiel:
-            \kotlinfile{listings/range.kts}
     \end{itemize}
+    \kotlinfile[][top=0cm,bottom=0cm]{listings/range.kts}
 \end{frame}
 
 \subsection{Verschachtelte Schleifen}
 \begin{frame}
     \slidehead
 
-    \begin{itemize}
-        \item Natürlich lassen sich Schleifen auch \textit{verschachteln}:
-            \vspace{0.1cm}
-            \kotlinfile{listings/geschachteltfor.kts}
-    \end{itemize}
+    \vspace{-1.2ex}
+    Natürlich lassen sich Schleifen auch \textit{verschachteln}:
+    \vspace{-1.2ex}
+    \kotlinfile[][top=0cm,bottom=0cm]{listings/geschachteltfor.kts}
 
+    \pause
+    \vspace{-1.5ex}
     \begin{block}{Frage: Was wird ausgegeben?}
-        \pause
-        0000000000\\
-        0000000000\\
-        ...\\
-        0000000000\\
+        \kotlininline{0000000000}\\
+        \kotlininline{0000000000}\\
+        \kotlininline{...}\\
+        \kotlininline{0000000000 // insgesamt 10 mal}
     \end{block}
 \end{frame}
 
