@@ -198,6 +198,7 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
         In dieser Aufgabe soll ein sehr einfacher Taschenrechner implementiert werden, wobei wir uns dabei auf die Grundrechenarten beschränken wollen. Euer Programm soll nacheinander drei Eingaben entgegennehmen, zwei Operanden (\textbf{ganze Zahlen}) und einen Operator ({\ttfamily +, -, *, /}). Schließlich soll der Taschenrechner eine Ausgabe mit dem entsprechenden Ergebnis liefern. Vergesst nicht, euer Programm zu testen.
 
         \begin{solution}
+            % \begin{noindent}
             \begin{codeBlock}[]{minted language=kotlin}
                 println("Wie lautet der erste Operand:")
                 var op1 = readln().toInt()
@@ -212,26 +213,27 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
                 var ergebnisOk = true
 
                 if (op == "+") {
-                        ergebnis = op1 + op2
-                    } else if (op == "-") {
-                        ergebnis = op1 - op2
-                    } else if (op == "*") {
-                        ergebnis = op1 * op2
-                    } else if (op == "/") {
-                        if(op2 == 0){
-                                ergebnisOk = false
-                                println("Division durch 0 ist nicht erlaubt!")
-                            } else {
-                                ergebnis = op1 / op2
-                            }
-                    } else {
-                        ergebnisOk = false
-                        println("Keine gültige Eingabe!")
-                    }
+                    ergebnis = op1 + op2
+                } else if (op == "-") {
+                    ergebnis = op1 - op2
+                } else if (op == "*") {
+                    ergebnis = op1 * op2
+                } else if (op == "/") {
+                    if(op2 == 0){
+                            ergebnisOk = false
+                            println("Division durch 0 ist nicht erlaubt!")
+                        } else {
+                            ergebnis = op1 / op2
+                        }
+                } else {
+                    ergebnisOk = false
+                    println("Keine gültige Eingabe!")
+                }
                 if (ergebnisOk) {
-                        println("Das Ergebnis ist: $ergebnis")
-                    }
+                    println("Das Ergebnis ist: $ergebnis")
+                }
             \end{codeBlock}
+            % \end{noindent}
         \end{solution}
     \end{subtask*}
 \end{task}
@@ -289,6 +291,7 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
         \textit{Hinweis: Euer Programm soll am Ende so funktionieren, dass ihr die Eckdaten (also Wettervorhersage, Temperatur, Luftfeuchtigkeit und Wind) eingebt, und das Programm dann Antwortet, ob ihr ins Freibad gehen solltet oder nicht.}
 
         \begin{solution}
+            %\begin{noindent}
             \begin{codeBlock}[]{minted language=kotlin}
                 // hier die Werte eintragen
                 var wettervorhersage = "regen"
@@ -304,21 +307,22 @@ Ihr könnt diese Datei dann starten, indem ihr {\ttfamily kotlin date.kts} in de
                 var freibad = false
 
                 if (wettervorhersage == "regen") {
-                        freibad = false
-                    } else if (temperatur > 24) {
-                        freibad = true
-                    } else if (wettervorhersage == "sonnig") {
-                        freibad = !(temperatur < 18 && windig)
-                    } else {
-                        freibad = temperatur >= 18 && !windig
-                    }
+                    freibad = false
+                } else if (temperatur > 24) {
+                    freibad = true
+                } else if (wettervorhersage == "sonnig") {
+                    freibad = !(temperatur < 18 && windig)
+                } else {
+                    freibad = temperatur >= 18 && !windig
+                }
 
                 if (freibad) {
-                        println("Geh ins Freibad")
-                    } else {
-                        println("Bleib zu Hause")
-                    }
+                    println("Geh ins Freibad")
+                } else {
+                    println("Bleib zu Hause")
+                }
             \end{codeBlock}
+            %\end{noindent}
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Ein einfacher Prozessor}
