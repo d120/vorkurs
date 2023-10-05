@@ -117,74 +117,107 @@
     \end{tikzpicture}
 \end{frame}
 
-\section{Zugriffsfehler}\label{sec:zugriffsfehler}
 \begin{frame}
     \slidehead
-    \pythonfile{listings/OutofBounce_Listing.py}
-    Bedeutung:
-    \begin{itemize}
-        \item In Zeile 3 der Datei \texttt{dateiName.py} wurde ein Index angefordert, der nicht innerhalb der Liste liegt
-    \end{itemize}
-
-\end{frame}
-
-%\nextvid{Nützliche Listen-Funktionen}{Listen Beispiele}
-
-%Deckblatt
-%\titlegraphic*{\includegraphics{media/cern.jpg}}
-% Photo by Samuel Zeller on Unsplash.  Source: https://unsplash.com/photos/JuFcQxgCXwA Licence is completely free to do anything: "More precisely, Unsplash grants you an irrevocable, nonexclusive, worldwide copyright license to download, copy, modify, distribute, perform, and use photos from Unsplash for free, including for commercial purposes, without permission from or attributing the photographer or Unsplash."
-%
-\subtitle{Listen}
-\subtitle{Kapitel 5: ganz viele Variablen in einer}
-% \titlegraphic{
-% 	\begin{columns}
-% 		\begin{column}{6cm}
-% 			\vspace{18mm}
-% 			\begin{center}
-% 				{\huge Listen-Funktionen}
-% 			\end{center}
-% 		\end{column}
-% 	\end{columns}}
-% \maketitle
-
-\section{Nützliche Listen-Funktionen}\label{sec:nutzliche-listen-funktionen}
-\begin{frame}
-    \slidehead
-    \begin{itemize}
-        \item Länge einer Liste:
-            \only<1>{\pythonfile{listings/list_length_no_solution.py}}
-            \only<2>{\pythonfile{listings/list_length.py}}
-    \end{itemize}
+    \kotlinfile{listings/list_syntax_immutable_access.kts}
 \end{frame}
 
 \begin{frame}
     \slidehead
-    \begin{itemize}
-        \item Element an Liste anhängen:
-            \pythonfile{listings/list_append.py}
-            \pause
-        \item Element aus Liste entfernen:
-            \pythonfile{listings/list_pop.py}
-    \end{itemize}
+    \kotlinfile{listings/list_syntax_immutable_ends.kts}
 \end{frame}
 
 \livecoding
 
-%\nextvid{Slicing}{Listen-Funktionen Beispiel}
-%
-\subtitle{Kapitel 5: ganz viele Variablen in einer}
+\section{Iterieren}\label{sec:iterieren}
+\subsection{Zugriffsfehler}\label{subsec:zugriffsfehler}
+\begin{frame}[fragile]
+    \slidehead
+    \kotlinfile{listings/out_of_bounds_code.kts}
+    \pause
+    \begin{commandshell}[fontsize=\footnotesize][minted language=text,top=0cm,bottom=0cm]
+        java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5
+            at java.base/java.util.Arrays$ArrayList.get(Arrays.java:4165)
+            at Foo.<init>(foo.kts:4)
+    \end{commandshell}
+    Bedeutung:
+    \begin{itemize}
+        \item In Zeile 4 der Datei \texttt{foo.kts} wurde ein Index angefordert, der nicht innerhalb der Liste liegt
+    \end{itemize}
+\end{frame}
 
-% %Deckblatt
-% \titlegraphic{
-% 	\begin{columns}
-% 		\begin{column}{6cm}
-% 			\vspace{18mm}
-% 			\begin{center}
-% 				{\huge Slicing}
-% 			\end{center}
-% 		\end{column}
-% 	\end{columns}}
-% \maketitle
+\subsection{Mit For-Schleife}
+\begin{frame}
+    \slidehead
+    \kotlinfile{listings/list_iteration.kts}
+    \pause
+    \begin{block}{Hinweis}
+        Alles, was \enquote{iterable} ist, kann nach dem \kotlininline{in} (auch \kotlininline{String}!)
+    \end{block}
+\end{frame}
+
+\livecoding
+
+\section{In-Operator als Abfrage}\label{sec:in-operator-als-abfrage}
+
+\begin{frame}
+    \slidehead
+    Der \kotlininline{in}-Operator kann auch überprüfen, ob sich ein Wert in der Liste befindet
+    \pause
+    \kotlinfile{listings/in_operator_list.kts}
+    \pause
+    \begin{block}{Hinweis}
+        Alles, was \enquote{iterable} ist, kann nach dem \kotlininline{in} (auch \kotlininline{String}!)
+    \end{block}
+    \pause
+\end{frame}
+
+\begin{frame}
+    \slidehead
+    \kotlinfile{listings/in_operator_string.kts}
+    \pause
+    \vspace{2em}
+    \centering
+    \enquote{Das F in TU Darmstadt steht für Freizeit}
+\end{frame}
+
+\livecoding
+
+\section{Destructuring}\label{sec:destructuring}
+\begin{frame}
+    \slidehead
+    Mit destructuring können die ersten $n$ Werte aus einer Liste direkt in Variablen gespeichert werden
+    \pause
+    \kotlinfile[][top=0cm,bottom=0cm]{listings/destructure_list.kts}
+    \pause
+    \begin{block}{Hinweis}
+        Das geht auch mit einem \kotlininline{String} (fast)
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \slidehead
+    \kotlinfile[][top=0cm,bottom=0cm]{listings/destructure_string.kts}
+\end{frame}
+
+\livecoding
+
+\section{Mutability}
+\begin{frame}
+    \slidehead
+    \begin{itemize}[<+->]
+        \item In Kotlin, ist fast alles \enquote{immutable-by-default}
+        \item Die Liste, die von \kotlininline{listOf()} erstellt wird, kann nicht modifiziert werden
+        \item Mit \kotlininline{mutableListOf()} kann eine Liste erstellt werden, die modifizierbar ist
+    \end{itemize}
+    \onslide<4->
+    \kotlinfile{listings/list_mutability.kts}
+    \begin{block}{Frage am Rande}
+        Wie unterscheidet sich die \enquote{nicht-Veränderbarkeit} von \kotlininline{val} und \kotlininline{listOf()}?
+    \end{block}
+\end{frame}
+
+\livecoding
 
 \section{Listen-Slicing}
 \begin{frame}
@@ -192,113 +225,74 @@
     \begin{itemize}
         \item Listen können mittels Slicing zugeschnitten werden
             \pause
-        \item Dazu wird \textbf{[a:b]} hinter die Liste geschrieben
+        \item Dazu wird \kotlininline{.slice(a until b)} hinter die Liste geschrieben
         \item Dabei ist \textbf{a} der Anfangsindex, und \textbf{b} der Endindex
             \pause
         \item Wichtig: Der Wert an Stelle \textbf{b} wird nicht mit kopiert
-        \item Dies funktioniert auch mit Strings!
+        \item Dies funktioniert auch mit \kotlininline{String}!
     \end{itemize}
     \pause
 
     \begin{block}{Beispiel:}
-        \only<4>{\pythonfile{listings/simpleSlice_no_solution.py}}
-        \only<5>{\pythonfile{listings/simpleSlice.py}}
+        \only<4>{\kotlinfile{listings/list_slice_no_solution.kts}}
+        \only<5>{\kotlinfile{listings/list_slice.kts}}
     \end{block}
 \end{frame}
 
 \begin{frame}
     \slidehead
-    \begin{itemize}
-        \item Es ist möglich einen oder beide der Parameter wegzulassen
-            \pause
-        \item \textbf{[a:]} gibt alle Elemente ab \textbf{a} zurück
-            \pause
-        \item \textbf{[:b]} gibt alle Elemente bis (exklusive) \textbf{b} zurück
-            \pause
-        \item \textbf{[:]} gibt alle Elemente zurück
-    \end{itemize}
-    \pause
-    \vspace{-0.1cm}
-    \begin{block}{Beispiel:}
-        \only<5>{\pythonfile{listings/partlySlice_no_solution.py}}
-        \only<6>{\pythonfile{listings/partlySlice.py}}
-    \end{block}
-\end{frame}
-
-\begin{frame}
-    \slidehead
-    \begin{itemize}
-        \item Es ist auch möglich in einem Intervall zu slicen
-            \pause
-        \item Dazu wird ein dritter Parameter hinzugefügt: \textbf{[a:b:c]} gibt von \textbf{a} bis (exklusive) \textbf{b} jedes \textbf{c}-te Element aus
-            \pause
-        \item \textbf{[::-1]} gibt die Liste in umgekehrter Reihenfolge aus
-    \end{itemize}
-    \pause
-    \vspace{-0.1cm}
-    \begin{block}{Beispiel:}
-        \only<4>{\pythonfile{listings/intervalSlice_no_solution.py}}
-        \only<5>{\pythonfile{listings/intervalSlice.py}}
-    \end{block}
+    Es ist möglich einzelne Indizes anzugeben
+    \kotlinfile{listings/list_slice_list.kts}
 \end{frame}
 
 \livecoding
 
-%\nextvid{Foreach-Schleifen}{Slicing Beispiele}
-
-%Deckblatt
-\subtitle{Kapitel 5: ganz viele Variablen in einer}
-% \titlegraphic{
-% 	\begin{columns}
-% 		\begin{column}{10cm}
-% 			\vspace{1.5cm}
-% 			\begin{center}
-% 				{\huge Foreach-Schleifen}
-% 			\end{center}
-% 		\end{column}
-% 	\end{columns}}
-% \subtitle{Listen}
-% \maketitle
-
-\section{For- vs. Foreach-Schleife}
+\section{Ranges}
+\subsection{Deep Dive}
 \begin{frame}
     \slidehead
-
+    Ranges haben einen Start- und Endwert
     \begin{itemize}
-        \item Häufig soll durch eine bestimmte Liste iteriert werden:
-            \pythonfile{listings/foreach_Listing2.py}
-            \pause
-
-        \item Deshalb Foreach-Schleife:
-            \pythonfile{listings/foreach_Listing.py}
+        \item<1-> \kotlininline{a until b} ist ein Range von \kotlininline{a} bis \kotlininline{b - 1} inklusive
+        \item<2-> \kotlininline{a .. b} ist ein Range von \kotlininline{a} bis \kotlininline{b} inklusive
+        \item<3-> \kotlininline{a downTo b} ist ein Range von \kotlininline{a} bis \kotlininline{b} inklusive, falls \kotlininline{a > b}
+        \item<4-> \kotlininline{a .. b step c} ist ein Range von \kotlininline{a} bis \kotlininline{b} inklusive, in sprüngen von \kotlininline{c}
+    \end{itemize}
+    \onslide<5->
+    Ranges können auch zusammengesetzt werden
+    \begin{itemize}
+        \item<6-> \kotlininline{(a .. b) + (c .. d)}
+        \item<7-> \kotlininline{(a .. d) - (b .. c)}
+    \end{itemize}
+    \onslide<8->
+    Ranges können in eine Liste umgewandelt werden
+    \begin{itemize}
+        \item<9-> \kotlininline{(a .. b).toList()}
+        \item<9-> \kotlininline{(a .. b).toMutableList()}
     \end{itemize}
 \end{frame}
 
+\begin{frame}
+    \slidehead
+    Beispiel: Gebe die Bustaben von \enquote{a} bis \enquote{c} und von \enquote{x} bis \enquote{z} aus
+    \pause
+    \kotlinfile{listings/range_char_example_plus.kts}
+\end{frame}
+
+\begin{frame}
+    \slidehead
+    Beispiel: Gebe alle Bustaben aus, außer die von \enquote{e} bis \enquote{m}
+    \pause
+    \kotlinfile{listings/range_char_example_minus.kts}
+\end{frame}
+
 \livecoding
-
-%\nextvid{Listen kopieren}{Foreach Beispiel}
-
-
-%Deckblatt
-\subtitle{Kapitel 5: ganz viele Variablen in einer}
-
-% \titlegraphic{
-% 	\begin{columns}
-% 		\begin{column}{6cm}
-% 			\vspace{18mm}
-% 			\begin{center}
-% 				{\huge Listen Kopieren}
-% 			\end{center}
-% 		\end{column}
-% 	\end{columns}}
-% \maketitle
 
 \section{Listen kopieren}
 \begin{frame}
     \slidehead
-    \pythonfile{listings/listcopy1.py}
+    \kotlinfile{listings/listcopy1.kts}
 \end{frame}
-
 
 \subsection{Analyse}
 \begin{frame}
@@ -306,8 +300,8 @@
     \vspace{2ex}
     \centering
     \begin{tikzpicture}
-        \node[draw, thick] at (-1,0) {\pythoninline{meineListe}};
-        \node[draw, thick] at (1,0) {\pythoninline{kopie}};
+        \node[draw, thick] at (-1,0) {\kotlininline{meineListe}};
+        \node[draw, thick] at (1,0) {\kotlininline{kopie}};
 
         \node[draw, thick, fill=lightpetrol] at (0,2) {Speicherbereich};
 
@@ -320,14 +314,14 @@
         \item Bei der Zuweisung mit \textbf{=} wurde nur die Zieladresse
             kopiert
         \item Deshalb wird die gleiche Liste referenziert
-        \item Eine Änderung von \pythoninline{kopie} bewirkt eine Änderung in \pythoninline{meineListe} (und umgekehrt)
+        \item Eine Änderung von \kotlininline{kopie} bewirkt eine Änderung in \kotlininline{meineListe} (und umgekehrt)
     \end{itemize}
 \end{frame}
 
 
 \begin{frame}
     \slidehead
-    \pythonfile{listings/listcopy2.py}
+    \kotlinfile{listings/listcopy2.kts}
 \end{frame}
 
 \subsection*{Analyse}
@@ -337,8 +331,8 @@
     \vspace{2ex}
     \centering
     \begin{tikzpicture}
-        \node[draw, thick] at (-2,0) {\pythoninline{meineListe}};
-        \node[draw, thick] at (2,0) {\pythoninline{kopie}};
+        \node[draw, thick] at (-2,0) {\kotlininline{meineListe}};
+        \node[draw, thick] at (2,0) {\kotlininline{kopie}};
 
 
         \node[draw, thick, fill=lightpetrol] at (-2,2) {Speicherbereich};
@@ -351,7 +345,7 @@
     \vspace{2ex}
 
     \begin{itemize}
-        \item \pythoninline{kopie} liegt nun in einem neuen, unabhängigen Speicherbereich
+        \item \kotlininline{kopie} liegt nun in einem neuen, unabhängigen Speicherbereich
     \end{itemize}
 \end{frame}
 
