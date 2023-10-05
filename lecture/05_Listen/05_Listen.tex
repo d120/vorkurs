@@ -174,11 +174,15 @@
 
 \begin{frame}
     \slidehead
-    \kotlinfile{listings/in_operator_string.kts}
+    \kotlinfile{listings/in_operator_string_f.kts}
     \pause
-    \vspace{2em}
-    \centering
-    \enquote{Das F in TU Darmstadt steht für Freizeit}
+    \vspace{1em}
+    \begin{center}
+        \enquote{Das F in TU Darmstadt steht für Freizeit}
+    \end{center}
+    \pause
+    \vspace{1em}
+    \kotlinfile{listings/in_operator_string_s.kts}
 \end{frame}
 
 \livecoding
@@ -217,6 +221,24 @@
     \end{block}
 \end{frame}
 
+\begin{frame}
+    \slidehead
+    Mit \kotlininline{.add(element)} können Elemente eingefügt werden
+    \pause
+    \kotlinfile{listings/list_add.kts}
+\end{frame}
+
+\begin{frame}
+    \slidehead
+    Es können auch Elemente entfernt werden
+    \begin{itemize}[<+->]
+       \item \kotlininline{.remove(element)} entfernt \textbf{ein} Element mit dem wert \kotlininline{element}
+        \item \kotlininline{.removeAt{index}} entfernt das Element an index \kotlininline{index}
+    \end{itemize}
+    \onslide<3->
+    \kotlinfile{listings/list_remove.kts}
+\end{frame}
+
 \livecoding
 
 \section{Listen-Slicing}
@@ -243,6 +265,12 @@
     \slidehead
     Es ist möglich einzelne Indizes anzugeben
     \kotlinfile{listings/list_slice_list.kts}
+\end{frame}
+
+\begin{frame}
+    \slidehead
+    Mit \kotlininline{.take(n)} und \kotlininline{.takeLast(n)} werden die ersten bzw. letzen \kotlininline{n} Elemente \enquote{genommen}
+    \kotlinfile{listings/list_take.kts}
 \end{frame}
 
 \livecoding
@@ -373,7 +401,7 @@
     \newcount\foo
     \slidehead
     \begin{columns}[T]
-        \begin{column}{4cm}
+        \begin{column}[c]{2cm}
             \centering
             \begin{tikzpicture}
                 \foo=2
@@ -416,14 +444,15 @@
                 \repeat
             \end{tikzpicture}
         \end{column}
-        \begin{column}{7cm}
+        \begin{column}[c]{11cm}
+%            \vspace{-1em}
+            \kotlinfile[][top=0cm,bottom=0cm]{listings/matrix.kts}
             \begin{itemize}
-                \item Definition: \pythoninline{square =[[8, 0, 5], [2, 1, 4]]}
                 \item Jede Dimension stellt man durch einen eigenen Index dar
-                \item Adressierung: \pythoninline{square[Spalte][Zeile]}
+                \item Adressierung: \kotlininline{matrix[Spalte][Zeile]}
                 \item Länge:\\
-                    1. Dimension: \pythoninline{len(square)}\\
-                    2. Dimension: \pythoninline{len(square[0])} oder \pythoninline{len(square[1])}, \dots
+                    1. Dimension: \kotlininline{matrix.size}\\
+                    2. Dimension: \kotlininline{matrix[0].size} oder \kotlininline{matrix[1].size}, \dots
                 \item Nicht jede Spalte muss gleich viele Zeilen haben
             \end{itemize}
         \end{column}
@@ -433,8 +462,7 @@
 \subsection{Initialisieren}
 \begin{frame}
     \slidehead
-    \vskip -12pt
-    \pythonfile{listings/mehrDimList_Initialisierung_Listing.py}
+    \kotlinfile{listings/matrix_write.kts}
 \end{frame}
 
 \livecoding
@@ -449,7 +477,7 @@
             \pause
         \item Wie wird eine zweidimensionale Liste adressiert? (Stichwort: Zeile/Spalte)
             \pause
-        \item Wofür benötigen wir \pythoninline{copy()} und warum erzielt eine einfache Zuweisung nicht den selben Effekt?
+        \item Wofür benötigen wir \pythoninline{toMutableList()} und warum erzielt eine einfache Zuweisung nicht den selben Effekt?
             \pause
         \item Wie schneide ich eine Liste hinter dem 3. Element ab?
     \end{itemize}

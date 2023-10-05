@@ -1,4 +1,4 @@
 val myList = listOf("Banane", "Apfel", "Ei", "Käse", "Zitrone")
 
-val sliced = myList.slice(2 until 4)
-// sliced = ["Ei", "Käse"]
+val first3 = myList.take(3)
+val last3 = myList.takeLast(3)

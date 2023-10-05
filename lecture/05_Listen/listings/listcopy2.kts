@@ -1,5 +1,5 @@
 val myList = mutableListOf(5, 7, 8, 42)
-val kopie = myList
+val kopie = myList.toMutableList() // kopiert alle Werte
 
 println(myList[0])  // 5
 println(myList[1])  // 7
