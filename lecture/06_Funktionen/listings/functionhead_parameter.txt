@@ -1,3 +1,0 @@
-def funktionsname(parameter):
-    """Dokumentation"""
-    # code

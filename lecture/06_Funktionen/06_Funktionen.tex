@@ -23,11 +23,9 @@
 \maketitle
 
 \section{Schlechtes Beispiel}
-\begin{frame}
+\begin{frame}[c]
     \slidehead
-
-    \vskip -10pt
-    \pythonfile{listings/beispiel_schlecht.py}
+    \kotlinfile{listings/beispiel_schlecht.kts}
     \small (Namen generiert auf www.listofrandomnames.com)
 \end{frame}
 
@@ -35,7 +33,7 @@
 \section{Gutes Beispiel}
 \begin{frame}
     \slidehead
-    \pythonfile{listings/beispiel_gut.py}
+    \kotlinfile{listings/beispiel_gut.kts}
 \end{frame}
 
 \section{Idee von Funktionen}
@@ -49,7 +47,7 @@
     \end{itemize}
     \vspace{1cm}
     \begin{block}{Hinweis}
-        Einige Funktionen haben wir schon kennengelernt, z.B. \pythoninline{print("Hello World")}
+        Einige Funktionen haben wir schon kennengelernt, z.B. \kotlininline{println("Hello World")}
     \end{block}
 \end{frame}
 
@@ -71,30 +69,19 @@
 % \maketitle
 
 \section{Woraus besteht eine Funktion?}
-\begin{frame}
+\begin{frame}[c]
     \slidehead
-    \vspace{-0.2cm}
-    \begin{itemize}
-        \item Syntax: \pythonfile{listings/functionhead_parameter.txt}
-            \pause
-            \vspace{-0.05cm}
-        \item Beispiel:\pythonfile{listings/functionhead_parameter_konkret.py}
+    \begin{itemize}[<+->]
+        \item Syntax: \kotlinfile{listings/fun_syntax.kts}
+        \item Beispiel: \kotlinfile{listings/fun_syntax_concrete.kts}
     \end{itemize}
-    \vspace{-0.05cm}
-    \pause
-    \begin{block}{Wichtig!}
-        \begin{itemize}
-            \item Funktionen müssen definiert werden, bevor sie aufgerufen werden
-            \item Bei mehreren Parametern werden diese mit \textbf{,} getrennt
-        \end{itemize}
-    \end{block}
 \end{frame}
 
 \subsection{Dokumentation}
 \begin{frame}
     \slidehead
     \begin{itemize}
-        \item in Python wird Funktionsdokumentation mit drei doppelten Anführungszeichen eingeleitet
+        \item in Kotlin wird Funktionsdokumentation mit drei doppelten Anführungszeichen eingeleitet
         \item die Dokumentation kann mehrere Zeilen haben
         \item sie sollte kurz erklären was die Funktion tut, was sie an Parametern erwartet und (falls vorhanden) was sie zurück gibt
     \end{itemize}
@@ -105,18 +92,19 @@
     \slidehead
     \begin{itemize}
         \item Funktionen können Rückgabewerte haben
-        \item Dazu wird \pythoninline{return} gefolgt vom Rückgabewert geschrieben
-        \item Beispiel: \pythoninline{return 42}
+        \item Der Rückgabetyp muss im Methodenkopf stehen
+        \item Dazu wird \kotlininline{return} gefolgt vom Rückgabewert geschrieben
+        \pause
+        \item Syntax \kotlinfile{listings/fun_syntax_return.kts}
     \end{itemize}
 \end{frame}
 
 \begin{frame}
     \slidehead
-
-    \pythonfile{listings/bsp_geometrie_3.py}
-    \begin{block}{Achtung}
-        Anweisungen nach dem \pythoninline{return} werden nicht mehr ausgeführt
-    \end{block}
+    \kotlinfile{listings/fun_example_return_block.kts}
+    \pause
+    Funktionen, die nur die \kotlininline{return}-Anweisung haben, können auch so geschrieben werden
+    \kotlinfile{listings/fun_example_return_expression.kts}
 \end{frame}
 
 \livecoding
@@ -139,7 +127,7 @@
 % \maketitle
 
 \section{Fallbeispiel: Geometrie}
-\begin{frame}
+\begin{frame}[c]
     \slidehead
 
     \begin{figure}
@@ -147,18 +135,16 @@
         %Hinweis: dieses Bild wurde von uns erstellt und kann ohne Referenz verwendet werden.
         %Viele Grüße
         %Kevin
-        \includeinvertablegraphics[width=\textheight]{geometrie}
+        \includeinvertablegraphics[width=0.6\textheight]{geometrie}
+        \caption{Flächeninhalt eines Kreises}\label{fig:flaecheninhalt}
     \end{figure}
-    \vspace{-10mm}
-    \begin{itemize}
-        \item Flächeninhalt eines Kreises
-    \end{itemize}
+
 \end{frame}
 
 \subsection{Flächeninhalt eines Kreises}
 \begin{frame}
     \slidehead
-    \pythonfile{listings/bsp_geometrie_schlecht.py}
+    \kotlinfile{listings/bsp_geometrie_schlecht.kts}
 
     \begin{block}{Problem}
         Immer, wenn irgendwo der Flächeninhalt gebraucht wird, muss er neu geschrieben werden $\Rightarrow$ Viel Code und viele mögliche Fehlerquellen
@@ -167,13 +153,12 @@
 
 \begin{frame}
     \slidehead
-    \vspace{-0.2cm}
     \begin{onlyenv}<1>
-        \pythonfile{listings/bsp_geometrie_1.py}
+        \kotlinfile{listings/bsp_geometrie_1.kts}
     \end{onlyenv}
 
     \begin{onlyenv}<2>
-        \pythonfile{listings/bsp_geometrie_2.py}
+        \kotlinfile{listings/bsp_geometrie_2.kts}
     \end{onlyenv}
 
 \end{frame}
@@ -181,9 +166,9 @@
 \subsection{Wiederverwendbarkeit}
 \begin{frame}
     \slidehead
-    \vspace{-0.2cm}
-    \pythonfile{listings/reusability.py}
-    \vspace{-0.2cm}
+    \vspace{-1ex}
+    \kotlinfile[][top=0cm,bottom=0cm]{listings/reusability.kts}
+    \vspace{-1ex}
     \begin{block}{Hinweis}
         Nun kann die Funktion auch in anderen Funktionen verwendet werden.
         Bei Änderungen muss nur eine Stelle geändert werden.
@@ -221,11 +206,18 @@
 
 \section{Scope}
 \subsection{Lokale Variablen}
-\begin{frame}
+\begin{frame}[fragile]
     \slidehead
-    \pythonfile{listings/scope_1.py}
+    \vspace{-1em}
+    \kotlinfile{listings/scope_1.kts}
     \pause
-    \pythonfile{listings/scope_error_1.txt}
+    \vspace{-1em}
+    \begin{commandshell}[fontsize=\footnotesize][minted language=text,top=0cm,bottom=0cm]
+        scope_1.kts:6:9: error: unresolved reference: variable
+        println(variable)
+                ^
+    \end{commandshell}
+    \vspace{-1em}
     \begin{block}{Hinweis:}
         Variablen, die innerhalb einer Funktion erstellt werden, werden gelöscht, sobald die Funktion endet.
         Diese Variablen heißen \textbf{lokale Variablen}.
@@ -235,7 +227,7 @@
 \subsection{Globale Variablen}
 \begin{frame}
     \slidehead
-    \pythonfile{listings/scope_2.py}
+    \kotlinfile{listings/scope_2.kts}
     \begin{itemize}
         \item Variablen die außerhalb von Funktionen erstellt wurden, werden als \textbf{globale Variablen} bezeichnet
         \item Auf globale Variablen kann auch in Funktionen zugegriffen werden
@@ -244,9 +236,9 @@
 
 \begin{frame}
     \slidehead
-    \pythonfile{listings/scope_3.py}
+    \kotlinfile{listings/scope_3.kts}
     \begin{itemize}
-        \item Die globale Variable \pythoninline{zahl} bleibt unverändert
+        \item Die globale Variable \kotlininline{zahl} bleibt unverändert
         \item Es wird eine lokale Variable mit dem \textit{gleichen} Namen erstellt
     \end{itemize}
 \end{frame}
@@ -335,11 +327,11 @@
     \begin{itemize}
         \item Fibonacci-Zahlen: \texttt{1, 1, 2, 3, 5, 8, 13, 8+13 = 21, ...}
             \begin{onlyenv}<1>
-                \pythonfile{listings/bsp_recursion_1.py}
+                \kotlinfile{listings/bsp_recursion_1.kts}
             \end{onlyenv}
 
             \begin{onlyenv}<2>
-                \pythonfile{listings/bsp_recursion_2.py}
+                \kotlinfile{listings/bsp_recursion_2.kts}
             \end{onlyenv}
 
         \item<2> Rekursionsanker sorgt für den Abbruch
@@ -417,7 +409,7 @@
 
 
 
-\subsection{Rekursive Summe in Python}
+\subsection{Rekursive Summe in Kotlin}
 \begin{frame}
     \slidehead
 
@@ -429,7 +421,7 @@
     \end{itemize}
     \vspace{1em}
     \pause
-    \pythonfile{listings/recursiveSum.py}
+    \kotlinfile{listings/recursiveSum.kts}
 \end{frame}
 
 \livecoding
@@ -445,9 +437,9 @@
             \pause
         \item Was ist ein Parameter?
             \pause
-        \item Darf ich meine Funktion \pythoninline{while} nennen?
+        \item Darf ich meine Funktion \kotlininline{while} nennen?
             \pause
-        \item Braucht eine Funktion ein \pythoninline{return}-Statement?
+        \item Braucht eine Funktion ein \kotlininline{return}-Statement?
             \pause
         \item Solltet ihr alle zur Ophase gehen?
     \end{itemize}
