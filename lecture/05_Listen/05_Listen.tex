@@ -76,7 +76,7 @@
     \end{figure}
     \pause
     Beispiel:\\
-    \kotlininline{eineListe = listOf(1, 2, 5, 9)}
+    \kotlininline{val eineListe = listOf(1, 2, 5, 9)}
     \begin{itemize}
         \item Der Wert 1 steht an Index 0
         \item Der Wert 2 steht an Index 1
@@ -84,12 +84,6 @@
         \item Die Liste hat eine Länge von 4 (via \kotlininline{eineListe.size})
     \end{itemize}
 \end{frame}
-
-% TODO: Put this somewhere
-%\begin{frame}
-%    \slidehead
-%    \kotlinfile{listings/no_list_for.kts}
-%\end{frame}
 
 \section{Syntax}\label{sec:syntax}
 \begin{frame}[c]
@@ -137,8 +131,8 @@
     \pause
     \begin{commandshell}[fontsize=\footnotesize][minted language=text,top=0cm,bottom=0cm]
         java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5
-        at java.base/java.util.Arrays$ArrayList.get(Arrays.java:4165)
-        at Foo.<init>(foo.kts:4)
+            at java.base/java.util.Arrays$ArrayList.get(Arrays.java:4165)
+            at Foo.<init>(foo.kts:4)
     \end{commandshell}
     Bedeutung:
     \begin{itemize}
@@ -230,10 +224,22 @@
 
 \begin{frame}
     \slidehead
+    \begin{columns}[T]
+        \begin{column}[c]{0.5\textwidth}
+            \kotlinfile{listings/no_list.kts}
+        \end{column}
+        \begin{column}[c]{0.5\textwidth}
+            \kotlinfile{listings/no_list_for.kts}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}
+    \slidehead
     Es können auch Elemente entfernt werden
     \begin{itemize}[<+->]
        \item \kotlininline{.remove(element)} entfernt \textbf{ein} Element mit dem wert \kotlininline{element}
-        \item \kotlininline{.removeAt{index}} entfernt das Element an index \kotlininline{index}
+        \item \kotlininline{.removeAt(index)} entfernt das Element an index \kotlininline{index}
     \end{itemize}
     \onslide<3->
     \kotlinfile{listings/list_remove.kts}
@@ -328,7 +334,7 @@
     \vspace{2ex}
     \centering
     \begin{tikzpicture}
-        \node[draw, thick] at (-1,0) {\kotlininline{meineListe}};
+        \node[draw, thick] at (-1,0) {\kotlininline{myList}};
         \node[draw, thick] at (1,0) {\kotlininline{kopie}};
 
         \node[draw, thick, fill=lightpetrol] at (0,2) {Speicherbereich};
@@ -342,7 +348,7 @@
         \item Bei der Zuweisung mit \textbf{=} wurde nur die Zieladresse
             kopiert
         \item Deshalb wird die gleiche Liste referenziert
-        \item Eine Änderung von \kotlininline{kopie} bewirkt eine Änderung in \kotlininline{meineListe} (und umgekehrt)
+        \item Eine Änderung von \kotlininline{kopie} bewirkt eine Änderung in \kotlininline{myList} (und umgekehrt)
     \end{itemize}
 \end{frame}
 
@@ -359,7 +365,7 @@
     \vspace{2ex}
     \centering
     \begin{tikzpicture}
-        \node[draw, thick] at (-2,0) {\kotlininline{meineListe}};
+        \node[draw, thick] at (-2,0) {\kotlininline{myList}};
         \node[draw, thick] at (2,0) {\kotlininline{kopie}};
 
 

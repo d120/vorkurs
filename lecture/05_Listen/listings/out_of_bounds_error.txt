@@ -1,3 +1,0 @@
-java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5
-        at java.base/java.util.Arrays$ArrayList.get(Arrays.java:4165)
-        at Foo.<init>(foo.kts:4)
