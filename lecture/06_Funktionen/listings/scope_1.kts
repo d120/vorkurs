@@ -1,6 +1,6 @@
-fun erstelle_variable() {
+fun erstelleVariable() {
     val variable = 5
 }
 
-erstelle_variable()
+erstelleVariable()
 println(variable)

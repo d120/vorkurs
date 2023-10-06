@@ -77,16 +77,6 @@
     \end{itemize}
 \end{frame}
 
-\subsection{Dokumentation}
-\begin{frame}
-    \slidehead
-    \begin{itemize}
-        \item in Kotlin wird Funktionsdokumentation mit drei doppelten Anführungszeichen eingeleitet
-        \item die Dokumentation kann mehrere Zeilen haben
-        \item sie sollte kurz erklären was die Funktion tut, was sie an Parametern erwartet und (falls vorhanden) was sie zurück gibt
-    \end{itemize}
-\end{frame}
-
 \subsection{Return-Statement}
 \begin{frame}
     \slidehead
@@ -135,8 +125,7 @@
         %Hinweis: dieses Bild wurde von uns erstellt und kann ohne Referenz verwendet werden.
         %Viele Grüße
         %Kevin
-        \includeinvertablegraphics[width=0.6\textheight]{geometrie}
-        \caption{Flächeninhalt eines Kreises}\label{fig:flaecheninhalt}
+        \includeinvertablegraphics[width=0.8\textheight]{geometrie}
     \end{figure}
 
 \end{frame}
@@ -153,6 +142,7 @@
 
 \begin{frame}
     \slidehead
+    \vspace{-1ex}
     \begin{onlyenv}<1>
         \kotlinfile{listings/bsp_geometrie_1.kts}
     \end{onlyenv}
@@ -160,7 +150,8 @@
     \begin{onlyenv}<2>
         \kotlinfile{listings/bsp_geometrie_2.kts}
     \end{onlyenv}
-
+    \pause
+    In diesem Beispiel, ist \kotlininline{r} ein \textbf{Parameter} und \kotlininline{radius} das \textbf{Argument} für \kotlininline{r}
 \end{frame}
 
 \subsection{Wiederverwendbarkeit}
@@ -407,8 +398,6 @@
     \end{tikzpicture}
 \end{frame}
 
-
-
 \subsection{Rekursive Summe in Kotlin}
 \begin{frame}
     \slidehead
@@ -436,6 +425,8 @@
         \item Was bedeutet Kapseln?
             \pause
         \item Was ist ein Parameter?
+        Was ist ein Argument?
+        Wie untescheiden sie sich?
             \pause
         \item Darf ich meine Funktion \kotlininline{while} nennen?
             \pause
