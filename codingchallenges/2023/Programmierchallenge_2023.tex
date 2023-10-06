@@ -1,0 +1,78 @@
+\RequirePackage{import}
+\subimport{../../exercises}{preamble.tex}
+
+% Packages
+\usepackage{hyperref}
+\usepackage{fancyvrb}
+
+%\usepackage{ClearSans}
+\usepackage{csquotes}
+\usepackage{tikz}
+\usetikzlibrary{fit,backgrounds}
+
+
+\usepackage[font=normalsize, labelfont=sf, position=bottom]{caption}
+\usepackage[labelfont=normalfont, position=bottom]{subcaption}
+
+\setlength{\parindent}{0pt}
+
+\def\gamefont{\bfseries\sffamily}
+
+% Document
+\begin{document}
+
+
+\title{Programmierchallenge Wintersemester 2023/24 \\ {\small der Fachschaft Informatik}}
+\subtitle{Wintersemester 2023/24}
+\author{Autoren: Ruben Deisenroth}
+\maketitle
+
+\section*{Käsekästchen \hyperref[footnote:1]{\footnotemark[1]}}
+\footnotetext[1]{\label{footnote:1}\url{https://de.wikipedia.org/wiki/Käsekästchen}}
+\subsection*{Ablauf des Spiels}
+\subsubsection*{Spielbetrieb}
+\begin{minipage}[t]{.7\textwidth}
+    Das Spielfeld besteht aus Karierten Kästchen. Jedes Kästchen hat vier Rand-Linien (Kanten), die Die Spieler mit Strichen überschreiben können.
+    Die Spieler sind immer abwechselnd am Zug. Jeder Spieler kann eine beliebige Kante eines Kästchens auswählen, und dort einen Strich setzen. Es können nur dort Striche gesetzt werden, wo noch keine sind. Wenn ein Kästchen von allen Seiten mit einem Strich umgeben ist, erobert derjenige Spieler das Feld, der den letzten Strich gesetzt hat. Wenn man ein Feld erobert hat, darf man so lange weiter Spielen, bis der letzte Strich den man gesetzt hat kein Feld mehr erobert. Danach ist der nächste Spieler wieder an der Reihe.
+    Wenn alle Striche gesetzt sind ist das Spiel zu Ende. Gewonnen hat derjenige Spieler, der die meisten Felder erobert hat.
+\end{minipage}%
+\begin{minipage}[t]{.3\textwidth}%
+    \centering%
+    \captionsetup{type=figure}
+    % \begin{noindent}
+    \begin{BVerbatim}
+  1  2  3  4  5  6  7
+A +-----+     +-----+
+  |  O  |
+B +-----+-----+-----+
+  |  X  |     |  O  |
+C +-----+     +-----+
+  |
+D +     +-----+-----+
+    \end{BVerbatim}
+    % \end{noindent}
+    \captionof*{figure}{Beispielhafte Darstellung einer Spielesituation\\- der erste Spieler hat Zwei Felder erobert \\- der zweite Spieler hat ein Feld erobert}
+\end{minipage}%
+
+\subsection*{Die Aufgabe}
+Programmiert in Kotlin Script eine Spieladaption des oben beschriebenen \emph{Käsekästchen}.
+Dieses soll auf und in der Konsole funktionieren.
+Nach jedem Zug soll der*die Spieler*in mittels der Konsole einen Buchstaben zum Raten auswählen können und eine entsprechende Rückmeldung erhalten.
+
+Das Programm soll selbst erkennen wann das Spiel für eine*n der Spieler*innen gewonnen oder verloren ist.
+Im Anschluss zeigt das Programm den Ausgang des Spiels an und beendet sich.
+
+\clearpage
+\subsection*{Rahmen}
+Es existiert kein \enquote{Rahmen} oder \enquote{Framework}.
+Das Projekt besitzt außer diesem Dokument keine weiteren Unterlagen.
+Bei Fragen könnt ihr euch am besten an die Tutor*innen oder an die Orga wenden.
+Bitte haltet euch an das KISS-Prinzip\footnote[2]{\url{https://de.wikipedia.org/wiki/KISS-Prinzip}} (Keep it simple, stupid), versucht also eine möglichst einfache Lösung zu erstellen.
+Es muss auch kein Wunderwerk der Technik sein.
+Dennoch sind kreative Ideen gerne gesehen.
+
+\subsection*{Die Abgabe}
+Es gibt zwei Möglichkeiten der Abgabe: Bis spätestens 23:59 Uhr am Sonntag (13.10.2023) könnt ihr eure \texttt{.kts}-Datei in Moodle hochladen oder ihr schickt uns eine Mail an \href{mailto:vorkurs@d120.de}{\nolinkurl{vorkurs@d120.de}}.
+Dort hängt ihr die Datei bitte als Anhang an.
+Dabei gilt die Ankunftszeit bei uns.
+\end{document}
