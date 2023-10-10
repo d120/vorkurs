@@ -84,7 +84,7 @@
         \item Funktionen können Rückgabewerte haben
         \item Der Rückgabetyp muss im Methodenkopf stehen
         \item Dazu wird \kotlininline{return} gefolgt vom Rückgabewert geschrieben
-        \pause
+            \pause
         \item Syntax \kotlinfile{listings/fun_syntax_return.kts}
     \end{itemize}
 \end{frame}
@@ -203,11 +203,13 @@
     \kotlinfile{listings/scope_1.kts}
     \pause
     \vspace{-1em}
+    %\begin{noindent}
     \begin{commandshell}[fontsize=\footnotesize][minted language=text,top=0cm,bottom=0cm]
         scope_1.kts:6:9: error: unresolved reference: variable
         println(variable)
                 ^
     \end{commandshell}
+    %\end{noindent}
     \vspace{-1em}
     \begin{block}{Hinweis:}
         Variablen, die innerhalb einer Funktion erstellt werden, werden gelöscht, sobald die Funktion endet.
@@ -425,8 +427,8 @@
         \item Was bedeutet Kapseln?
             \pause
         \item Was ist ein Parameter?
-        Was ist ein Argument?
-        Wie untescheiden sie sich?
+            Was ist ein Argument?
+            Wie untescheiden sie sich?
             \pause
         \item Darf ich meine Funktion \kotlininline{while} nennen?
             \pause

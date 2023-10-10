@@ -129,11 +129,13 @@
     \slidehead
     \kotlinfile{listings/out_of_bounds_code.kts}
     \pause
+    %\begin{noindent}
     \begin{commandshell}[fontsize=\footnotesize][minted language=text,top=0cm,bottom=0cm]
         java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5
             at java.base/java.util.Arrays$ArrayList.get(Arrays.java:4165)
             at Foo.<init>(foo.kts:4)
     \end{commandshell}
+    %\end{noindent}
     Bedeutung:
     \begin{itemize}
         \item In Zeile 4 der Datei \texttt{foo.kts} wurde ein Index angefordert, der nicht innerhalb der Liste liegt
@@ -238,7 +240,7 @@
     \slidehead
     Es können auch Elemente entfernt werden
     \begin{itemize}[<+->]
-       \item \kotlininline{.remove(element)} entfernt \textbf{ein} Element mit dem wert \kotlininline{element}
+        \item \kotlininline{.remove(element)} entfernt \textbf{ein} Element mit dem wert \kotlininline{element}
         \item \kotlininline{.removeAt(index)} entfernt das Element an index \kotlininline{index}
     \end{itemize}
     \onslide<3->
@@ -451,7 +453,6 @@
             \end{tikzpicture}
         \end{column}
         \begin{column}[c]{11cm}
-%            \vspace{-1em}
             \kotlinfile[][top=0cm,bottom=0cm]{listings/matrix.kts}
             \begin{itemize}
                 \item Jede Dimension stellt man durch einen eigenen Index dar
