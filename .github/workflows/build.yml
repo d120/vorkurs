@@ -26,13 +26,7 @@ jobs:
     steps:
       # 1. Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Set up Git repository
-        uses: actions/checkout@v3
-
-      # 2. Link texmf folder to the current texmf home
-      - name: Link texmf folder to the current texmf home
-        run: |
-          ln -s /root/texmf $(kpsewhich -var-value=TEXMFHOME)
-          texhash --verbose
+        uses: actions/checkout@v4
 
       # 3. Build the documents
       - name: "Build the documents"
@@ -47,7 +41,7 @@ jobs:
 
       # 4. Upload artifacts to GitHub
       - name: Upload artifacts to GitHub
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Vorkurs-Materialien
           path: "pdfout/*.pdf"
@@ -92,7 +86,7 @@ jobs:
 
       # save the pdf file from the previous workflow
       - name: Save pdf file
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           path: .
           name: Vorkurs-Materialien

@@ -4,4 +4,3 @@ fun fib(x: Int): Int {
     }
     return fib(x - 1) + fib(x - 2)
 }
-

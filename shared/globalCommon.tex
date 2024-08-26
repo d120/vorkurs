@@ -162,47 +162,47 @@
 
 \ExplSyntaxOn
 \DeclareTCBListing{codeBlock}{ O{} m }{
-listing~engine=minted, % Minted verwenden
-colback=\IfDarkModeTF{codebg}{black!10!\thepagecolor}, %Hintergrundfarbe
-colframe=black!70, % Randfarbe
-coltext=.,
-listing~only,  % Sonst will er den Plain Text nach dem Minted Listing noch anfügen
-frame~hidden,
-boxrule=0pt,
-arc=\rubos@boxarc,
-%hbox, % This option could be used to limit the Length of Code Blocks automatically, but does not work with the minted Line Numbers
-title~style=\IfDarkModeTF{accentcolor!60!black}{accentcolor},
-minted~style/.expanded=\IfDarkModeTF{native}{tango}, % Highlighting Style anpassen
-minted~language=java, % Sprache setzen
-minted~options={ %Minted Optionen
-linenos=true,
-numbersep=3mm,
-texcl=true,
-autogobble,
-escapeinside=@@,
-breaklines,
-highlightcolor=\IfDarkModeTF{yellow!50!black}{yellow!80},
-#1 % weitere optionen für Minted zulassen
-},
-left=7.1mm, % Links Platz lassen
-enhanced, % Erlaubt uns, den ramen zu zeichnen
-fonttitle=\sffamily, % Titelschriftart auf
-overlay={ % Für Grauen Bereich links
-    \begin{tcbclipinterior}
-        \fill[black!70] (frame.south~west) rectangle ([xshift=5mm]frame.north~west); % Zeilennummernbereich färben
-    \end{tcbclipinterior}
-},
-#2 % Weitere Argumente zulassen
+    listing~engine=minted, % Minted verwenden
+    colback=\IfDarkModeTF{codebg}{black!10!\thepagecolor}, %Hintergrundfarbe
+    colframe=black!70, % Randfarbe
+    coltext=.,
+    listing~only,  % Sonst will er den Plain Text nach dem Minted Listing noch anfügen
+    frame~hidden,
+    boxrule=0pt,
+    arc=\rubos@boxarc,
+    %hbox, % This option could be used to limit the Length of Code Blocks automatically, but does not work with the minted Line Numbers
+    title~style=\IfDarkModeTF{accentcolor!60!black}{accentcolor},
+    minted~style/.expanded=\IfDarkModeTF{native}{tango}, % Highlighting Style anpassen
+    minted~language=java, % Sprache setzen
+    minted~options={ %Minted Optionen
+        linenos=true,
+        numbersep=3mm,
+        texcl=true,
+        autogobble,
+        escapeinside=@@,
+        breaklines,
+        highlightcolor=\IfDarkModeTF{yellow!50!black}{yellow!80},
+        #1 % weitere optionen für Minted zulassen
+    },
+    left=7.1mm, % Links Platz lassen
+    enhanced, % Erlaubt uns, den ramen zu zeichnen
+    fonttitle=\sffamily, % Titelschriftart auf
+    overlay={ % Für Grauen Bereich links
+        \begin{tcbclipinterior}
+            \fill[black!70] (frame.south~west) rectangle ([xshift=5mm]frame.north~west); % Zeilennummernbereich färben
+        \end{tcbclipinterior}
+    },
+    #2 % Weitere Argumente zulassen
 }
 
 \NewTCBInputListing{\inputErrorCode}{ O{} m }{
-listing~file={#2},
-coltext=red,
-listing~only,  % Sonst will er den Plain Text nach dem Minted Listing noch anfügen
-colback=\IfDarkModeTF{black}{black!80},
-colupper=white,
-colframe=TUDa-3a,
-before~upper=\color{TUDa-9b},
-#1 % Weitere Argumente zulassen
+    listing~file={#2},
+    coltext=red,
+    listing~only,  % Sonst will er den Plain Text nach dem Minted Listing noch anfügen
+    colback=\IfDarkModeTF{black}{black!80},
+    colupper=white,
+    colframe=TUDa-3a,
+    before~upper=\color{TUDa-9b},
+    #1 % Weitere Argumente zulassen
 }
 \ExplSyntaxOff

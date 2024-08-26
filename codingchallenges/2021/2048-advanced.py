@@ -118,8 +118,8 @@ def printField(state: list, style: int = 1, color_new: bool = False, new_fields:
         borderspacer = "|"
         betweenspacer = "|"
     else:
-        hlineupper = f"{('╭'+ '-' * maxLength+'╮')*len(state)}\n"
-        hlinelower = f"{('╰'+ '-' * maxLength+'╯')*len(state)}\n"
+        hlineupper = f"{('╭' + '-' * maxLength+'╮')*len(state)}\n"
+        hlinelower = f"{('╰' + '-' * maxLength+'╯')*len(state)}\n"
         borderspacer = "|"
         betweenspacer = "||"
     for y, row in enumerate(state):
@@ -152,7 +152,7 @@ def printGameState(state: list, game_round: int, new_fields: list = [[3, 0]]):
     print("\033[H\033[J\033[0m", end="")
     print(f"Zug: {game_round}")
     print(
-        f"Höchster Wert: {max(map(lambda x : max(map(lambda y : y if isinstance(y,int) else 0, x)),state))}")
+        f"Höchster Wert: {max(map(lambda x: max(map(lambda y: y if isinstance(y, int) else 0, x)), state))}")
     printField(state, display_style, color_new, new_fields)
 
 

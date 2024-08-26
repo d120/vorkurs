@@ -5,4 +5,3 @@ fun fib(x: Int): Int {
     // Rekursionsaufruf
     return fib(x - 1) + fib(x - 2)
 }
-
