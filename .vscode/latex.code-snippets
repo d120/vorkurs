@@ -1,0 +1,60 @@
+{
+    "task": {
+        "prefix": "\\task",
+        "body": [
+            "\\begin{task}[points=${1:auto}]{${2:Aufgabentitel}}",
+            "\t$0",
+            "\\end{task}"
+        ],
+        "description": "Create A Task Environment",
+        "scope": "latex"
+    },
+    "subtask": {
+        "prefix": "\\subtask",
+        "body": [
+            "\\begin{subtask*}[points=${1:1}]{${2:Aufgabentitel}}",
+            "\t$0",
+            "\\end{subtask*}"
+        ],
+        "description": "Create A Subtask Environment",
+        "scope": "latex"
+    },
+    "inlinejava": {
+        "prefix": [
+            "\\inlinejava",
+        ],
+        "body": "\\inlinejava{$0}",
+        "description": "Displays java code inline",
+        "scope": "latex"
+    },
+    "Def Box": {
+        "prefix": "\\defBox",
+        "body": [
+            "\\begin{defBox}",
+            "\t$0",
+            "\\end{defBox}"
+        ],
+        "description": "Create An Definition Box (accentcolor Stripe, light accentcolor Background)",
+        "scope": "latex"
+    },
+    "Info Box": {
+        "prefix": "\\infoBox",
+        "body": [
+            "\\begin{infoBox}",
+            "\t$0",
+            "\\end{infoBox}"
+        ],
+        "description": "Create An Info Box (accentcolor Stripe, no Background)",
+        "scope": "latex"
+    },
+    "Gray Info Box": {
+        "prefix": "\\grayInfoBox",
+        "body": [
+            "\\begin{grayInfoBox}",
+            "\t$0",
+            "\\end{grayInfoBox}"
+        ],
+        "description": "Create A Gray Info Box (gray Stripe, gray Background)",
+        "scope": "latex"
+    },
+}

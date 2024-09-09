@@ -1,6 +1,9 @@
 {
     "name": "latex",
-    "image": "ghcr.io/tudalgo/algotex:latest",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "initializeCommand": "docker pull ghcr.io/tudalgo/algotex:latest",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -10,9 +13,11 @@
                 // Other helpers
                 "shardulm94.trailing-spaces",
                 "stkb.rewrap", // rewrap comments after n characters on one line
+                "dangmai.workspace-default-settings",
                 // Other
                 "vscode-icons-team.vscode-icons",
-                "draivin.hsnips"
+                "draivin.hsnips",
+                "valentjn.vscode-ltex"
             ],
             "settings": {
                 // General settings
@@ -21,23 +26,15 @@
                 "latex-workshop.linting.chktex.enabled": true,
                 "latex-workshop.linting.chktex.exec.path": "chktex",
                 "latex-workshop.latex.clean.subfolder.enabled": true,
+                "files.insertFinalNewline": true,
                 "latex-workshop.latex.autoClean.run": "onBuilt",
                 "editor.formatOnSave": true,
-                "files.associations": {
-                    "*.tex": "latex",
-                    "*.sty": "latex-expl3",
-                    "*.cls": "latex-expl3",
-                    "*.def": "latex",
-                    "*.aux": "latex",
-                    "*.toc": "latex",
-                    "*.pygstyle": "latex",
-                    "*.pygtex": "latex"
-                },
                 "latex-workshop.latexindent.path": "latexindent",
                 "latex-workshop.latexindent.args": [
                     "-c",
                     "%DIR%/",
                     "%TMPFILE%",
+                    "-l",
                     "-y=defaultIndent: '%INDENT%'"
                 ],
                 "latex-workshop.latex.tools": [
