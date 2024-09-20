@@ -3,125 +3,131 @@
 % !TeX root = 01_Einfuehrung.tex
 \input{../global.tex}
 
+% Für den Vortragenden:
+%
+% Bevor es losgeht die Vortragenden erwähnen!
+%
+% Um den Vorkurs zu beginnen muss man irgendwie die Zuschauer für das Programmieren inspirieren.
+% Es muss sie überzeugen, dass Programmieren geil ist, das die Vortragenden sympathisch sind und dass eigentlich alles super ist.
+%
+% Warum nutzt man also überhaupt Computer, rechnen lernt man schließlich schon in der Schule.
+% Und für alles andere, wie Notizen, Kalender etc., hat man Zettel und Stift.
+%
+% - Rechner sind exakt.
+% - Rechner sind schnell, sehr schnell.
+% - Die Ergebnisse der Rechenschritte (Programm später erwähnen) sind reproduzierbar.
+% - TODO: mehr
+%
+% Man möchte den Zuschauern klarmachen, dass ein Rechner keine natürliche Sprache kann (auch nicht via ChatGPT!),
+% und man eine Programmiersprache braucht, die sowohl Mensch, als auch Rechner spricht.
+% Dafür mache ich eine Einführung, die Programmieren als abstraktes Gedankenexperiment einführt:
+% Man stelle sich eine außerirdische Lebensform vor, welche eine komplett andere Art von Intelligenz als wir Menschen hat.
+% Wie kann man mit dieser Lebensform kommunizieren?
+% Wir haben verschiedene Informationen über die Lebensform: Sie ist exakt, vergisst keine Details, ist sehr fleißig, ist sehr schnell aber ist nicht eigenständig.
+% Welche Sprache kann man benutzen, bei der sowohl wir Menschen, als auch diese Lebensform etwas versteht?
+% Englisch würde zwar uns Menschen gefallen, aber Englisch hat zu viele Wörter, deren genaue Bedeutung unklar ist.
+% "Mehrdeutigkeit" ist etwas mit der die Lebensform überhaupt nicht umgehen kann.
+% Die Lebensform könnte eine Sprache vorschlagen, die nur aus Nullen und Einsen besteht, und ein so begrenztes Vokabular hat, dass jeder Begriff eine exakte Bedeutung hat.
+% Damit kann der Mensch jedoch schlecht umgehen, weil er sich Zahlen schlecht merken kann und keine Intuition aufbaut was die Begriffe bedeuten.
+% Lösung: Ein Mittelweg: Eine künstlich erfundene Sprache, die eine sehr begrenzte Anzahl Begriffe auf Englisch hat,
+% die man sich gut merken kann und gleichzeitig eine exakt definierte Bedeutung hat, so dass das Wesen sich es auch merken kann.
+%
+% Unsere Programmiersprache heißt Python.
+% Wir folgen ihrem Formalismus, um unseren Computern Befehle bzw. Programme zu vermitteln und diese ausführen zu lassen.
+% Die Wahl ist willkürlich und es gibt nicht die *eine* Programmiersprache.
+% Dies soll dem Publikum verdeutlicht werden.
+
 \begin{document}
 
 %Deckblatt
-\subtitle{Kapitel 1: Erste Schritte}
 \titlegraphic{
     \begin{columns}[b]
-        \begin{column}{.6\textwidth}
+        \begin{column}{.4\textwidth}
             \centering
-            {\huge Mit einem\\Computer Reden}
             \begin{figure}
                 \centering
-                \includeinvertablegraphics[scale=0.3]{code_quality.png}
-                \caption*{Bild: \href{https://xkcd.com/1513/}{https://xkcd.com/1513/}}
+                \includeinvertablegraphics[height=.55\textheight]{computer1917.jpg}
+                \caption*{Ein Rechenzentrum, 1917}
             \end{figure}
         \end{column}%
         \begin{column}{.4\textwidth}
+            \centering
             \begin{figure}
                 \centering
-                \includeinvertablegraphics[scale=0.2]{good_code.png}
-                \caption*{Bild: \href{https://xkcd.com/844/}{https://xkcd.com/844/}}
+                \includeinvertablegraphics[height=.55\textheight]{Z3_Deutsches_Museum.JPG}
+                \caption*{Der Z3 von Konrad Zuse}
             \end{figure}
         \end{column}
     \end{columns}}
 \maketitle
 
-% Bevor es losgeht die Vortragenden erwähnen!
-
-% Um den Vorkurs zu beginnen muss ich irgendwie die Zuschauer für das Programmieren inspirieren. Es muss sie überzeugen, dass Programmieren geil ist, das die Vortragenden sympathisch sind und dass eigentlich alles super ist. Dafür mache ich eine Einführung, die Programmieren als abstraktes Gedankenexperiment einführt.
-% Man stelle sich eine außerirdische Lebensform vor, welche eine komplett andere Art von Intelligenz als wir Menschen hat. Wie kann man mit dieser Lebensform kommunizieren? Wir haben verschiedene Informationen über die Lebensform: Sie ist exakt, vergisst keine Details, ist sehr fleißig, ist sehr schnell aber ist nicht eigenständig. Welche Sprache kann man benutzen, bei der sowohl wir Menschen, als auch diese Lebensform etwas versteht? Englisch würde zwar uns Menschen gefallen, aber Englisch hat zu viele Wörter, deren genaue Bedeutung unklar ist. "Mehrdeutigkeit" ist etwas mit der die Lebensform überhaupt nicht umgehen kann. Die Lebensform könnte eine Sprache vorschlagen, die nur aus Nullen und Einsen besteht, und ein so begrenztes Vokabular hat, dass jeder Begriff eine exakte Bedeutung hat. Damit kann der Mensch jedoch schlecht umgehen, weil er sich Zahlen schlecht merken kann und keine Intuition aufbaut was die Begriffe bedeuten. Lösung: Ein Mittelweg: Eine künstlich erfundene Sprache, die eine sehr begrenzte Anzahl Begriffe auf Englisch hat, die man sich gut merken kann und gleichzeitig eine exakt definierte Bedeutung hat, so dass das Wesen sich es auch merken kann.
-
-\section{Warum mit Computer kommunizieren?}
+\section{Noch etwas Historie}
 \begin{frame}
     \slidehead
     \vspace{3mm}
-    \begin{itemize}[<+->]
-        \item Computer sind rein-mathematische Maschinen
-        \item Computer führen einfache Arbeitsschritte extrem \textbf{schnell} aus
-        \item Programme sind aus vielen Arbeitsschritten zusammengesetzt
-            \kotlinfile{listings/Programmieren.txt}
-    \end{itemize}
-\end{frame}
-
-\section{Was tun wir hier eigentlich?}
-\begin{frame}
-    \slidehead
-    \begin{itemize}[<+->]
-        \item Programmieren mit Kotlin \textcolor{gray}{[\textprimstress{}k\textturnscripta{}tl\textsci{}n]}
-        \item Kotlin?
-            \begin{itemize}[<3->]
-                \item[] $\Rightarrow$ Programmiersprache!
-                \item[] $\Rightarrow$ Verständlicher für Menschen
-                \item[] $\Rightarrow$ Oft verwendet
-            \end{itemize}
-    \end{itemize}
-
-    \pause
-    \vspace{0.75cm}
-
-    \tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=., fill=\IfDarkModeTF{red!30!black}{red!10}]
-    \centering
-    \begin{tikzpicture}[node distance=5cm]
-        \node (syntax) [rect, text width=4cm, minimum height=2cm] {\textbf{Syntax}\\ Wortschatz};
-        \node (grammatik) [rect, right of=syntax, text width=4cm, minimum height=2cm] {\textbf{Grammatik}\\ Regeln um Befehle zusammenzusetzen};
-    \end{tikzpicture}
-
-\end{frame}
-
-\begin{comment}
-    \section{Das erste Programm}
-    \subsection{Wie fange ich an?}
-    \begin{frame}
-        \slidehead
-        \begin{itemize}
-            \item Befehle bestehen aus Text
-            \item Mit einem einfachen Texteditor schreibt man Befehle in eine Datei
-            \item Anschließend interpretiert der Computer die Befehle
-        \end{itemize}
-    \end{frame}
-\end{comment}
-
-\section{Compiler?}
-\begin{frame}[t]
-    \slidehead
-    \begin{columns}[T]
-        \begin{column}{2cm}
-            \begin{tikzpicture}
-
-                \node[] (mensch) at (0,0) {\includeinvertablegraphics[height=1.3cm]{media/wesen_notebook.png}};
-
-                \visible<2->{
-                    \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (interpreter) at (0,-1.8) {Compiler};
-                    \draw[->,line width=.6mm] (mensch.south) -- (interpreter.north);
-                }
-                \visible<3->{
-
-                    \node[fill=\IfDarkModeTF{.!30!\thepagecolor}{lightgray},draw, inner sep=5pt, rounded rectangle] (computer) at (0,-4) {Computer};
-
-                    \draw[->,line width=.6mm] (interpreter.south) -- (computer.north);
-                }
-            \end{tikzpicture}
-        \end{column}
-        \begin{column}{10cm}
-            \begin{itemize}
-                \item[]
-                \item \textbf{Der Mensch} beschreibt die Aufgabe in einer Programmiersprache $\Rightarrow$ Quelltext
-                \item[]
-                \item[]
-                    \visible<2->{
-                \item \textbf{Der Compiler} kompiliert den Quelltext zu Maschinenbefehlen
-                    }
-                \item[]
-                \item[]
-                    \visible<3->{
-                \item \textbf{Der Computer} führt die Maschinenbefehle aus
-                    }
-            \end{itemize}
+    \begin{columns}[b]
+        \begin{column}{.3\textwidth}
+            \begin{figure}
+                \centering
+                \includeinvertablegraphics[width=\textwidth]{punchcards.png}
+                \caption*{Ein Lochkartenleser}
+            \end{figure}
+        \end{column}%
+        \begin{column}{.4\textwidth}
+            \centering
+            \begin{figure}
+                \centering
+                \includeinvertablegraphics[height=.58\textheight]{apollo_code.png}
+                \caption*{\footnotesize Margaret Hamilton und ihr \\ Programm der Apollo 11 Mission}
+            \end{figure}
         \end{column}
     \end{columns}
 \end{frame}
+
+\section{Kapitel 1: Mit einem Computer Reden}
+\begin{frame}
+    \slidehead
+    \begin{itemize}[<+->]
+        \item Computer sind rein-mathematische Maschinen
+        \item Sie sprechen keine natürlichen Sprachen
+        \item Sie rechnen lediglich Arbeitsschritt für Arbeitsschritt
+        \item \dots dabei sind sie jedoch extrem \textbf{schnell}
+        \vspace{3em}
+        % Im Sinne: Das kann man garnicht groß genug schreiben
+        \item \dots also sie sind wirklich \textbf{\Huge schnell}
+    \end{itemize}
+\end{frame}
+
+\section{Die Sprachen der Computer}
+\begin{frame}
+    \slidehead
+    \begin{itemize}[<+->]
+        \item Eine Liste von Arbeitsschritten - ähnlich wie ein Kochrezept - nennen wir ein \emph{Programm}
+        \item Aber wie schreiben wir die Arbeitsschritte auf?
+        \item Die Regeln, wie unsere Arbeitsschritte hingeschrieben werden dürfen, nennen wir eine \emph{Programmiersprache}
+        \item \emph{Python} ist eine solche Programmiersprache
+        % An der Stelle eventuell Dschungel der Programmiersprachen von Ullmann erwähnen,
+        % falls das wieder stattfindet - ansonsten auf YouTube
+        \item Es gibt aber noch unzählige Andere
+        \item Insbesondere gibt es nicht die \emph{eine} Programmiersprache
+    \end{itemize}
+\end{frame}
+
+\section{Python}
+\subsection{Die Sprache des Vorkurses}
+\begin{frame}
+    \slidehead
+    \begin{itemize}[<+->]
+        \item In Python bestehen Programme aus Text
+        \item Dieser Text wird auch \emph{Quelltext} (eng. Source Code) genannt
+        \item Man kann Python-Programme direkt in Python eingeben
+        \item Alternativ kann man das Programm in eine Datei schreiben
+        \item Diese Datei kann dann an Python übergeben werden
+        \item So kann man das selbe Programm noch Jahre später nutzen
+    \end{itemize}
+\end{frame}
+
+\livecoding
 
 %\nextvid{Erstes Programm}{}
 
