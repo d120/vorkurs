@@ -2,6 +2,24 @@
 % !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
 \input{../global.tex}
 
+\section{Python als Taschenrechner}
+\begin{frame}
+    \slidehead
+    \begin{itemize}[<+->]
+        \item Man kann mit ganzen Zahlen, z.B. \verb#0, 1, -69, 420#, rechnen
+        \item \dots oder Kommazahlen, z.B. \verb#0.0, 1.0, -420.69, -0.0#.
+        \item Kommazahlen sind ungenau: \verb#0.1 + 0.2#.
+        \item Python kann \verb#+, -, *, /# rechnen.
+        \item Es gibt noch weitere Operationen, z.B. \verb#**, //, \%#.
+        \item Eine Liste aller Operationen kann man mit \verb#help("+")# anzeigen.
+        \item Es gibt Punkt-vor-Strich bzw. PEMDAS.
+        \item Man kann klammern \verb#()# wie gewohnt.
+    \end{itemize}
+\end{frame}
+
+\livecoding
+
+
 \begin{document}
 \subtitle{Kapitel 2: Spaß mit Daten}
 \titlegraphic{
