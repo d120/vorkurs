@@ -68,12 +68,22 @@
         \item \textbf{müssen} mit einem Buchstaben oder Unterstrich beginnen
         \item \textbf{dürfen keine} Punkte, Bindestriche, Sterne oder andere Sonderzeichen enthalten
         \item sollten \textbf{aussagekräftig} sein!
-        \item können mit \pythoninline{print(variablenName)} ausgeben werden % Potenziell rauslassen ?
         \item Groß- und Kleinschreibung ist \textbf{wichtig}! ("Case sensitive"):\\ $eineVariable \neq EINEVARIABLE \neq EiNeVaRiAbLe$.
         \item Namenskonvention \pythoninline{snake_case}
     \end{itemize}
 \end{frame}
 
+\section{Variablen auf der Konsole ausgeben!}
+\begin{frame}
+    \slidehead
+    Um verschiedene Informationen sichtbar für den Nutzer eines Programms zu machen, kann man den Befehl \pythoninline{print} verwenden.
+    \pythonfile{listings/printing.py}
+    Ausgabe auf der Konsole sieht wie folgt aus!
+    \pythonfile{listings/printing_console.sh}
+\end{frame}
+
+\section{Ablegen von werten in einer Variable}
+\subsection{Zuweisung}
 \livecoding
 
 %\nextvid{Konsoleneingabe}{Variablen Beispiel}
@@ -103,8 +113,8 @@
 
     %TODO: Ich weiß nicht ob wir das hier reinbringen wollen, dass scheint mir etwas suspekt
     \begin{itemize}[<+->]
-        \item \textbf{Ziel}: Ausdrücke in einem \pythoninline{String} einfügen
-        \item Mithilfe der Funktion \pythoninline{str} und dem Konkatenationsoperator \pythoninline{+}
+        \item \textbf{Ziel}: Komplexere ausgaben ermöglichen durch nutzung von Strings (Zeichenketten).
+        \item Mithilfe der Funktion \pythoninline{str} und dem Konkatenationsoperator \pythoninline{+} können komplexere Ausdrücke zusammengebaut werden
             \pythonfile{listings/string_no_template.py}
         \item Dies kann man jedoch auch mit einem Template String umsetzen
             \pythonfile{listings/string_template.py}
@@ -116,8 +126,9 @@
 
     \begin{itemize}[<+->]
         \item Komplexere Ausdrücke funktionieren selbstverständlich auch!
-            \pythonfile{listings/string_template_complex.py}
     \end{itemize}
+        \pythonfile{listings/string_template_complex.py}
+        \pythonfile{listings/string_template_complex_output.sh}
 \end{frame}
 
 \section{Exkurs: Konsoleneingabe}
@@ -176,52 +187,52 @@
 %	\end{center}
 %\end{frame}
 
-
-\section{Anweisungen und Ausdrücke}
-\begin{frame}
-    \slidehead
-    \begin{itemize}
-        \item Eine \textbf{Anweisung (Statement)} führt etwas aus
-        \item Ein \textbf{Ausdruck (Expression)} wertet zu einem \textit{Wert} aus
-    \end{itemize}
-    \pause
-    \kotlinfile{listings/anweisungen.kts}
-    \begin{itemize}
-        \item Jede oben gezeigte Zeile enthält \textit{eine Anweisung}
-        \item \kotlininline{1 + 42 + 5} ist ein \textit{Ausdruck}
-            \pause
-        \item Auch die Zahl $1$ ist hier ein Ausdruck, der zu dem Wert $1$ ausgewertet wird
-        \item Das gilt in Zeile 2 auch für den String
-    \end{itemize}
-
-\end{frame}
-
-\subsection{Zusammengesetze Operatoren}
-\begin{frame}[fragile]
-    \slidehead
-
-    \begin{itemize}
-        \item Häufig werden Variablen gelesen und gleichzeitig geschrieben
-    \end{itemize}
-
-    \kotlinfile{listings/zusammengesetzeoperatoren.kts}
-
-    \begin{itemize}
-        \item Es gibt noch weitere:
-            \begin{itemize}
-                \item \verb+-=+
-                \item \verb+*=+
-                \item \verb+/=+
-                \item \verb+%=+
-            \end{itemize}
-            \pause
-        \item Quiz: Was passiert bei \kotlininline{val} statt \kotlininline{var}?
-    \end{itemize}
-\end{frame}
-
-\livecoding
-
-%\nextvid{If-Anweisung}{Anweisungen und Ausdrücke Beispiel}
+% Redaktionelle änderung
+% \section{Anweisungen und Ausdrücke}
+% \begin{frame}
+%     \slidehead
+%     \begin{itemize}
+%         \item Eine \textbf{Anweisung (Statement)} führt etwas aus
+%         \item Ein \textbf{Ausdruck (Expression)} wertet zu einem \textit{Wert} aus
+%     \end{itemize}
+%     \pause
+%     \kotlinfile{listings/anweisungen.kts}
+%     \begin{itemize}
+%         \item Jede oben gezeigte Zeile enthält \textit{eine Anweisung}
+%         \item \kotlininline{1 + 42 + 5} ist ein \textit{Ausdruck}
+%             \pause
+%         \item Auch die Zahl $1$ ist hier ein Ausdruck, der zu dem Wert $1$ ausgewertet wird
+%         \item Das gilt in Zeile 2 auch für den String
+%     \end{itemize}
+%
+% \end{frame}
+%
+% \subsection{Zusammengesetze Operatoren}
+% \begin{frame}[fragile]
+%     \slidehead
+%
+%     \begin{itemize}
+%         \item Häufig werden Variablen gelesen und gleichzeitig geschrieben
+%     \end{itemize}
+%
+%     \kotlinfile{listings/zusammengesetzeoperatoren.kts}
+%
+%     \begin{itemize}
+%         \item Es gibt noch weitere:
+%             \begin{itemize}
+%                 \item \verb+-=+
+%                 \item \verb+*=+
+%                 \item \verb+/=+
+%                 \item \verb+%=+
+%             \end{itemize}
+%             \pause
+%         \item Quiz: Was passiert bei \kotlininline{val} statt \kotlininline{var}?
+%     \end{itemize}
+% \end{frame}
+%
+% \livecoding
+%
+% %\nextvid{If-Anweisung}{Anweisungen und Ausdrücke Beispiel}
 
 \section{Control Flow}
 \subsection{If-Anweisung}
@@ -267,14 +278,14 @@
         \begin{itemize}
             \item Programm läuft sequentiell, d.h zeilenweise
             \item If-Anweisungen testen \textit{Bedingungen}
-            \item Bei Auswertung zu \kotlininline{false} wird der Block übersprungen, bei \kotlininline{true} wird dieser ausgeführt
+            \item Bei Auswertung zu \pythoninline{False} wird der Block übersprungen, bei \pythoninline{True} wird dieser ausgeführt
         \end{itemize}}
-    \kotlinfile[][top=0cm,bottom=0cm]{listings/if_anweisung.kts}
+    \pythonfile[][top=0cm,bottom=0cm]{listings/if_anweisung.py}
     \onslide<3->
     \vspace{-1ex}
     \begin{block}{Hinweis}
         \begin{itemize}
-            \item<3-> Nach der If-Anweisung kommen geschweifte klammern \textbf{ \{ ... \} }
+            \item<3-> Nach der If-Anweisung kommt ein Doppelpunkt zum beenden des Ausdrucks \textbf{' : '}
             \item<4-> Der Anweisungscode muss nicht eingerückt werden \only<5->{$\Rightarrow$ Ist aber sehr stark empfohlen}
             \item<6-> Nein, es gibt keine If-Schleife
         \end{itemize}
@@ -284,7 +295,7 @@
 \subsection*{Beispiel}
 \begin{frame}[c]
     \slidehead
-    \kotlinfile[][top=0cm,bottom=0cm]{listings/if_bsp1.kts}
+    \pythonfile[][top=0cm,bottom=0cm]{listings/if_bsp1.py}
 \end{frame}
 
 \livecoding
@@ -317,7 +328,7 @@
     \slidehead
     \begin{itemize}
         \item Oft müssen zwei Fälle unterschieden werden:
-            \kotlinfile[][top=0cm,bottom=0cm]{listings/if_if.kts}
+            \pythonfile[][top=0cm,bottom=0cm]{listings/if_if.py}
         \item[$\Rightarrow$] Dafür gibt es eine Kurzschreibweise
     \end{itemize}
 \end{frame}
@@ -326,18 +337,18 @@
     \slidehead
 
     \begin{itemize}
-        \item \kotlininline{else} bezeichnet einen \textit{alternativ auszuführenden Teil} des Codes
+        \item \pythoninline{else} bezeichnet einen \textit{alternativ auszuführenden Teil} des Codes
         \item Übersetzung: "`Wenn \textbf{DAS} zutrifft, mache \textbf{DIESES}; falls nicht, mache \textbf{JENES}"'
     \end{itemize}
 
     \onslide<2->
     \vspace{-1ex}
-    \kotlinfile[][top=0cm,bottom=0cm]{listings/if_bsp2.kts}
+    \pythonfile[][top=0cm,bottom=0cm]{listings/if_bsp2.py}
     \vspace{-1ex}
 
     \onslide<3->
     \begin{block}{Frage}
-        Was bringen Kurzschreibweisen wie z.B. \kotlininline{else} überhaupt?
+        Was bringen Kurzschreibweisen wie z.B. \pythoninline{else} überhaupt?
     \end{block}
 \end{frame}
 
@@ -347,7 +358,7 @@
     \slidehead
     \begin{itemize}
         \item Manchmal gibt es mehr als zwei Fälle:
-            \kotlinfile{listings/if_if_if.kts}
+            \pythonfile{listings/if_if_if.py}
         \item[$\Rightarrow$] Auch dafür gibt es eine Kurzschreibweise
     \end{itemize}
 \end{frame}
@@ -356,20 +367,10 @@
     \slidehead
 
     \begin{itemize}
-        \item Mit \kotlininline{else if} können mehrere If-Anweisungen aneinandergereiht werden
-        \item Es handelt sich um ein \kotlininline{else} gefolgt von einem \kotlininline{if}
-        \item Weitere \kotlininline{else if}-Klauseln werden nur dann überprüft, wenn alle vorherigen Klauseln nicht eingetreten sind.
-            \kotlinfile{listings/if_else_if_example.kts}
-    \end{itemize}
-\end{frame}
-
-\livecoding
-
-\begin{frame}
-    \slidehead
-    \begin{itemize}
-        \item Mehrere \kotlininline{else if}-Klauseln können durch einer \kotlininline{when}-Klausel ersetzt werden
-            \kotlinfile{listings/when.kts}
+        \item Mit \pythoninline{elif} können mehrere If-Anweisungen aneinandergereiht werden
+        \item Es handelt sich um ein \pythoninline{else} gefolgt von einem \pythoninline{if}
+        \item Weitere \pythoninline{else if}-Klauseln werden nur dann überprüft, wenn alle vorherigen Klauseln nicht eingetreten sind.
+            \pythonfile{listings/if_else_if_example.py}
     \end{itemize}
 \end{frame}
 
@@ -401,14 +402,14 @@
 \begin{frame}
     \slidehead
     \begin{itemize}
-        \item Logisches \textbf{Nicht} (\kotlininline{!})  $\Rightarrow$ \kotlininline{not Ausdruck1}
-        \item Logisches \textbf{Und} (\kotlininline{&&}) $\Rightarrow$ \kotlininline{Ausdruck1 and Ausdruck2}
-        \item Logisches \textbf{Oder} (\kotlininline{||})  $\Rightarrow$ \kotlininline{Ausdruck1 or Ausdruck2}
+        \item Logisches \textbf{Nicht} (\pythoninline{not})  $\Rightarrow$ \pythoninline{not Ausdruck1}
+        \item Logisches \textbf{Und} (\pythoninline{and}) $\Rightarrow$ \pythoninline{Ausdruck1 and Ausdruck2}
+        \item Logisches \textbf{Oder} (\pythoninline{or})  $\Rightarrow$ \pythoninline{Ausdruck1 or Ausdruck2}
     \end{itemize}
-    \kotlinfile[][top=0cm,bottom=0cm]{listings/logische_operatoren_listing.kts}
+    \pythonfile[][top=0cm,bottom=0cm]{listings/logische_operatoren_listing.py}
     \begin{block}{Hinweis}
         \begin{itemize}
-            \item Auswertung in der Reihenfolge \kotlininline{!}, \kotlininline{&&} und dann \kotlininline{||}
+            \item Auswertung in der Reihenfolge \pythoninline{not}, \pythoninline{and} und dann \pythoninline{or}
             \item Reihenfolge immer beachten!
                 Klammern setzen falls nötig!
         \end{itemize}
@@ -422,14 +423,14 @@
     \slidehead
     \begin{itemize}[<+->]
         \item Was darf nicht in einem Variablennamen enthalten sein?
-        \item Was macht der \kotlininline{%=} Operator?% das % zeichen geht in minted nicht wie gedacht.
-        \item Sind \kotlininline{=} und \kotlininline{==} gleich?
+        % \item Was macht der \kotlininline{%=} Operator?% das % zeichen geht in minted nicht wie gedacht.
+        \item Sind \pythoninline{=} und \pythoninline{==} die gleichen Operatoren?
         \item Darf der Rumpf einer If-Anweisung leer sein?
         \item Darf eine If-Anweisung im Rumpf einer anderen If-Anweisung stehen?
     \end{itemize}
 \end{frame}
 
 
-%\nextvid{Warum Schleifen}{}
+% \nextvid{Warum Schleifen}{}
 
 \end{document}
