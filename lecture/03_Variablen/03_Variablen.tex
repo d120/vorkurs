@@ -30,37 +30,33 @@
     % Idee: Kinderspielzeug -> Bauklötze in verschiedenen Formen als Bild?
     \begin{itemize}[<+->]
         \item Speicherplatz für Werte
-        \item Ein Fach im Speicher, in das man Werte ablegen kann
+        \item Eine Box im Speicher, in der man Werte ablegen kann
         \item Variablennamen sind für Menschen besser zu merken als nummerierte Speicherplätze
     \end{itemize}
 \end{frame}
 
-\section{Variablen und Konstanten}
+\begin{frame}[fragile]
+    \slidehead
+    % Analogie: Fächer; Computer muss wissen, WAS in ein Fach gelegt werden soll.
+    % Idee: Kinderspielzeug -> Bauklötze in verschiedenen Formen als Bild?
+    \begin{figure}
+        \centering
+        \includeinvertablegraphics[scale=.2]{media/wip_variables_title.png}
+        \\	\sffamily \tiny Bild: Tristan Schulz
+    \end{figure}
+\end{frame}
+
+\section{Ablegen von werten in einer Variable}
 \subsection{Zuweisung}
 \begin{frame}
     \slidehead
     \begin{itemize}[<+->]
-        \item Konstanten, die \textbf{ein mal} zugewiesen werden können\\
-            \kotlininline{val variableName = Wert}
-            \vspace{1em}
-        \item Variablen, die \textbf{mehrmals} zugewiesen werden können\\
-            \kotlininline{var variableName = Wert}
+        \item Variablen kann ein Wert zugewiesen werden, indem man den Zuweisungsoperator \lstinline{=} verwendet\\
+            \pythoninline{<variableName>: <Datentyp> = <Wert>}
+
     \end{itemize}
     \onslide<+->
-    \kotlinfile{listings/variables.kts}
-\end{frame}
-
-\begin{frame}
-    \slidehead
-    Den Typ kann man auch explizit hinschreiben
-    \vspace{1em}
-    \begin{itemize}
-        \item \kotlininline[escapeinside=||]{val variableName|\textcolor{red}{: Typ}| = Wert}
-            \vspace{1em}
-        \item \kotlininline[escapeinside=||]{var variableName|\textcolor{red}{: Typ}| = Wert}
-    \end{itemize}
-    \pause
-    \kotlinfile{listings/variables_typed.kts}
+    \pythonfile{listings/variables.py}
 \end{frame}
 
 \begin{frame}
@@ -68,13 +64,13 @@
 
     Variablennamen:
     \begin{itemize}[<+->]
-        \item können als Platzhalter für den darin stehenden Wert verwendet werden
+        \item sind eine Referenz auf einen bestimmten Speicherbereich in denen ein Wert liegt.
         \item \textbf{müssen} mit einem Buchstaben oder Unterstrich beginnen
-        \item \textbf{dürfen keine} Punkte, Bindestriche, Sterne oder andere Sonderzeichen enthalten\only<3->{\footnote{Mit backticks ( \mintinline{text}{``} ) geht das ;)}}
+        \item \textbf{dürfen keine} Punkte, Bindestriche, Sterne oder andere Sonderzeichen enthalten
         \item sollten \textbf{aussagekräftig} sein!
-        \item können mit \kotlininline{println(variablenName)} ausgeben werden
+        \item können mit \pythoninline{print(variablenName)} ausgeben werden % Potenziell rauslassen ?
         \item Groß- und Kleinschreibung ist \textbf{wichtig}! ("Case sensitive"):\\ $eineVariable \neq EINEVARIABLE \neq EiNeVaRiAbLe$.
-        \item Namenskonvention \kotlininline{camelCase}
+        \item Namenskonvention \pythoninline{snake_case}
     \end{itemize}
 \end{frame}
 
@@ -105,12 +101,13 @@
 \begin{frame}
     \slidehead
 
+    %TODO: Ich weiß nicht ob wir das hier reinbringen wollen, dass scheint mir etwas suspekt
     \begin{itemize}[<+->]
-        \item \textbf{Ziel}: Ausdrücke in einem \kotlininline{String} einfügen
-        \item Kann man so machen
-            \kotlinfile{listings/string_no_template.kts}
-        \item Jetzt nochmal in schön
-            \kotlinfile{listings/string_template.kts}
+        \item \textbf{Ziel}: Ausdrücke in einem \pythoninline{String} einfügen
+        \item Mithilfe der Funktion \pythoninline{str} und dem Konkatenationsoperator \pythoninline{+}
+            \pythonfile{listings/string_no_template.py}
+        \item Dies kann man jedoch auch mit einem Template String umsetzen
+            \pythonfile{listings/string_template.py}
     \end{itemize}
 \end{frame}
 
@@ -118,16 +115,9 @@
     \slidehead
 
     \begin{itemize}[<+->]
-        \item \textbf{Problem}: Komplexere Ausdrücke gehen nicht
-            \kotlinfile{listings/string_template_complex_mistake.kts}
-        \item \textbf{Lösung}: Geschweifte klammern \kotlininline|"${ ... }"|
-            \kotlinfile{listings/string_template_complex.kts}
+        \item Komplexere Ausdrücke funktionieren selbstverständlich auch!
+            \pythonfile{listings/string_template_complex.py}
     \end{itemize}
-    \onslide<2->
-    \vspace{-1ex}
-    \begin{block}{Faustregel}
-        Ausdrücke, die aus mehreren \enquote{Elementen} bestehen, brauchen die Klammern
-    \end{block}
 \end{frame}
 
 \section{Exkurs: Konsoleneingabe}
@@ -141,7 +131,7 @@
     \begin{block}{Beispiele}
         \begin{itemize}
             \item Zeichenkette einlesen
-                \kotlinfile[][top=0cm,bottom=0cm]{listings/input.kts}
+                \pythonfile[][top=0cm,bottom=0cm]{listings/input.py}
             \item Um andere Typen einzulesen, muss \textit{konvertiert} werden
         \end{itemize}
     \end{block}
@@ -151,10 +141,10 @@
     \slidehead
 
     Beispiele: Eingabekonvertierung
-    \kotlinfile{listings/string_conversion.kts}
+    \pythonfile{listings/string_conversion.py}
 
     \begin{block}{Hinweis}
-        In \textbf{ki} kann man sich den Typ eines Ausdrucks mit dem Befehl \kotlininline{:type <Ausdruck>} ausgeben lassen
+        In python kann man sich den Typ eines Ausdrucks mit dem Befehl \pythoninline{type(<Ausdruck>)} ausgeben lassen
     \end{block}
 \end{frame}
 
@@ -195,7 +185,7 @@
         \item Ein \textbf{Ausdruck (Expression)} wertet zu einem \textit{Wert} aus
     \end{itemize}
     \pause
-    \kotlinfile{listings/anweisungen.kts}
+    \kotlinfile{listings/anweisungen.py}
     \begin{itemize}
         \item Jede oben gezeigte Zeile enthält \textit{eine Anweisung}
         \item \kotlininline{1 + 42 + 5} ist ein \textit{Ausdruck}

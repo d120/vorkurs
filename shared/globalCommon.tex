@@ -125,11 +125,12 @@
     }
 }
 
-\let\origpythonfile\pythonfile
-\renewcommand{\pythonfile}[1]{\pythonfileh{#1}{}}
-\newcommand{\pythonfileh}[2]{\origpythonfile[#2]{#1}}
+% \let\origpythonfile\pythonfile
+% \renewcommand{\pythonfile}[1]{\pythonfileh{#1}{}}
+% \newcommand{\pythonfileh}[2]{\origpythonfile[#2]{#1}}
 
 \DeclareDocumentCommand{\kotlinfile}{O{} O{} m}{\inputCode[#1]{minted language=kotlin,minted style/.expanded=\IfDarkModeTF{native}{friendly},#2}{#3}}
+\DeclareDocumentCommand{\pythonfile}{O{} O{} m}{\inputCode[#1]{minted language=python,minted style/.expanded=\IfDarkModeTF{native}{friendly},#2}{#3}}
 
 \newcommand*{\ditto}{\texttt{\char`\"}}
 
