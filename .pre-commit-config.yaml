@@ -13,6 +13,11 @@ repos:
     hooks:
     -   id: latexindent
         args: ["--overwriteIfDifferent", "--silent", "-l=latexindent.yaml"]
+-   repo: https://github.com/hhatto/autopep8
+    rev: 'v2.3.1'  # Use the sha / tag you want to point at
+    hooks:
+    -   id: autopep8
+        exclude: ^lecture/03_Variablen/listings/if_anweisung\.py$
 -   repo: https://github.com/editorconfig-checker/editorconfig-checker.python
     rev: '3.0.3'  # pick a git hash / tag to point to
     hooks:
