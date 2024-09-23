@@ -93,27 +93,6 @@
 \subsection{Zuweisung}
 \livecoding
 
-%\nextvid{Konsoleneingabe}{Variablen Beispiel}
-
-% \subtitle{Kapitel 3: Daten Zwischenspeichern}
-% \titlegraphic{
-% 	\begin{columns}
-% 		\begin{column}{10cm}
-% 			\begin{center}
-% 				{\huge Konsoleneingabe}
-% 			\end{center}
-% 			\vspace{-1mm}
-% 			\begin{figure}
-% 				\centering
-% 			\includegraphics[scale=.35]{media/incident\IfDarkModeT{_dark}.png}
-% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/838/}{https://xkcd.com/838/}
-% 			\end{figure}
-% 		\end{column}
-% 	\end{columns}}
-% \maketitle
-%\subtitle{Konsoleneingabe}
-
-
 \section{Exkurs: String Templates}
 \begin{frame}
     \slidehead
@@ -167,79 +146,6 @@
 \end{frame}
 
 \livecoding
-
-%\nextvid{Anweisungen und Ausdrücke}{Konsoleneingabe Beispiele}
-
-% \subtitle{Kapitel 3: Daten Zwischenspeichern}
-% \titlegraphic{
-% 	\begin{columns}
-% 		\begin{column}{10cm}
-% 			\begin{center}
-% 				{\huge Anweisungen und Ausdrücke}
-% 			\end{center}
-% 			\vspace{-2mm}
-% 			\begin{figure}
-% 				\centering
-% 			\includeinvertablegraphics[scale=.35]{media/sandwich.png}
-% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/149/}{https://xkcd.com/149/}
-% 			\end{figure}
-% 		\end{column}
-% 	\end{columns}}
-% \maketitle
-
-%\begin{frame}
-%	\vspace{2cm}
-%	\begin{center}
-%		\huge Anweisungen und Ausdrücke
-%	\end{center}
-%\end{frame}
-
-% Redaktionelle änderung
-% \section{Anweisungen und Ausdrücke}
-% \begin{frame}
-%     \slidehead
-%     \begin{itemize}
-%         \item Eine \textbf{Anweisung (Statement)} führt etwas aus
-%         \item Ein \textbf{Ausdruck (Expression)} wertet zu einem \textit{Wert} aus
-%     \end{itemize}
-%     \pause
-%     \kotlinfile{listings/anweisungen.kts}
-%     \begin{itemize}
-%         \item Jede oben gezeigte Zeile enthält \textit{eine Anweisung}
-%         \item \kotlininline{1 + 42 + 5} ist ein \textit{Ausdruck}
-%             \pause
-%         \item Auch die Zahl $1$ ist hier ein Ausdruck, der zu dem Wert $1$ ausgewertet wird
-%         \item Das gilt in Zeile 2 auch für den String
-%     \end{itemize}
-%
-% \end{frame}
-%
-% \subsection{Zusammengesetze Operatoren}
-% \begin{frame}[fragile]
-%     \slidehead
-%
-%     \begin{itemize}
-%         \item Häufig werden Variablen gelesen und gleichzeitig geschrieben
-%     \end{itemize}
-%
-%     \kotlinfile{listings/zusammengesetzeoperatoren.kts}
-%
-%     \begin{itemize}
-%         \item Es gibt noch weitere:
-%             \begin{itemize}
-%                 \item \verb+-=+
-%                 \item \verb+*=+
-%                 \item \verb+/=+
-%                 \item \verb+%=+
-%             \end{itemize}
-%             \pause
-%         \item Quiz: Was passiert bei \kotlininline{val} statt \kotlininline{var}?
-%     \end{itemize}
-% \end{frame}
-%
-% \livecoding
-%
-% %\nextvid{If-Anweisung}{Anweisungen und Ausdrücke Beispiel}
 
 \section{Control Flow}
 \subsection{If-Anweisung}
@@ -354,47 +260,6 @@
 
 \livecoding
 
-%\nextvid{Logische Operatoren}{if und elif Beispiele}
-
-\section{Logische Operatoren}
-
-% \titlegraphic{
-% 	\begin{columns}
-% 		\begin{column}{4cm}
-% 			\vspace{1.5cm}
-% 			\begin{center}
-% 				{\huge Logische Operatoren}
-% 			\end{center}
-% 		\end{column}
-% 		\begin{column}{4cm}
-% 			\vspace{-4mm}
-% 			\begin{figure}
-% 				\centering
-% 			\includeinvertablegraphics[scale=.2]{media/logic_boat.png}
-% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/1134/}{https://xkcd.com/1134/}
-% 			\end{figure}
-% 		\end{column}
-% 	\end{columns}}
-% \maketitle
-
-\begin{frame}
-    \slidehead
-    \begin{itemize}
-        \item Logisches \textbf{Nicht} (\pythoninline{not})  $\Rightarrow$ \pythoninline{not Ausdruck1}
-        \item Logisches \textbf{Und} (\pythoninline{and}) $\Rightarrow$ \pythoninline{Ausdruck1 and Ausdruck2}
-        \item Logisches \textbf{Oder} (\pythoninline{or})  $\Rightarrow$ \pythoninline{Ausdruck1 or Ausdruck2}
-    \end{itemize}
-    \pythonfile[][top=0cm,bottom=0cm]{listings/logische_operatoren_listing.py}
-    \begin{block}{Hinweis}
-        \begin{itemize}
-            \item Auswertung in der Reihenfolge \pythoninline{not}, \pythoninline{and} und dann \pythoninline{or}
-            \item Reihenfolge immer beachten!
-                Klammern setzen falls nötig!
-        \end{itemize}
-    \end{block}
-\end{frame}
-
-\livecoding
 
 \section{Quiz}
 % TODO: Quiz besser machen mit lösung anzeigen
@@ -408,7 +273,18 @@
     \end{itemize}
 \end{frame}
 
+\section{Python installieren}
+\begin{frame}
+    \slidehead
+    \begin{itemize}[<+->]
+        \item Nicht jeder Rechner kann automatisch jede Sprache
+        \item Python muss - ähnlich wie eine Fremdsprache - erst beigebracht werden
+        \item Es kann wie jede andere Applikation installiert werden
+        \item detaillierte Guides findet ihr auf Moodle
+        \item Es folgt noch eine Live Demo für Windows, Linux, Mac
+    \end{itemize}
+\end{frame}
 
-% \nextvid{Warum Schleifen}{}
+\livecoding
 
 \end{document}
