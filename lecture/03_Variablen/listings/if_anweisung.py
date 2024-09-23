@@ -1,3 +1,3 @@
-if boolean-ausdruck:
+if <boolean-bedingung>:
     # code
     ...

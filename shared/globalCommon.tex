@@ -131,6 +131,7 @@
 
 \DeclareDocumentCommand{\kotlinfile}{O{} O{} m}{\inputCode[#1]{minted language=kotlin,minted style/.expanded=\IfDarkModeTF{native}{friendly},#2}{#3}}
 \DeclareDocumentCommand{\pythonfile}{O{} O{} m}{\inputCode[#1]{minted language=python,minted style/.expanded=\IfDarkModeTF{native}{friendly},#2}{#3}}
+\DeclareDocumentCommand{\plainfile}{O{} O{} m}{\inputCode[#1]{minted language=text,minted style/.expanded=\IfDarkModeTF{native}{friendly},#2}{#3}}
 
 \newcommand*{\ditto}{\texttt{\char`\"}}
 
