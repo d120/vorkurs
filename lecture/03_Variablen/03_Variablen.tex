@@ -64,12 +64,12 @@
 
     Variablennamen:
     \begin{itemize}[<+->]
-        \item sind eine Referenz auf einen bestimmten Speicherbereich in denen ein Wert liegt.
+        \item sind ein Verweis auf die Stelle an dem der Wert der Variable liegt
         \item \textbf{müssen} mit einem Buchstaben oder Unterstrich beginnen
         \item \textbf{dürfen keine} Punkte, Bindestriche, Sterne oder andere Sonderzeichen enthalten
         \item sollten \textbf{aussagekräftig} sein!
         \item Groß- und Kleinschreibung ist \textbf{wichtig}! ("Case sensitive"):\\ $eineVariable \neq EINEVARIABLE \neq EiNeVaRiAbLe$.
-        \item Namenskonvention \pythoninline{snake_case}
+        \item Namenskonvention \pythoninline{snake_case} für Variablen
     \end{itemize}
 \end{frame}
 
@@ -81,6 +81,13 @@
     Ausgabe auf der Konsole sieht wie folgt aus!
     \pythonfile{listings/printing_console.sh}
 \end{frame}
+
+%TODO: TOLLES
+% \subsection{Exkurs: Historik von Print}
+% \begin{frame}
+%     \slidehead
+%     Der Befehl heißt \pythoninline{print}, das
+% \end{frame}
 
 \section{Ablegen von werten in einer Variable}
 \subsection{Zuweisung}
@@ -285,9 +292,8 @@
     \vspace{-1ex}
     \begin{block}{Hinweis}
         \begin{itemize}
-            \item<3-> Nach der If-Anweisung kommt ein Doppelpunkt zum beenden des Ausdrucks \textbf{' : '}
-            \item<4-> Der Anweisungscode muss nicht eingerückt werden \only<5->{$\Rightarrow$ Ist aber sehr stark empfohlen}
-            \item<6-> Nein, es gibt keine If-Schleife
+            \item<3-> Der Anweisungscode muss eingerückt werden
+            \item<4-> Es gibt \textbf{keine} \enquote{If-Schleife}
         \end{itemize}
     \end{block}
 \end{frame}
@@ -295,43 +301,14 @@
 \subsection*{Beispiel}
 \begin{frame}[c]
     \slidehead
-    \pythonfile[][top=0cm,bottom=0cm]{listings/if_bsp1.py}
+    \pythonfile[][top=0cm,bottom=0cm]{listings/if_if.py}
+    Ausgabe auf der Konsole:
+    \plainfile[][top=0cm,bottom=0cm]{listings/if_if_output.sh}
 \end{frame}
 
-\livecoding
-%\nextvid{Else-Klausel}{}
 
 \section{If-Anweisung}
 \subsection{Else-Klausel}
-
-% \titlegraphic{
-% 	\begin{columns}
-% 		\begin{column}{4cm}
-% 			\vspace{2cm}
-% 			\begin{center}
-% 				{\huge Else-Klausel}
-% 			\end{center}
-% 		\end{column}
-% 		\begin{column}{4cm}
-% 			\vspace{5mm}
-% 			\begin{figure}
-% 				\centering
-% 			\includeinvertablegraphics[scale=.35]{media/conditionals.png}
-% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/1652/}{https://xkcd.com/1652/}
-% 			\end{figure}
-% 		\end{column}
-% 	\end{columns}}
-% \maketitle
-
-
-\begin{frame}
-    \slidehead
-    \begin{itemize}
-        \item Oft müssen zwei Fälle unterschieden werden:
-            \pythonfile[][top=0cm,bottom=0cm]{listings/if_if.py}
-        \item[$\Rightarrow$] Dafür gibt es eine Kurzschreibweise
-    \end{itemize}
-\end{frame}
 
 \begin{frame}
     \slidehead
@@ -344,13 +321,14 @@
     \onslide<2->
     \vspace{-1ex}
     \pythonfile[][top=0cm,bottom=0cm]{listings/if_bsp2.py}
+    Ausgabe auf der Konsole:
+    \plainfile[][top=0cm,bottom=0cm]{listings/if_if_output.sh}
     \vspace{-1ex}
 
-    \onslide<3->
-    \begin{block}{Frage}
-        Was bringen Kurzschreibweisen wie z.B. \pythoninline{else} überhaupt?
-    \end{block}
 \end{frame}
+
+\livecoding
+%\nextvid{Else-Klausel}{}
 
 \subsection{Else If-Klausel}
 
@@ -419,11 +397,11 @@
 \livecoding
 
 \section{Quiz}
+% TODO: Quiz besser machen mit lösung anzeigen
 \begin{frame}[fragile]
     \slidehead
     \begin{itemize}[<+->]
         \item Was darf nicht in einem Variablennamen enthalten sein?
-        % \item Was macht der \kotlininline{%=} Operator?% das % zeichen geht in minted nicht wie gedacht.
         \item Sind \pythoninline{=} und \pythoninline{==} die gleichen Operatoren?
         \item Darf der Rumpf einer If-Anweisung leer sein?
         \item Darf eine If-Anweisung im Rumpf einer anderen If-Anweisung stehen?

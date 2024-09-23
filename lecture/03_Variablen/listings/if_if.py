@@ -5,4 +5,4 @@ if meinAlter >= 18:
     print("Ja! Aber nur mit Fuehrerschein.")
 
 if meinAlter < 18:
-    print("Nein.")
+    print("Das Taxi 'Mama' muss her!")
