@@ -1,0 +1,123 @@
+% !TeX document-id = {505cbeed-ac21-4fdd-a7f4-eefb28b91c1e}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+% \documentclass[accentcolor=3c,colorbacktitle,12pt]{tudaexercise}
+\RequirePackage{import}
+\subimport{../../exercises}{preamble.tex}
+\usepackage{hyperref}
+\title{Installation von Python}
+\subsubtitle{vorkurs@d120.de}
+
+\begin{document}
+\maketitle
+
+Bitte schaue vorher, dass dein System auf dem aktuellen Stand ist.
+
+In dieser Installationsanleitung installieren wir:
+\begin{itemize}
+    \item \href{https://www.python.org/}{Python Version 3.X.X}
+    \item \href{https://ipython.org/}{ipython (\underline{I}nteractive \underline{P}ython)}
+\end{itemize}
+
+\section*{Windows}
+\subsection*{Automatische Installation durch scoop}
+
+\subsubsection*{Terminal öffnen (Powershell)}
+Siehe Terminal Guide.
+
+Darauf achten, dass \textbf{nicht} als Admin
+
+\subsubsection*{Scoop installieren}
+Anhand der Anleitung auf \url{https://scoop.sh/} folgendes ins Terminal eingeben.
+%\begin{noindent}
+\begin{commandshell}
+@\shellprefix{}@Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+\end{commandshell}
+Das muss mit \verb#A + Enter# bestätigt werden.
+
+Dann das hier eingeben und Enter drücken:
+\begin{commandshell}
+@\shellprefix{}@irm get.scoop.sh | iex
+\end{commandshell}
+
+\subsubsection*{Python installieren}
+\begin{commandshell}
+    @\shellprefix{}@scoop install python
+\end{commandshell}
+\section*{ipython installieren}
+\begin{commandshell}
+@\shellprefix{}@python -m pip install ipython
+\end{commandshell}
+Nun kannst du die Installation überprüfen (siehe Abschnitt \nameref{sec:check}).
+
+\section*{Mac OS}
+
+\subsection*{Homebrew Installieren}
+\begin{itemize}
+    \item Auf der seite \url{https://brew.sh} den Befehl kopieren
+    \item Im terminal diesen Befehl einfügen
+    \item Installations-Anweisungen folgen (passwort eingeben), die Installation dauert ca. 2 Minuten
+    \item Sobald der homebrew install Befehl fertig ist, diese Befehle ausführen
+        %\begin{noindent}
+    \begin{commandshell}
+@\shellprefix{}@(echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') @\texttt{>>}@ ~/.profile
+@\shellprefix{}@eval "$(/usr/local/bin/brew shellenv)"
+    \end{commandshell}
+    %\end{noindent}
+\end{itemize}
+
+\subsection*{Automatische Installation durch Homebrew}
+\begin{itemize}
+    \item Gebe in der Kommandozeile den folgenden Befehl ein und drücke Enter\footnote{Befehle generiert mit \url{https://formulae.brew.sh/formula/python@3.12}}:
+        %\begin{noindent}
+\begin{commandshell}
+@\shellprefix{}@brew install python
+@\shellprefix{}@python -m pip install ipython
+\end{commandshell}
+    %\end{noindent}
+    \item Warte, bis die Installation abgeschlossen ist
+    \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
+\end{itemize}
+
+\section*{Linux}
+Auf dem meisten Distros heißt das zu installierende Paket einfach {\ttfamily python}.
+\begin{commandshell}[][minted language=text]
+    @\shellprefix{}@pacman -S python @\PYG{c+c1}{# Arch Linux}@
+\end{commandshell}
+
+\begin{commandshell}[][minted language=text]
+    @\shellprefix{}@apt install python @\PYG{c+c1}{# Debian, Ubuntu, Mint, ...}@
+\end{commandshell}
+
+\subsection*{ipython}
+Jeweils mit pip installieren:
+\begin{commandshell}[][minted language=text]
+    @\shellprefix{}@python -m pip install ipython
+\end{commandshell}
+
+\section*{Überprüfung der Installation}\label{sec:check}
+Um zu testen ob alles geklappt hat, öffne eine Kommandozeile und gebe den folgenden Befehl ein:
+\begin{commandshell}
+    @\shellprefix{}@python --version
+\end{commandshell}
+
+Wenn alles geklappt hat, sollte die Ausgabe in etwa so aussehen (die Versionsnummern können abweichen):
+\begin{commandshell}[][]
+    @\shellprefix{}@ python --version
+    Python 3.12.6
+\end{commandshell}
+
+Ob \texttt{ipython} funktioniert, kannst du mit dem folgenden Befehl testen:
+\begin{commandshell}
+    @\shellprefix{}@ipython
+\end{commandshell}
+Wenn alles geklappt hat, sollte die Ausgabe in etwa so aussehen (die Versionsnummern können abweichen):
+\begin{commandshell}[][minted language=text]
+    @\shellprefix@ipython
+    Python 3.12.6 (main, Sep  8 2024, 13:18:56) [GCC 14.2.1 20240805]
+    Type 'copyright', 'credits' or 'license' for more information
+    IPython 8.27.0 -- An enhanced Interactive Python. Type '?' for help.
+
+    In [1]: @\shellcursor@
+\end{commandshell}
+
+\end{document}
