@@ -26,7 +26,7 @@
 \section{Schlechtes Beispiel}
 \begin{frame}[c]
     \slidehead
-    \kotlinfile{listings/beispiel_schlecht.kts}
+    \kotlinfile{listings/beispiel_schlecht.py}
     \small (Namen generiert auf www.listofrandomnames.com)
 \end{frame}
 
@@ -34,7 +34,7 @@
 \section{Gutes Beispiel}
 \begin{frame}
     \slidehead
-    \kotlinfile{listings/beispiel_gut.kts}
+    \kotlinfile{listings/beispiel_gut.py}
 \end{frame}
 
 \section{Idee von Funktionen}
@@ -73,8 +73,8 @@
 \begin{frame}[c]
     \slidehead
     \begin{itemize}[<+->]
-        \item Syntax: \kotlinfile{listings/fun_syntax.kts}
-        \item Beispiel: \kotlinfile{listings/fun_syntax_concrete.kts}
+        \item Syntax: \kotlinfile{listings/fun_syntax.py}
+        \item Beispiel: \kotlinfile{listings/fun_syntax_concrete.py}
     \end{itemize}
 \end{frame}
 
@@ -86,16 +86,16 @@
         \item Der Rückgabetyp muss im Methodenkopf stehen
         \item Dazu wird \kotlininline{return} gefolgt vom Rückgabewert geschrieben
             \pause
-        \item Syntax \kotlinfile{listings/fun_syntax_return.kts}
+        \item Syntax \kotlinfile{listings/fun_syntax_return.py}
     \end{itemize}
 \end{frame}
 
 \begin{frame}
     \slidehead
-    \kotlinfile{listings/fun_example_return_block.kts}
+    \kotlinfile{listings/fun_example_return_block.py}
     \pause
     Funktionen, die nur die \kotlininline{return}-Anweisung haben, können auch so geschrieben werden
-    \kotlinfile{listings/fun_example_return_expression.kts}
+    \kotlinfile{listings/fun_example_return_expression.py}
 \end{frame}
 
 \livecoding
@@ -134,7 +134,7 @@
 \subsection{Flächeninhalt eines Kreises}
 \begin{frame}
     \slidehead
-    \kotlinfile{listings/bsp_geometrie_schlecht.kts}
+    \kotlinfile{listings/bsp_geometrie_schlecht.py}
 
     \begin{block}{Problem}
         Immer, wenn irgendwo der Flächeninhalt gebraucht wird, muss er neu geschrieben werden $\Rightarrow$ Viel Code und viele mögliche Fehlerquellen
@@ -145,11 +145,11 @@
     \slidehead
     \vspace{-1ex}
     \begin{onlyenv}<1>
-        \kotlinfile{listings/bsp_geometrie_1.kts}
+        \kotlinfile{listings/bsp_geometrie_1.py}
     \end{onlyenv}
 
     \begin{onlyenv}<2>
-        \kotlinfile{listings/bsp_geometrie_2.kts}
+        \kotlinfile{listings/bsp_geometrie_2.py}
     \end{onlyenv}
     \pause
     In diesem Beispiel, ist \kotlininline{r} ein \textbf{Parameter} und \kotlininline{radius} das \textbf{Argument} für \kotlininline{r}
@@ -159,7 +159,7 @@
 \begin{frame}
     \slidehead
     \vspace{-1ex}
-    \kotlinfile[][top=0cm,bottom=0cm]{listings/reusability.kts}
+    \kotlinfile[][top=0cm,bottom=0cm]{listings/reusability.py}
     \vspace{-1ex}
     \begin{block}{Hinweis}
         Nun kann die Funktion auch in anderen Funktionen verwendet werden.
@@ -201,12 +201,12 @@
 \begin{frame}[fragile]
     \slidehead
     \vspace{-1em}
-    \kotlinfile{listings/scope_1.kts}
+    \kotlinfile{listings/scope_1.py}
     \pause
     \vspace{-1em}
     %\begin{noindent}
     \begin{commandshell}[fontsize=\footnotesize][minted language=text,top=0cm,bottom=0cm]
-        scope_1.kts:6:9: error: unresolved reference: variable
+        scope_1.py:6:9: error: unresolved reference: variable
         println(variable)
                 ^
     \end{commandshell}
@@ -221,7 +221,7 @@
 \subsection{Globale Variablen}
 \begin{frame}
     \slidehead
-    \kotlinfile{listings/scope_2.kts}
+    \kotlinfile{listings/scope_2.py}
     \begin{itemize}
         \item Variablen die außerhalb von Funktionen erstellt wurden, werden als \textbf{globale Variablen} bezeichnet
         \item Auf globale Variablen kann auch in Funktionen zugegriffen werden
@@ -230,7 +230,7 @@
 
 \begin{frame}
     \slidehead
-    \kotlinfile{listings/scope_3.kts}
+    \kotlinfile{listings/scope_3.py}
     \begin{itemize}
         \item Die globale Variable \kotlininline{zahl} bleibt unverändert
         \item Es wird eine lokale Variable mit dem \textit{gleichen} Namen erstellt
@@ -321,11 +321,11 @@
     \begin{itemize}
         \item Fibonacci-Zahlen: \texttt{1, 1, 2, 3, 5, 8, 13, 8+13 = 21, ...}
             \begin{onlyenv}<1>
-                \kotlinfile{listings/bsp_recursion_1.kts}
+                \kotlinfile{listings/bsp_recursion_1.py}
             \end{onlyenv}
 
             \begin{onlyenv}<2>
-                \kotlinfile{listings/bsp_recursion_2.kts}
+                \kotlinfile{listings/bsp_recursion_2.py}
             \end{onlyenv}
 
         \item<2> Rekursionsanker sorgt für den Abbruch
@@ -413,7 +413,7 @@
     \end{itemize}
     \vspace{1em}
     \pause
-    \kotlinfile{listings/recursiveSum.kts}
+    \kotlinfile{listings/recursiveSum.py}
 \end{frame}
 
 \livecoding
