@@ -29,15 +29,14 @@
 
 \section{Wofür Schleifen?}
 \begin{frame}
-    \slidehead
-
-    \kotlinfile{listings/why.kts}
+    \pythonfile{listings/why.py}
+    \plainfile{listings/while_output.sh}
 \end{frame}
 
 \begin{frame}
     \slidehead
     \vspace{-1em}
-    \kotlinfile[][top=0pt,bottom=0pt]{listings/why2.kts}
+    \pythonfile[][top=0pt,bottom=0pt]{listings/why2.py}
     \pause
     \vspace{-1.5ex}
     \begin{block}{Hinweis}
@@ -48,7 +47,7 @@
 \begin{frame}
     \slidehead
 
-    \kotlinfile{listings/while.kts}
+    \pythonfile{listings/while.py}
     \begin{itemize}
         \item Code wird \textit{kürzer}
         \item Code wird \textit{lesbarer}
@@ -62,33 +61,14 @@
 \section{While-Schleife}
 \subtitle{Kapitel 4: Befehle wiederholen}
 
-% \titlegraphic{
-% 	\begin{columns}
-% 		\begin{column}{4cm}
-% 			\vspace{1.5cm}
-% 			\begin{center}
-% 				{\huge While-Schleife}
-% 			\end{center}
-% 		\end{column}
-% 		\begin{column}{4cm}
-% 		\vspace{2mm}
-% 			\begin{figure}
-% 				\centering
-% 			\includeinvertablegraphics[scale=.4]{media/loop.png}
-% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/1411/}{https://xkcd.com/1411/}
-% 			\end{figure}
-% 		\end{column}
-% 	\end{columns}}
-% \maketitle
-
-
 \begin{frame}
     \slidehead
 
+    % Wäre es nicht sinnvoll das irgendwie vor zu schieben ?
     \begin{itemize}
         \item Syntax:
-            \kotlinfile{listings/while-syntax.kts}
-        \item Solange die Bedingung zu \kotlininline{true} ausgewertet wird, werden Anweisungen wiederholt
+            \pythonfile{listings/while-syntax.py}
+        \item Solange die Bedingung zu \pythoninline{true} ausgewertet wird, werden Anweisungen wiederholt
         \item Zeile 1 wird \textbf{Schleifenkopf} genannt
         \item Alles zwischen den geschweiften Klammern wird \textbf{Schleifenkörper} bzw. \textbf{Schleifenrumpf} genannt
     \end{itemize}
@@ -98,7 +78,7 @@
     \slidehead
     \begin{itemize}
         \item Alle logischen Operatoren können als \textbf{Ausführbedingung} verwendet werden:
-            \kotlinfile{listings/while2.kts}
+            \pythonfile{listings/while2.py}
     \end{itemize}
 \end{frame}
 
@@ -109,38 +89,71 @@
     \slidehead
 
     \begin{itemize}
-        \item \kotlininline{continue} springt zum Anfang der Schleife
-        \item \kotlininline{break} bricht die Schleife komplett ab
+        \item \pythoninline{continue} springt zum Anfang der Schleife
+        \item \pythoninline{break} bricht die Schleife komplett ab
     \end{itemize}
-    \kotlinfile{listings/continue-break.kts}
+    \pythonfile{listings/continue-break.py}
 \end{frame}
 
 \livecoding
 
-%\nextvid{For-Schleife}{While-Schleife Beispiel}
+\subsection{Nicht jede schleife schleift gleich!}
+\begin{frame}
+    \slidehead
+
+    \begin{itemize}
+        \item \textcolor{red}{Achtung} Nicht jede Programmiersprache sieht gleich aus, das wichtige ist das Konzept verstanden zu haben!
+        \item Manche Programmiersprachen besitzen auch keine Schleifen, sondern nutzen andere Konzepte (Ende vom Vorkurs)
+    \end{itemize}
+\end{frame}
+
+\section{Listen}
+\begin{frame}
+    \slidehead
+
+    \begin{center}
+    \begin{tikzpicture}
+        \newcounter{idx}
+        \setcounter{idx}{0}
+        \foreach \x in {5,3,10,0,1,2,4,7,9,8}{
+            \draw[draw=.] (11+\value{idx}*0.5,0) rectangle ++(0.5,0.5);
+            \node at (11.25+\value{idx}*0.5, 0.65) {\tiny \theidx};
+            \node at (11.25+\value{idx}*0.5, 0.25) {\small \x};
+            \setcounter{idx}{\value{idx}+1}
+        }
+
+        \draw [->] (12,-0.5) -- (11,-0.5);
+        \node at (13.5, -0.5) {Listenlänge ist 10};
+        \draw [->] (15,-0.5) -- (16,-0.5);
+
+        \draw [-] (10.5,0.65) -- (10.2,0.65);
+        \node at (9.5, 0.7) {Indizes};
+
+        \draw [-] (16.25,0.25) -- (17.0,1);
+        \node at (17.5, 1.25) {Element an Index 9};
+
+        \caption{Architektur einer Liste}
+    \end{tikzpicture}\label{fig:figure}
+    \end{center}
+
+\end{frame}
+
+\livecoding
+
+% Hier listen
+\section{Listen}
+\begin{frame}
+    \slidehead
+    \begin{itemize}
+        \item Wie können wir mehrere Werte die zusammengehören Speichern?
+        \item Antwort: Listen!
+        \item Listen sind zusammenhängende Boxen im Speicher, welche unter einem Namen angesprochen werden können
+    \end{itemize}
+\end{frame}
 
 %Deckblatt
 \section{For-Schleife}
 \subtitle{Kapitel 4: Befehle wiederholen}
-
-% \titlegraphic{
-% 	\begin{columns}
-% 		\begin{column}{4cm}
-% 			\vspace{1.5cm}
-% 			\begin{center}
-% 				{\huge For-Schleife}
-% 			\end{center}
-% 		\end{column}
-% 		\begin{column}{5cm}
-% 		\vspace{2mm}
-% 			\begin{figure}
-% 				\centering
-% 			\includeinvertablegraphics[scale=.35]{media/delicious.png}
-% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/140/}{https://xkcd.com/140/}
-% 			\end{figure}
-% 		\end{column}
-% 	\end{columns}}
-% \maketitle
 
 \section{For-Schleife}
 \begin{frame}
