@@ -26,7 +26,7 @@
 \section{Schlechtes Beispiel}
 \begin{frame}[c]
     \slidehead
-    \kotlinfile{listings/beispiel_schlecht.py}
+    \pythonfile{listings/beispiel_schlecht.py}
     \small (Namen generiert auf www.listofrandomnames.com)
 \end{frame}
 
@@ -34,7 +34,7 @@
 \section{Gutes Beispiel}
 \begin{frame}
     \slidehead
-    \kotlinfile{listings/beispiel_gut.py}
+    \pythonfile{listings/beispiel_gut.py}
 \end{frame}
 
 \section{Idee von Funktionen}
@@ -58,8 +58,8 @@
 \begin{frame}[c]
     \slidehead
     \begin{itemize}[<+->]
-        \item Syntax: \kotlinfile{listings/fun_syntax.py}
-        \item Beispiel: \kotlinfile{listings/fun_syntax_concrete.py}
+        \item Syntax: \pythonfile{listings/fun_syntax.py}
+        \item Beispiel: \pythonfile{listings/fun_syntax_concrete.py}
     \end{itemize}
 \end{frame}
 
@@ -68,24 +68,16 @@
     \slidehead
     \begin{itemize}
         \item Funktionen können Rückgabewerte haben
-        \item Der Rückgabetyp muss im Methodenkopf stehen
-        \item Dazu wird \kotlininline{return} gefolgt vom Rückgabewert geschrieben
+        \item Der Rückgabetyp kann im Methodenkopf stehen
+        \item Dazu wird \pythoninline{return} gefolgt vom Rückgabewert geschrieben
             \pause
-        \item Syntax \kotlinfile{listings/fun_syntax_return.py}
+        \item Syntax \pythonfile{listings/fun_syntax_return.py}
     \end{itemize}
-\end{frame}
-
-\begin{frame}
-    \slidehead
-    \kotlinfile{listings/fun_example_return_block.py}
-    \pause
-    Funktionen, die nur die \kotlininline{return}-Anweisung haben, können auch so geschrieben werden
-    \kotlinfile{listings/fun_example_return_expression.py}
 \end{frame}
 
 \livecoding
 
-\subtitle{Kapitel 6: wie Funktionen funktionieren}
+\subtitle{Kapitel 6: Wie Funktionen funktionieren}
 
 \section{Fallbeispiel: Geometrie}
 \begin{frame}[c]
@@ -104,7 +96,7 @@
 \subsection{Flächeninhalt eines Kreises}
 \begin{frame}
     \slidehead
-    \kotlinfile{listings/bsp_geometrie_schlecht.py}
+    \pythonfile{listings/bsp_geometrie_schlecht.py}
 
     \begin{block}{Problem}
         Immer, wenn irgendwo der Flächeninhalt gebraucht wird, muss er neu geschrieben werden $\Rightarrow$ Viel Code und viele mögliche Fehlerquellen
@@ -115,21 +107,21 @@
     \slidehead
     \vspace{-1ex}
     \begin{onlyenv}<1>
-        \kotlinfile{listings/bsp_geometrie_1.py}
+        \pythonfile{listings/bsp_geometrie_1.py}
     \end{onlyenv}
 
     \begin{onlyenv}<2>
-        \kotlinfile{listings/bsp_geometrie_2.py}
+        \pythonfile{listings/bsp_geometrie_2.py}
     \end{onlyenv}
     \pause
-    In diesem Beispiel, ist \kotlininline{r} ein \textbf{Parameter} und \kotlininline{radius} das \textbf{Argument} für \kotlininline{r}
+    In diesem Beispiel, ist \pythoninline{r} ein \textbf{Parameter} und \pythoninline{radius} das \textbf{Argument} für \pythoninline{r}
 \end{frame}
 
 \subsection{Wiederverwendbarkeit}
 \begin{frame}
     \slidehead
     \vspace{-1ex}
-    \kotlinfile[][top=0cm,bottom=0cm]{listings/reusability.py}
+    \pythonfile[][top=0cm,bottom=0cm]{listings/reusability.py}
     \vspace{-1ex}
     \begin{block}{Hinweis}
         Nun kann die Funktion auch in anderen Funktionen verwendet werden.
@@ -158,7 +150,7 @@
 \begin{frame}[fragile]
     \slidehead
     \vspace{-1em}
-    \kotlinfile{listings/scope_1.py}
+    \pythonfile{listings/scope_1.py}
     \pause
     \vspace{-1em}
     %\begin{noindent}
@@ -180,7 +172,7 @@
 \subsection{Globale Variablen}
 \begin{frame}
     \slidehead
-    \kotlinfile{listings/scope_2.py}
+    \pythonfile{listings/scope_2.py}
     \begin{itemize}
         \item Variablen die außerhalb von Funktionen erstellt wurden, werden als \textbf{globale Variablen} bezeichnet
         \item Auf globale Variablen kann auch in Funktionen zugegriffen werden
@@ -189,9 +181,9 @@
 
 \begin{frame}
     \slidehead
-    \kotlinfile{listings/scope_3.py}
+    \pythonfile{listings/scope_3.py}
     \begin{itemize}
-        \item Die globale Variable \kotlininline{zahl} bleibt unverändert
+        \item Die globale Variable \pythoninline{zahl} bleibt unverändert
         \item Es wird eine lokale Variable mit dem \textit{gleichen} Namen erstellt
     \end{itemize}
 \end{frame}
@@ -256,11 +248,11 @@
     \begin{itemize}
         \item Fibonacci-Zahlen: \texttt{1, 1, 2, 3, 5, 8, 13, 8+13 = 21, ...}
             \begin{onlyenv}<1>
-                \kotlinfile{listings/bsp_recursion_1.py}
+                \pythonfile{listings/bsp_recursion_1.py}
             \end{onlyenv}
 
             \begin{onlyenv}<2>
-                \kotlinfile{listings/bsp_recursion_2.py}
+                \pythonfile{listings/bsp_recursion_2.py}
             \end{onlyenv}
 
         \item<2> Rekursionsanker sorgt für den Abbruch
@@ -348,7 +340,7 @@
     \end{itemize}
     \vspace{1em}
     \pause
-    \kotlinfile{listings/recursiveSum.py}
+    \pythonfile{listings/recursiveSum.py}
 \end{frame}
 
 \livecoding
@@ -366,9 +358,9 @@
             Was ist ein Argument?
             Wie untescheiden sie sich?
             \pause
-        \item Darf ich meine Funktion \kotlininline{while} nennen?
+        \item Darf ich meine Funktion \pythoninline{while} nennen?
             \pause
-        \item Braucht eine Funktion ein \kotlininline{return}-Statement?
+        \item Braucht eine Funktion ein \pythoninline{return}-Statement?
             \pause
         \item Solltet ihr alle zur Ophase gehen?
     \end{itemize}
