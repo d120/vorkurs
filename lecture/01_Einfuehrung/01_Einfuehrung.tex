@@ -1,461 +1,213 @@
 % !TeX document-id = {5c9b7af7-cc8b-495c-a61c-cd548e104791}
 % !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+% !TeX root = 01_Einfuehrung.tex
 \input{../global.tex}
+
+% Für den Vortragenden:
+%
+% Bevor es losgeht die Vortragenden erwähnen!
+%
+% Um den Vorkurs zu beginnen muss man irgendwie die Zuschauer für das Programmieren inspirieren.
+% Es muss sie überzeugen, dass Programmieren geil ist, das die Vortragenden sympathisch sind und dass eigentlich alles super ist.
+%
+% Warum nutzt man also überhaupt Computer, rechnen lernt man schließlich schon in der Schule.
+% Und für alles andere, wie Notizen, Kalender etc., hat man Zettel und Stift.
+%
+% - Rechner sind exakt.
+% - Rechner sind schnell, sehr schnell.
+% - Die Ergebnisse der Rechenschritte (Programm später erwähnen) sind reproduzierbar.
+% - TODO: mehr
+%
+% Man möchte den Zuschauern klarmachen, dass ein Rechner keine natürliche Sprache kann (auch nicht via ChatGPT!),
+% und man eine Programmiersprache braucht, die sowohl Mensch, als auch Rechner spricht.
+% Dafür mache ich eine Einführung, die Programmieren als abstraktes Gedankenexperiment einführt:
+% Man stelle sich eine außerirdische Lebensform vor, welche eine komplett andere Art von Intelligenz als wir Menschen hat.
+% Wie kann man mit dieser Lebensform kommunizieren?
+% Wir haben verschiedene Informationen über die Lebensform: Sie ist exakt, vergisst keine Details, ist sehr fleißig, ist sehr schnell aber ist nicht eigenständig.
+% Welche Sprache kann man benutzen, bei der sowohl wir Menschen, als auch diese Lebensform etwas versteht?
+% Englisch würde zwar uns Menschen gefallen, aber Englisch hat zu viele Wörter, deren genaue Bedeutung unklar ist.
+% "Mehrdeutigkeit" ist etwas mit der die Lebensform überhaupt nicht umgehen kann.
+% Die Lebensform könnte eine Sprache vorschlagen, die nur aus Nullen und Einsen besteht, und ein so begrenztes Vokabular hat, dass jeder Begriff eine exakte Bedeutung hat.
+% Damit kann der Mensch jedoch schlecht umgehen, weil er sich Zahlen schlecht merken kann und keine Intuition aufbaut was die Begriffe bedeuten.
+% Lösung: Ein Mittelweg: Eine künstlich erfundene Sprache, die eine sehr begrenzte Anzahl Begriffe auf Englisch hat,
+% die man sich gut merken kann und gleichzeitig eine exakt definierte Bedeutung hat, so dass das Wesen sich es auch merken kann.
+%
+% Unsere Programmiersprache heißt Python.
+% Wir folgen ihrem Formalismus, um unseren Computern Befehle bzw. Programme zu vermitteln und diese ausführen zu lassen.
+% Die Wahl ist willkürlich und es gibt nicht die *eine* Programmiersprache.
+% Dies soll dem Publikum verdeutlicht werden.
 
 \begin{document}
 
 %Deckblatt
-\subtitle{Kapitel 1: Erste Schritte}
 \titlegraphic{
-    \begin{columns}[b]
-        \begin{column}{.6\textwidth}
-            \centering
-            {\huge Mit einem\\Computer Reden}
-            \begin{figure}
-                \centering
-                \includeinvertablegraphics[scale=0.3]{code_quality.png}
-                \caption*{Bild: \href{https://xkcd.com/1513/}{https://xkcd.com/1513/}}
-            \end{figure}
-        \end{column}%
-        \begin{column}{.4\textwidth}
-            \begin{figure}
-                \centering
-                \includeinvertablegraphics[scale=0.2]{good_code.png}
-                \caption*{Bild: \href{https://xkcd.com/844/}{https://xkcd.com/844/}}
-            \end{figure}
-        \end{column}
-    \end{columns}}
+	\begin{columns}[b]
+		\begin{column}{.4\textwidth}
+			\centering
+			\begin{figure}
+				\centering
+				\includegraphics[height=.55\textheight]{computer1917.jpg}
+				\caption*{Ein Rechenzentrum, 1917}
+			\end{figure}
+		\end{column}%
+		\begin{column}{.4\textwidth}
+			\centering
+			\begin{figure}
+				\centering
+				\includegraphics[height=.55\textheight]{Z3_Deutsches_Museum.JPG}
+				\caption*{Der Z3 von Konrad Zuse}
+			\end{figure}
+		\end{column}
+	\end{columns}}
 \maketitle
 
-% Bevor es losgeht die Vortragenden erwähnen!
-
-% Um den Vorkurs zu beginnen muss ich irgendwie die Zuschauer für das Programmieren inspirieren. Es muss sie überzeugen, dass Programmieren geil ist, das die Vortragenden sympathisch sind und dass eigentlich alles super ist. Dafür mache ich eine Einführung, die Programmieren als abstraktes Gedankenexperiment einführt.
-% Man stelle sich eine außerirdische Lebensform vor, welche eine komplett andere Art von Intelligenz als wir Menschen hat. Wie kann man mit dieser Lebensform kommunizieren? Wir haben verschiedene Informationen über die Lebensform: Sie ist exakt, vergisst keine Details, ist sehr fleißig, ist sehr schnell aber ist nicht eigenständig. Welche Sprache kann man benutzen, bei der sowohl wir Menschen, als auch diese Lebensform etwas versteht? Englisch würde zwar uns Menschen gefallen, aber Englisch hat zu viele Wörter, deren genaue Bedeutung unklar ist. "Mehrdeutigkeit" ist etwas mit der die Lebensform überhaupt nicht umgehen kann. Die Lebensform könnte eine Sprache vorschlagen, die nur aus Nullen und Einsen besteht, und ein so begrenztes Vokabular hat, dass jeder Begriff eine exakte Bedeutung hat. Damit kann der Mensch jedoch schlecht umgehen, weil er sich Zahlen schlecht merken kann und keine Intuition aufbaut was die Begriffe bedeuten. Lösung: Ein Mittelweg: Eine künstlich erfundene Sprache, die eine sehr begrenzte Anzahl Begriffe auf Englisch hat, die man sich gut merken kann und gleichzeitig eine exakt definierte Bedeutung hat, so dass das Wesen sich es auch merken kann.
-
-\section{Warum mit Computer kommunizieren?}
+\section{Noch etwas Historie}
 \begin{frame}
-    \slidehead
-    \vspace{3mm}
-    \begin{itemize}[<+->]
-        \item Computer sind rein-mathematische Maschinen
-        \item Computer führen einfache Arbeitsschritte extrem \textbf{schnell} aus
-        \item Programme sind aus vielen Arbeitsschritten zusammengesetzt
-            \kotlinfile{listings/Programmieren.txt}
-    \end{itemize}
+	\slidehead
+	\vspace{3mm}
+	\begin{columns}[b]
+		\begin{column}{.3\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=\textwidth]{punchcards.png}
+				\caption*{Ein Lochkartenleser}
+			\end{figure}
+		\end{column}%
+		\begin{column}{.4\textwidth}
+			\centering
+			\begin{figure}
+				\centering
+				\includegraphics[height=.58\textheight]{apollo_code.png}
+				\caption*{\footnotesize Margaret Hamilton und ihr \\ Programm der Apollo 11 Mission}
+			\end{figure}
+		\end{column}
+	\end{columns}
 \end{frame}
 
-\section{Was tun wir hier eigentlich?}
+\section{Kapitel 1: Mit einem Computer Reden}
+\subsection{Was sind Computer?}
 \begin{frame}
-    \slidehead
-    \begin{itemize}[<+->]
-        \item Programmieren mit Kotlin \textcolor{gray}{[\textprimstress{}k\textturnscripta{}tl\textsci{}n]}
-        \item Kotlin?
-            \begin{itemize}[<3->]
-                \item[] $\Rightarrow$ Programmiersprache!
-                \item[] $\Rightarrow$ Verständlicher für Menschen
-                \item[] $\Rightarrow$ Oft verwendet
-            \end{itemize}
-    \end{itemize}
-
-    \pause
-    \vspace{0.75cm}
-
-    \tikzstyle{rect} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=., fill=\IfDarkModeTF{red!30!black}{red!10}]
-    \centering
-    \begin{tikzpicture}[node distance=5cm]
-        \node (syntax) [rect, text width=4cm, minimum height=2cm] {\textbf{Syntax}\\ Wortschatz};
-        \node (grammatik) [rect, right of=syntax, text width=4cm, minimum height=2cm] {\textbf{Grammatik}\\ Regeln um Befehle zusammenzusetzen};
-    \end{tikzpicture}
-
+	\slidehead
+	Computer \dots
+	\begin{itemize}[<+->]
+		\item \dots sind rein-mathematische Maschinen
+		\item \dots sprechen keine natürlichen Sprachen
+		\item \dots rechnen Arbeitsschritt für Arbeitsschritt
+		\item \dots dabei sind sie extrem \textbf{schnell}
+		      \vspace{3em}
+		      % Im Sinne: Das kann man gar nicht groß genug schreiben
+		\item \dots also sie sind wirklich \textbf{\Huge schnell}
+	\end{itemize}
 \end{frame}
 
-\begin{comment}
-    \section{Das erste Programm}
-    \subsection{Wie fange ich an?}
-    \begin{frame}
-        \slidehead
-        \begin{itemize}
-            \item Befehle bestehen aus Text
-            \item Mit einem einfachen Texteditor schreibt man Befehle in eine Datei
-            \item Anschließend interpretiert der Computer die Befehle
-        \end{itemize}
-    \end{frame}
-\end{comment}
+\subsection{Ein Programm}
+\begin{frame}
+	\slidehead
+	\begin{columns}
+		\begin{column}{ 0.7\textwidth }
+			\begin{itemize}[<+->]
+				\item Aber wie schreiben wir die Arbeitsschritte auf?
+				\item Anweisung für Anweisung gemäß einer fest definierten Schreibweise.
+				\item Eine Liste von Arbeitsschritten nennen wir ein \emph{Programm}
+				\item Analog wie bei einem Kochrezept
+			\end{itemize}
+		\end{column}%
+		\begin{column}{ 0.3\textwidth }
+			\begin{figure}
+				\includegraphics{receipt.jpg}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
 
-\section{Compiler?}
+\subsection{Die Sprachen der Computer}
+\begin{frame}
+	\slidehead
+	\begin{itemize}[<+->]
+		\item Was definiert die Schreibweise eines Programms?
+		      % Hier ist die Analoge mit den Aliens gut angebracht
+		\item Arbeitsschritte müssen nach einen festen Schema geschrieben werden
+		\item Das Schema wird durch die \emph{Programmiersprache} fest gelegt
+		      % An der Stelle eventuell Dschungel der Programmiersprachen von Ullmann erwähnen,
+		      % falls das wieder stattfindet - ansonsten auf YouTube
+		\item Es gibt unzählige Programmiersprachen
+		\item Insbesondere gibt es nicht die \emph{eine} Programmiersprache
+	\end{itemize}
+\end{frame}
+
+\section{Python}
+\subsection{Die Sprache des Vorkurses}
+\begin{frame}
+	\slidehead
+	\begin{columns}
+		\begin{column}{ 0.7\textwidth }
+			\begin{itemize}[<+->]
+				\item \emph{Python} ist eine solche Programmiersprache
+				\item In Python bestehen Programme aus Text
+				\item Dieser Text wird auch \emph{Quelltext} (eng. Source Code) genannt
+				\item Man kann Python-Programme direkt in Python-Konsole eingeben
+				\item Alternativ kann man das Programm in einer Datei speichern
+				\item Diese Datei kann dann an Python übergeben werden
+				\item So kann man das selbe Programm noch Jahre später nutzen
+			\end{itemize}
+		\end{column}%
+		\begin{column}{ 0.3\textwidth }
+			\begin{figure}
+				\includegraphics[width=\textwidth]{python.jpg}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\livecoding
+
+\section{Zusammenfassung}
 \begin{frame}[t]
-    \slidehead
-    \begin{columns}[T]
-        \begin{column}{2cm}
-            \begin{tikzpicture}
+	\slidehead
+	\begin{columns}[T]
+		\begin{column}{2cm}
+			\begin{tikzpicture}
+				\node[] (mensch) at (0,0) {\includeinvertablegraphics[height=1.3cm]{media/wesen_notebook.png}};
 
-                \node[] (mensch) at (0,0) {\includeinvertablegraphics[height=1.3cm]{media/wesen_notebook.png}};
-
-                \visible<2->{
-                    \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (interpreter) at (0,-1.8) {Compiler};
-                    \draw[->,line width=.6mm] (mensch.south) -- (interpreter.north);
-                }
-                \visible<3->{
-
-                    \node[fill=\IfDarkModeTF{.!30!\thepagecolor}{lightgray},draw, inner sep=5pt, rounded rectangle] (computer) at (0,-4) {Computer};
-
-                    \draw[->,line width=.6mm] (interpreter.south) -- (computer.north);
-                }
-            \end{tikzpicture}
-        \end{column}
-        \begin{column}{10cm}
-            \begin{itemize}
-                \item[]
-                \item \textbf{Der Mensch} beschreibt die Aufgabe in einer Programmiersprache $\Rightarrow$ Quelltext
-                \item[]
-                \item[]
-                    \visible<2->{
-                \item \textbf{Der Compiler} kompiliert den Quelltext zu Maschinenbefehlen
-                    }
-                \item[]
-                \item[]
-                    \visible<3->{
-                \item \textbf{Der Computer} führt die Maschinenbefehle aus
-                    }
-            \end{itemize}
-        \end{column}
-    \end{columns}
+				\visible<2->{
+					\node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (interpreter) at (0,-1.8) {Python};
+					\draw[->,line width=.6mm] (mensch.south) -- (interpreter.north);
+				}
+				\visible<3->{
+					\node[fill=\IfDarkModeTF{.!30!\thepagecolor}{lightgray},draw, inner sep=5pt, rounded rectangle] (computer) at (0,-4) {Computer};
+					\draw[->,line width=.6mm] (interpreter.south) -- (computer.north);
+				}
+			\end{tikzpicture}
+		\end{column}
+		\begin{column}{10cm}
+			\begin{itemize}
+				\item[]
+				\item \textbf{Der Mensch} schreibt ein Programm in Python-Quelltext
+				\item[]
+				\item[]
+				      \visible<2->{
+				\item \textbf{Python} übersetzt den Quelltext in Anweisungen für den Computer
+				      }
+				\item[]
+				\item[]
+				      \visible<3->{
+				\item \textbf{Der Computer} führt die Anweisungen aus
+				      }
+			\end{itemize}
+		\end{column}
+	\end{columns}
 \end{frame}
 
-%\nextvid{Erstes Programm}{}
-
-\subtitle{Kapitel 1: Erste Schritte}
-
-%Deckblatt
-% \titlegraphic{
-% 	\begin{columns}
-% 		\begin{column}{5.5cm}
-% 			\begin{tikzpicture}
-% 				\draw (0, 0) node[inner sep=0] {\includeinvertablegraphics[scale=0.265]{python.png}};
-% 				% ich habe eine Mail an xkcd geschrieben, es ist ok das wir die klammern einfügen :)
-% 				\draw (-1.95, -2.33) node {\tiny (};
-% 				\draw (-1.02, -2.33) node {\tiny )};
-% 			\end{tikzpicture}
-% 			\\	\sffamily \tiny Bild: \href{https://xkcd.com/353/}{https://xkcd.com/353/ [edit: Kammern eingefügt für Python 3]}
-% 		\end{column}
-% 		\begin{column}{5cm}
-% 			\begin{center}
-% 				\vspace{-3.5cm}
-% 				{\huge Erstes Program}
-% 				\end{center}
-% 			\end{column}
-% 		\end{columns}
-% 	}
-% \maketitle
-
-\section{Erstes Program}
-\begin{frame}[fragile]
-    % Beispiel, um zu zeigen wie so ein Befehl aussieht (und ein Kommentar)
-    \slidehead
-    \hskip .8cm
-    \vspace{.5cm}
-
-    \kotlinfile[escapeinside=\$\$,texcomments]{listings/helloworld.kts}
-
-    \begin{tikzpicture}[remember picture,overlay]
-        \draw<2->[decorate,decoration={brace,amplitude=6pt}] ([yshift=1em]pic cs:commentstart) -- ([yshift=1em]pic cs:commentend) node [midway,yshift=15pt,xshift=3.4cm] {Kommentar: wird vom Computer \textbf{ignoriert}, ist für Menschen \textbf{nützlich}};
-        \draw<3->[decorate,decoration={mirror,brace,amplitude=6pt}] ([yshift=-1ex]pic cs:commandstart) -- ([yshift=-1ex]pic cs:commandend) node [midway,yshift=-15pt] {Befehl};
-        \draw<4->[decorate,decoration={mirror,brace,amplitude=6pt}] ([yshift=-1ex]pic cs:textstart) -- ([yshift=-1ex]pic cs:textend) node [midway,yshift=-15pt] {Text};
-    \end{tikzpicture}
-
-    \onslide<5->
-    \vspace{0.25cm}
-    \begin{block}{Wichtig}
-        \begin{itemize}
-            \item Text muss in \kotlininline{" "} stehen
-            \item Verwende \textbf{aussagekräftige} Kommentare \footnotesize (dein späteres Ich wird es dir danken)!
-        \end{itemize}
-    \end{block}
-    \note{
-        " und ' stehen nicht für Auslassungszeichen (Kopiere den Text von der Zeile oberhalb), sondern stehen für wörtliche Rede.
-    }
-\end{frame}
-
-
-\subsection{Textausgabe}
+\section{Exkurs: Ordner und Dateien}
 \begin{frame}
-    % Beispiel wie kleinkariert man mit diesem Computer reden muss - unintuitiv für Menschen, dass man nicht einfach "Enter" drücken kann, sondern so kryptisch "\n" schreiben muss
-    \slidehead
-    \begin{itemize}
-        \item Mithilfe des Befehls \kotlininline{println()} kann Text auf der Konsole ausgeben werden
-    \end{itemize}
-    \pause
-    \begin{columns}
-        \begin{column}{.4\textwidth}
-            \kotlinfile{listings/print_Listing.kts}
-        \end{column}%
-        \begin{column}{.6\textwidth}
-            \kotlinfile{listings/printSingleLine_Listing.kts}
-        \end{column}
-    \end{columns}
-    \vspace{0.25cm}
-    \begin{block}{Merke}
-        \kotlininline{println()} erzeugt einen Zeilenumbruch nach der Ausgabe
-    \end{block}
+	\slidehead
+	\begin{itemize}[<+->]
+		\item Computer benutzen \emph{Dateisysteme}, um ihre \emph{Dateien} zu organisieren
+		\item In Dateien sind Daten (Bilder, Texte, Programme, ...) permanent gespeichert
+		\item Dabei werden die Dateien oft in \emph{Ordnern} zusammengefasst
+		\item Dateien haben einen eindeutigen Namen innerhalb ihres Ordners
+		\item Dateien haben meist eine Dateiendung, welche signalisiert, um welche Art von Datei es sich handelt, z.B: \pythoninline{.png, .txt, .doc, .kts, .exe}
+	\end{itemize}
 \end{frame}
-
-\subsection{Steuerzeichen}
-\begin{frame}[fragile]
-    \slidehead
-
-    \begin{table}[htbp]
-        \begin{tabular}{|l|l|}
-            \hline
-            \textbf{Symbol} & \textbf{Wirkung}                                               \\ \hline
-            \verb+\n+       & Zeilenumbruch                                                  \\ \hline
-            \verb+\"+       & Doppeltes Anführungszeichen  (nur in \kotlininline{" "} nötig) \\ \hline
-            % \verb+\'+       & Einfaches Anführungszeichen (nur in \kotlininline{' '} nötig)  \\ \hline
-            \verb+\t+       & einen Tab einfügen                                             \\ \hline
-            \verb+\\+       & Backslash                                                      \\ \hline
-        \end{tabular}
-        \label{}
-    \end{table}
-    \pause
-    \kotlinfile{listings/Steuerzeichen_Listing.kts}
-\end{frame}
-
-\section{Dateisystem}
-\begin{frame}
-    \slidehead
-    \begin{itemize}
-        \item Computer benutzen Dateisysteme, um ihre Dateien zu organisieren
-        \item Computer benutzen Dateien um Daten (Bilder, Texte, Programme, ...) permanent zu speichern
-        \item Dabei werden die Dateien oft in einer Ordnerstruktur abgelegt
-        \item Dateien haben einen eindeutigen Namen innerhalb ihres Ordners
-        \item Dateien haben meist eine Dateiendung, welche signalisiert, um welche Art von Datei es sich handelt. (z.B: .png, .txt, .doc, .kts, .exe)
-    \end{itemize}
-\end{frame}
-
-\section{Vom Quelltext zum fertigen Programm}
-\begin{frame}
-    \slidehead
-
-    \begin{columns}[T]
-        \begin{column}{.4\textwidth}
-            \begin{tikzpicture}
-                \node[] (mensch) at (0,0) {\includeinvertablegraphics[height=1.3cm]{media/wesen_notebook.png}};
-
-                \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (file) at (0,-1.8) {helloworld.kts};
-                \draw[->,line width=.6mm] (mensch.south) -- (file.north);
-
-                \node[fill=lightpetrol,draw, inner sep=5pt,rounded rectangle] (kotlin) at (0,-4) {\texttt{kotlin helloworld.kts}};
-                \draw[->,line width=.6mm] (file.south) -- (kotlin.north);
-            \end{tikzpicture}
-        \end{column}
-        \begin{column}{.6\textwidth}
-            \begin{itemize}
-                \item Ausführen: \texttt{kotlin dateiName.kts}
-                \item Kotlin-Programme laufen überall, wo Kotlin installiert ist
-            \end{itemize}
-            \begin{block}{Hinweis}
-                Kotlin-Script-Quelltext mit der Dateiendung \texttt{.kts} kennzeichnen und sinnvoll benennen! Leerzeichen sind problematisch.
-            \end{block}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\section{Ein Kotlin-Programm schreiben}
-\begin{frame}
-    \slidehead
-
-    \begin{center}
-        \vskip -10 pt
-        \includegraphics[scale=0.25]{HelloWorldImEditor\IfDarkModeT{_dark}}
-    \end{center}
-
-    \begin{itemize}
-        \item Programm wird in einem herkömmlichen Editor geschrieben
-        \item hier ein paar Editor Beispiele: \texttt{Gedit}, \texttt{VS Code}, \texttt{Kate}
-    \end{itemize}
-    \begin{defBox}[title={Wichtig}]
-        Verwendet \textbf{keine} Textverarbeitung wie LibreOffice, Pages oder MS Word!
-    \end{defBox}
-\end{frame}
-
-% \begin{frame}
-% 	\slidehead
-% 		Zusammenarbeiten hilft beim Lernen, leider ist das aktuell aber etwas schwierig.\\
-% 		Hier sind einige Möglichkeiten wie ihr das trotzdem tun könnt (alles freiwillig, natürlich):
-% 	\vspace{0.5cm}
-%
-% 	\begin{itemize}
-% 		\item Atom plugin \textbf{Teletype}:\\ \href{https://teletype.atom.io/}{\textbf{https://teletype.atom.io/}}\\(Benötigt GitHub account)
-% 		\item Alternativ gibt es online-Services wie:
-% 		\begin{itemize}
-% 			\item \href{https://codecollab.io/}{https://codecollab.io/} (Wählt Python\textbf{3} aus!)
-% 			\item \href{https://repl.it/}{https://repl.it/}
-% 		\end{itemize}
-% 		Bei beiden gilt, wenn ihr euch keinen Account erstellt, solltet ihr euren Code im Anschluss auf eurem Rechner herunter laden bzw. kopieren!
-% 	\end{itemize}
-% 	Ihr könnt euch während dessen natürlich auf Discord unterhalten.
-% \end{frame}
-
-\section{Ein Kotlin-Programm ausführen}
-\begin{frame}[fragile]
-    \slidehead
-    % \begin{noindent}
-    \begin{commandshell}
-@\shellprefix@ kotlin HelloWorld.kts
-Hello World!
-@\shellprefix\shellcursor@
-    \end{commandshell}
-    % \end{noindent}
-    \begin{itemize}
-        \item Programm mit Dateinamen \texttt{HelloWorld.kts} starten
-    \end{itemize}
-\end{frame}
-
-\subsection{Interaktive Shell}
-\begin{frame}[fragile]
-    \slidehead{}
-    \vspace{-1em}
-    %\begin{noindent}
-    \begin{commandshell}[][top=0cm,bottom=0cm]
-@\shellprefix@ ki
-ki-shell 0.5.2/1.7.0
-type :h for help
-[0] println(@\PYG{l+s}{"Hello World!"}@)
-Hello World!
-[1] @\shellcursor@
-    \end{commandshell}
-    %\end{noindent}
-    %|\texttt{Python 3.7.0 (default, Jul 15 2018, 10:44:58)}|
-    %|\texttt{[GCC 8.1.1 20180531] on linux}|
-    %|\texttt{Type {\ditto}help{\ditto}, {\ditto}copyright{\ditto}, {\ditto}credits{\ditto} or %{\ditto}license{\ditto} for more information.}|
-
-    \vskip -.5em
-
-    \begin{itemize}
-        \item Die Kotlin-Interactive-Shell hat einen interaktiven Modus
-        \item Dieser kann mit dem Konsolenbefehl \texttt{ki} gestartet werden
-        \item Anschließend können Kotlin-Befehle eingegeben werden
-        \item \textbf{Strg+D} (außer Windows) oder der Befehl \kotlininline{:quit} beendet die Shell wieder
-    \end{itemize}
-    \begin{defBox}[title={Wichtig}]
-        Die Kotlin-Interactive-Shell ist \textbf{kein} Editor!
-    \end{defBox}
-\end{frame}
-
-\livecoding
-\subsection{}
-
-
-%\nextvid{Fehler}{Beispiel: Hello World}
-
-\subtitle{Kapitel 1: Erste Schritte}
-
-%Deckblatt
-% \titlegraphic{
-% 	\begin{columns}
-% 		\begin{column}{3cm}
-% 			\begin{center}
-% 				\vspace{2cm}
-% 				{\huge Fehler}
-% 			\end{center}
-% 		\end{column}
-% 		\begin{column}{5cm}
-% 			\\
-% 			\vspace{1cm}
-% 			\includeinvertablegraphics[scale=0.4]{wisdom_of_the_ancients.png}
-% 			\\	\sffamily \tiny Bild: \href{https://xkcd.com/979/}{https://xkcd.com/979/}
-% 		\end{column}
-% 	\end{columns}}
-% \maketitle
-
-\subsection{Fehlerarten}
-\begin{frame}
-    \slidehead
-    \begin{itemize}
-        \item \textbf{Lexikalische Fehler}
-            \begin{itemize}
-                \item Beispielsweise Tippfehler
-                    % ACHTUNG: print ist bewusst falsch geschrieben!
-                \item \kotlininline{pritln("Lexikalischer Fehler")}
-            \end{itemize}
-        \item \textbf{Syntaktische Fehler}
-            \begin{itemize}
-                \item Falsche Klammern
-                \item Anführungszeichen nicht geschlossen
-            \end{itemize}
-        \item \textbf{Semantische Fehler}
-            \begin{itemize}
-                \item Division durch 0
-            \end{itemize}
-    \end{itemize}
-\end{frame}
-
-\section{Fehlerbeispiele}
-\subsection{Lexikalischer Fehler}
-\begin{frame}[fragile]
-    \slidehead
-    \kotlinfile[][title=\codeBlockTitle{test.kts}]{listings/lexError_Listing.kts}
-    \pause
-    \begin{commandshell}[][minted language=text]
-        test.kts:1:1: error: unresolved reference: pritln
-        pritln("ein test")
-        ^
-    \end{commandshell}
-    \pause
-    \begin{itemize}[<+->]
-        \item Fehler in \texttt{test.kts}
-        \item In \textbf{Zeile 1}, \textbf{Position 1} (Befehlsanfang)
-        \item Der Name \texttt{pritln} existiert nicht
-        \item Es war \texttt{println} gemeint (das weiß der Compiler natürlich nicht)
-    \end{itemize}
-\end{frame}
-
-\subsection{Syntaktischer Fehler}
-
-\begin{frame}[fragile]
-    \slidehead
-    \kotlinfile[][title=\codeBlockTitle{zweiterTest.kts},top=0cm,bottom=0cm]{listings/otherSynError_Listing.kts}
-    \pause
-    % \begin{noindent}
-    \begin{commandshell}[fontsize=\small][minted language=text,top=0cm,bottom=0cm]
-        zweiterTest.kts:1:8: error: expecting an element
-        println)
-               ^
-        zweiterTest.kts:1:1: error: function invocation 'println()' expected
-        println)
-        ^
-    \end{commandshell}
-    % \end{noindent}
-    \pause
-    \begin{itemize}[<+->]
-        \item Fehler in \texttt{zweiterTest.kts}
-        \item in \texttt{Zeile 1} an \textbf{Position 8} fehlt eine \texttt{(}
-        \item der Compiler versteht hier nicht was gemeint war, da das kein richtiger Kotlin-Code ist.
-    \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-    \slidehead
-    \kotlinfile[][title=\codeBlockTitle{andererTest.kts}]{listings/eofError_Listing.kts}
-    \pause
-    % \begin{noindent}
-    \begin{commandshell}[][minted language=text]
-        andererTest.kts:1:24: error: expecting ')'
-        println("noch ein test"
-                               ^
-    \end{commandshell}
-    % \end{noindent}
-    \pause
-    \begin{itemize}[<+->]
-        \item Fehler in \texttt{andererTest.kts}
-            % \item In \texttt{line 3} stimmt hier nicht ganz, aber in \texttt{line 1} fehlt eine \texttt{)}
-        \item Der Compiler sucht nach der geöffneten Klammer nach \texttt{)}, aber die Datei ist nach \textbf{Zeile 1, Position 23} bereits zu ende.
-            % \item Deshalb \texttt{unexpected EOF}: \textbf{EOF} steht für \textbf{E}nd \textbf{O}f \textbf{F}ile
-    \end{itemize}
-\end{frame}
-
-\subsection{}
-\livecoding
-
-%\nextvid{Datentypen}{}
 
 \end{document}
