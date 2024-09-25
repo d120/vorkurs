@@ -1,6 +1,5 @@
 % !TeX document-id = {3bcfab70-4d4f-4fac-ba3e-b78564f2abde}
 % !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
-% !TeX root = 04_Schleifen.tex
 \input{../global.tex}
 
 \begin{document}
@@ -108,9 +107,15 @@
     \end{itemize}
 \end{frame}
 
-\section{Listen}
+\section{Listen Erstellen und Werte Lesen}
 \begin{frame}
     \slidehead
+
+    \begin{itemize}
+        \item Wie können wir mehrere Werte die zusammengehören Speichern?
+        \item Antwort: Listen!
+        \item Listen sind zusammenhängende Boxen im Speicher, welche unter einem Namen angesprochen werden können
+    \end{itemize}
 
     \begin{center}
     \begin{tikzpicture}
@@ -118,7 +123,7 @@
         \setcounter{idx}{0}
         \foreach \x in {5,3,10,0,1,2,4,7,9,8}{
             \draw[draw=.] (11+\value{idx}*0.5,0) rectangle ++(0.5,0.5);
-            \node at (11.25+\value{idx}*0.5, 0.65) {\tiny \theidx};
+            \node[color=blue] at (11.25+\value{idx}*0.5, 0.65) {\tiny \theidx};
             \node at (11.25+\value{idx}*0.5, 0.25) {\small \x};
             \setcounter{idx}{\value{idx}+1}
         }
@@ -127,27 +132,25 @@
         \node at (13.5, -0.5) {Listenlänge ist 10};
         \draw [->] (15,-0.5) -- (16,-0.5);
 
-        \draw [-] (10.5,0.65) -- (10.2,0.65);
-        \node at (9.5, 0.7) {Indizes};
+        \draw [-, draw=blue] (10.5,0.65) -- (10.2,0.65);
+        \node [color=blue] at (9.5, 0.7) {Indizes};
 
-        \draw [-] (16.25,0.25) -- (17.0,1);
-        \node at (17.5, 1.25) {Element an Index 9};
+        \draw [-] (15.9,0.4) -- (16.5,1);
+        \node at (17.75, 1.25) {Element an Index 9};
     \end{tikzpicture}\label{fig:figure}
     \end{center}
 
 \end{frame}
 
-\livecoding
 
 % Hier listen
-\section{Listen}
+\subsection{Syntax}
 \begin{frame}
     \slidehead
-    \begin{itemize}
-        \item Wie können wir mehrere Werte die zusammengehören Speichern?
-        \item Antwort: Listen!
-        \item Listen sind zusammenhängende Boxen im Speicher, welche unter einem Namen angesprochen werden können
-    \end{itemize}
+    Syntax einer Liste:
+    \pythonfile{listings/listen_syntax.py}
+    Beispiel Verwendung:
+    \pythonfile{listings/listen1.py}
 \end{frame}
 
 %Deckblatt
