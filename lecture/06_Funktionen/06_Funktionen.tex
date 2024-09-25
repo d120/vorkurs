@@ -48,26 +48,11 @@
     \end{itemize}
     \vspace{1cm}
     \begin{block}{Hinweis}
-        Einige Funktionen haben wir schon kennengelernt, z.B. \kotlininline{println("Hello World")}
+        Einige Funktionen haben wir schon kennengelernt, z.B. \pythoninline{print("Hello World")}
     \end{block}
 \end{frame}
 
-%\nextvid{Funktionen Syntax}{}
-
 \subtitle{Kapitel 6: wie Funktionen funktionieren}
-
-%Deckblatt
-% \titlegraphic{
-% 	\begin{columns}
-% 		\begin{column}{6cm}
-% 			\vspace{18mm}
-% 			\begin{center}
-% 				{\huge Funktionen Syntax}
-% 			\end{center}
-% 		\end{column}
-% 	\end{columns}
-% }
-% \maketitle
 
 \section{Woraus besteht eine Funktion?}
 \begin{frame}[c]
@@ -100,22 +85,7 @@
 
 \livecoding
 
-%\nextvid{Funktion Fallbeispiel}{}
-
 \subtitle{Kapitel 6: wie Funktionen funktionieren}
-
-%Deckblatt
-% \titlegraphic{
-% 	\begin{columns}
-% 		\begin{column}{6cm}
-% 			\vspace{18mm}
-% 			\begin{center}
-% 				{\huge Funktionen Fallbeispiel}
-% 			\end{center}
-% 		\end{column}
-% 	\end{columns}
-% }
-% \maketitle
 
 \section{Fallbeispiel: Geometrie}
 \begin{frame}[c]
@@ -180,21 +150,8 @@
 
 \livecoding
 
-%\nextvid{Scope}{Funktionen Beispiele}
-
 %Deckblatt
 \subtitle{Kapitel 6: wie Funktionen funktionieren}
-
-% \titlegraphic{
-% 	\begin{columns}
-% 		\begin{column}{6cm}
-% 			\vspace{18mm}
-% 			\begin{center}
-% 				{\huge Scope}
-% 			\end{center}
-% 		\end{column}
-% 	\end{columns}}
-% \maketitle
 
 \section{Scope}
 \subsection{Lokale Variablen}
@@ -206,9 +163,11 @@
     \vspace{-1em}
     %\begin{noindent}
     \begin{commandshell}[fontsize=\footnotesize][minted language=text,top=0cm,bottom=0cm]
-        scope_1.py:6:9: error: unresolved reference: variable
-        println(variable)
-                ^
+        Traceback (most recent call last):
+        File "scope_1.py", line 5, in <module>
+            print(variable)
+                ^^^^^^^^
+        NameError: name 'variable' is not defined. Did you mean: 'callable'?
     \end{commandshell}
     %\end{noindent}
     \vspace{-1em}
@@ -239,31 +198,7 @@
 
 \livecoding
 
-%\nextvid{Rekursion}{Scope Beispiele}
-
 \subtitle{Kapitel 6: wie Funktionen funktionieren}
-
-%Deckblatt
-% \titlegraphic{
-% 	\begin{columns}
-% 		\begin{column}{4cm}
-% 			\vspace{1.5cm}
-% 			\begin{center}
-% 				{\huge Rekursion}
-% 			\end{center}
-% 		\end{column}
-% 		\begin{column}{4cm}
-% 		\vspace{-5mm}
-% 			\begin{figure}
-% 				\centering
-% 				\includeinvertablegraphics[scale=2.5]{media/tabletop_roleplaying.png}
-% 				\\	\sffamily \tiny Bild: \href{https://xkcd.com/244/}{https://xkcd.com/244/}
-% 			\end{figure}
-% 			%\raisebox{-5cm}{für mehr Informationen siehe Foliensatz "`Rekursion"'}
-% 			%}
-% 		\end{column}
-% 	\end{columns}}
-% \maketitle
 
 \section{Rekursion}
 \begin{frame}[t]
