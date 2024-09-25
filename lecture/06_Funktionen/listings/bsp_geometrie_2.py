@@ -1,7 +1,7 @@
 def kreis_flaeche(r):
     return r * r * math.pi
 
-// Hauptprogramm
+# Hauptprogramm
 radius: float = 20.5
 print(
     "Der Flächeninhalt eines Kreises mit Radius $radius" +
