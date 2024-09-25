@@ -32,14 +32,14 @@ $(FILES:.tex=.tex.regular):
 	$(eval FILE := $(patsubst %.tex.regular,%.tex,$@))
 	$(call build_latex_with_jobname_and_env,$(FILE),$(patsubst %.tex,%,$(notdir $(FILE))),)
 
-$(FILES:.tex=.tex.darkmode):
-	$(eval FILE := $(patsubst %.tex.darkmode,%.tex,$@))
-	$(call build_latex_with_jobname_and_env,$(FILE),$(patsubst %.tex,%-dark,$(notdir $(FILE))),DARK_MODE=1)
-
-$(FILES:.tex=.tex.highcontrast):
-	$(eval FILE := $(patsubst %.tex.highcontrast,%.tex,$@))
-	$(call build_latex_with_jobname_and_env,$(FILE),$(patsubst %.tex,%-high-contrast,$(notdir $(FILE))),DARK_MODE=2)
-
+# $(FILES:.tex=.tex.darkmode):
+# 	$(eval FILE := $(patsubst %.tex.darkmode,%.tex,$@))
+# 	$(call build_latex_with_jobname_and_env,$(FILE),$(patsubst %.tex,%-dark,$(notdir $(FILE))),DARK_MODE=1)
+#
+# $(FILES:.tex=.tex.highcontrast):
+# 	$(eval FILE := $(patsubst %.tex.highcontrast,%.tex,$@))
+# 	$(call build_latex_with_jobname_and_env,$(FILE),$(patsubst %.tex,%-high-contrast,$(notdir $(FILE))),DARK_MODE=2)
+#
 compile: $(FILES:.tex=.tex.regular) $(FILES:.tex=.tex.darkmode) $(FILES:.tex=.tex.highcontrast)
 	@echo -e "\e[1;42mAll Done. PDFs can be found in $(OUT_DIR)\e[0m"
 
@@ -67,13 +67,13 @@ endef
 	$(eval FILE := $(patsubst %.tex.regular,%.tex,$@))
 	$(call recursive_cp_helper,$(FILE),$(patsubst %.tex,%,$(notdir $(FILE))),)
 
-06_Funktionen/06_Funktionen.tex.darkmode:
-	$(eval FILE := $(patsubst %.tex.darkmode,%.tex,$@))
-	$(call recursive_cp_helper,$(FILE),$(patsubst %.tex,%-dark,$(notdir $(FILE))),DARK_MODE=1)
-
-06_Funktionen/06_Funktionen.tex.highcontrast:
-	$(eval FILE := $(patsubst %.tex.highcontrast,%.tex,$@))
-	$(call recursive_cp_helper,$(FILE),$(patsubst %.tex,%-high-contrast,$(notdir $(FILE))),DARK_MODE=2)
+# 06_Funktionen/06_Funktionen.tex.darkmode:
+# 	$(eval FILE := $(patsubst %.tex.darkmode,%.tex,$@))
+# 	$(call recursive_cp_helper,$(FILE),$(patsubst %.tex,%-dark,$(notdir $(FILE))),DARK_MODE=1)
+#
+# 06_Funktionen/06_Funktionen.tex.highcontrast:
+# 	$(eval FILE := $(patsubst %.tex.highcontrast,%.tex,$@))
+# 	$(call recursive_cp_helper,$(FILE),$(patsubst %.tex,%-high-contrast,$(notdir $(FILE))),DARK_MODE=2)
 
 # Remove files with a specific pattern recursively
 # $1: pattern to match
