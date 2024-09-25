@@ -1,5 +1,5 @@
 def erstelle_variable():
-    variable = 5
+    variable: int = 5
 
 erstelle_variable()
 print(variable)

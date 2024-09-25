@@ -1,4 +1,4 @@
-zahl = 0
+zahl: int = 0
 
 def print_zahl():
     print(zahl)
