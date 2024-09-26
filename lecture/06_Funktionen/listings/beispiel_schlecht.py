@@ -1,11 +1,11 @@
 print("Hallo Georgia Lubin")
 print("Schoen geschlafen?")
 print("Ich habe gut geschlafen.")
-// code ...
+# code ...
 print("Hallo Avis Santiago")
 print("Schoen geschlafen?")
 print("Ich habe gut geschlafen.")
-// anderer code ...
+# anderer code ...
 print("Hallo Earnest Whitehead")
 print("Schoen geschlafen?")
 print("Ich habe gut geschlafen.")
