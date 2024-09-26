@@ -153,99 +153,65 @@
     \pythonfile{listings/listen1.py}
 \end{frame}
 
+\subsection{Elemente Hinzufügen}
+\begin{frame}
+    \slidehead
+    \pythonfile{listings/listen_print.py}
+    \plainfile{listings/listen_print_output.sh}
+\end{frame}
+
+\subsection{Elemente Modifizieren}
+\begin{frame}
+    \slidehead
+    \pythonfile{listings/listen_mod.py}
+    \plainfile{listings/listen_mod_output.sh}
+\end{frame}
+
+\subsection{Elemente Entfernen}
+\begin{frame}
+    \slidehead
+    \pythonfile{listings/listen_rem.py}
+    \plainfile{listings/listen_rem_output.sh}
+\end{frame}
+
+\livecoding
+
 %Deckblatt
-\section{For-Schleife}
-\subtitle{Kapitel 4: Befehle wiederholen}
-
-\section{For-Schleife}
-\begin{frame}
-    \slidehead
-
-    \begin{itemize}
-        %\vspace{-1ex}
-        \item Häufig gibt es folgende Schleifenart:
-            %\vspace{-1ex}
-            \kotlinfile[][top=0pt,bottom=0pt]{listings/while3.kts}
-            \pause
-            %\vspace{-1ex}
-        \item Kurzschreibweise:
-            %\vspace{-1ex}
-            \kotlinfile[escapeinside=\$\$][top=0pt,bottom=0pt]{listings/forschleife.kts}
-            %\vspace{-1ex}
-    \end{itemize}%\pause
-    % \begin{block}{Frage:}
-    %     Von wo bis wo zählt diese Schleife?
-    % \end{block}
-\end{frame}
+\section{While-Schleife}
+\subtitle{Schleifen mit Listen}
 
 \begin{frame}[fragile]
     \slidehead
-
-    \begin{itemize}
-        \item Schleife von 0 bis exklusive 10:
-            \begin{codeBlock}[]{minted language=kotlin}
-                for (zahl in 0 until 10) {
-                    print(zahl + " ")
-                } // Ausgabe: 0 1 2 3 4 5 6 7 8 9
-            \end{codeBlock}
-            \pause
-        \item Schleife von 0 bis inklusive 10:
-            \begin{codeBlock}[]{minted language=kotlin}
-                for (zahl in 0..10) {
-                    print(zahl + " ")
-                } // Ausgabe: 0 1 2 3 4 5 6 7 8 9 10
-            \end{codeBlock}
-    \end{itemize}
+    Wir können mit Schleifen über Listenelemente laufen und diese weiter verarbeiten
+    \pythonfile{listings/listen_while.py}
+    \plainfile{listings/listen_while_output.sh}
+    Jedoch ist das auf dauer anstrengend, deshalb gibt es meist eine alternative variante in Programmiersprachen
 \end{frame}
 
-% \begin{frame}
-%     \slidehead
+\section{For-Schleife}
+\begin{frame}[fragile]
+    \slidehead
+    Hierbei kann man direkt über die Elemente einer Liste laufen
+    \pythonfile{listings/listen_for.py}
+    Im allgemeinen nennt man das ganze eine ForEach-Schleife (Programmiersprachen übergreifend)
+\end{frame}
 
-%     \begin{itemize}
-%         \item Sinnvoll, wenn eine Variable bis zu einem bestimmten Wert \textit{hochzählen} soll
-%         \item Syntax:
-%             \kotlinfile{listings/forschleife.kts}
-%         \item Beispiel:
-%             \kotlinfile{listings/forschleife-print.kts}
-%     \end{itemize}
-% \end{frame}
+\livecoding
 
 \begin{frame}
     \slidehead
-
-    \begin{itemize}
-        \item Ein range kann auch bei einer bestimmten Zahl anfangen
-            \begin{itemize}
-                \item Schreibweise: \kotlininline{startwert until grenzwert}
-            \end{itemize}
-        \item Oder mit einer festen Schrittweite arbeiten:
-            \begin{itemize}
-                \item Schreibweise: \kotlininline{startwert until grenzwert step schrittweite}
-            \end{itemize}
-    \end{itemize}
-    \kotlinfile[]{listings/range.kts}
+    Wenn man nun eine die Zahlen von 1 bis N ausgeben möchte kann man nun weiter vereinfachen
+    \pythonfile{listings/range1.py}
+    \plainfile{listings/range1_output.sh}
+    \pythoninline{range} ist ein Befehl, welcher eine Liste generiert welche die Zahlen 0 bis N erhalten kann
+    Syntax: \pythoninline{range(start, end, step)}
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}
     \slidehead
-
-    Man kann auch rückwärts zählen:
-    \begin{itemize}
-        \item Schreibweise: \kotlininline{startwert downTo endwert}
-            \begin{codeBlock}[]{top=0cm,bottom=0cm,minted language=kotlin}
-            for (zahl in 10 downTo 0) {
-                print(zahl + " ")
-            }
-            // Ausgabe: 10 9 8 7 6 5 4 3 2 1 0
-        \end{codeBlock}
-        \item Schreibweise: \kotlininline{startwert downTo endwert step schrittweite}
-            \begin{codeBlock}[]{top=0cm,bottom=0cm,minted language=kotlin}
-            for (zahl in 10 downTo 0 step 2) {
-                print(zahl + " ")
-            }
-            // Ausgabe: 10 8 6 4 2 0
-        \end{codeBlock}
-    \end{itemize}
+    Wenn man nun eine die Zahlen von 1 bis N ausgeben möchte kann man nun weiter vereinfachen
+    \pythonfile{listings/for0ton.py}
+    \plainfile{listings/for0ton_output.sh}
 \end{frame}
 
 \subsection{Verschachtelte Schleifen}
@@ -255,15 +221,15 @@
     \vspace{-1.2ex}
     Natürlich lassen sich Schleifen auch \textit{verschachteln}:
     \vspace{-1.2ex}
-    \kotlinfile[][top=0cm,bottom=0cm]{listings/geschachteltfor.kts}
+    \pythonfile[][top=0cm,bottom=0cm]{listings/geschachteltfor.py}
 
     \pause
     \vspace{-1.5ex}
     \begin{block}{Frage: Was wird ausgegeben?}\pause
-        \kotlininline{0000000000}\\
-        \kotlininline{0000000000}\\
-        \kotlininline{...}\\
-        \kotlininline{0000000000 // insgesamt 10 mal}
+        \pythoninline{0000000000}\\
+        \pythoninline{0000000000}\\
+        \pythoninline{...}\\
+        \pythoninline{0000000000 // insgesamt 10 mal}
     \end{block}
 \end{frame}
 
@@ -276,11 +242,11 @@
     \begin{itemize}
         \item Welche Schleifenarten gibt es in Kotlin?\pause
         \item Was \textbf{muss} mit Code in einer Schleife gemacht werden?\pause
-        \item Wann ist die Verwendung einer \kotlininline{for}-Schleife sinnvoll?\pause
-        \item Ist es möglich, \kotlininline{while}-Schleifen in \kotlininline{for}-Schleifen zu verschachteln?\pause
+        \item Wann ist die Verwendung einer \pythoninline{for}-Schleife sinnvoll?\pause
+        \item Ist es möglich, \pythoninline{while}-Schleifen in \pythoninline{for}-Schleifen zu verschachteln?\pause
     \end{itemize}
     \begin{block}{Finde drei Fehler}
-        \kotlinfile{listings/FrageStunde_Schleife_ErrorListing.kts}
+        \kotlinfile{listings/FrageStunde_Schleife_ErrorListing.py}
     \end{block}
     % while in range (Syntaxfehler)
     % println außerhalb der Schleife (Logikfehler)
