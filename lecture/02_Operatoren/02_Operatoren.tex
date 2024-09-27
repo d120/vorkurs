@@ -9,11 +9,11 @@
 \titlegraphic{
     \tikzstyle{rect} = [rectangle, rounded corners, minimum width=2.5cm, minimum height=1cm,text centered, draw, text width=5cm, fill=\IfDarkModeTF{red!30!black}{red!10}]
     \centering
-    \begin{tikzpicture}[node distance=.7cm]
-        \node[inner sep=.3cm] (0) {\Huge Operatoren};
-        \node[rect, below=.3cm of 0] (1) {\textbf{Mathematische Operatoren}};
-        \node[rect, below=.2cm of 1] (2) {\textbf{Vergleichsoperatoren}};
-        \node[rect, below=.2cm of 2] (3) {\textbf{Logische Operatoren}};
+    \begin{tikzpicture}[start chain=going below,node distance=.3cm]
+        \node[inner sep=.3cm, on chain] {\Huge Operatoren};
+        \node[rect, on chain] {\textbf{Mathematische Operatoren}};
+        \node[rect, on chain] {\textbf{Vergleichsoperatoren}};
+        \node[rect, on chain] {\textbf{Logische Operatoren}};
     \end{tikzpicture}
 }
 \maketitle
@@ -103,8 +103,7 @@
 \subsection{Vernüpfen von Vergleichsoperatoren}
 \begin{frame}
     \slidehead
-    \pause
-    \begin{itemize}[<+->]
+    \begin{itemize}[<+(1)->]
         \item Logisches \textbf{Nicht} (\pythoninline{not})  $\Rightarrow$ \pythoninline{not Ausdruck1}
         \item Logisches \textbf{Und} (\pythoninline{and}) $\Rightarrow$ \pythoninline{Ausdruck1 and Ausdruck2}
         \item Logisches \textbf{Oder} (\pythoninline{or})  $\Rightarrow$ \pythoninline{Ausdruck1 or Ausdruck2}
@@ -112,8 +111,8 @@
     \pause
     \pythonfile[][top=0cm,bottom=0cm]{listings/logische_operatoren_listing.py}
     \pause
-    \begin{block}{Hinweis}
-        \begin{itemize}[<+->]
+    \begin{block}{Hinweise}
+        \begin{itemize}[<+(1)->]
             \item Auswertung in der Reihenfolge \pythoninline{not}, \pythoninline{and} und dann \pythoninline{or}
             \item Reihenfolge immer beachten!
                 Klammern setzen falls nötig!
