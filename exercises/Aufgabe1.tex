@@ -19,38 +19,45 @@
         Folgt denen, sodass ihr Python ausführen könnt.
         \begin{solution}
             Python ist installiert und dem Pfad hinzugefügt. Der Befehl
-            \mintinline{text}{python --version} gibt eine Versionsnummer von mindestens \mintinline{text}{3.12.6} aus.
-            % Der Python Interpreter mit \mintinline{text}{python} wurde gestartet.
+            \mintinline{text}{python --version} gibt eine Versionsnummer von mindestens \mintinline{text}{3.X.X} aus.
+            Der Python Interpreter mit \mintinline{text}{python} wurde gestartet.
 
             Die REPL wurde korrekt installiert und mit \mintinline{text}{ipython} gestartet. Der Befehl
-            \mintinline{text}{ipython} gibt eine Versionsnummer von mindestens \mintinline{text}{8.27.0} aus.
+            \mintinline{text}{ipython} gibt eine Versionsnummer von mindestens \mintinline{text}{8.X.X} aus.
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Theoriefragen}
-        \begin{itemize}
+        \mccmd
+        \begin{enumerate}
             \mchead
             \mcitemt{Programmcode steht üblicherweise in Textdateien}
             \mcitemf{Um Python auszuführen, muss ich einen neuen Computer kaufen}
             \mcitemt{Um Python-Code auszuführen kann eine Konsole verwendet werden}
             \mcitemf{Es gibt genau drei Programmiersprachen}
-            \mcitemf{Es ist niemals sinnvoll seinen Code mit Kommentaren zu überladen}
-            \mcitemt{Eine if-Anweisung beeinflusst den Programmablauf.}
-            \mcitemf{Eine if-Anweisung benötigt immer eine else-Klausel.}
-            \mcitemt{Ein \lstinline{if (0 < 3)} führt immer den eingeschlossenen Codeblock aus.}
+            \mcitemf{Es ist niemals sinnvoll seinen Code mit Kommentaren füllen}
+            \mcitemt{Eine if-Anweisung beeinflusst den Programmablauf}
+            \mcitemf{Eine if-Anweisung benötigt immer eine else-Klausel}
+            \mcitemt{Ein \lstinline{if (0 < 3)} führt immer den eingeschlossenen Codeblock aus}
             \mcitemt{Man kann if-Anweisungen verschachteln}
-        \end{itemize}
+        \end{enumerate}
         \begin{solution}
-            Die zutreffenden Antworten sind die Aussagen 1, 3, 6 und 9.
+            Die zutreffenden Antworten sind die Aussagen 1, 3, 6, 8 und 9.
         \end{solution}
     \end{subtask*}
 \end{task}
 \begin{task}[points=auto]{Ausdrücke \stage1}
     \begin{subtask*}[points=0]{Frage \& Antwort}
-        Gebt nacheinander die folgenden Ausdrücke in \pythoninline{Python} ein.
-        Drückt nach jedem Eintrag \textit{ENTER}, um den Ausdruck auszuwerten.
-        Was passiert? Versucht, zu erklären, warum.
-        Probiert auch noch weitere Ausdrücke,
-        die euch einfallen.
+        Überlege, für jeden der Folgenden Ausdrücke,
+        ob sie korrektes Python sind
+        und welchen Typ sie in diesem Fall haben.
+
+        Gib anschließend nacheinander die folgenden
+        Ausdrücke in \pythoninline{Python} ein.
+        Drücke nach jedem Eintrag \textit{ENTER},
+        um den Ausdruck auszuwerten.
+        Was passiert?
+        Probiere auch noch weitere Ausdrücke,
+        dir euch einfallen.
 
         \begin{multicols}{3}
             \begin{itemize}
@@ -66,7 +73,7 @@
             \end{itemize}
         \end{multicols}
 
-        Zusatz: Lasse dir jeweils auch mit \pythoninline{type(...)} den Typ angeben.
+        Zusatz: Lasse dir jeweils für korrekte Ausdrücke auch mit Hilfe von \pythoninline{type(...)} den Typ angeben.
 
         \begin{solution}
             Zahlen ohne Anführungszeichen ergeben die Zahl. Rationale Zahlen brauchen einen
@@ -78,20 +85,22 @@
     \end{subtask*}
     \begin{subtask*}[points=0]{Mathe 0 für Informatiker*innen}
         Wenn euch das Programm aber nur das zurückgeben könnte, was ihr hinschreibt,
-        dann wäre das ja noch lange kein \textit{Computer}. Darum rechnen wir nun etwas.
-        Überlegt euch was die folgenden Ausdrücke ergeben, und was die verwendeten
+        dann hätten wir ja noch lange kein \textit{Computer}.
+        Deswegen möchten wir jetzt etwas rechnen.
+        Überlege dir, was die folgenden Ausdrücke ergeben,
+        und für welche Rechnenoperation die verwendeten Symbole stehen.
         Symbole für Operationen bezeichnen.
-        Beachtet dabei, die Operatorenpräzedenz.
+        Beachte dabei die Operatorenpräzedenz.
         Lasse dir auch immer den Typ ausgeben.
 
         \begin{multicols}{3}
             \begin{itemize}
                 \item \pythoninline{16 + 26}
                 \item \pythoninline{13.75 + 28.67}
-                \item \pythoninline{2 * 3 + 6 * 6}
                 \item \pythoninline{12 * 133 // 28 - 15}
-                \item \pythoninline{1.3 * 5.6}
                 \item \pythoninline{2**5 + 2**3 + 2**1}
+                \item \pythoninline{2 * 3 + 6 * 6}
+                \item \pythoninline{5.4 * 7.7}
             \end{itemize}
         \end{multicols}
 
@@ -105,12 +114,19 @@
 \end{task}
 \begin{task}[points=auto]{Konvertierung \stage2}
     \begin{subtask*}[points=0]{Konvertierung}
-        Nehmen wir mal an, ihr habt den Text \pythoninline{"1000"} zur Verfügung. Vielleicht
-        errechnet; vielleicht aus einer API (\textit{application programming interface}, allgemeine Bezeichnung für Schnittstellen zwischen Programmen)? Es kommt immer wieder vor, dass die Daten noch den falschen Typ haben, wenn ihr sie bekommt.
+        Nehmen wir mal an,
+        wir wollen sich vom Nutzer eine Zahl geben lassen.
+        Erstmal bekommen wir nur Text vom Nutzer
+        in die Konsole eingegeben.
+        Wir haben also den z.B. Text \pythoninline{"1000"} zur Verfügung
+        und müssen daraus eine Zahl machen.
 
-        Gebt die folgenden Ausdrücke ein, und findet das Ergebnis heraus.
-
-        \textit{Hinweis: es kann sein, dass einige Konvertierungen fehlschlagen. In diesem Fall überlegt euch, warum. Die Fehlermeldung kann dabei hilfreich sein.}
+        Allgemein kommt es immer wieder vor,
+        dass die Daten noch den falschen Typ haben,
+        wenn wir sie bekommt.
+        Überlege dir, ob folgende Konvertierungen möglich sind
+        und was als Ergebnis raus kommt.
+        Gib die folgenden Ausdrücke ein und findet das Ergebnis heraus.
 
         \begin{multicols}{3}
             \begin{enumerate}
@@ -129,27 +145,29 @@
         \begin{solution}
             \begin{multicols}{3}
                 \begin{enumerate}
-                    \item \pythoninline{int = 100}
-                    \item \pythoninline{float = 1.3}
-                    \item \pythoninline{str = "123"}
-                    \item \pythoninline{str = 25}
-                    \item \pythoninline{str = 7}
-                    \item \pythoninline{float = 5.0}
-                    \item \pythoninline{int = 5}
+                    \item \pythoninline{100 # int}
+                    \item \pythoninline{1.3 # float}
+                    \item \pythoninline{"123" # str}
+                    \item \pythoninline{"25" # str}
+                    \item \pythoninline{"7" # str}
+                    \item \pythoninline{5.0 # float}
+                    \item \pythoninline{5 # int}
                     \item Format Error
-                    \item \pythoninline{float = 5.0}
+                    \item \pythoninline{5.0 # float}
                 \end{enumerate}
             \end{multicols}
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Verrückte Eingabe \stage3}
-        Versucht einen Ausdruck zu finden, der nur \pythoninline{"1"}, \pythoninline{0},
-        \pythoninline{int}, \pythoninline{str} und Operationen verwendet, der
-        insgesamt zu \pythoninline{3000} auswertet. Beachtet, dass solche Ausdrücke
-        wie ihr hier schreiben sollt, so \textbf{niemals} in echtem Code auftauchen
+        Versucht einen Ausdruck zu finden,
+        der nur \pythoninline{"1"}, \pythoninline{0}, \pythoninline{int}, \pythoninline{str}
+        und Operationen verwendet,
+        sowie insgesamt zu \pythoninline{3000} auswertet.
+        Beachtet, dass solche Ausdrücke
+        wie in dieser Aufgab so \textbf{niemals} in echtem Code auftauchen
         sollten.
 
-        \textit{Hinweis: Zwar soll am Ende eine Zahl rauskommen, ihr werdet aber in dieser Aufgabe oft zwischen Zahl und Text hin- und herkonvertieren müssen.}
+        \textit{Hinweis: Zwar soll am Ende eine Zahl rauskommen, ihr werdet aber in dieser Aufgabe mehrmals zwischen Zahl und Text hin- und herkonvertieren müssen.}
 
         \begin{solution}
             \begin{codeBlock}[]{minted language=python}
@@ -195,13 +213,13 @@
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Finde den Fehler \stage2}
-        Gegeben sind die folgenden Listings.
+        Gegeben sind die folgenden Programmausschnitte.
         Führt die Programme aus und beschreibt, warum jeweils ein Fehler auftritt.
-        \begin{codeBlock}[]{minted language=python}
-            >>> prinnt("Hello World")  // a)
-            >>> print(Hello World!)    // b)
-            >>> print("Alter: " + 18)  // c)
-            >>> print("Hello World!)   // d)
+        \begin{codeBlock}[]{minted language=text}
+            >>> prinnt("Hello World")  // 1)
+            >>> print(Hello World!)    // 2)
+            >>> print("Alter: " + 18)  // 3)
+            >>> print("Hello World!)   // 4)
         \end{codeBlock}
         \begin{solution}
             \begin{enumerate}
@@ -224,7 +242,7 @@
     Für die folgenden Aufgaben solltet ihr jeweils eine Python-Programmdatei
     anlegen.
     Öffnet dazu einen beliebigen Ordner in eurem Dateiexplorer.
-    Öffnet dann ein Terminal im selben Verzeichnis.
+    Öffnet dann ein Terminal im selben Verzeichnis:
 
     \begin{itemize}
         \item Unter Linux \& Mac (u.a. den Poolrechnern): Rechtsklick $\to$ In Terminal öffnen
@@ -240,7 +258,8 @@
     Als Programm könnt ihr das beliebte Hello World Programm
     \footnote{\url{https://en.wikipedia.org/wiki/\%22Hello,_World!\%22_program}}
     implementieren.
-    Gebt dafür \pythoninline{"Hello, World!"} aus.
+    Sorge dafür, dass \pythoninline{"Hello, World!"} aus der Konsole
+    gezeigt wird, wenn man das Programm als Datei ausführt.
 
     Ihr könnt diese Datei dann starten,
     indem ihr {\ttfamily python programm.py} in dem geöffneten Terminal ausführt.
@@ -251,11 +270,11 @@
 \end{task}
 
 \begin{task}{Komplexere Programme}
-    Schreibe nun ein etwas komplexere Python-Programme:
+    Nun schreiben wir einige komplexere Programme in Python:
 
     \begin{subtask*}{Teilbarkeit}
         \begin{enumerate}
-            \item Lasse dir von dem Nutzer zwei ganze Zahlen eingeben.
+            \item Frage den Nutzer nach zwei ganze Zahlen.
             \item Ist eine Zahl ein Vielfaches der anderen, gib aus,
                 welche ein Vielfaches von welcher ist.
             \item Andernfalls gib aus, dass es keine Vielfachen gibt.
@@ -269,55 +288,72 @@
 
         \begin{hinweise}
             \begin{itemize}
-                \item Überlege dir vorab alle Fälle, die eintreffen können
+                \item Überlege dir vorab alle Fälle, die eintreten können
                 \item Teilbarkeit kann man mit \pythoninline{%} prüfen
             \end{itemize}
         \end{hinweise}
 
         \begin{solution}
             \begin{codeBlock}[]{minted language=python}
-                print("Gebe zwei Zahlen ein")
+                print("Gib zwei Zahlen ein")
                 a = int(input())
                 b = int(input())
 
                 if a > b:
                     if a % b == 0:
-                        print(f"{a} ist ein vielfachens von {b}")
+                        print(f"{a} ist ein Vielfachens von {b}")
                     else:
                         print("Kein Vielfaches")
                 else:
                     if b % a == 0:
-                        print(f"{b} ist ein vielfachens von {a}")
+                        print(f"{b} ist ein Vielfachens von {a}")
                     else:
                         print("Kein Vielfaches")
             \end{codeBlock}
+
+            Alternativ:
+            \begin{codeBlock}[]{minted language=python}
+                print("Gib zwei Zahlen ein:")
+                l = int(input("Erste Zahl:"))
+                r = int(input("Zweite Zahl:"))
+                message = "ist ein Vielfaches von"
+
+                if l % r == 0:
+                    print(f"{l} {message} {r}.")
+                elif r % l == 0:
+                    print(f"{r} {message} {l}.")
+                else:
+                    print("Es liegen keine Vielfachen vor.")
+            \end{codeBlock}
+            Hier wurde die Doppelung in der Nachricht
+            mittels Variablen umgangen.
         \end{solution}
     \end{subtask*}
 
     \begin{subtask*}{Vergleiche}
         \begin{enumerate}
-            \item Lasse dir drei Zahlen eingeben
-            \item Gebe aus, wie viele Werte gleich sind
+            \item Frage den Nutzer nach drei Ganzzahlen.
+            \item Gib aus, wie viele Werte gleich sind.
         \end{enumerate}
 
         Beispiel:
         \begin{itemize}
             \item $1, 1, 1 \to$ Drei gleiche Werte
-            \item $1, 2, 3 \to$ Alles verschieden
-            \item $1, 2, 1 \to$ zwei gleiche Werte
+            \item $1, 2, 1 \to$ Zwei gleiche Werte
+            \item $1, 2, 3 \to$ Alle verschieden
         \end{itemize}
 
         \begin{hinweise}
             \begin{itemize}
                 \item Prüfe mehrere Bedingung mit logischen Operatoren
                 \item Benutze \pythoninline{elif} um überflüssiges
-                    Verschachteln zu vermeiden
+                    Verschachtelungen zu vermeiden
             \end{itemize}
         \end{hinweise}
 
         \begin{solution}
             \begin{codeBlock}[]{minted language=python}
-                print("Gebe drei Zahlen ein")
+                print("Gib drei Zahlen ein")
                 a = int(input())
                 b = int(input())
                 c = int(input())
