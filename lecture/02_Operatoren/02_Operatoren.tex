@@ -7,14 +7,18 @@
 
 \subtitle{Kapitel 2: Operatoren}
 \titlegraphic{
-    \tikzstyle{rect} = [rectangle, rounded corners, minimum width=2.5cm, minimum height=1cm,text centered, draw, text width=5cm, fill=\IfDarkModeTF{red!30!black}{red!10}]
-    \centering
-    \begin{tikzpicture}[start chain=going below,node distance=.3cm]
-        \node[inner sep=.3cm, on chain] {\Huge Operatoren};
-        \node[rect, on chain] {\textbf{Mathematische Operatoren}};
-        \node[rect, on chain] {\textbf{Vergleichsoperatoren}};
-        \node[rect, on chain] {\textbf{Logische Operatoren}};
-    \end{tikzpicture}
+    \vbox to \height {%
+        \vfill
+        \tikzstyle{rect} = [rectangle, rounded corners, minimum width=2.5cm, minimum height=1cm,text centered, draw, text width=5cm, fill=\IfDarkModeTF{TUDa-9b!30!black}{TUDa-9b!10}]
+        \centering
+        \begin{tikzpicture}[start chain=going below,node distance=.2cm]
+            \node[inner sep=.3cm, on chain] {\Huge Operatoren};
+            \node[rect, on chain] {\textbf{Mathematische Operatoren}};
+            \node[rect, on chain] {\textbf{Vergleichsoperatoren}};
+            \node[rect, on chain] {\textbf{Logische Operatoren}};
+        \end{tikzpicture}
+        \vfill
+    }
 }
 \maketitle
 

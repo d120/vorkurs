@@ -72,8 +72,9 @@
 % macros
 \newcommand{\livecoding}{
     %\ifdefined\StreamSlides
-    \begin{frame}
-        \frametitle{\insertsectionhead \\  {\small \insertsubsectionhead}}\centering \huge     \vskip 2cm\textbf{\textcolor{red}{Live-Coding}}
+    \begin{frame}[c]
+        \slidehead
+        \centering\huge\textbf{\textcolor{TUDa-9b}{Live-Coding}}
     \end{frame}
     %\fi
 }
@@ -129,3 +130,8 @@
         \end{figure}
     \end{frame}
 }
+
+% Center Captions
+\captionsetup[figure]{justification=centering}
+\captionsetup[subfigure]{justification=centering}
+\captionsetup[table]{justification=centering}

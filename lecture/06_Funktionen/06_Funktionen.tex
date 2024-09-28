@@ -8,19 +8,23 @@
 %Deckblatt
 \subtitle{Kapitel 6: wie Funktionen funktionieren}
 \titlegraphic{
-    \begin{columns}
-        \begin{column}{10cm}
-            %\vspace{1.5cm}
-            \begin{center}
-                {\huge Funktionen}
-            \end{center}
-            \begin{figure}
-                \centering
-                \includeinvertablegraphics[scale=.4]{media/proofs.png}
-                \\	\sffamily \tiny Bild: \href{https://xkcd.com/1724/}{https://xkcd.com/1724/}
-            \end{figure}
-        \end{column}
-    \end{columns}}
+    \vbox to \height {%
+        \vfill
+        \begin{columns}
+            \begin{column}{10cm}
+                \begin{center}
+                    {\huge Funktionen}
+                \end{center}
+                \begin{figure}
+                    \centering
+                    \includegraphics[scale=.4]{media/proofs\IfDarkModeT{-dark}.png}
+                    \caption{\url{https://xkcd.com/1724/}}
+                \end{figure}
+            \end{column}
+        \end{columns}
+        \vfill
+    }
+}
 \maketitle
 
 \section{Schlechtes Beispiel}
@@ -88,7 +92,7 @@
         %Hinweis: dieses Bild wurde von uns erstellt und kann ohne Referenz verwendet werden.
         %Viele Grüße
         %Kevin
-        \includeinvertablegraphics[width=0.8\textheight]{geometrie}
+        \includegraphics[width=0.8\textheight]{geometrie\IfDarkModeT{-dark}.png}
     \end{figure}
 
 \end{frame}
@@ -150,7 +154,7 @@
 \begin{frame}[fragile]
     \slidehead
     \vspace{-1em}
-    \pythonfile{listings/scope_1.py}
+    \pythonfile[][top=0cm,bottom=0cm]{listings/scope_1.py}
     \pause
     \vspace{-1em}
     %\begin{noindent}
@@ -163,6 +167,7 @@
     \end{commandshell}
     %\end{noindent}
     \vspace{-1em}
+    \vfill
     \begin{block}{Hinweis:}
         Variablen, die innerhalb einer Funktion erstellt werden, werden gelöscht, sobald die Funktion endet.
         Diese Variablen heißen \textbf{lokale Variablen}.
@@ -262,70 +267,45 @@
 
 \subsection{Rekursionsbaum}
 
-%The biggest Latex Monstrosity ever conceived:
-%greetings
-%Kevin O.
-\newcommand{\mytree}{
-    \ifnum \val = 0
-        \draw[draw=., ultra thick] (\x,\y) rectangle 	++(0.75,0.75);
-        \node at (\x+0.375,\y+0.375) {f(\the\val)};
-    \fi
-    \ifnum \val = 1
-        \draw[draw=., ultra thick] (\x,\y) rectangle 	++(0.75,0.75);
-        \node at (\x+0.375,\y+0.375) {f(\the\val)};
-    \fi
-    \ifnum \val > 1
-
-        \draw[draw=., ultra thick] (\x,\y) rectangle ++(0.75,0.75);
-        \node at (\x+0.375,\y+0.375) {f(\the\val)};
-
-        \advance \val -1
-        \advance \y -2
-        \tmp=-\val*0.01
-        \advance \tmp -1
-
-        \advance \x \tmp
-        \draw [->, thick] (\x-\tmp,\y+2) -- (\x+0.75,\y+0.75);
-        \mytree;
-
-        \tmp=\val*0.01
-        \advance \tmp 1
-
-        \advance \x \tmp
-        \advance \val -1
-        \tmp=\val*0.01
-        \advance \tmp 1
-
-        \advance \x \tmp
-
-        \draw [->, thick] (\x-\tmp+0.75,\y+2) -- (\x,\y+0.75);
-        \mytree;
-
-        %everything back to normal
-        \tmp=-\val*0.01
-        \advance \tmp -1
-
-        \advance \val +2
-        \advance \x \tmp
-        \advance \y +2
-    \fi
-}
-
-
-\begin{frame}
+\begin{frame}[c]
     \slidehead
     \centering
-    \vspace{-0.1cm}
-    \begin{tikzpicture}[scale=.9, every node/.style={scale=1}]
-        \newcount\val
-        \newcount\x
-        \newcount\y
-        \newcount\tmp
-        \val=4;
-        \x=0;
-        \y=0;
-        \mytree;
-    \end{tikzpicture}
+    \begin{forest}
+        % if you think this tree code is unreadable, just look at the previous one from Kevin
+        % Fixed by: Ruben
+        for tree={
+            draw,
+            very thick,
+            edge={-Latex,thick},
+            minimum size=.75cm,
+            l+=5mm,
+            s sep+=2cm,
+            if n=1{ % honor the fancy edge style of the old tree
+                edge path={
+                    \noexpand\path[\forestoption{edge}]
+                    (!u.south west) -- (.north east)\forestoption{edge label};
+                },
+            }{
+                edge path={
+                    \noexpand\path[\forestoption{edge}]
+                    (!u.south east) -- (.north west)\forestoption{edge label};
+                },
+            },
+        }
+        [f(4)
+            [f(3)
+                [f(2)
+                    [f(1)]
+                    [f(0)]
+                ]
+                [f(1)]
+            ]
+            [f(2)
+                [f(1)]
+                [f(0)]
+            ]
+        ]
+    \end{forest}
 \end{frame}
 
 \subsection{Rekursive Summe in Kotlin}

@@ -9,21 +9,25 @@
 \section{Schleifen}
 \subtitle{Kapitel 4: Befehle wiederholen}
 \titlegraphic{
-    \begin{columns}[c]
-        \begin{column}{4cm}
-            \begin{center}
-                {\huge Schleifen}
-            \end{center}
-        \end{column}
-        \begin{column}{4cm}
-            \vspace{2mm}
-            \begin{figure}
-                \centering
-                \includeinvertablegraphics[scale=.5]{media/flowchart.png}
-                \\	\sffamily \tiny Bild: \href{https://xkcd.com/1195/}{https://xkcd.com/1195/}
-            \end{figure}
-        \end{column}
-    \end{columns}}
+    \vbox to \height {%
+        \vfill
+        \begin{columns}[c]
+            \begin{column}{4cm}
+                \begin{center}
+                    {\huge Schleifen}
+                \end{center}
+            \end{column}
+            \begin{column}{4cm}
+                \begin{figure}
+                    \centering
+                    \includegraphics[scale=.5]{media/flowchart\IfDarkModeT{-dark}.png}
+                    \caption{\href{https://xkcd.com/1195/}{https://xkcd.com/1195/}}
+                \end{figure}
+            \end{column}
+        \end{columns}
+        \vfill
+    }
+}
 \maketitle
 
 
@@ -102,7 +106,7 @@
     \slidehead
 
     \begin{itemize}
-        \item \textcolor{red}{Achtung} Nicht jede Programmiersprache sieht gleich aus, das wichtige ist das Konzept verstanden zu haben!
+        \item \textcolor{TUDa-9b}{Achtung} Nicht jede Programmiersprache sieht gleich aus, das wichtige ist das Konzept verstanden zu haben!
         \item Manche Programmiersprachen besitzen auch keine Schleifen, sondern nutzen andere Konzepte (Ende vom Vorkurs)
     \end{itemize}
 \end{frame}
@@ -118,26 +122,32 @@
     \end{itemize}
 
     \begin{center}
-        \begin{tikzpicture}
-            \newcounter{idx}
-            \setcounter{idx}{0}
-            \foreach \x in {5,3,10,0,1,2,4,7,9,8}{
-                \draw[draw=.] (11+\value{idx}*0.5,0) rectangle ++(0.5,0.5);
-                \node[color=blue] at (11.25+\value{idx}*0.5, 0.65) {\tiny \theidx};
-                \node at (11.25+\value{idx}*0.5, 0.25) {\small \x};
-                \setcounter{idx}{\value{idx}+1}
+        \vfill
+        \begin{tikzpicture}[font=\sffamily,thick,remember picture]%
+            \def\blockheight{1cm}  % Cell height
+            \def\blockwidth{1cm} % Cell width
+            \tikzset{
+                arrayBase/.style={inner sep=0pt,outer sep=0pt},
+                array/.style={arrayBase,draw,very thick,minimum height=\blockheight,minimum width=\blockwidth},
+                index/.style={arrayBase,font=\footnotesize,color=TUDa-1\IfDarkModeTF{a}{b}},
+            }
+            % draw Array
+            \foreach [count=\pos from 0] \x/\y in {5,3,10,0,1,2,4,7,9,8}{%
+                \node[array] (n\pos) at (\pos*\blockwidth,0) {\x};%
+                \node[index, above=1ex of n\pos] (idx\pos) {\pos};%
             }
 
-            \draw [->] (12,-0.5) -- (11,-0.5);
-            \node at (13.5, -0.5) {Listenlänge ist 10};
-            \draw [->] (15,-0.5) -- (16,-0.5);
-
-            \draw [-, draw=blue] (10.5,0.65) -- (10.2,0.65);
-            \node [color=blue] at (9.5, 0.7) {Indizes};
-
-            \draw [-] (15.9,0.4) -- (16.5,1);
-            \node at (17.75, 1.25) {Element an Index 9};
-        \end{tikzpicture}\label{fig:figure}
+        \end{tikzpicture}%
+        \begin{tikzpicture}[remember picture,overlay,thick,font=\sffamily]
+            % length indicator
+            \draw<2->[{Bar}{Latex}-{Latex}{Bar}, transform canvas={yshift=-0.5cm}] (n0.south west) -- node[fill=\thepagecolor] {Listenlänge ist 10} (n9.south east);
+            % index label
+            \draw<3->[Latex-,TUDa-1\IfDarkModeTF{a}{b}] ([xshift=-2mm]idx0.west) -- ++(-1,0) node[left] {Indizes};
+            % indicate element at index 9
+            \draw<4->[TUDa-3b,{Latex}-] (n9.north east) -- ++(.5,.5) node[above] {Element an Index 9};
+        \end{tikzpicture}
+        \vfill
+        \label{fig:figure}
     \end{center}
 
 \end{frame}
@@ -218,13 +228,10 @@
 \begin{frame}
     \slidehead
 
-    \vspace{-1.2ex}
     Natürlich lassen sich Schleifen auch \textit{verschachteln}:
-    \vspace{-1.2ex}
     \pythonfile[][top=0cm,bottom=0cm]{listings/geschachteltfor.py}
 
     \pause
-    \vspace{-1.5ex}
     \begin{block}{Frage: Was wird ausgegeben?}\pause
         \pythoninline{0000000000}\\
         \pythoninline{0000000000}\\
@@ -254,25 +261,27 @@
 \end{frame}
 
 \section{Evaluation}
-\begin{frame}
+\begin{frame}[c]
     \slidehead
     \begin{columns}
         \begin{column}{7cm}
-            \vspace{-0.5cm}
             \begin{figure}
+                \def\evallink{https://evaluation.tu-darmstadt.de/evasys/online.php?p=EM8JM}
                 \centering
-                \includeinvertablegraphics{media/QRCode_vl_eval.png}
-                \\  \sffamily \tiny Vorlesungsevaluation: \\
-                \url{https://evaluation.tu-darmstadt.de/evasys/online.php?p=EM8JM}
+                \qrcode[height=4cm]{https://evaluation.tu-darmstadt.de/evasys/online.php?p=EM8JM}
+                \caption{Vorlesungsevaluation \\
+                    \url{\evallink}
+                }
             \end{figure}
         \end{column}
         \begin{column}{7cm}
-            \vspace{-0.5cm}
             \begin{figure}
+                \def\evallink{https://evaluation.tu-darmstadt.de/evasys/online.php?p=EVDN3}
                 \centering
-                \includeinvertablegraphics{media/QRCode_ue_eval.png}
-                \\  \sffamily \tiny Übungsevaluation: \\
-                \url{https://evaluation.tu-darmstadt.de/evasys/online.php?p=EVDN3}
+                \qrcode[height=4cm]{\evallink}
+                \caption{Übungsevaluation \\
+                    \url{\evallink}
+                }
             \end{figure}
         \end{column}
     \end{columns}

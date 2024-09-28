@@ -7,20 +7,25 @@
 
 %Deckblatt
 \subtitle{Kapitel 3: Daten Zwischenspeichern}
-\titlegraphic{
-    \begin{columns}
-        \begin{column}{10cm}
-            \begin{center}
-                {\huge Variablen}
-            \end{center}
-            \vspace{-1mm}
-            \begin{figure}
-                \centering
-                \includegraphics[scale=.35]{media/x\IfDarkModeT{-dark}.png}
-                \\	\sffamily \tiny Bild: \href{https://xkcd.com/2309/}{https://xkcd.com/2309/}
-            \end{figure}
-        \end{column}
-    \end{columns}}
+\titlegraphic{%
+    \vbox to \height {%
+        \vfill
+        \begin{columns}
+            \begin{column}{10cm}
+                \begin{center}
+                    {\huge Variablen}
+                \end{center}
+                \vspace{-1mm}
+                \begin{figure}
+                    \centering
+                    \includegraphics[scale=.35]{media/x\IfDarkModeT{-dark}.png}
+                    \\	\sffamily \tiny Bild: \href{https://xkcd.com/2309/}{https://xkcd.com/2309/}
+                \end{figure}
+            \end{column}
+        \end{columns}
+        \vfill
+    }
+}
 \maketitle
 
 \section{Was sind Variablen?}
@@ -41,8 +46,9 @@
     % Idee: Kinderspielzeug -> Bauklötze in verschiedenen Formen als Bild?
     \begin{figure}
         \centering
-        \includegraphics[scale=.2]{media/wip_variables_title\IfDarkModeT{-dark}.png}
-        \\	\sffamily \tiny Bild: Tristan Schulz
+        \includegraphics[height=.6\textheight]{media/wip_variables_title\IfDarkModeT{-dark}.png}
+        \label{fig:variablen}
+        \caption{Variablen, Bild: Tristan Schulz}
     \end{figure}
 \end{frame}
 

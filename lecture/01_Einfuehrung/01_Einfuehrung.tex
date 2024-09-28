@@ -41,31 +41,35 @@
 
 %Deckblatt
 \titlegraphic{
-    \begin{columns}[b]
-        \begin{column}{.4\textwidth}
-            \centering
-            \begin{figure}
+    \vbox to \height {%
+        \vfill
+        \begin{columns}
+            \begin{column}{.4\textwidth}
                 \centering
-                \includegraphics[height=.55\textheight]{computer1917.jpg}
-                \caption*{Ein Rechenzentrum, 1917}
-            \end{figure}
-        \end{column}%
-        \begin{column}{.4\textwidth}
-            \centering
-            \begin{figure}
+                \begin{figure}
+                    \centering
+                    \includegraphics[height=.55\textheight]{computer1917.jpg}
+                    \caption*{Ein Rechenzentrum, 1917}
+                \end{figure}
+            \end{column}%
+            \begin{column}{.4\textwidth}
                 \centering
-                \includegraphics[height=.55\textheight]{Z3_Deutsches_Museum.JPG}
-                \caption*{Der Z3 von Konrad Zuse}
-            \end{figure}
-        \end{column}
-    \end{columns}}
+                \begin{figure}
+                    \centering
+                    \includegraphics[height=.55\textheight]{Z3_Deutsches_Museum.JPG}
+                    \caption*{Der Z3 von Konrad Zuse}
+                \end{figure}
+            \end{column}
+        \end{columns}
+        \vfill
+    }
+}
 \maketitle
 
 \section{Noch etwas Historie}
-\begin{frame}
+\begin{frame}[c]
     \slidehead
-    \vspace{3mm}
-    \begin{columns}[b]
+    \begin{columns}[T]
         \begin{column}{.3\textwidth}
             \begin{figure}
                 \centering
