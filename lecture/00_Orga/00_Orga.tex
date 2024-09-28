@@ -14,14 +14,15 @@
 \begin{document}
 
 %Deckblatt
-\titlegraphic{
-    \vbox{
-        \IfDarkModeTF{
-            \vspace{.7cm}
+\titlegraphic{%
+    \vbox to \height {%
+        \vfill
+        \IfDarkModeTF{%
             \includesvg[width=.9\textwidth]{../globalMedia/bildmarke_ohne_rand-dark.svg}
-        }{
+        }{%
             \includesvg[width=\textwidth]{../globalMedia/bildmarke_ohne_rand.svg}
-        }
+        }%
+        \vfill
     }
 }
 \maketitle
