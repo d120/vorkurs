@@ -118,26 +118,26 @@
     \end{itemize}
 
     \begin{center}
-    \begin{tikzpicture}
-        \newcounter{idx}
-        \setcounter{idx}{0}
-        \foreach \x in {5,3,10,0,1,2,4,7,9,8}{
-            \draw[draw=.] (11+\value{idx}*0.5,0) rectangle ++(0.5,0.5);
-            \node[color=blue] at (11.25+\value{idx}*0.5, 0.65) {\tiny \theidx};
-            \node at (11.25+\value{idx}*0.5, 0.25) {\small \x};
-            \setcounter{idx}{\value{idx}+1}
-        }
+        \begin{tikzpicture}
+            \newcounter{idx}
+            \setcounter{idx}{0}
+            \foreach \x in {5,3,10,0,1,2,4,7,9,8}{
+                \draw[draw=.] (11+\value{idx}*0.5,0) rectangle ++(0.5,0.5);
+                \node[color=blue] at (11.25+\value{idx}*0.5, 0.65) {\tiny \theidx};
+                \node at (11.25+\value{idx}*0.5, 0.25) {\small \x};
+                \setcounter{idx}{\value{idx}+1}
+            }
 
-        \draw [->] (12,-0.5) -- (11,-0.5);
-        \node at (13.5, -0.5) {Listenlänge ist 10};
-        \draw [->] (15,-0.5) -- (16,-0.5);
+            \draw [->] (12,-0.5) -- (11,-0.5);
+            \node at (13.5, -0.5) {Listenlänge ist 10};
+            \draw [->] (15,-0.5) -- (16,-0.5);
 
-        \draw [-, draw=blue] (10.5,0.65) -- (10.2,0.65);
-        \node [color=blue] at (9.5, 0.7) {Indizes};
+            \draw [-, draw=blue] (10.5,0.65) -- (10.2,0.65);
+            \node [color=blue] at (9.5, 0.7) {Indizes};
 
-        \draw [-] (15.9,0.4) -- (16.5,1);
-        \node at (17.75, 1.25) {Element an Index 9};
-    \end{tikzpicture}\label{fig:figure}
+            \draw [-] (15.9,0.4) -- (16.5,1);
+            \node at (17.75, 1.25) {Element an Index 9};
+        \end{tikzpicture}\label{fig:figure}
     \end{center}
 
 \end{frame}
@@ -257,20 +257,22 @@
 \begin{frame}
     \slidehead
     \begin{columns}
-        \begin{column}{6cm}
+        \begin{column}{7cm}
             \vspace{-0.5cm}
             \begin{figure}
                 \centering
-                \includeinvertablegraphics[scale=.33]{media/QRCode_NYV4Q_VL.png}
-                \\  \sffamily \tiny Vorlesungsevaluation \href{https://evaluation.tu-darmstadt.de/evasys/online.php?p=NYV4Q}{https://evaluation.tu-darmstadt.de/evasys/online.php?p=NYV4Q}
+                \includeinvertablegraphics{media/QRCode_vl_eval.png}
+                \\  \sffamily \tiny Vorlesungsevaluation: \\
+                \url{https://evaluation.tu-darmstadt.de/evasys/online.php?p=EM8JM}
             \end{figure}
         \end{column}
-        \begin{column}{6cm}
+        \begin{column}{7cm}
             \vspace{-0.5cm}
             \begin{figure}
                 \centering
-                \includeinvertablegraphics[scale=.33]{media/QRCode_78NRQ_UE.png}
-                \\  \sffamily \tiny Übungsevaluation: \href{https://evaluation.tu-darmstadt.de/evasys/online.php?p=78NRQ}{https://evaluation.tu-darmstadt.de/evasys/online.php?p=78NRQ}
+                \includeinvertablegraphics{media/QRCode_ue_eval.png}
+                \\  \sffamily \tiny Übungsevaluation: \\
+                \url{https://evaluation.tu-darmstadt.de/evasys/online.php?p=EVDN3}
             \end{figure}
         \end{column}
     \end{columns}
