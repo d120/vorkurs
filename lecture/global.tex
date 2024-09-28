@@ -17,6 +17,7 @@
 \input{../../shared/globalCommon.tex}
 
 %Includes
+\usepackage{svg}
 \usepackage{epstopdf}
 \usepackage{wrapfig}
 \usepackage{tipa}
@@ -57,7 +58,13 @@
 %Listing-Style pyhon
 \title[Programmiervorkurs]{Programmiervorkurs Wintersemester \the\year/\NextYearShort}
 \subtitle{{\small der Fachschaft Informatik}}
-\logo*{\includegraphics{../globalMedia/bildmarke_ohne_rand\IfDarkModeT{-dark}.png}}
+\logo*{
+    \IfDarkModeTF{
+        \includesvg{../globalMedia/logo-dark.svg}
+    }{
+        \includesvg{../globalMedia/logo.svg}
+    }
+}
 \institute{Fachschaft Informatik}
 \date{Wintersemester \the\year/\NextYearShort}
 

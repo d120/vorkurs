@@ -15,7 +15,14 @@
 
 %Deckblatt
 \titlegraphic{
-    \includegraphics[height=\IfDarkModeTF{.8}{.7}\textheight]{bildmarke_ohne_rand\IfDarkModeT{-dark}.png}
+    \vbox{
+        \IfDarkModeTF{
+            \vspace{.7cm}
+            \includesvg[width=.9\textwidth]{../globalMedia/bildmarke_ohne_rand-dark.svg}
+        }{
+            \includesvg[width=\textwidth]{../globalMedia/bildmarke_ohne_rand.svg}
+        }
+    }
 }
 \maketitle
 
@@ -63,7 +70,11 @@
             \end{itemize}
         \end{column}%
         \begin{column}{ .4\textwidth }
-            \includegraphics[width=\textwidth]{media/bildmarke_ohne_rand\IfDarkModeT{-dark}.png}
+            \IfDarkModeTF{
+                \includesvg[width=\textwidth]{../globalMedia/logo-dark.svg}
+            }{
+                \includesvg[width=\textwidth]{../globalMedia/logo.svg}
+            }
         \end{column}
     \end{columns}
 \end{frame}
