@@ -23,7 +23,7 @@ Neben einer aktuellen TeX Live Distribution wird folgende Software benötigt:
 Zur einfachen Erstellung der Inhalte stehen UNIX Makefiles bereit, Details dazu sind den jeweiligen Verzeichnis zu entnehmen.
 
 ## Lizenz
-Eine Verwendung der Logos der Fachschaft Informatik, TU Darmstadt in (`lecture/globalMedia/*.svg`), ist nur für Fachschaftstätigkeiten gestattet.  
+Eine Verwendung der Logos der Fachschaft Informatik, TU Darmstadt in (`lecture/globalMedia/*.(pdf|svg)`), ist nur für Fachschaftstätigkeiten gestattet.  
 
 Alle anderen Inhalte dieses Projekts stehen, sofern nicht anders angegeben, unter der GNU General Public License v3.0 (GNU GPLv3):  
 
