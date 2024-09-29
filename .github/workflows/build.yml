@@ -31,13 +31,7 @@ jobs:
       # 3. Build the documents
       - name: "Build the documents"
         run: |
-          make -j -C lecture compile
-          make -j -C exercises compile
-          make -j -C misc/linux_commands compile
-          mkdir -p pdfout
-          cp lecture/pdfout/*.pdf pdfout/
-          cp exercises/pdfout/*.pdf pdfout/
-          cp misc/linux_commands/pdfout/*.pdf pdfout/
+          make -j
 
       # 4. Upload artifacts to GitHub
       - name: Upload artifacts to GitHub

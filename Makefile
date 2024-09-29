@@ -1,7 +1,8 @@
+.DEFAULT_GOAL := all
 
 OUT_DIR := pdfout/
 # find all makefiles in subdirectories
-MAKEFILES := $(shell find . -mindepth 2 -name 'Makefile' -not -path './.git/*' -not -path './.devcontainer')
+MAKEFILES := $(shell find . -mindepth 2 -name 'Makefile' -not -path './.git/**/*' -not -path './.devcontainer/**/*')
 
 $(MAKEFILES:Makefile=Makefile.all):
 	$(eval MAKEFILE := $(patsubst %.all,%,$@))
