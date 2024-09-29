@@ -132,7 +132,7 @@
                 index/.style={arrayBase,font=\footnotesize,color=TUDa-1\IfDarkModeTF{a}{b}},
             }
             % draw Array
-            \foreach [count=\pos from 0] \x/\y in {5,3,10,0,1,2,4,7,9,8}{%
+            \foreach [count=\pos from 0] \x in {5,3,10,0,1,2,4,7,9,8}{%
                 \node[array] (n\pos) at (\pos*\blockwidth,0) {\x};%
                 \node[index, above=1ex of n\pos] (idx\pos) {\pos};%
             }
