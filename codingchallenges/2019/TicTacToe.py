@@ -75,7 +75,7 @@ def computer_move():
 
 
 def game_over():
-    if board.count(player)+board.count(computer) == 9:
+    if board.count(player) + board.count(computer) == 9:
         return True
     return False
 

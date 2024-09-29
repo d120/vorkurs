@@ -31,10 +31,10 @@ directions = {
 
 # Translate direction to a vector with length 1 [x, y]
 directionVectors = {
-    "left":  [-1, 0],
-    "down":  [0,  1],
-    "up":    [0, -1],
-    "right": [1,  0],
+    "left": [-1, 0],
+    "down": [0, 1],
+    "up": [0, -1],
+    "right": [1, 0],
 }
 
 x = 69
@@ -65,7 +65,7 @@ def randint(minimum: int, maximum: int):
     t = x ^ ((x << 11) & 0xFFFFFFFF)  # 32bit
     x, y, z = y, z, w
     w = (w ^ (w >> 19)) ^ (t ^ (t >> 8))
-    return (w % (maximum-minimum+1)) + minimum
+    return (w % (maximum - minimum + 1)) + minimum
 
 
 def deepCopy(liste: list):
@@ -107,19 +107,19 @@ def printField(state: list, style: int = 1, color_new: bool = False, new_fields:
         new_fields (list, optional): a list of coordinates(x,y) like:[[1,2],[2,3]]. Defaults to [].
     """
     # Add two spaces for stylistic reasons
-    maxLength = getMaxStringLength(state)+2
+    maxLength = getMaxStringLength(state) + 2
     hlineupper = ""
     hlinelower = ""
     borderspacer = ""
     betweenspacer = ""
     if (style == 1):
-        hlinelower = f"+{('-' * maxLength+'+')*len(state)}\n"
+        hlinelower = f"+{('-' * maxLength + '+') * len(state)}\n"
         print(hlinelower, end='')
         borderspacer = "|"
         betweenspacer = "|"
     else:
-        hlineupper = f"{('╭' + '-' * maxLength+'╮')*len(state)}\n"
-        hlinelower = f"{('╰' + '-' * maxLength+'╯')*len(state)}\n"
+        hlineupper = f"{('╭' + '-' * maxLength + '╮') * len(state)}\n"
+        hlinelower = f"{('╰' + '-' * maxLength + '╯') * len(state)}\n"
         borderspacer = "|"
         betweenspacer = "||"
     for y, row in enumerate(state):
@@ -271,7 +271,7 @@ def spawnNewTile(state):
     newState = state
     emptySlots = getEmptySlots(state)
     if (len(emptySlots) > 0):
-        [newX, newY] = emptySlots[randint(0, len(emptySlots)-1)]
+        [newX, newY] = emptySlots[randint(0, len(emptySlots) - 1)]
         newState[newY][newX] = 4 if randint(1, 10) == 10 else 2
     return newState
 
@@ -314,7 +314,7 @@ def slideTiles(currentState: list, direction: str):
     newState = currentState
     [xMov, yMov] = directionVectors.get(direction)
     forwardRange = range(len(currentState))
-    backwardRange = range(len(currentState)-1, -1, -1)
+    backwardRange = range(len(currentState) - 1, -1, -1)
     # Durch Feld Iterieren
     # Anmerkung: Hier muss man darauf achten, in welcher Reihenfolge man durch die Felder geht,
     # da sonst mehrere Felder auf einmal addiert werden können
@@ -329,7 +329,7 @@ def slideTiles(currentState: list, direction: str):
             # Ansatz: wir gehen solange in die Schieberichtung,
             # bis der nächste Schritt außerhalb des Feldes Läge oder wir auf ein nichtleeres Feld stoßen.
             for i in range(len(currentState)):
-                nextPos = [newPos[0]+xMov, newPos[1]+yMov]
+                nextPos = [newPos[0] + xMov, newPos[1] + yMov]
                 [nextX, nextY] = nextPos
                 if not pointIsInGameField(len(currentState), nextX, nextY) or newState[nextY][nextX] != '':
                     break
@@ -340,7 +340,7 @@ def slideTiles(currentState: list, direction: str):
             # bis der nächste Schritt außerhalb des Feldes Läge oder wir auf ein nichtleeres Feld stoßen.
             # Sollten wir auf ein nichtleeres Feld mit dem Gleichen Wert stoßen, haben wir eine Verschmelzposition gefunden.
             for i in range(len(currentState)):
-                prevPos = [newMergePos[0]-xMov, newMergePos[1]-yMov]
+                prevPos = [newMergePos[0] - xMov, newMergePos[1] - yMov]
                 [prevX, prevY] = prevPos
                 if not pointIsInGameField(len(currentState), prevX, prevY):
                     break
@@ -357,7 +357,7 @@ def slideTiles(currentState: list, direction: str):
             # Wenn das Feld an der Verschmelzposition nicht leer ist,
             # müssen wir den Wert des Feldes verdoppeln
             if (newState[newMergeY][newMergeX] != ''):
-                newState[newY][newX] = field+newState[newMergeY][newMergeX]
+                newState[newY][newX] = field + newState[newMergeY][newMergeX]
                 newState[newMergeY][newMergeX] = ''
             else:
                 newState[newY][newX] = field

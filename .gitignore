@@ -378,4 +378,7 @@ TSWLatexianTemp*
 #*Notes.bib
 .secrets
 options.cfg
+
+# SVG package
 svg-inkscape/
+svg-inkscape-*/
