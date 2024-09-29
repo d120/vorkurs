@@ -17,16 +17,16 @@ Created By Ruben Deisenroth in 2021
 
 randomindex = -1
 randomints = [
-    28, 9,  40, 74, 28, 56, 82, 61, 80, 95,
-    14, 97, 47, 83, 63, 88, 91, 39, 2,  85,
+    28, 9, 40, 74, 28, 56, 82, 61, 80, 95,
+    14, 97, 47, 83, 63, 88, 91, 39, 2, 85,
     82, 61, 69, 35, 19, 17, 64, 21, 29, 20,
-    94, 59, 73, 50, 1,  69, 30, 39, 26, 11,
-    21, 94, 1,  24, 12, 8,  3,  90, 13, 8,
-    52, 48, 41, 86, 60, 33, 74, 83, 9,  48,
-    90, 12, 60, 44, 9,  58, 64, 61, 50, 74,
+    94, 59, 73, 50, 1, 69, 30, 39, 26, 11,
+    21, 94, 1, 24, 12, 8, 3, 90, 13, 8,
+    52, 48, 41, 86, 60, 33, 74, 83, 9, 48,
+    90, 12, 60, 44, 9, 58, 64, 61, 50, 74,
     97, 77, 69, 81, 62, 18, 22, 64, 25, 61,
-    56, 63, 95, 39, 21, 6,  87, 98, 28, 52,
-    35, 69, 43, 92, 94, 88, 4,  39, 6,  20
+    56, 63, 95, 39, 21, 6, 87, 98, 28, 52,
+    35, 69, 43, 92, 94, 88, 4, 39, 6, 20
 ]
 
 
@@ -46,7 +46,7 @@ def randint(minimum, maximum):
     global randomindex
     randomindex = randomindex + 1
     randomindex = randomindex % len(randomints)
-    rand_range = maximum-minimum
+    rand_range = maximum - minimum
     # Trim to given Range
     random = randomints[randomindex]
     random = random % (rand_range + 1)
@@ -91,7 +91,7 @@ def printField(state):
         for j in i:
             feldzeile += str(j)
             # Right Padding with space
-            for k in range(longestString-len(str(j))):
+            for k in range(longestString - len(str(j))):
                 feldzeile += " "
             feldzeile += "|"
         print(feldzeile)
@@ -150,7 +150,7 @@ def getNextMove():
         print("bye")
         exit()
     else:
-        print("Expected one of: [w, a, s, d] but got "+move+".")
+        print("Expected one of: [w, a, s, d] but got " + move + ".")
         return getNextMove()
 
 
@@ -259,7 +259,7 @@ def slideTiles(currentState, xMov, yMov):
     """
     newState = currentState
     forwardRange = range(len(currentState))
-    backwardRange = range(len(currentState)-1, -1, -1)
+    backwardRange = range(len(currentState) - 1, -1, -1)
     # Durch Feld Iterieren
     # Anmerkung: Hier muss man darauf achten, in welcher Reihenfolge man durch die Felder geht,
     # da sonst mehrere Felder auf einmal addiert werden können
@@ -281,8 +281,8 @@ def slideTiles(currentState, xMov, yMov):
             # Ansatz: wir gehen solange in die Schieberichtung,
             # bis der nächste Schritt außerhalb des Feldes Läge oder wir auf ein nichtleeres Feld stoßen.
             for i in range(4):
-                nextX = newX+xMov
-                nextY = newY+yMov
+                nextX = newX + xMov
+                nextY = newY + yMov
                 if not pointIsInGameField(len(currentState), nextX, nextY) or newState[nextY][nextX] != 0:
                     break
                 newX = nextX
@@ -296,8 +296,8 @@ def slideTiles(currentState, xMov, yMov):
             # bis der nächste Schritt außerhalb des Feldes Läge oder wir auf ein nichtleeres Feld stoßen.
             # Sollten wir auf ein nichtleeres Feld mit dem Gleichen Wert stoßen, haben wir eine Verschmelzposition gefunden.
             for i in range(4):
-                prevX = newMergeX-xMov
-                prevY = newMergeY-yMov
+                prevX = newMergeX - xMov
+                prevY = newMergeY - yMov
                 if not pointIsInGameField(len(currentState), prevX, prevY):
                     break
                 if newState[prevY][prevX] != 0:
@@ -310,7 +310,7 @@ def slideTiles(currentState, xMov, yMov):
             # Verschieben an neue Position, und ggf multiplizieren
             newState[y][x] = 0
             if (newState[newMergeY][newMergeX] != 0):
-                newState[newY][newX] = 2*field
+                newState[newY][newX] = 2 * field
                 newState[newMergeY][newMergeX] = 0
             else:
                 newState[newY][newX] = field

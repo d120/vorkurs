@@ -1,5 +1,5 @@
 def fib(x):
-    if (x <= 1): // Rekursionsanker
+    if (x <= 1):  # Rekursionsanker
         return 1
 
     # Rekursionsaufruf

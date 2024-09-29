@@ -52,8 +52,8 @@
 \subsection*{Fachschaft Informatik}
 \begin{frame}
     \slidehead
-    \begin{columns}[b]
-        \begin{column}{ .6\textwidth }
+    \begin{columns}[T]
+        \begin{column}{.6\textwidth}
             \begin{itemize}[<+->]
                 \item \enquote{Die Schüler*innenvertretung der Studierenden}
                 \item Wir machen neben Vorkurs \dots
@@ -70,12 +70,14 @@
                 \item {\centering \huge Mehr auf D120.de}
             \end{itemize}
         \end{column}%
-        \begin{column}{ .4\textwidth }
+        \begin{column}{.4\textwidth}
+            \vfill
             \IfDarkModeTF{
-                \includegraphics[width=\textwidth]{../globalMedia/logo-dark.pdf}
+                \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{../globalMedia/logo-dark.pdf}
             }{
-                \includegraphics[width=\textwidth]{../globalMedia/logo.pdf}
+                \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{../globalMedia/logo.pdf}
             }
+            \vfill
         \end{column}
     \end{columns}
 \end{frame}
