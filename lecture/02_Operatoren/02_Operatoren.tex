@@ -48,28 +48,6 @@
     \end{itemize}
 \end{frame}
 
-\section{Operatorpräzedenz}
-\begin{frame}
-    \slidehead
-
-    \kotlinfile{listings/rangfolge_basic.kts}
-    \pause
-    \kotlinfile{listings/rangfolge_parenthesis.kts}
-    \pause
-    \begin{itemize}
-        \item Die Operatorpräzedenz gibt die \textbf{Reihenfolge} vor, in der Ausdrücke ausgewertet werden:
-            \begin{enumerate}
-                \item Arithmetische Ausdrücke
-                    \begin{itemize}
-                        \item[$\Rightarrow$] Wie aus Schulmathematik bekannt
-                    \end{itemize}
-                \item Vergleiche
-                \item Logische Ausdrücke (hierzu später mehr)
-                \item Zuweisungen
-            \end{enumerate}
-    \end{itemize}
-\end{frame}
-
 \livecoding
 
 \section{Vergleichsoperatoren}
@@ -151,7 +129,7 @@
             \pythoninline{len}   & Länge von (manschen) Werten           \\
             \pythoninline{print} & Ausgabe                               \\
             \pythoninline{input} & Eingabe                               \\
-            \pythoninline{range} & Iterieren von Zahlen                  \\
+            \pythoninline{range} & Iterieren über Zahlen                 \\
         \end{tabular}
     \end{center}
     \vspace{\fill}
