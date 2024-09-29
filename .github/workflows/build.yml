@@ -91,5 +91,9 @@ jobs:
           path: .
           name: Vorkurs-Materialien
 
+      - name: Set current year
+        id: year
+        run: echo "::set-output name=year::$(date +'%Y')"
+
       - name: Deploy with rsync
-        run: rsync -avz * ${{ secrets.SSH_USER }}@login.d120.de:public_html
+        run: rsync -avz * ${{ secrets.SSH_USER }}@login.d120.de:public_html/vorkurs-${{ steps.year.outputs.year }}
