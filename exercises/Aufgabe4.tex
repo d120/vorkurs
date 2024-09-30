@@ -9,7 +9,7 @@
     \begin{subtask*}[points=0]{Taschenrechner Reloaded \stage1}
         In der vorigen Übung sollte ein simpler Taschenrechner programmiert werden. Nun wollen wir diesen Taschenrechner erweitern. Schreibt zuerst jeweils eine Funktion für jede der angebotenen Grundrechenarten.
 
-        \kotlininline{fun plus(a: Int, b: Int): Int} soll beispielsweise \kotlininline{plus(3, 5) == 8} liefern.
+        \pythoninline{def plus(a: int, b: int) -> int:} soll beispielsweise \pythoninline{plus(3, 5) == 8} liefern.
 
         Im Anschluss sollen die Rechenanweisungen in der if-Struktur durch Funktionsaufrufe ersetzt werden. Vergesst nicht, das Ergebnis auszugeben.
 
@@ -21,66 +21,55 @@
         Erweitert den Taschenrechner nun noch um einen weiteren Operator. Dabei soll auch das Potenzieren möglich sein. Dabei gilt $a^n=a\cdot a\cdot a \cdot\ldots\cdot a$ (d.h. a wird n-mal mit sich selbst miltipliziert). Zum Aufruf der Potenzier-Funktion soll der Benutzer \^{} (das kleine "`Dach"' links oben auf der Tastatur) eingeben.
 
         \begin{solution}
-            \begin{codeBlock}[]{minted language=kotlin}
-                fun plus(op1: Double, op2: Double): Double {
+            \begin{codeBlock}[]{minted language=python}
+                def plus(op1: float, op2: float) -> float:
                     return op1 + op2
-                }
 
-                fun minus(op1: Double, op2: Double): Double {
+                def minus(op1: float, op2: float) -> float:
                     return op1 - op2
-                }
 
-                fun mal(op1: Double, op2: Double): Double {
+                def mal(op1: float, op2: float) -> float:
                     return op1 * op2
-                }
 
-                fun teilen(op1: Double, op2: Double): Double {
+                def teilen(op1: float, op2: float) -> float:
                     return op1 / op2
-                }
 
-                fun potenz(op1: Double, op2: Double): Double {
-                    return Math.pow(op1, op2)
-                }
+                def potenz(op1: float, op2: float) -> float:
+                    return op1 ** op2
 
-                print("Wie lautet der erste Operand: ")
-                val op1 = readln().toDouble()
+                op1 : float = float(input("Wie lautet der erste Operand: "))
+                op2 : float = float(input("Wie lautet der zweite Operand: "))
 
-                print("Wie lautet der zweite Operand: ")
-                val op2 = readln().toDouble()
+                op = input("Wie lautet der Operator: ")
 
-                print("Wie lautet der Operator: ")
-                val op = readln()
-
-                if (op == "+") {
-                    println("Das Ergebnis lautet: ${plus(op1, op2)}")
-                } else if (op == "-") {
-                    println("Das Ergebnis lautet: ${minus(op1, op2)}")
-                } else if (op == "*") {
-                    println("Das Ergebnis lautet: ${mal(op1, op2)}")
-                } else if (op == "/") {
-                    if (op2 != 0.0) {
-                        println("Das Ergebnis lautet: ${teilen(op1, op2)}")
-                    } else {
-                        println("Division durch Null ist nicht erlaubt.")
-                    }
-                } else if (op == "^") {
-                    println("Das Ergebnis lautet: ${potenz(op1, op2)}")
-                } else {
-                    println("Keine gültige Eingabe!")
-                }
+                if op == "+":
+                    print(f"Das Ergebnis lautet: {plus(op1, op2)}")
+                elif (op == "-"):
+                    print(f"Das Ergebnis lautet: {minus(op1, op2)}")
+                elif op == "*":
+                    print(f"Das Ergebnis lautet: {mal(op1, op2)}")
+                elif op == "/":
+                    if op2 != 0.0:
+                        print(f"Das Ergebnis lautet: {teilen(op1, op2)}")
+                    else:
+                        print("Division durch Null ist nicht erlaubt.")
+                elif op == "^":
+                    print(f"Das Ergebnis lautet: {potenz(op1, op2)}")
+                else:
+                    print("Keine gültige Eingabe!")
             \end{codeBlock}
         \end{solution}
     \end{subtask*}
 \end{task}
 \begin{task}[points=auto]{Schriftliches Dividieren}
     \begin{subtask*}[points=0]{Schriftliches Dividieren - Theorie \stage2}
-        Gleitkommaberechnungen sind in Kotlin, sowie in den meisten anderen Programmiersprachen, nicht exakt. Könnt ihr euch denken, wieso?\\
+        Gleitkommaberechnungen sind in Python, sowie in den meisten anderen Programmiersprachen, nicht exakt. Könnt ihr euch denken, wieso?\\
         Ihr könnt das Problem an dem folgenden Beispiel betrachten.
-        \begin{codeBlock}[]{minted language=kotlin}
-            val a = 5.6
-            val b = 5.8
-            val c = a + b
-            println("$a + $b = $c")
+        \begin{codeBlock}[]{minted language=python}
+            a : float = 5.6
+            b : float = 5.8
+            c : float = a + b
+            print(f"{a} + {b} = {c}")
         \end{codeBlock}
 
         \begin{solution}
@@ -98,34 +87,28 @@
         Ihr dürft aber auch nach jedem Schritt ein Teil des Ergebnisses ausgeben,
         im obigen Beispiel also endlos viele Dreien.
 
-        Schaft ihr es, (außer bei Nutzereingaben natürlich) ohne die Funktionen
-        \kotlininline{toString} und \kotlininline{toInt} auszukommen?
+        Schafft ihr es (außer bei Nutzereingaben natürlich), ohne die Funktionen
+        \pythoninline{str} und \pythoninline{int} auszukommen?
 
-        \textit{Hinweis: Ganzzahldivision könnt ihr wie gewohnt auf Ints durchführen.
+        \textit{Hinweis: Ganzzahldivision könnt ihr wie gewohnt auf Ganzzahlen durchführen.
             Mit \enquote{\%} bekommt ihr den Rest der Division $\frac{a}{b}$.}
 
         \begin{solution}
-            \begin{codeBlock}[]{minted language=kotlin}
-                fun longdivide(a: Int, b: Int) {
-                    var div = a / b
-                    var rem = a % b
+            \begin{codeBlock}[]{minted language=python}
+                def longdivide(a: int, b: int):
+                    div : int = a / b
+                    rem : = a \% b
 
                     print(div)
-                    if (rem == 0) {
+                    if rem == 0:
                         return
-                        println()
-                    }
 
                     print(",")
-                    while (rem != 0) {
+                    while rem != 0:
                         div = rem * 10
-                        rem = div % b
+                        rem = div \% b
                         div = div / b
                         print(div)
-                    }
-
-                    println()
-                }
 
                 longdivide(6283, 2000) // something close to pi
             \end{codeBlock}
@@ -135,7 +118,7 @@
         Da viele Divisionen nicht aufgehen, wollen wir die definierte Funktion dahingehend überarbeiten, damit wir im Anschluss jedes (positive) Ganzzahlenpaar dividieren können.
         Dafür müsst ihr zuerst überlegen, woran periodische Ergebnisse während der Division erkannt werden können und eine entsprechende Detektion in eure Funktion einbauen.
         Außerdem soll euer Programm ein periodisches Ergebnis auch korrekt ausgeben. Es gibt international verschiedene Schreibweisen für periodische Zahlen, am einfachsten für uns ist, wenn wir die wiederkehrenden Ziffern einfach einklammern:
-        \begin{codeBlock}[]{minted language=kotlin}
+        \begin{codeBlock}[]{minted language=python}
             1/3 = 0,(3)
             40/3 = 13,(3)
             17/130 = 0,1(307692)
@@ -143,45 +126,40 @@
         \end{codeBlock}
 
         \begin{solution}
-            \begin{codeBlock}[]{minted language=kotlin}
-                fun longdivide(a: Int, b: Int) {
-                    var div = a / b
-                    var rem = a % b
+            \begin{codeBlock}[]{minted language=python}
+                def longdivide(a: int, b: int):
+                    div = a / b
+                    rem = a \% b
 
-                    val seenRemainders = mutableListOf(rem)
-                    var afterKomma = ""
+                    seenRemainders = [rem]
+                    afterKomma = ""
 
                     print(div)
-                    if (rem == 0) {
+                    if rem == 0:
                         return
-                        println()
-                    }
 
                     print(",")
 
-                    while (rem != 0) {
+                    while rem != 0:
                         div = rem * 10
 
-                        rem = div % b
+                        rem = div \% b
                         div = div / b
                         afterKomma += div
 
-                        val index = seenRemainders.indexOf(rem)
-                        if (index >= 0) {
-                            print(afterKomma.slice(0 until index))
+                        index = seenRemainders.index(rem)
+                        if index >= 0:
+                            print(afterKomma[0:index+1])
 
                             print("(")
-                            print(afterKomma.slice(index until afterKomma.length))
-                            println(")")
+                            print(afterKomma[index:len(afterKomma)])
+                            print(")")
 
                             return
-                        }
 
-                        seenRemainders.add(rem)
-                    }
+                        seenRemainders.append(rem)
 
-                    println(afterKomma)
-                }
+                    print(afterKomma)
 
                 longdivide(9, 2) // = 4,5
                 longdivide(1, 3) // = 0,(3)
