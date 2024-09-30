@@ -1,6 +1,6 @@
-prime : int = int(input("Gebe eine Zahl ein: "))
+prime: int = int(input("Gebe eine Zahl ein: "))
 
-isPrime : bool = True
+isPrime: bool = True
 if prime <= 1:
     isPrime = False
 else:
