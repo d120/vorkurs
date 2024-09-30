@@ -24,8 +24,7 @@ Die Vorlesungsfolien, Übungen, Coding-Challenges und einige andere Dokumente st
 Zur einfachen Erstellung der Inhalte stehen UNIX Makefiles bereit, Details dazu sind den jeweiligen Verzeichnis zu entnehmen. Um alle PDFs zu erzeugen, kann im Hauptverzeichnis einfach `make -j` ausgeführt werden (-j nutzt alle verfügbaren Prozessorkerne und kompilliert so schneller). Die erzeugten PDFs liegen dann im Ordner `pdfout`.
 
 ## Dev Setup
-### Automatisches Setup (empfohlen)
-#### Lokal (Devcontainer)
+### Automatisches Setup mit Devcontainer (empfohlen)
 - [Docker](https://www.docker.com/) installieren
 - [VS-Code](https://code.visualstudio.com/) (oder die Open-Source Variante Code-OSS) und [Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)-Extension installieren
 - Dieses Repository klonen
@@ -37,8 +36,8 @@ Zur einfachen Erstellung der Inhalte stehen UNIX Makefiles bereit, Details dazu 
 - Installation der [TU-Template](https://github.com/tudace/tuda_latex_templates) und der verwendeten Plugins (inklusive Logo!)
 - Installation der [AlgoTeX-Vorlage](https://github.com/TUDalgo/AlgoTeX#algotex---die-latex-vorlage-der-fop-und-aud)
 
-### Formatieren
-#### Automatisch mit pre-commit hook
+## Formatieren
+### Automatisch mit pre-commit hook
 Der Pre-commit Hook formatiert die Dateien automatisch, bevor sie committet werden. Dieser Hook wird auch für die CI verwendet, um sicherzustellen, dass die Dateien immer formatiert sind.
 
 um dem Pre-commit Hook zu verwenden, muss das python package `pre-commit` installiert werden. (siehe [Anleitung von Pre-commit](https://pre-commit.com/#install))
@@ -59,7 +58,7 @@ Falls der Pre-commit Hook unabhängig von einem Commit ausgeführt werden soll, 
 pre-commit run -a
 ```
 
-#### Manuell mit latexindent
+### Manuell mit latexindent
 > Hinweis: Wenn VS-Code verwendet wird (mit oder ohne devcontainer), sollten die korrekten Einstellungen automatisch geladen werden, sofern die empfohlenen Extensions installiert sind.
 
 Um eine einheitliche Formatierung zu gewährleisten, muss Latexindent installiert und entsprechend konfiguriert werden, um die mitgelieferte [`latexindent.yaml`](latexindent.yaml) zu verwenden.
@@ -85,29 +84,29 @@ Alternativ kann die Datei `defaultSettings.yaml` mit der mitgelieferten [`latexi
 latexindent -vv
 ```
 
-### Kompilieren
-#### Automatisch mit IDE (empfohlen)
-Die meisten LaTeX-Editoren bieten eine Möglichkeit, das Dokument automatisch zu kompilieren. In VS-Code kann dies z.B. mit der LaTeX-Workshop-Extension erreicht werden.
-#### Automatisch mit make
+## Kompilieren
+### Automatisch mit IDE (empfohlen)
+Die meisten LaTeX-Editoren bieten eine Möglichkeit, die Materialien automatisch zu kompilieren. In VS-Code kann dies z.B. mit der LaTeX-Workshop-Extension erreicht werden.
+### Automatisch mit make
 Die Materialien können IDE-Unabhängig mit dem Befehl `make -j` kompiliert werden. Der Parameter `-j` sorgt dafür, dass die Datei parallel kompiliert wird, was die Kompilierzeit verkürzt. Dabei werden die folgenden Versionen erstellt:
 - light mode
 - dark mode
 - light mode ohne sichtbare Punktzahlen (für Reviewer)
 - dark mode ohne sichtbare Punktzahlen (für Reviewer)
-#### Automatisch mit act
+### Automatisch mit act
 Falls **genau** die gleiche Umgebung wie in der CI benötigt wird, kann `act` verwendet werden. Act nutzt Docker, um die CI-Umgebung lokal zu simulieren. Dann kann der Build mit folgendem Befehl ausgeführt werden:
 ```sh
 act -j build --artifact-server-path /tmp/artifacts
 ```
 Die erstellten PDFs werden dann im Ordner `/tmp/artifacts` abgelegt. (bei Bedarf kann der Pfad angepasst werden)
 
-#### Manuell mit Docker
-Falls die lokale Installation von LaTeX nicht gewünscht ist, kann das Dokument auch mit Docker kompiliert werden. Der Befehl könnte z.B. so aussehen:
+### Manuell mit Docker
+Falls die lokale Installation von LaTeX nicht gewünscht ist, können die Materialien auch mit Docker kompiliert werden. Der Befehl könnte z.B. so aussehen:
 ```sh
 docker run --rm -v $(pwd):/workspace -w /workspace ghcr.io/tudalgo/algotex:latest make -j $(nproc)
 ```
 
-### Spell checking
+## Spell checking
 Für Spell checking mit VS-Code empfehlen wir LTex, eine entsprechende Konfiguration ist vorgegeben.
 
 LTex ist standardmäßig auf Deutsch eingestellt. Wenn ein englischer Abschnitt geprüft werden soll, kann die Sprache dafür temporär auf Englisch gestellt werden:
@@ -120,7 +119,7 @@ Das ist ein Test
 \end{otherlanguage}
 ```
 
-### Empfehlungen für LaTeX-Distribution und -Editoren
+## Empfehlungen für LaTeX-Distribution und -Editoren
 - Empfohlener Compiler: [`latexmk`](https://ctan.org/pkg/latexmk?lang=de) mit [`LuaLaTeX`](http://www.luatex.org/)
 - Empfohlene LaTeX-Distribution: [`TeX-Live`](https://www.tug.org/texlive/)
 - Auflistung der Empfohlenen LaTeX-Editoren:
