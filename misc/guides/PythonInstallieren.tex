@@ -1,5 +1,6 @@
 % !TeX document-id = {505cbeed-ac21-4fdd-a7f4-eefb28b91c1e}
 % !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+% !TeX root = PythonInstallieren.tex
 % \documentclass[accentcolor=3c,colorbacktitle,12pt]{tudaexercise}
 \RequirePackage{import}
 \subimport{../../exercises}{preamble.tex}
@@ -19,6 +20,9 @@ In dieser Installationsanleitung installieren wir:
 \end{itemize}
 
 \section*{Windows}
+\begin{hinweis}
+    Die \verb+$+ Zeichen in den Befehlen sind Platzhalter für den Terminal-Prompt. Sie dürfen \textbf{nicht} mitkopiert werden.
+\end{hinweis}
 \subsection*{Automatische Installation durch scoop}
 
 \subsubsection*{Terminal öffnen (Powershell)}
@@ -53,6 +57,9 @@ Nun kannst du die Installation überprüfen (siehe Abschnitt \nameref{sec:check}
 \section*{Mac OS}
 
 \subsection*{Homebrew Installieren}
+\begin{hinweis}
+    Die \verb+$+ Zeichen in den Befehlen sind Platzhalter für den Terminal-Prompt. Sie dürfen \textbf{nicht} mitkopiert werden.
+\end{hinweis}
 \begin{itemize}
     \item Auf der seite \url{https://brew.sh} den Befehl kopieren
     \item Im terminal diesen Befehl einfügen
@@ -60,8 +67,10 @@ Nun kannst du die Installation überprüfen (siehe Abschnitt \nameref{sec:check}
     \item Sobald der homebrew install Befehl fertig ist, diese Befehle ausführen
         %\begin{noindent}
     \begin{commandshell}
-@\shellprefix{}@(echo; echo 'eval "$(/usr/local/bin/brew shellenv)"') @\texttt{>>}@ ~/.profile
-@\shellprefix{}@eval "$(/usr/local/bin/brew shellenv)"
+@\shellprefix{}@(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') @\texttt{>>}@ ~/.profile
+    \end{commandshell}
+    \begin{commandshell}
+@\shellprefix{}@eval "$(/opt/homebrew/bin/brew shellenv)"
     \end{commandshell}
     %\end{noindent}
 \end{itemize}
@@ -79,9 +88,14 @@ Nun kannst du die Installation überprüfen (siehe Abschnitt \nameref{sec:check}
     \item Überprüfe die Installation (siehe Abschnitt \nameref{sec:check})
 \end{itemize}
 
+Anmerkung: bei einer Installation über Brew bei Mac OS der python-Befehl \texttt{python3} und nicht \texttt{python}. Der \texttt{ipython}-Befehl bleibt gleich.
+
 \newpage
 \section*{Linux}
 Auf dem meisten Distros heißt das zu installierende Paket einfach {\ttfamily python}.
+\begin{hinweis}
+    Die \verb+$+ Zeichen in den Befehlen sind Platzhalter für den Terminal-Prompt. Sie dürfen \textbf{nicht} mitkopiert werden.
+\end{hinweis}
 \begin{commandshell}[][minted language=text]
     @\shellprefix{}@pacman -S python @\PYG{c+c1}{# Arch Linux}@
 \end{commandshell}

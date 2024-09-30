@@ -11,12 +11,12 @@
 \begin{task}[points=auto]{Variablen \stage1}
     \begin{subtask*}[points=0]{Fehlersuche}
         Gegeben ist folgendes Listing:
-        \begin{codeBlock}[]{minted language=kotlin}
-            var meinAlter = 21
+        \begin{codeBlock}[]{minted language=python}
+            meinAlter : int = 21
             meinalter = meinalter + 1
-            println(meinAlter)
+            print(meinAlter)
         \end{codeBlock}
-        Beim Ausführen der zweiten Zeile wirft Kotlin einen Fehler. Warum? Verbessert das Listing.
+        Beim Ausführen der zweiten Zeile wirft Python einen Fehler. Warum? Verbessert das Listing.
         \begin{solution}
             Die Variable in Zeile 2 müsste {\ttfamily meinAlter} heißen und nicht {\ttfamily meinalter}.
         \end{solution}
@@ -52,36 +52,35 @@
     \end{subtask*}
     \begin{subtask*}[points=0]{Assignment}
         Ergänzt im folgenden Listing die fehlenden Variablenzuweisungen, so dass keine Fehler auftreten und am Ende {\ttfamily variable7} zu {\ttfamily true}, {\ttfamily variable2} zu {\ttfamily 5} und {\ttfamily variable5} zu {\ttfamily \verb+"abc"+} auswertet.
-        \begin{codeBlock}[]{minted language=kotlin}
-            var variable1 = // hier Zuweisung 1 einsetzen
-            var variable2 = 3
-            var variable3 = // hier Zuweisung 2 einsetzen
+        \begin{codeBlock}[]{minted language=python}
+            variable1 = // hier Zuweisung 1 einsetzen
+            variable2 = 3
+            variable3 = // hier Zuweisung 2 einsetzen
             variable2 += variable1
-            if (variable3 > 5) {
-                    variable2 = 0
-                } else {
-                    variable2 *= variable3
-                }
-            var variable4 = // hier Zuweisung 3 einsetzen
-            var variable5 = // hier Zuweisung 4 einsetzen
+            if variable3 > 5:
+                variable2 = 0
+            else:
+                variable2 *= variable3
+            variable4 = // hier Zuweisung 3 einsetzen
+            variable5 = // hier Zuweisung 4 einsetzen
             variable5 += variable4
-            var variable6 = // hier Zuweisung 5 einsetzen
-            var variable7 = variable6 > variable2 * 2
+            variable6 = // hier Zuweisung 5 einsetzen
+            variable7 = variable6 > variable2 * 2
             variable5 += "c"
-            println(variable7)
-            println(variable2)
-            println(variable5)
+            print(variable7)
+            print(variable2)
+            print(variable5)
         \end{codeBlock}
 
         \textit{Hinweis: Hier habt ihr 5 Zeilen, wo ihr eure Zuweisungen einsetzen könnt. Es kann hilfreich sein, mit den Ergebnissen anzufangen, die am Ende rauskommen sollen, und euch dann von hinten nach vorne durchzuarbeiten. In der realistischem Code würde man natürlich bezeichnendere Namen wählen.}
 
         \begin{solution}
             \begin{itemize}
-                \item \kotlininline{variable1 = 2}
-                \item \kotlininline{variable3 = 1}
-                \item \kotlininline{variable4 = "b"}
-                \item \kotlininline{variable5 = "a"}
-                \item \kotlininline{variable7 = 11}
+                \item \pythoninline{variable1 = 2}
+                \item \pythoninline{variable3 = 1}
+                \item \pythoninline{variable4 = "b"}
+                \item \pythoninline{variable5 = "a"}
+                \item \pythoninline{variable7 = 11}
             \end{itemize}
             Es gibt natürlich auch noch andere Möglichkeiten
         \end{solution}
@@ -90,31 +89,31 @@
 \begin{task}[points=auto]{Logische Operationen \stage1}
     \begin{subtask*}[points=0]{Operatoren}
         Es seien die folgenden Variablen deklariert und initialisiert:
-        \begin{codeBlock}[]{title=\codeBlockTitle{asdf},minted language=kotlin}
-            var x = 6
-            var y = 7
-            var z = 0
-            var a = false
+        \begin{codeBlock}[]{title=\codeBlockTitle{asdf},minted language=python}
+            x : int = 6
+            y : int = 7
+            z : int = 0
+            a : int = False
         \end{codeBlock}
-        Welchen Wert enthält die Variable \kotlininline{b} jeweils nach Ausführung der folgenden Anweisungen?
+        Welchen Wert enthält die Variable \pythoninline{b} jeweils nach Ausführung der folgenden Anweisungen?
         \begin{enumerate}
-            \item \kotlininline{var b = x > 5 || y < 7 && z != 0}
-            \item \kotlininline{var b = x * y != y * x && x / z == 0}
-            \item \kotlininline{var b = !(x == y) && z <= 0}
-            \item \kotlininline{var b = x >= 11 || x < 9 && !(y == 2) && x + y * z > 0 || a}
-            \item \kotlininline{var b = z != z || !a && x - y * z <= 0}
-            \item \kotlininline{var b = !a && z < y - x}
+            \item \pythoninline{b : bool = x > 5 || y < 7 && z != 0}
+            \item \pythoninline{b : bool = x * y != y * x && x / z == 0}
+            \item \pythoninline{b : bool = !(x == y) && z <= 0}
+            \item \pythoninline{b : bool = x >= 11 || x < 9 && !(y == 2) && x + y * z > 0 || a}
+            \item \pythoninline{b : bool = z != z || !a && x - y * z <= 0}
+            \item \pythoninline{b : bool = !a && z < y - x}
         \end{enumerate}
 
         \begin{solution}
             \begin{multicols}{3}
                 \begin{enumerate}
-                    \item \kotlininline{b == true}
-                    \item \kotlininline{b == false}
-                    \item \kotlininline{b == true}
-                    \item \kotlininline{b == true}
-                    \item \kotlininline{b == false}
-                    \item \kotlininline{b == true}
+                    \item \pythoninline{b == True}
+                    \item \pythoninline{b == False}
+                    \item \pythoninline{b == True}
+                    \item \pythoninline{b == True}
+                    \item \pythoninline{b == False}
+                    \item \pythoninline{b == True}
                 \end{enumerate}
             \end{multicols}
         \end{solution}
@@ -122,7 +121,7 @@
 \end{task}
 \begin{task}[points=auto]{Eingabe/Ausgabe \stage2}
     \begin{subtask*}[points=0]{Variablen einlesen}
-        Im Rahmen der Vorlesung habt ihr die Funktion \kotlininline{readln()} kennengelernt, welche es euch erlaubt, auf einfache Art und Weise Benutzereingaben von der Konsole einzulesen. Schreibt jetzt ein Programm, welches mit Hilfe dieser Funktion nacheinander folgende Eingaben einliest und in Variablen speichert.
+        Im Rahmen der Vorlesung habt ihr die Funktion \pythoninline{input()} kennengelernt, welche es euch erlaubt, auf einfache Art und Weise Benutzereingaben von der Konsole einzulesen. Schreibt jetzt ein Programm, welches mit Hilfe dieser Funktion nacheinander folgende Eingaben einliest und in Variablen speichert:
         \begin{itemize}
             \item euren Namen als Zeichenkette
             \item euer Geburtsdatum als drei ganze Zahlen: Tag, Monat, Jahr
@@ -130,33 +129,26 @@
         Insgesamt sollen also vier Eingaben verarbeiten werden. Achtet dabei darauf, dass euer Programm die erwarteten Eingaben textuell klar strukturiert (Stichwort: Bedienerfreundlichkeit).
         Nachdem die letzte Eingabe verarbeitet ist, soll folgende Zeichenkette ausgegeben werden (wobei natürlich die Platzhalter zu ersetzen sind):
 
-        Ausgabe: \kotlininline{"<euer Name> hat am <tt.mm.jjjj> Geburtstag."}
+        Ausgabe: \pythoninline{"<euer Name> hat am <tt.mm.jjjj> Geburtstag."}
 
         \begin{hinweise}
             \begin{itemize}
                 \item Die Verarbeitung von Eingaben wird im Foliensatz \verb+03_Variablen.pdf+ erläutert.
-                \item Variablen sollten in Strings nicht mit \enquote{\kotlininline{+}} eingefügt werden, stattdessen an die entsprechenden Stellen im String mit String-Templates einsetzen.
+                \item Variablen sollten in Strings nicht mit \enquote{\pythoninline{+}} eingefügt werden, stattdessen an die entsprechenden Stellen im String mit String-Templates einsetzen.
 
-                    Beispiel: \kotlininline{"$variable0 ist kleiner $variable1"} ergibt wenn \kotlininline{variable0 == 4} und\\
-                    \kotlininline{variable1 == 42} ist den String \kotlininline{"4 ist kleiner 42"}
+                    Beispiel: \pythoninline{f"{variable0} ist kleiner {variable1}"} ergibt wenn \pythoninline{variable0 == 4} und\\
+                    \pythoninline{variable1 == 42} ist den String \pythoninline{"4 ist kleiner 42"}
             \end{itemize}
         \end{hinweise}
 
         \begin{solution}
-            \begin{codeBlock}[]{minted language=kotlin}
-                println("Bitte gib deinen Namen ein:")
-                var name = readln()
+            \begin{codeBlock}[]{minted language=python}
+                name : str = input("Bitte gib deinen Namen ein: ")
+                tag : int = int(input("Gib den Tag deiner Geburt ein: "))
+                monat : int = int(input("Gib den Monat deiner Geburt ein: "))
+                jahr : int = int(input("Gib das Jahr deiner Geburt ein: "))
 
-                println("Gib den Tag deiner Geburt ein:")
-                var tag = readln().toInt()
-
-                println("Gib den Monat deiner Geburt ein:")
-                var monat = readln().toInt()
-
-                println("Gib das Jahr deiner Geburt ein:")
-                var jahr = readln().toInt()
-
-                println("$name hat am $tag.$monat.$jahr Geburtstag.")
+                print(f"{name} hat am {tag}.{monat}.{jahr} Geburtstag.")
             \end{codeBlock}
         \end{solution}
     \end{subtask*}
@@ -164,42 +156,33 @@
         In dieser Aufgabe soll ein sehr einfacher Taschenrechner implementiert werden, wobei wir uns dabei auf die Grundrechenarten beschränken wollen. Euer Programm soll nacheinander drei Eingaben entgegennehmen, zwei Operanden (\textbf{ganze Zahlen}) und einen Operator ({\ttfamily +, -, *, /}). Schließlich soll der Taschenrechner eine Ausgabe mit dem entsprechenden Ergebnis liefern. Vergesst nicht, euer Programm zu testen.
 
         \begin{solution}
-            % \begin{noindent}
-            \begin{codeBlock}[]{minted language=kotlin}
-                println("Wie lautet der erste Operand:")
-                var op1 = readln().toInt()
+            \begin{codeBlock}[]{minted language=python}
+                op1 : int = int(input("Wie lautet der erste Operand: "))
+                op2 : int = int(input("Wie lautet der zweite Operand: "))
 
-                println("Wie lautet der zweite Operand:")
-                var op2 = readln().toInt()
+                op : str = input("Wie lautet der Operator: ")
 
-                println("Wie lautet der Operator:")
-                var op = readln()
+                ergebnis : 0 = 0
+                ergebnisOk : bool = True
 
-                var ergebnis = 0
-                var ergebnisOk = true
-
-                if (op == "+") {
+                if op == "+":
                     ergebnis = op1 + op2
-                } else if (op == "-") {
+                elif op == "-":
                     ergebnis = op1 - op2
-                } else if (op == "*") {
+                elif op == "*":
                     ergebnis = op1 * op2
-                } else if (op == "/") {
-                    if(op2 == 0){
-                            ergebnisOk = false
-                            println("Division durch 0 ist nicht erlaubt!")
-                        } else {
-                            ergebnis = op1 / op2
-                        }
-                } else {
-                    ergebnisOk = false
-                    println("Keine gültige Eingabe!")
-                }
-                if (ergebnisOk) {
-                    println("Das Ergebnis ist: $ergebnis")
-                }
+                elif op == "/":
+                    if op2 == 0:
+                        ergebnisOk = False
+                        print("Division durch 0 ist nicht erlaubt!")
+                    else:
+                        ergebnis = op1 / op2
+                else:
+                    ergebnisOk = False
+                    print("Keine gültige Eingabe!")
+                if ergebnisOk:
+                    print(f"Das Ergebnis ist: {ergebnis}")
             \end{codeBlock}
-            % \end{noindent}
         \end{solution}
     \end{subtask*}
 \end{task}
@@ -257,46 +240,42 @@
         \textit{Hinweis: Euer Programm soll am Ende so funktionieren, dass ihr die Eckdaten (also Wettervorhersage, Temperatur, Luftfeuchtigkeit und Wind) eingebt, und das Programm dann Antwortet, ob ihr ins Freibad gehen solltet oder nicht.}
 
         \begin{solution}
-            %\begin{noindent}
-            \begin{codeBlock}[]{minted language=kotlin}
+            \begin{codeBlock}[]{minted language=python}
                 // hier die Werte eintragen
-                var wettervorhersage = "regen"
-                var temperatur = 27
-                var luftfeuchtigkeit = "hoch"
-                var windig = true
+                wettervorhersage : string = "regen"
+                temperatur : int = 27
+                luftfeuchtigkeit : string = "hoch"
+                windig : bool = True
 
                 // Die Zahlenwerte, gegen die verglichen wird,
                 // können von den hier eingetragenen abweichen.
                 // Eure Lösung kann auch anders vorgehen, wenn die Testdaten
                 // korrekt erkannt werden, stimmt sie wahrscheinlich trotzdem.
 
-                var freibad = false
+                freibad : bool = False
 
-                if (wettervorhersage == "regen") {
-                    freibad = false
-                } else if (temperatur > 24) {
-                    freibad = true
-                } else if (wettervorhersage == "sonnig") {
+                if wettervorhersage == "regen":
+                    freibad = False
+                elif temperatur > 24:
+                    freibad = True
+                elif wettervorhersage == "sonnig":
                     freibad = !(temperatur < 18 && windig)
-                } else {
+                else:
                     freibad = temperatur >= 18 && !windig
-                }
 
-                if (freibad) {
-                    println("Geh ins Freibad")
-                } else {
-                    println("Bleib zu Hause")
-                }
+                if freibad:
+                    print("Geh ins Freibad")
+                else:
+                    print("Bleib zu Hause")
             \end{codeBlock}
-            %\end{noindent}
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Ein einfacher Prozessor}
-        Prozessoren bestehen im allgemeinen aus einer kleinen Anzahl von Registern, mit denen die eigentlichen Berechnungen durchgeführt werden. Im Folgenden sollt ihr das Verhalten eines kleinen Prozessors in Kotlin simulieren. \\
-        Der Prozessor soll aus 4 Registern bestehen, die beliebige Werte speichern können (Diese könnt ihr als Variablen modellieren). Außerdem kann der Prozessor grundlegende Berechnungen ({\ttfamily +, -, *, /, \%}) auf seinen Registern durchführen und Werte in Registern vergleichen (\textbf{Achtung:} Ihr müsst also nach jeder einzelnen Rechung oder einem Vergleich das Ergebnis in eines der Register speichern, und dürft nicht mehrere Rechnungen nacheinander ausführen (Also statt \kotlininline{a = 2 + 3 * 4} müsstet ihr \kotlininline{b = 3 * 4} gefolgt von \kotlininline{a = 2 + b} schreiben. If-Abfragen sind auf diese Art möglich: \kotlininline{if (a)}, also kein \kotlininline{else} und ihr müsst den Wahrheitswert, den ihr mit if überpfürt, zuerst in ein Register schreiben.)) \\
+        Prozessoren bestehen im allgemeinen aus einer kleinen Anzahl von Registern, mit denen die eigentlichen Berechnungen durchgeführt werden. Im Folgenden sollt ihr das Verhalten eines kleinen Prozessors in Python simulieren. \\
+        Der Prozessor soll aus 4 Registern bestehen, die beliebige Werte speichern können (Diese könnt ihr als Variablen modellieren). Außerdem kann der Prozessor grundlegende Berechnungen ({\ttfamily +, -, *, /, \%}) auf seinen Registern durchführen und Werte in Registern vergleichen (\textbf{Achtung:} Ihr müsst also nach jeder einzelnen Rechung oder einem Vergleich das Ergebnis in eines der Register speichern, und dürft nicht mehrere Rechnungen nacheinander ausführen (Also statt \pythoninline{a = 2 + 3 * 4} müsstet ihr \pythoninline{b = 3 * 4} gefolgt von \pythoninline{a = 2 + b} schreiben. If-Abfragen sind auf diese Art möglich: \pythoninline{if (a)}, also kein \pythoninline{else} und ihr müsst den Wahrheitswert, den ihr mit if überpfürt, zuerst in ein Register schreiben.)) \\
         In den Berechnungen dürft ihr außer den Registern auch Zahlenwerte verwenden, jedoch nicht das Register in das das Ergebnis geschrieben wird.\\
         Erstellt nun mit diesen Randbedinungen ein Programm, dass das folgende tut: \\
-        \begin{codeBlock}[]{minted language=kotlin}
+        \begin{codeBlock}[]{minted language=python}
             lese eine Ganzzahl a ein
             lese eine Ganzzahl b ein
             lese eine Ganzzahl c ein
@@ -312,47 +291,38 @@
         \end{codeBlock}
 
         \begin{solution}
-            %\begin{noindent}
-            \begin{codeBlock}[]{minted language=kotlin}
-                println("Ganzzahl a:")
-                var a = readln().toInt()
-                println("Ganzzahl b:")
-                var b: Any = readln()
-                println("Ganzzahl c:")
-                var c = readln().toInt()
+            \begin{codeBlock}[]{minted language=python}
+                a : int = int(input("Ganzzahl a: "))
+                b : int = int(input("Ganzzahl b: "))
+                c : int = int(input("Ganzzahl c: "))
                 a *= 2
                 a += 3
-                println("Ganzzahl d:")
-                var d = readln().toInt()
-                println(b)
-                println(c)
+                d : int = int(input("Ganzzahl d: "))
+                print(b)
+                print(c)
                 b = a > d
-                if (b as Boolean) {
+                if b:
                     d = a
-                }
                 b = a < d
-                if (b as Boolean) {
+                if b:
                     c = d - a
-                }
-                b = !(b as Boolean);
-                if (b as Boolean) {
+                b = !(b)
+                if b:
                     c = 0
-                }
                 b = a * a
-                a = b as Int
+                a = int(b)
 
                 b = c * d
-                c = a + b as Int
+                c = a + int(b)
                 a = c
                 b = a + d
-                c = b as Int + d
+                c = int(b) + d
 
-                println(a)
-                println(b)
-                println(c)
-                println(d)
+                print(a)
+                print(b)
+                print(c)
+                print(d)
             \end{codeBlock}
-            %\end{noindent}
         \end{solution}
     \end{subtask*}
 \end{task}

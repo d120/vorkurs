@@ -9,21 +9,20 @@
     \begin{subtask*}[points=0]{Gaußsche Summenformel \stage1}
         Das hier ist die Gaußsche Summenformel:
         $$1+2+3+\ldots+n = \sum_{k=1}^nk=\frac{n\cdot(n+1)}{2}$$
-        (i) Berechne die Summe der Zahlen von \kotlininline{1} bis \kotlininline{100} mit Hilfe der Gaußschen Summenformel.
+        (i) Berechne die Summe der Zahlen von \pythoninline{1} bis \pythoninline{100} mit Hilfe der Gaußschen Summenformel.
 
         (ii) Nun soll die Summe nicht mit Hilfe der geschlossenen Darstellung der Reihe berechnet werden, sondern unter Verwendung einer \textbf{for-Schleife}.
 
         \begin{solution}
             (i) Nach der Summenformel gilt: $\frac{100\cdot(100+1)}{2} = \underline{\underline{5050}}$
 
-            (ii) \begin{codeBlock}[]{minted language=kotlin}
-                var summe = 0
+            (ii) \begin{codeBlock}[]{minted language=python}
+                summe : int = 0
 
-                for (k in 1..100) { // alternativ 1 until 101
-                    summe += k
-                }
+                for k in range(1, 101):
+                    summe = summe + k
 
-                println("Die Summe von 1 bis 100 ist $summe.")
+                print(f"Die Summe von 1 bis 100 ist {summe}.")
             \end{codeBlock}
             Ausgabe: \mintinline{text}{Die Summe von 1 bis 100 ist 5050.}
         \end{solution}
@@ -35,17 +34,14 @@
         \end{enumerate}
 
         \begin{solution}
-            \begin{codeBlock}[]{minted language=kotlin}
-            println("Welche Fakultät soll berechnet werden: ")
-            val fak = readln().toInt()
+            \begin{codeBlock}[]{minted language=python}
+            fak : int = int(input("Welche Fakultät soll berechnet werden: "))
+            erg : int = fak
 
-            var erg = fak
+            for i in range(1, fak):
+                erg = erg * i
 
-            for (i in fak-1 downTo 1) {
-                erg *= i
-            }
-
-            println("Die $fak. Fakultät ist $erg")
+            print(f"Die {fak}. Fakultät ist {erg}")
             \end{codeBlock}
 
             Ausgabe für Eingabe \mintinline{text}{5}: \mintinline{text}{Die 5. Fakultät ist 120}
@@ -57,37 +53,34 @@
         \textit{Hinweis: Im FizzBuzz-Fall soll \textbf{nur} FizzBuzz als \textbf{ein} Wort ausgegeben werden}
 
         \begin{solution}
-            \begin{codeBlock}[]{minted language=kotlin}
-                for (zahl in 1..100) {
-                    val istDurch3Teilbar = zahl % 3 == 0
-                    val istDurch5Teilbar = zahl % 5 == 0
+            \begin{codeBlock}[]{minted language=python}
+                for zahl in range(1, 100):
+                    istDurch3Teilbar : int = zahl % 3 == 0
+                    istDurch5Teilbar : int = zahl % 5 == 0
 
-                    if (istDurch3Teilbar && istDurch5Teilbar) {
-                        println("FizzBuzz")
-                    } else if (istDurch3Teilbar) {
-                        println("Fizz")
-                    } else if (istDurch5Teilbar) {
-                        println("Buzz")
-                    } else {
-                        println(zahl)
-                    }
-                }
+                    if istDurch3Teilbar and istDurch5Teilbar:
+                        print("FizzBuzz")
+                    elif istDurch3Teilbar:
+                        print("Fizz")
+                    elif istDurch5Teilbar:
+                        print("Buzz")
+                    else:
+                        print(zahl)
             \end{codeBlock}
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Primzahl \stage3}
         Gegeben ist folgendes Listing:
-        \begin{codeBlock}[]{minted language=kotlin}
-                val prime = 7 // Hier die Zahl
+        \begin{codeBlock}[]{minted language=python}
+                prime : int = 7 // Hier die Zahl
 
-                var isPrime = true
+                isPrime : bool = True
                 // Hier den Code einfügen
 
-                if (isPrime) {
+                if isPrime:
                     // Hier den Code einfügen
-                } else {
+                else:
                     // Hier den Code einfügen
-                }
         \end{codeBlock}
         \begin{enumerate}
             \item Ergänzt das Programm. Es soll erkennen, ob es sich bei der Variable \textbf{prime} um eine Primzahl\footnote{\href{https://de.wikipedia.org/wiki/Primzahl}{Jede natürliche Zahl, die nur durch sich selbst und 1 teilbar ist.}} handelt. Testet euer Programm mit verschiedenen Werten.
@@ -95,9 +88,9 @@
         \end{enumerate}
 
         \begin{solution}
-            \kotlinfile[][]{code/3_1_d_2_sol.kts}
+            \pythonfile[][]{code/3_1_d_2_sol.py}
             \begin{anmerkung}
-                Effizienter wäre es natürlich, wenn man in Zeile 8 nur bis $\sqrt{\text{\kotlininline{prime}}}$ iteriert.
+                Effizienter wäre es natürlich, wenn man in Zeile 8 nur bis $\sqrt{\text{\pythoninline{prime}}}$ iteriert.
             \end{anmerkung}
         \end{solution}
     \end{subtask*}
@@ -105,7 +98,7 @@
 \begin{task}[points=auto]{Listige Listen}
     \begin{subtask*}[points=0]{Definition und Indices \stage1}
         Beginnt ein neues Programm, und geht dabei davon aus, dass die Liste
-        \kotlininline{liste} genau $8$ Elemente enthält. Euer Programm soll
+        \pythoninline{liste} genau $8$ Elemente enthält. Euer Programm soll
         nun die Ergebnisse der folgenden Rechnungen ausgeben:
 
         \begin{enumerate}
@@ -119,50 +112,49 @@
         mit denen von eurem Programm vergleicht.
 
         \begin{itemize}
-            \item Für \kotlininline{liste = listOf(1,1,2,3,5,8,13,21)} ist das $24$, $504$ und $300$
-            \item Für \kotlininline{liste = listOf(-1,1,-1,1,-1,1,-1,1)} ist das $1$, $1$ und $-300$
+            \item Für \pythoninline{liste = [1,1,2,3,5,8,13,21]} ist das $24$, $504$ und $300$
+            \item Für \pythoninline{liste = [-1,1,-1,1,-1,1,-1,1]} ist das $1$, $1$ und $-300$
         \end{itemize}
 
         \begin{solution}
-            \begin{codeBlock}[]{minted language=kotlin}
+            \begin{codeBlock}[]{minted language=python}
                 // Hier die Liste einsetzen
-                val liste = listOf(1,1,2,3,5,8,13,21)
-                // val liste = listOf(-1,1,-1,1,-1,1,-1,1)
+                liste = [1,1,2,3,5,8,13,21]
+                // liste = [-1,1,-1,1,-1,1,-1,1]
 
                 val summe = liste[1] + liste[2] + liste[7]
-                println("1. Die Summe der Zahlen an Index 1, 2 und 7 ist $summe")
+                print(f"1. Die Summe der Zahlen an Index 1, 2 und 7 ist {summe}")
 
-                val produkt = liste[1] * liste[3] * liste[5] * liste[7]
-                println("2. Das Produkt jeder zweiten Zahl ist $produkt")
+                produkt = liste[1] * liste[3] * liste[5] * liste[7]
+                print(f"2. Das Produkt jeder zweiten Zahl ist {produkt}")
 
-                val sparta = liste[0] * 300
-                println("3. Die erste Zahl mal 300 ergibt $sparta")
+                sparta = liste[0] * 300
+                print(f"3. Die erste Zahl mal 300 ergibt {sparta}")
             \end{codeBlock}
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Listenlänge \stage1}
-        In der Vorlesung wurde \kotlininline{liste.size} eingeführt um die Länge einer
-        Liste zu bestimmen. Überlegt euch warum der Ausdruck \kotlininline{liste[liste.size]}
+        In der Vorlesung wurde \pythoninline{liste.size} eingeführt um die Länge einer
+        Liste zu bestimmen. Überlegt euch warum der Ausdruck \pythoninline{liste[liste.size]}
         immer zu einem Fehler führt.
 
         Schreibt nun ein Programm, dass für beliebige Listen alle Elemente der Reihe
-        nach ausgibt. Ihr könnt dafür eine \kotlininline{while}-Schleife verwenden.
+        nach ausgibt. Ihr könnt dafür eine \pythoninline{while}-Schleife verwenden.
 
         \begin{anmerkung}
-            \kotlininline{liste.toString()} ist natürlich nicht erlaubt ;)
+            \pythoninline{liste.toString()} ist natürlich nicht erlaubt ;)
         \end{anmerkung}
         \begin{solution}
-            Da die Indices bei 0 anfangen ist \kotlininline{liste.size - 1} der letzte gültige Index.
+            Da die Indices bei 0 anfangen ist \pythoninline{len(liste) - 1} der letzte gültige Index.
 
-            \begin{codeBlock}[]{minted language=kotlin}
-                val list = listOf(1, 2, 3, 4, 5) // Beispiel-Liste
+            \begin{codeBlock}[]{minted language=python}
+                list = [1, 2, 3, 4, 5] // Beispiel-Liste
 
-                var index = 0
-                while (index < list.size) {
-                    val element = list[index]
-                    println("Element $index: $element")
-                    index++
-                }
+                index : int = 0
+                while index < len(list):
+                    element = list[index]
+                    print(f"Element {index}: {element}")
+                    index += 1
             \end{codeBlock}
         \end{solution}
     \end{subtask*}
@@ -170,27 +162,27 @@
 \begin{task}[points=auto]{Fortgeschrittenes Lesen}
     \begin{subtask*}[points=0]{Einer für alle und alle für einen! \stage2}
         Slicing ermöglicht es, nur einen Teil einer Liste zu verwenden.
-        So gilt etwa \\\kotlininline{listOf(1, 2, 3, 4).slice(1..2) == listOf(2, 3)}.
-        Ein Slicing bekommt, wie bei Schleifen, eine Range \kotlininline{a..b step c}.
+        So gilt etwa \\\pythoninline{[1, 2, 3, 4][1:3] == [2, 3]}.
+        Ein Slicing bekommt, wie bei Schleifen, eine Range \pythoninline{a..b step c}.
         Was kann weggelassen werden. Welchen Wert wird verwendet,
         wenn dieser leer gelassen werden?
 
-        Was ist der Unterschied zwischen \kotlininline{a .. b}
-        und \kotlininline{a until b}?
+        Was ist der Unterschied zwischen \pythoninline{a .. b}
+        und \pythoninline{a until b}?
 
         Wie geht man von großen zu kleinen Zahlen?
 
         \begin{solution}
-            Man kann \kotlininline{step c} weglassen.
-            Dann wird \kotlininline{step 1} genutzt.
+            Man kann \pythoninline{step c} weglassen.
+            Dann wird \pythoninline{step 1} genutzt.
 
-            Bei \kotlininline{until} wird schon vor \kotlininline{b} gestoppt.
+            Bei \pythoninline{until} wird schon vor \pythoninline{b} gestoppt.
 
-            \kotlininline{10 downTo 0} ist eine Möglichkeit.
+            \pythoninline{10 downTo 0} ist eine Möglichkeit.
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Slicing-Beispiele \stage2}
-        Findet Slicing-Ausdrücke für die folgenden Fragen zur Liste \kotlininline{liste}:
+        Findet Slicing-Ausdrücke für die folgenden Fragen zur Liste \pythoninline{liste}:
 
         \begin{enumerate}
             \item Die gesamte Liste
@@ -202,71 +194,68 @@
         \end{enumerate}
 
         \begin{solution}
-            \begin{codeBlock}[]{minted language=kotlin}
-                val liste = listOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
+            \begin{codeBlock}[]{minted language=python}
+                liste = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-                println(liste.slice(0 until liste.size))   // [1, 2, 3, 4, 5, 6, 7, 8, 9]
-                println(liste.slice(liste.size - 1 downTo 0))  // [9, 8, 7, 6, 5, 4, 3, 2, 1]
-                println(liste.slice(1 until liste.size step 2))  // [2, 4, 6, 8]
-                println(liste.slice(0..6 step 3))       // [1, 4, 7]
-                println(liste.slice(6 downTo 2))        // [7, 6, 5, 4]
-                println(liste.slice(0 until 1))         // [1]
+                print(liste[0, len(liste)])   // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+                print(liste.slice(liste.size - 1 downTo 0))  // [9, 8, 7, 6, 5, 4, 3, 2, 1]
+                print(liste.slice(1 until liste.size step 2))  // [2, 4, 6, 8]
+                print(liste.slice(0..6 step 3))       // [1, 4, 7]
+                print(liste.slice(6 downTo 2))        // [7, 6, 5, 4]
+                print(liste.slice(0 until 1))         // [1]
             \end{codeBlock}
         \end{solution}
     \end{subtask*}
 \end{task}
 \begin{task}[points=auto]{Listenverarbeitung}
     \begin{subtask*}[points=0]{Zahlenlisten \stage2}
-        In der Vorlesung wurden Ranges \kotlininline{a .. b} vorgestellt. Wenn ihr diesen
+        In der Vorlesung wurden Ranges \pythoninline{range(a, b)} vorgestellt. Wenn ihr diesen
         Ausdruck in den Interpreter eingebt, wird euch nur ein Ausdruck angezeigt der
-        dieselbe Zahlenreihe meint. Mit \kotlininline{(a .. b).toList()} könnt ihr diesen
+        dieselbe Zahlenreihe meint. Mit \pythoninline{list(range(a, b))} könnt ihr diesen
         Ausdruck in eine Liste umwandeln und euch anzeigen lassen. \\\\
         \textit{Welche range-Ausdrücke ergeben die folgenden Listen?}
 
         \begin{enumerate}
-            \item \kotlininline{[1, 2, 3, 4, 5, 6, 7]}
-            \item \kotlininline{[0, 1, 2, 3, 4]}
-            \item \kotlininline{[4, 6, 8, 10]}
-            \item \kotlininline{[9, 6, 3]}
+            \item \pythoninline{[1, 2, 3, 4, 5, 6, 7]}
+            \item \pythoninline{[0, 1, 2, 3, 4]}
+            \item \pythoninline{[4, 6, 8, 10]}
+            \item \pythoninline{[9, 6, 3]}
         \end{enumerate}
 
         \begin{solution}
-            \begin{codeBlock}[]{minted language=kotlin}
-                println((1..7).toList())
-                println((0..4).toList())
-                println((4..10 step 2).toList())
-                println((9 downTo 3 step 3).toList())
+            \begin{codeBlock}[]{minted language=python}
+                print(list(range(1, 7)))
+                print(list(range(0, 4)))
+                print(list(range(4, 10, 2)))
+                print(list(range(9, 3, -3)))
             \end{codeBlock}
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Text-Slicing \stage3}
         Slicing funktioniert auch mit Text. Dabei wird der Text wie eine Liste von
         Buchstaben behandelt. \\
-        \kotlininline{"Hallo Welt!".slice(0 .. 4)} ergibt beispielsweise
-        den String \kotlininline{"Hallo"}. Schafft ihr es, mittels Slicing ein
+        \pythoninline{"Hallo Welt!"[0:5]} ergibt beispielsweise
+        den String \pythoninline{"Hallo"}. Schafft ihr es, mittels Slicing ein
         Palindrom zu erkennen? \textit{Ein Palindrom ist ein Wort, das vorwärts und rückwärts
             identisch ist}.
 
         \begin{solution}
-            \begin{codeBlock}[]{minted language=kotlin}
-                print("Gib hier dein Wort ein: ")
-                val test = readln()
+            \begin{codeBlock}[]{minted language=python}
+                test : str = input("Gib hier dein Wort ein: ")
 
-                val fullLength = test.length
-                val halfLength = fullLength / 2
+                fullLength = len(test)
+                halfLength = fullLength / 2
 
-                if (test.slice(0 until halfLength) == test.slice(fullLength-1 downTo fullLength - halfLength)) {
-                    println("Palindrom")
-                } else {
-                    println("Kein Palindrom")
-                }
+                if test[0:halfLength+1] == test[fullLength-1:fullLength-halfLength]):
+                    print("Palindrom")
+                else:
+                    print("Kein Palindrom")
 
                 // Kurze Lösung
-                if (test == test.reversed()) {
-                    println("Palindrom")
-                } else {
-                    println("Kein Palindrom")
-                }
+                if test == test[::-1]:
+                    print("Palindrom")
+                else:
+                    print("Kein Palindrom")
             \end{codeBlock}
         \end{solution}
     \end{subtask*}
@@ -274,7 +263,7 @@
         Häufig gibt es in Programmen eine Variable in der das Ergebnis langsam aufgebaut
         wird. Beispielsweise ist diese für eine Summe zu Anfang $0$. Danach wird diese
         in einer Schleife für jeden Eintrag verändert. Schreibe in Programm, was die
-        für die Liste \kotlininline{[1, 2, 3, 4, 5, 6, 7]} die folgenden Werte berechnet:
+        für die Liste \pythoninline{[1, 2, 3, 4, 5, 6, 7]} die folgenden Werte berechnet:
 
         \begin{enumerate}
             \item Die Summe aller Elemente
@@ -292,23 +281,23 @@
         \end{infoBox}
 
         \begin{solution}
-            \begin{codeBlock}[]{minted language=kotlin}
-                val liste = listOf(1, 2, 3, 4, 5, 6, 7)
+            % TODO Funzt nicht
+            \begin{codeBlock}[]{minted language=python}
+                liste = [1, 2, 3, 4, 5, 6, 7]
 
-                var summe = 0
-                var produkt = 1
-                val quadrate = mutableListOf<Int>()
+                summe = 0
+                produkt = 1
+                quadrate = []
 
-                for (zahl in liste) {
+                for zahl in liste:
                     summe += zahl
                     produkt *= zahl
-                    quadrate.add(zahl * zahl)
-                }
+                    quadrate.append(zahl * zahl)
 
-                println(summe)
-                println(produkt)
-                println(if (liste.isNotEmpty()) summe.toDouble() / liste.size else "Leere Liste!")
-                println(quadrate)
+                print(summe)
+                print(produkt)
+                print(float(summe) / len(liste) if len(liste) == 0 else "Leere Liste!")
+                print(quadrate)
             \end{codeBlock}
         \end{solution}
     \end{subtask*}
