@@ -17,7 +17,7 @@ guesses = 5
 guess_nr = 1
 already_guessed_letters = []
 
-print('\n'*1000)
+print('\n' * 1000)
 
 while guess_nr <= guesses:
     print(f"Guess {guess_nr}/{guesses}\nThe word is: ")
@@ -34,7 +34,7 @@ while guess_nr <= guesses:
     print(guessed_word_string)
 
     guess = input("Guess a letter: ").lower()
-    print('\n'*1000)
+    print('\n' * 1000)
 
     if len(guess) != 1:
         print("Guess exactly one letter")

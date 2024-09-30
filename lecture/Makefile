@@ -93,7 +93,7 @@ clean:
 	@echo -e "\e[1;34mCleaning up leftover build files...$<\e[0m"
 	@latexmk -C -f
 	$(call remove_files,**/options.cfg)
-	$(call remove_files,**/*.pdf,,$(OUT_DIR) media)
+	$(call remove_files,**/*.pdf,,$(OUT_DIR) media globalMedia)
 	$(call remove_files,**/*.aux)
 	$(call remove_files,**/*.fdb_latexmk)
 	$(call remove_files,**/*.fls)
@@ -120,6 +120,8 @@ clean:
 	$(call remove_files,**/*.run.xml)
 	$(call remove_files,**/*.bak[0-9]*)
 	$(call remove_files,**/_minted-*)
+	$(call remove_files,**/svg-inkscape)
+	$(call remove_files,**/svg-inkscape-*)
 	@echo -e "\e[1;44mDone cleaning up leftover build files.$<\e[0m"
 
 cleanBuild:

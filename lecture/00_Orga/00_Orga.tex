@@ -8,14 +8,28 @@
 \usepackage{tabularx,booktabs,multirow,multicol,colortbl}
 \aboverulesep = 0mm \belowrulesep = 0mm
 
-\def\streamlink{https://youtu.be/dTWa0Tk3C9U}
-\def\moodlecourselink{https://moodle.informatik.tu-darmstadt.de/course/view.php?id=1502}
+\def\streamlink{https://www.youtube.com/d120de/live}
+\def\moodlecourselink{https://moodle.informatik.tu-darmstadt.de/course/view.php?id=1636}
 
 \begin{document}
 
 %Deckblatt
-\subtitle{Organisatorisches}
-\titlegraphic{
+\titlegraphic{%
+    \vbox to \height {%
+        \vfill
+        \IfDarkModeTF{%
+            \includegraphics[height=\height,width=\textwidth,keepaspectratio]{../globalMedia/d120-breit-bunt-pfad.pdf}
+        }{%
+            \includegraphics[height=\height,width=\textwidth,keepaspectratio]{../globalMedia/d120-breit-transparent-hell-pfad.pdf}
+        }%
+        \vfill
+    }
+}
+\maketitle
+
+\section{Organisatorisches}
+\begin{frame}
+    \slidehead
     \begin{columns}
         \begin{column}{6cm}
             \begin{figure}
@@ -31,25 +45,41 @@
                 \caption{WS 2016/2017}
             \end{figure}
         \end{column}
-    \end{columns}}
-\maketitle
+    \end{columns}
+\end{frame}
 
 \section{Veranstalter}
 \subsection*{Fachschaft Informatik}
 \begin{frame}
     \slidehead
-    \begin{itemize}
-        \item "`Die Schüler*innenvertretung der Studierenden"'
-        \item Ansprechpartner für Studierende bei Fragen zum Studium
-        \item Bei Problemen zwischen Dozierenden und Studierenden vermitteln
-        \item Den Studienablauf am Fachbereich weiter verbessern
-        \item Soziale Interaktion zwischen Studierenden fördern
-        \item Erstsemestern den Einstieg ins Studium erleichtern
-        \item ...
-    \end{itemize}
-    \centering
-    \vspace{3mm}
-    \huge Mehr auf D120.de
+    \begin{columns}[T]
+        \begin{column}{.6\textwidth}
+            \begin{itemize}[<+->]
+                \item \enquote{Die Schüler*innenvertretung der Studierenden}
+                \item Wir machen neben Vorkurs \dots
+                    \begin{itemize}
+                        \item Ophase
+                        \item Cloudflight
+                        \item Hören gute Musik
+                        \item FB20 Parties
+                        \item Sommerfest und Nikolausfeier
+                    \end{itemize}
+                \item Ansprechpartner bei Fragen zum Studium
+                \item Gestalten den Studienablauf mit
+                    \vspace{.4cm}
+                \item {\centering \huge Mehr auf D120.de}
+            \end{itemize}
+        \end{column}%
+        \begin{column}{.4\textwidth}
+            \vfill
+            \IfDarkModeTF{
+                \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{../globalMedia/logo-dark.pdf}
+            }{
+                \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{../globalMedia/logo.pdf}
+            }
+            \vfill
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \section{Moodle-Kurs}
@@ -74,7 +104,7 @@
     \end{columns}
     \vspace{-1em}
     \begin{block}{Lernportal Informatik - Vorkurs}
-        {\Huge Gastschlüssel: PVK-2023}
+        {\Huge Gastschlüssel: PVK-2024}
 
         \vspace{1em}Nähere Informationen zum Zugriff auf die Materialien:\\
         \href{https://d120.de/vorkurs}{https://d120.de/vorkurs}
@@ -145,14 +175,13 @@
         \item \textbf{Mail:} \href{mailto:vorkurs@d120.de}{vorkurs@d120.de}
         \item \textbf{Moodle:}  Foren im \href{\moodlecourselink}{Moodle-Kurs}
     \end{itemize}
-    \vspace{\fill}
+    \vspace{1cm}
     \begin{defBox}[title=Hinweise]%
-        \vspace{-1em}
         \begin{itemize}
             \item allgemeine Fragen: Schreibt ins Moodle-Forum.
             \item spezielle Fragen an uns: Schreibt uns eine Mail.
+            \item Ihr könnt uns natürlich auch ansprechen.
         \end{itemize}
-        Ihr könnt uns natürlich auch ansprechen.
     \end{defBox}
 \end{frame}
 
@@ -163,8 +192,8 @@
     \begin{itemize}
         \item \textbf{Vormittags Vorlesung (Hybrid) 9:00 - 12:00}
             \begin{itemize}
-                \item Vorlesung im Hörsaal S2|02 C205
-                \item Übertragung in C110/C120, falls zu viele Leute da sind
+                \item Vorlesung im Hörsaal S3|11 0012
+                \item Übertragung in S2|02 C205, falls zu viele Leute da sind
                 \item interaktiv
                 \item heißt: Fragen stellen
                 \item zusätzlicher Stream auf \url{\streamlink}
@@ -189,7 +218,6 @@
 \subsection{Wochenplan}
 \begin{frame}
     \slidehead
-    % \textbf{Allgemeines Programm}
     \begin{table}[ht!]
         \small\centering
         \def\vlcolor{\cellcolor{brown!15!\thepagecolor}}
@@ -201,59 +229,89 @@
             \fatsf{Zeit} & \fatsf{Montag}& \fatsf{Dienstag}& \fatsf{Mittwoch}& \fatsf{Donnerstag}& \fatsf{Freitag}\\
             \midrule
             \phantom{09:00} &  &  &  &  & \\
-            \tikzmark{tpos-1} & \vlcolor{} &  & \vlcolor{} & \vlcolor{} & \vlcolor{}\\
-            \tikzmark{tpos-2} & \vlcolor{} &  & \vlcolor{} & \vlcolor{} & \vlcolor{}\\
-            \tikzmark{tpos-3} & \multirow{-3}{*}{\vlcolor{}\begin{minipage}[t][2cm][t]{\textwidth}
-                    \tiny \fatsf{Vorlesung}\\
-                    Foliensätze:\\
-                    \quad - 00-Orga\\
-                    \quad - 01-Erste Schritte\\
-                    \quad - 02-Datentypen-Zeichenketten
-                \end{minipage}} & & \multirow{-3}{*}{\vlcolor{}\begin{minipage}[t][2cm][t]{\textwidth}
-                    \tiny \fatsf{Vorlesung}\\
-                    Foliensätze:\\
-                    \quad - 03-Variablen + If
-                \end{minipage}}  &
+            % Vorlesungsfarbe   MO           DI           MI         DO  FR
+            \tikzmark{tpos-1} & \vlcolor{} & \vlcolor{} & \vlcolor{} & & \vlcolor{}\\
+            \tikzmark{tpos-2} & \vlcolor{} & \vlcolor{} & \vlcolor{} & & \vlcolor{}\\
+            \tikzmark{tpos-3} &
+            % Vorlesung MO
             \multirow{-3}{*}{\vlcolor{}\begin{minipage}[t][2cm][t]{\textwidth}
                     \tiny \fatsf{Vorlesung}\\
                     Foliensätze:\\
-                    \quad - 04-Schleifen\\
-                    \quad - 05-Listen
+                    \quad - Orga\\
+                    \quad - Erste Schritte\\
+                    \quad - Operationen\\
+                    \quad - Variablen
                 \end{minipage}} &
+            % Vorlesung DI
             \multirow{-3}{*}{\vlcolor{}\begin{minipage}[t][2cm][t]{\textwidth}
                     \tiny \fatsf{Vorlesung}\\
                     Foliensätze:\\
-                    \quad - 06-Funktionen + Rekursion
+                    \quad - Schleifen\\
+                    \quad - Listen
+                \end{minipage}} &
+            % Vorlesung MI
+            \multirow{-3}{*}{\vlcolor{}\begin{minipage}[t][2cm][t]{\textwidth}
+                    \tiny \fatsf{Vorlesung}\\
+                    Foliensätze:\\
+                    \quad - Funktionen\\
+                    \quad - Rekursion\\
+                    \quad - Chellange Vorstellung
+                \end{minipage}} &
+            % Vorlesung DO
+            &
+            % Vorlesung FR
+            \multirow{-3}{*}{\vlcolor{}\begin{minipage}[t][2cm][t]{\textwidth}
+                    \tiny \fatsf{Vorlesung}\\
+                    Foliensätze:\\
+                    \quad - Chellange Lösung\\
+                    \quad - Recap\\
+                    \quad - Fragestunde
                 \end{minipage}}\\
-            \tikzmark{tpos-4} & \pausecolor{}{\footnotesize Mittagspause} & & \pausecolor{}{\footnotesize Mittagspause} & \pausecolor{}{\footnotesize Mittagspause} & \pausecolor{}{\footnotesize Mittagspause}\\
-            \tikzmark{tpos-5} & \excolor{} &  & \excolor{} & \excolor{} & \excolor{}\\
-            \tikzmark{tpos-6} & \excolor{} &  & \excolor{} & \excolor{} & \excolor{}\\
-            \tikzmark{tpos-7} & \excolor{} &  & \excolor{} & \excolor{} & \excolor{}\\
-            \tikzmark{tpos-8} & \excolor{} &  & \excolor{} & \excolor{} & \excolor{}\\
+            \tikzmark{tpos-4} &
+            %Mittag MO
+            \pausecolor{}{\footnotesize Mittagspause} &
+            %Mittag DI
+            \pausecolor{}{\footnotesize Mittagspause} &
+            %Mittag MI
+            \pausecolor{}{\footnotesize Mittagspause} &
+            %Mittag DO
+            &
+            %Mittag FR
+            \pausecolor{}{\footnotesize Mittagspause}\\
+            %Übungsfarbe        MO           DI           MI         DO  FR
+            \tikzmark{tpos-5} & \excolor{} & \excolor{} & \excolor{} & & \excolor{}\\
+            \tikzmark{tpos-6} & \excolor{} & \excolor{} & \excolor{} & & \excolor{}\\
+            \tikzmark{tpos-7} & \excolor{} & \excolor{} & \excolor{} & & \excolor{}\\
+            \tikzmark{tpos-8} & \excolor{} & \excolor{} & \excolor{} & & \excolor{}\\
             \tikzmark{tpos-9} &
+            % Übung MO
             \multirow{-4}{*}{\excolor{}\begin{minipage}[t][3cm][t]{\textwidth}
                     \tiny \fatsf{Übungsphase}\\
-                    \quad - Kotlin installieren\\
+                    \quad - Python installieren\\
                     \quad - Übungsblatt 1
-                \end{minipage}} & \multirow{-9}{*}{\textcolor{TUDa-9b}{Feiertag}} & \multirow{-4}{*}{\excolor{}\begin{minipage}[t][3cm][t]{\textwidth}
+                \end{minipage}} &
+            % Übung DI
+            \multirow{-4}{*}{\excolor{}\begin{minipage}[t][3cm][t]{\textwidth}
                     \tiny \fatsf{Übungsphase}\\
-                    % \quad - Kotlin installieren\\
                     \quad - Übungsblatt 2
-                \end{minipage}} & \multirow{-4}{*}{\excolor{}\begin{minipage}[t][3cm][t]{\textwidth}
+                \end{minipage}} &
+            % Übung MI
+            \multirow{-4}{*}{\excolor{}\begin{minipage}[t][3cm][t]{\textwidth}
                     \tiny \fatsf{Übungsphase}\\
-                    % \quad - Kotlin installieren\\
-                    \quad - Übungsblatt 3
-                \end{minipage}} & \multirow{-4}{*}{\excolor{}\begin{minipage}[t][3cm][t]{\textwidth}
-                    \tiny \fatsf{Übungsphase}\\
-                    % \quad - Kotlin installieren\\
-                    \quad - Übungsblatt 4\\
+                    \quad - Übungsblatt 3\\
                     \quad - Challenge
+                \end{minipage}} &
+            % Übung DO
+            \multirow{-9}{*}{\textcolor{TUDa-9b}{Feiertag}} &
+            % Übung FR
+            \multirow{-4}{*}{\excolor{}\begin{minipage}[t][3cm][t]{\textwidth}
+                    \tiny \fatsf{Übungsphase}\\
+                    \quad - Challenge\\
+                    \quad - MRMCD
                 \end{minipage}}\\
             \tikzmark{tpos-10} &  &  &  &  & \\
             \bottomrule
         \end{tabularx}
-        \caption{Caption}
-        \label{tab:newtab}
 
         \begin{tikzpicture}[remember picture,overlay]
             \foreach \x in {1,...,10} {
@@ -261,52 +319,14 @@
             }
         \end{tikzpicture}
     \end{table}
-    % \begin{itemize}
-    %     \item Montag
-    %         \begin{itemize}
-    %             \item Vorlesung um 9:00
-    %             \item Nachmittags: Kotlin installieren und Übung
-    %         \end{itemize}
-    %         \pause
-    %     \item Mittwoch, Donnerstag und Freitag
-    %         \begin{itemize}
-    %             \item Vorlesung um 9:00
-    %             \item Nachmittags: Übung
-    %         \end{itemize}
-    % \end{itemize}
 \end{frame}
-
-% \subsection{Stoffplan}
-% \begin{frame}
-%     \slidehead
-%     \begin{itemize}
-%         \item Erste Schritte im Programmieren?
-%         \item Was ist Kotlin?
-%         \item Mein erstes Programm
-%         \item Datentypen und Operatoren
-%         \item Schleifen und bedingte Anweisungen
-%         \item Funktionen \& Rekursion
-%     \end{itemize}
-% \end{frame}
 
 \subsection{Voraussetzungen}
 \begin{frame}
     \slidehead
     \centering
     \vspace{1.5cm}
-    % \tiny Ein internetfähiges Endgerät,\\ansonsten:\\ % <- nur für eine online-Vorkurse
     \Huge Keine
-\end{frame}
-
-\subsection{Ziele}
-\begin{frame}
-    \slidehead
-    \begin{itemize}
-        \item Vereinfachter Start ins Studium
-        \item Grundlegende Konzepte verstehen
-        \item Leute kennenlernen
-
-    \end{itemize}
 \end{frame}
 
 \subsection{Übungsaufgaben}
@@ -315,7 +335,6 @@
     \begin{itemize}
         \item Aufgaben mit unterschiedlichen Schwierigkeitsgraden
         \item Tutor*innen
-            %in Discord,
             die euch unterstützen
         \item Helft euch auch gegenseitig, denn so lernt ihr am meisten
         \item Ihr müsst nicht alle Aufgaben lösen
@@ -325,7 +344,7 @@
 \section{Ophase}
 \begin{frame}
     \slidehead
-    \textbf{Nächste Woche} ist die Ophase (9.10. bis 13.10.2023)! \\
+    \textbf{Nächste Woche} ist die Ophase (07.10. bis 11.10.2024)! \\
     Nehmt auf jeden Fall daran teil. Es lohnt sich für euch!
 \end{frame}
 

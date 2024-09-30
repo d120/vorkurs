@@ -1,9 +1,9 @@
-[PUT VIDEO DESCRIPTION HERE]
+Title: Programmiervorkurs
 
-Nächstes Video: [PUT LINK HERE]
-Playlist: [PUT LINK HERE]
+Desc:
+Bei inhaltlichen Fragen: https://d120.de/fragen
+Weiteres gerne über das Moodle oder Discord.
+Beide Links unter: https://d120.de/vorkurs
 
-Bei inhaltlichen Fragen, meldet euch gerne über das Moodle oder Discord.
-
-Bei generellen Fragen, Verbesserungsvorschlägen, Feedback und ähnlichem, könnt ihr uns unter Vorkurs@d120.de erreichen.
+Bei generellen Fragen, Verbesserungsvorschlägen, Feedback und ähnlichem, könnt ihr uns unter vorkurs@d120.de erreichen.
 Alle Folien findet ihr auf Github unter https://github.com/d120/vorkurs/
