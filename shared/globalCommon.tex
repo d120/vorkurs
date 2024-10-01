@@ -135,6 +135,8 @@
 \DeclareDocumentCommand{\plainfile}{O{} O{} m}{\inputCode[#1]{minted language=text,minted style/.expanded=\IfDarkModeTF{native}{friendly},#2}{#3}}
 
 \newcommand*{\ditto}{\texttt{\char`\"}}
+\newcommand\boldimpact[1]{\centering\huge\vskip\fill\fatsf{\textcolor{.}{#1}\vskip\fill}}
+\newcommand\impact[1]{\centering\huge\vskip\fill\textcolor{.}{#1}\vskip\fill}
 
 \RequirePackage{caption,subcaption}
 

@@ -1,5 +1,5 @@
-def fib(x):
-    if (x <= 1):
-        return 1
+def fib(n):
+    if (n < 2):
+        return n
 
-    return fib(x - 1) + fib(x - 2)
+    return fib(n - 1) + fib(n - 2)

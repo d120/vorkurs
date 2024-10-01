@@ -3,6 +3,36 @@
 % !TeX root = 06_Funktionen.tex
 \input{../global.tex}
 
+% Magic for the recursion tree from https://tex.stackexchange.com/questions/253364/how-to-modify-forest-nodes-in-beamer-overlays
+\tikzset{% set up for transitions using tikz with beamer overlays
+    invisible/.style={opacity=0,text opacity=0},
+    visible on/.style={alt=#1{}{invisible}},
+    alt/.code args={<#1>#2#3}{%
+        \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+    transparent/.style={opacity=0.1,text opacity=0.1},
+    opaque on/.style={alt=#1{}{transparent}},
+    alerted/.style={color=alerted text.fg},
+    alert on/.style={alt=#1{alerted}{}},
+}
+\forestset{%
+    visible on/.style={%
+        for tree={%
+            /tikz/visible on={#1},
+            edge={/tikz/visible on={#1}}}},
+    opaque on/.style={%
+        for tree={%
+            /tikz/opaque on={#1},
+            edge={/tikz/opaque on={#1}}}},
+    alerted on/.style={%
+        for tree={%
+            /tikz/alerted on={#1},
+            edge={/tikz/alerted on={#1}}}},
+    resultlbl/.style={%
+        label={[TUDa-1\IfDarkModeTF{a}{b}]below:#1}},
+    resultlbl on/.style 2 args={%
+        label={[TUDa-1\IfDarkModeTF{a}{b},visible on=#2]below:#1}},
+}
 
 \begin{document}
 %Deckblatt
@@ -42,15 +72,14 @@
 \end{frame}
 
 \section{Idee von Funktionen}
-\begin{frame}
+\begin{frame}[<+->]
     \slidehead
 
     \begin{itemize}
         \item Funktionalität \textbf{kapseln}: An einer Stelle zusammengefasst
         \item Weniger \textbf{Redundanz}: Keinen Code doppelt schreiben
-        \item Einmal Code schreiben, danach nur an diese Stelle verweisen
+        \item Code ein mal schreiben, danach nur an diese Stelle verweisen
     \end{itemize}
-    \vspace{1cm}
     \begin{block}{Hinweis}
         Einige Funktionen haben wir schon kennengelernt, z.B. \pythoninline{print("Hello World")}
     \end{block}
@@ -71,11 +100,11 @@
 \begin{frame}
     \slidehead
     \begin{itemize}
-        \item Funktionen können Rückgabewerte haben
-        \item Der Rückgabetyp kann im Methodenkopf stehen
-        \item Dazu wird \pythoninline{return} gefolgt vom Rückgabewert geschrieben
-            \pause
-        \item Syntax \pythonfile{listings/fun_syntax_return.py}
+        \item<1-> Funktionen können Rückgabewerte haben
+        \item<2-> Der Rückgabetyp kann im Methodenkopf stehen
+        \item<3-> Dazu wird \pythoninline{return} gefolgt vom Rückgabewert geschrieben
+            \only<4>{\item Syntax \pythonfile{listings/fun_syntax_return.py}}
+            \only<5>{\item Syntax mit Typen \pythonfile{listings/fun_syntax_return_with_types.py}}
     \end{itemize}
 \end{frame}
 
@@ -100,10 +129,15 @@
 \subsection{Flächeninhalt eines Kreises}
 \begin{frame}
     \slidehead
+    \begin{itemize}
+        \item Formel: $A = \pi \cdot r^2$
+    \end{itemize}
+    \pause
     \pythonfile{listings/bsp_geometrie_schlecht.py}
-
+    \pause
     \begin{block}{Problem}
-        Immer, wenn irgendwo der Flächeninhalt gebraucht wird, muss er neu geschrieben werden $\Rightarrow$ Viel Code und viele mögliche Fehlerquellen
+        Wenn Flächeninhalt mehrfach gebraucht wird (z.B. Vergleich zwei Kreise), muss die Formel mehrfach geschrieben werden.\\
+        $\Rightarrow$ Viel Code und viele mögliche Fehlerquellen
     \end{block}
 \end{frame}
 
@@ -134,7 +168,7 @@
 \end{frame}
 
 \section{Vorteile von Funktionen}
-\begin{frame}
+\begin{frame}[<+(1)->]
     \slidehead
 
     \begin{itemize}
@@ -153,10 +187,11 @@
 \subsection{Lokale Variablen}
 \begin{frame}[fragile]
     \slidehead
-    \vspace{-1em}
-    \pythonfile[][top=0cm,bottom=0cm]{listings/scope_1.py}
-    \pause
-    \vspace{-1em}
+    \vspace{-1em}%
+    \pause%
+    \pythonfile[][top=0cm,bottom=0cm]{listings/scope_1.py}%
+    \vspace{-.8em}%
+    \pause%
     %\begin{noindent}
     \begin{commandshell}[fontsize=\footnotesize][minted language=text,top=0cm,bottom=0cm]
         Traceback (most recent call last):
@@ -164,11 +199,11 @@
             print(variable)
                 ^^^^^^^^
         NameError: name 'variable' is not defined. Did you mean: 'callable'?
-    \end{commandshell}
+    \end{commandshell}%
     %\end{noindent}
-    \vspace{-1em}
-    \vfill
-    \begin{block}{Hinweis:}
+    \vspace{-.7em}%
+    \pause%
+    \begin{block}{Hinweis:}%
         Variablen, die innerhalb einer Funktion erstellt werden, werden gelöscht, sobald die Funktion endet.
         Diese Variablen heißen \textbf{lokale Variablen}.
     \end{block}
@@ -213,7 +248,7 @@
         \begin{column}{7cm}
             \begin{figure}
                 \IfFileExists{\jobname_tmp.pdf}{
-                    \includegraphics[width=\textwidth,page=22]{\jobname_tmp.pdf}
+                    \includegraphics[width=\textwidth,page=35]{\jobname_tmp.pdf}
                 }{}
             \end{figure}
         \end{column}
@@ -231,7 +266,7 @@
         \begin{column}{5cm}
             \begin{figure}
                 \IfFileExists{\jobname_tmp.pdf}{
-                    \includegraphics[width=\textwidth,page=23]{\jobname_tmp.pdf}
+                    \includegraphics[width=\textwidth,page=36]{\jobname_tmp.pdf}
                 }{}
             \end{figure}
         \end{column}
@@ -239,7 +274,7 @@
         \begin{column}{5cm}
             \begin{figure}
                 \IfFileExists{\jobname_tmp.pdf}{
-                    \includegraphics[width=\textwidth,page=23]{\jobname_tmp.pdf}
+                    \includegraphics[width=\textwidth,page=36]{\jobname_tmp.pdf}
                 }{}
             \end{figure}
         \end{column}
@@ -251,16 +286,16 @@
     \slidehead
 
     \begin{itemize}
-        \item Fibonacci-Zahlen: \texttt{1, 1, 2, 3, 5, 8, 13, 8+13 = 21, ...}
-            \begin{onlyenv}<1>
+        \item Fibonacci-Zahlen: \texttt{0, 1, 1, 2, 3, 5, 8, 13, 8+13 = 21, ...}
+            \begin{onlyenv}<2>
                 \pythonfile{listings/bsp_recursion_1.py}
             \end{onlyenv}
 
-            \begin{onlyenv}<2>
+            \begin{onlyenv}<3->
                 \pythonfile{listings/bsp_recursion_2.py}
             \end{onlyenv}
 
-        \item<2> Rekursionsanker sorgt für den Abbruch
+        \item<4> Rekursionsanker sorgt für den Abbruch
     \end{itemize}
 
 \end{frame}
@@ -292,23 +327,23 @@
                 },
             },
         }
-        [f(4)
-            [f(3)
-                [f(2)
-                    [f(1)]
-                    [f(0)]
+        [fib(4), resultlbl on={3}{<18->}
+            [fib(3), resultlbl on={2}{<11->}, visible on=<2->
+                [fib(2), resultlbl on={1}{<8->}, visible on=<3->
+                    [fib(1), resultlbl on={1}{<5->}, visible on=<4->]
+                    [fib(0), resultlbl on={0}{<7->}, visible on=<6->]
                 ]
-                [f(1)]
+                [fib(1), resultlbl on={1}{<10->}, visible on=<9->]
             ]
-            [f(2)
-                [f(1)]
-                [f(0)]
+            [fib(2), resultlbl on={1}{<17->}, visible on=<12->
+                [fib(1), resultlbl on={1}{<14->}, visible on=<13->]
+                [fib(0), resultlbl on={0}{<16->}, visible on=<15->]
             ]
         ]
     \end{forest}
 \end{frame}
 
-\subsection{Rekursive Summe in Kotlin}
+\subsection{Rekursive Summe in Python}
 \begin{frame}
     \slidehead
 
@@ -321,6 +356,45 @@
     \vspace{1em}
     \pause
     \pythonfile{listings/recursiveSum.py}
+\end{frame}
+
+\begin{frame}[c]
+    \slidehead
+    \centering
+    \begin{forest}
+        for tree={
+            draw,
+            very thick,
+            edge={-Latex,thick},
+            minimum size=.75cm,
+            l+=0mm,
+            s sep+=2cm,
+            if n=1{
+                edge path={
+                    \noexpand\path[\forestoption{edge}]
+                    (!u.south west) -- (.north east)\forestoption{edge label};
+                },
+            }{
+                edge path={
+                    \noexpand\path[\forestoption{edge}]
+                    (!u.south east) -- (.north west)\forestoption{edge label};
+                },
+            },
+        }
+        [sum(4), resultlbl on={10}{<14->}
+            [sum(3), resultlbl on={3}{<12->}, visible on=<2->
+                [sum(2), resultlbl on={2}{<10->}, visible on=<3->
+                    [sum(1), resultlbl on={1}{<8->}, visible on=<4->
+                        [sum(0), resultlbl on={0}{<6->}, visible on=<5->]
+                        [1, visible on=<7->]
+                    ]
+                    [2, visible on=<9->]
+                ]
+                [3, visible on=<11->]
+            ]
+            [4, visible on=<13->]
+        ]
+    \end{forest}
 \end{frame}
 
 \livecoding
@@ -346,22 +420,73 @@
     \end{itemize}
 \end{frame}
 
-\section{Fragen und Sonstiges}
+\section{Organisatorisches}
+\begin{frame}[<+->]
+    \slidehead
+    \begin{itemize}
+        \item LZI heute belegt (C-Pool weiterhin frei). Ausweichmöglichkeiten:\begin{itemize}
+                \item E-Pool
+                \item (\textbf{\makebox[\widthof{S2}]{S2}}|02 A213)
+                \item (\textbf{\makebox[\widthof{S2}]{S1}}|03 07)
+            \end{itemize}
+        \item Morgen (Donnerstag) ist Feiertag, also \textbf{morgen keine Vorlesung!}
+        \item Freitag geht es weiter
+        \item Bis dahin: Programmierchallenge bearbeiten
+        \item Am Freitag:\begin{itemize}
+                \item Challenge Lösungen
+                \item Recap
+                \item Q \& A
+            \end{itemize}
+    \end{itemize}
+\end{frame}
 \begin{frame}
     \slidehead
-    \vspace{1.8cm}
-    \centering
-    \huge Noch Fragen?
+    \impact{Morgen (Donnerstag) ist Feiertag,\\also \textbf{morgen \textcolor{TUDa-9b}{keine} Vorlesung!}\\[3em]$\Rightarrow$Freitag geht es weiter!}
 \end{frame}
 
-\section{}
-\subsection{}
-
-\begin{frame}
+\section{Evaluation}
+\begin{frame}[c]
     \slidehead
-    \vspace{1.8cm}
-    \centering
-    \huge Danke fürs Teilnehmen und Viel Erfolg im Studium.
+    \begin{columns}
+        \begin{column}{7cm}
+            \begin{figure}
+                \def\evallink{https://evaluation.tu-darmstadt.de/evasys/online.php?p=EM8JM}
+                \centering
+                \qrcode[height=4cm]{\evallink}
+                \caption{Vorlesungsevaluation \\
+                    \url{\evallink}
+                }
+            \end{figure}
+        \end{column}
+        \begin{column}{7cm}
+            \begin{figure}
+                \def\evallink{https://evaluation.tu-darmstadt.de/evasys/online.php?p=EVDN3}
+                \centering
+                \qrcode[height=4cm]{\evallink}
+                \caption{Übungsevaluation \\
+                    \url{\evallink}
+                }
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
+
+% \section{Fragen und Sonstiges}
+% \begin{frame}
+%     \slidehead
+%     \vspace{1.8cm}
+%     \centering
+%     \huge Noch Fragen?
+% \end{frame}
+
+% \section{}
+% \subsection{}
+
+% \begin{frame}
+%     \slidehead
+%     \vspace{1.8cm}
+%     \centering
+%     \huge Danke fürs Teilnehmen und Viel Erfolg im Studium.
+% \end{frame}
 
 \end{document}

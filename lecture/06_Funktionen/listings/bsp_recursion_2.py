@@ -1,6 +1,6 @@
-def fib(x):
-    if (x <= 1):  # Rekursionsanker
-        return 1
+def fib(n):
+    if (n < 2):  # Rekursionsanker
+        return n
 
     # Rekursionsaufruf
-    return fib(x - 1) + fib(x - 2)
+    return fib(n - 1) + fib(n - 2)

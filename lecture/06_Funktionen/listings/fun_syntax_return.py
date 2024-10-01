@@ -1,3 +1,3 @@
-def name(param1, param2):
+def name(param1, param2, ...):
     # code
     return ausdruck
