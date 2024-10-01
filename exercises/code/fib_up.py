@@ -16,7 +16,7 @@ x_int = int(input())
 x: str = input()
 y: str = input()
 
-def mod(a: int, b:int):
+def mod(a: int, b: int):
     return a % b
 
 
@@ -28,5 +28,3 @@ elif x % 3 == 0:
 
 elif x % 4 == 0:
     ...
-
-
