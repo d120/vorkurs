@@ -81,7 +81,7 @@
         \end{solution}
     \end{subtask*}
     \begin{subtask*}[points=0]{Schriftliches Dividieren \stage2}
-        Um das Problem der ungenauen Gleitkommadivision zumindest zum Teil zu lösen, ist eure Aufgabe, eine Funktion zu schreiben, die zwei (positive) Ganzzahlen dividiert und das Ergebnis als String zurück gibt. Das Ergebnis soll anschließend (in der main-Funktion) auf der Konsole ausgegeben werden. Dabei wollen wir uns das Vorgehen des schriftliches Dividierens zunutze machen. Den ganzzahligen Anteil des Ergebnisses dürft ihr direkt berechnen und braucht das Vorgehen erst zur Berechnung der Nachkommastellen anwenden.
+        Um das Problem der ungenauen Gleitkommadivision zumindest zum Teil zu lösen, ist eure Aufgabe, eine Funktion zu schreiben, die zwei (positive) Ganzzahlen dividiert und das Ergebnis als String zurück gibt. Das Ergebnis soll anschließend (in der main-Funktion) auf der Konsole ausgegeben werden. Dabei wollen wir uns das Vorgehen des schriftliches Dividieren zunutze machen. Den ganzzahligen Anteil des Ergebnisses könnt ihr mit der Ganzzahldivision berechnen, den Rest mit dem Modulo-Operator.
 
         Wenn die Division nicht aufgeht, also eine periodische Zahl liefern würde (zum Beispiel $\frac13$), braucht euer Programm nicht zu terminieren, es muss also kein Ergebnis liefern und darf endlos vor sich hin rechnen.
         Ihr dürft aber auch nach jedem Schritt ein Teil des Ergebnisses ausgeben,
@@ -90,27 +90,32 @@
         Schafft ihr es (außer bei Nutzereingaben natürlich), ohne die Funktionen
         \pythoninline{str} und \pythoninline{int} auszukommen?
 
-        \textit{Hinweis: Ganzzahldivision könnt ihr wie gewohnt auf Ganzzahlen durchführen.
-            Mit \enquote{\%} bekommt ihr den Rest der Division $\frac{a}{b}$.}
+        \begin{hinweis}
+            Die Ganzzahldivision in Python wird mit \pythoninline{//} durchgeführt. Beispiel:
+            \begin{codeBlock}[]{minted language=python}
+                5 // 2 == 2
+            \end{codeBlock}
+            Mit \enquote{\%} bekommt ihr den Rest der Division $\frac{a}{b}$.
+        \end{hinweis}
 
         \begin{solution}
             \begin{codeBlock}[]{minted language=python}
                 def longdivide(a: int, b: int):
-                    div : int = a / b
-                    rem : = a \% b
+                    div = a // b
+                    rest = a % b
+                    result=div
+                    if rest != 0:
+                        result+=","
+                        while rest != 0:
+                            div = (rest * 10) // b
+                            rest = (rest * 10) % b
+                            result+=div
+                    return result
 
-                    print(div)
-                    if rem == 0:
-                        return
 
-                    print(",")
-                    while rem != 0:
-                        div = rem * 10
-                        rem = div \% b
-                        div = div / b
-                        print(div)
-
-                longdivide(6283, 2000) // something close to pi
+                z1 = int(input("Geben Sie die erste Zahl ein:"))
+                z2 = int(input("Geben Sie die zweite Zahl ein:"))
+                print(longdivide(z1, z2))
             \end{codeBlock}
         \end{solution}
     \end{subtask*}
