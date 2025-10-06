@@ -1,3 +1,6 @@
+> [!WARNING]
+> Archived in favor of <https://git.d120.de/Fachschaft/vorkurs>!
+
 # Programmiervorkurs
 
 Dieses Projekt enthält sämtliches Material des Programmiervorkurses der Fachschaft Informatik, TU Darmstadt. Der Programmiervorkurs findet alljährlich zu Beginn des Wintersemesters statt. Mehr Informationen zum Ablauf des Kurses finden sich auf [unserer Webseite](https://d120.de/vorkurs).  
